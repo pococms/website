@@ -1,2 +1,8 @@
-# website
-PocoCMS: the easiest static site generator ever
+---
+title: "Powered by PocoCMS"
+---
+# Welcome to website
+
+[Documentation](docs/index.html)
+
+Learn more at [PocoCMS tutorials](https://pococms.com/docs/tutorials.html) 

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Powered by PocoCMS</title>
+</head>
+<body>
+<div id="page-container">
+<div id="content-wrap">
+	
+	
+	
+<article id="article-poco">
+<h1 id="pococms-command-line-options">PocoCMS command-line options</h1>
+<p></p>
+<h2 id="timestamp">timestamp</h2>
+<p>The <code>-timestamp</code> command-line option lets you insert
+a timestamp before the rest of the article text on your
+home page. Useful when server or browser caches are
+preventing you from changes to your site's output.</p>
+<h3 id="timestamp-example">timestamp example</h3>
+<p>Enter this at the operating system prompt:</p>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>poco -timestamp
+</span></span></code></pre><p>Upon completion you'll see the timestamp before the completion message:</p>
+<pre><code>25 Aug 2023 18:33:29 Site published to WWW/index.html
+</code></pre>
+<p>You can now check it against the timestamp on your homepage
+to ensure the home page you see has cleared browser or server caches.</p>
+<h2 id="webroot">webroot</h2>
+<p>The <code>-webroot</code> command-line option lets you choose what directory
+Poco CMS uses for the finished HTML, CSS, images, and related assets
+to be published. By default it's <code>WWW</code>.</p>
+<p>To change it, just run <code>poco</code> <code>-webroot</code> followed by the
+directory you'd like to use. For example:</p>
+<pre><code>$ poco -webroot  public_html
+
+</code></pre>
+<p>You'll see results something like this:</p>
+<pre><code>PocoCMS: Site published to /Users/travis/mysite/public_html
+</code></pre>
+
+</article>
+</div><!-- content-wrap -->
+
+</div><!-- page-container -->
+<script> {
+  // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
+  // Document.ready working back to IE 8.
+  // From https://stackoverflow.com/questions/2304941/what-is-the-non-jquery-equivalent-of-document-ready
+  function ready(fn) {
+    if (typeof fn !== 'function') {
+      throw new Error('Argument passed to ready should be a function');
+    }
+
+    if (document.readyState != 'loading') {
+      fn();
+    } else if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', fn, {
+        once: true // A boolean value indicating that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked.
+      });
+    } else {
+      document.attachEvent('onreadystatechange', function() {
+        if (document.readyState != 'loading')
+          fn();
+      });
+    }
+  }
+
+  // Demonstrate error checking 
+  //try {
+  //  window.ready(5);
+  //} catch (ex) {
+  //  console.log(ex.message);
+  //}
+
+
+  // HTML Document has been loaded. This is where it's safe 
+  // for you to execute code. For modularity's sake this 
+  // version calls an arbitrary function.
+  window.ready(function() {
+  // startHere() is just an arbitrary name. Can be anything.
+  startHere();
+  })
+
+  // --- START USER JAVASCRIPT CODE
+  function startHere() {
+  }
+  // --- END USER JAVASCRIPT CODE
+;
+
+
+}
+</script>
+</body>
+</html>

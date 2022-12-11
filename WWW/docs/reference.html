@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Powered by PocoCMS</title>
+</head>
+<body>
+<div id="page-container">
+<div id="content-wrap">
+	
+	
+	
+<article id="article-poco">
+<h1 id="poco-cms-reference">Poco CMS Reference</h1>
+<p><a href="technical-overview.html">Technical overview</a><br />
+<a href="themes-using.html">Using themes</a><br />
+<a href="themes-overview.html">Themes technical overview</a><br />
+<a href="themes-creating.html">Creating themes</a><br />
+<a href="cli.html">PocoCMS command line options</a><br />
+<a href="glossary.html">PocoCMS glossary</a><br />
+<a href="highlighting.html">Code highlighting</a><br />
+<a href="front-matter.html">Front matter</a><br />
+<a href="resources.html">Resources</a><br />
+<a href="markdown-extensions.html">Markdown extensions</a><br />
+<a href="css-tips.html">CSS tips</a></p>
+<h2 id="internal">Internal</h2>
+<p><a href="release-checklist.html">Release checklist</a><br />
+<a href="documentation-conventions.html">Documentation conventions</a></p>
+<h2 id="html-references">HTML references</h2>
+<ul>
+<li><a href="https://jigsaw.w3.org/css-validator/#validate_by_input">CSS validator</a></li>
+<li><a href="https://htmlcolorcodes.com/color-names">HTML Color Names</a> for people who like a simplified color chart with actual names for colors</li>
+</ul>
+<h2 id="utilities">Utilities</h2>
+<ul>
+<li>Amazing <a href="https://realfavicongenerator.net">Favicon generator</a> took a PNG image, then turned it into
+a wide variety of <a href="https://en.wikipedia.org/wiki/Favicon">favicons</a>.</li>
+</ul>
+<h2 id="web-page-performance">Web page performance</h2>
+<ul>
+<li>Google's <a href="https://web.dev/measure/">web.dev</a> page quality measurement tool</li>
+<li>The <a href="https://tools.pingdom.com/">Pingdom Website Speed Test</a> produces the clearest results</li>
+</ul>
+<h2 id="diagnostics">Diagnostics</h2>
+<ul>
+<li>Page showing all <a href="pages/diagnostics/allfeatures.html">FrontMatter settings</a></li>
+<li><a href="demo/mdemo.html">mdemo.html</a> Shows most Markup capabilities</li>
+</ul>
+<p><a href="faq.html">Frequently Asked Questions</a></p>
+<h2 id="markdown-and-the-commonmark-specification">Markdown and the Commonmark specification</h2>
+<p><a href="https://daringfireball.net/projects/markdown/">Markdown</a> was originally created by John Gruber of <a href="https://daringfireball.net">Daring Fireball</a>.  It was a fairly informal specification so a group of Markdown enthusiasts created a more comprehensive spec at <a href="https://commonmark.org">Commonmark.org</a>.</p>
+
+</article>
+</div><!-- content-wrap -->
+
+</div><!-- page-container -->
+<script> {
+  // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
+  // Document.ready working back to IE 8.
+  // From https://stackoverflow.com/questions/2304941/what-is-the-non-jquery-equivalent-of-document-ready
+  function ready(fn) {
+    if (typeof fn !== 'function') {
+      throw new Error('Argument passed to ready should be a function');
+    }
+
+    if (document.readyState != 'loading') {
+      fn();
+    } else if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', fn, {
+        once: true // A boolean value indicating that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked.
+      });
+    } else {
+      document.attachEvent('onreadystatechange', function() {
+        if (document.readyState != 'loading')
+          fn();
+      });
+    }
+  }
+
+  // Demonstrate error checking 
+  //try {
+  //  window.ready(5);
+  //} catch (ex) {
+  //  console.log(ex.message);
+  //}
+
+
+  // HTML Document has been loaded. This is where it's safe 
+  // for you to execute code. For modularity's sake this 
+  // version calls an arbitrary function.
+  window.ready(function() {
+  // startHere() is just an arbitrary name. Can be anything.
+  startHere();
+  })
+
+  // --- START USER JAVASCRIPT CODE
+  function startHere() {
+  }
+  // --- END USER JAVASCRIPT CODE
+;
+
+
+}
+</script>
+</body>
+</html>

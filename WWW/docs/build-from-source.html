@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Powered by PocoCMS</title>
+</head>
+<body>
+<div id="page-container">
+<div id="content-wrap">
+	
+	
+	
+<article id="article-poco">
+<h1 id="building-pococms-from-source">Building PocoCMS from source</h1>
+<p>Until 15 September 2022 PocoCMS must be built from source using Go.
+It's easy to install Go and even to build, because
+PocoCMS is a single file.</p>
+<h3 id="one-time-install-go-and-git">One time: install Go and git</h3>
+<ul>
+<li>Install the <a href="https://go.dev/dl/">Go language</a> if necessary.</li>
+<li>Install <a href="https://git-scm.com/downloads">git</a> if necessary.</li>
+<li>Create a directory or change to a directory to install PocoCMS.</li>
+</ul>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>mkdir ~/pococms
+</span></span></code></pre><ul>
+<li>Navigate to that directory.</li>
+</ul>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#0aa">cd</span> ~/pococms
+</span></span></code></pre><ul>
+<li>Clone the PocoCMS repo</li>
+</ul>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>git clone https://github.com/pococms/poco
+</span></span></code></pre><ul>
+<li>The repo is now in ~/pococms/poco, (in this example) so navigate there.</li>
+</ul>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#0aa">cd</span> poco
+</span></span></code></pre><h3 id="one-time-compile-pococms">One time: compile PocoCMS</h3>
+<ul>
+<li>And compile:</li>
+</ul>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>go build 
+</span></span></code></pre><p><strong>OR...</strong></p>
+<ul>
+<li>There's only one file, so you can also use go run.
+That runs the go compiler on the single <code>main.go</code>
+containing PocoCMS, then executes PocoCMS.</li>
+</ul>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>go run main.go
+</span></span></code></pre><p>Add the <code>poco</code> executable to your system path
+so you can run it from any directory.</p>
+<h3 id="pococms-creates-a-starting-project-automatically">PocoCMS creates a starting project automatically.</h3>
+
+</article>
+</div><!-- content-wrap -->
+
+</div><!-- page-container -->
+<script> {
+  // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
+  // Document.ready working back to IE 8.
+  // From https://stackoverflow.com/questions/2304941/what-is-the-non-jquery-equivalent-of-document-ready
+  function ready(fn) {
+    if (typeof fn !== 'function') {
+      throw new Error('Argument passed to ready should be a function');
+    }
+
+    if (document.readyState != 'loading') {
+      fn();
+    } else if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', fn, {
+        once: true // A boolean value indicating that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked.
+      });
+    } else {
+      document.attachEvent('onreadystatechange', function() {
+        if (document.readyState != 'loading')
+          fn();
+      });
+    }
+  }
+
+  // Demonstrate error checking 
+  //try {
+  //  window.ready(5);
+  //} catch (ex) {
+  //  console.log(ex.message);
+  //}
+
+
+  // HTML Document has been loaded. This is where it's safe 
+  // for you to execute code. For modularity's sake this 
+  // version calls an arbitrary function.
+  window.ready(function() {
+  // startHere() is just an arbitrary name. Can be anything.
+  startHere();
+  })
+
+  // --- START USER JAVASCRIPT CODE
+  function startHere() {
+  }
+  // --- END USER JAVASCRIPT CODE
+;
+
+
+}
+</script>
+</body>
+</html>

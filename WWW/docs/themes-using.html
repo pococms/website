@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Powered by PocoCMS</title>
+</head>
+<body>
+<div id="page-container">
+<div id="content-wrap">
+	
+	
+	
+<article id="article-poco">
+<h1 id="using-pococms-themes">Using PocoCMS themes</h1>
+<p>The easiest way to style the appearance of your site
+is to use themes. PocoCMS has two kinds of themes: global
+and page.</p>
+<p>A <a href="glossary.html#global-theme">global theme</a> creates
+default styling for every page
+in your site. A <a href="glossary.html#page-theme">page theme</a> applies only to
+that page, so if it's named in the front matter of your page,
+the global theme, if any, is ignored on that page.</p>
+<h2 id="global-theme">Global theme</h2>
+<p>A global <a href="glossary.htmle#theme">theme</a> creates
+default styling for every page
+in your site. It's specified using <code>global-theme</code>
+in the front matter. It can only be used on your
+<a href="glossary.html#home-page">home page</a>.</p>
+<p>To apply a global theme named &quot;pocodocs&quot; to
+all pages on your site by default:</p>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#bbb">    </span>---<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#1e90ff;font-weight:bold">global-theme</span>:<span style="color:#bbb"> </span><span style="color:#a50">&#34;pocodocs&#34;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>---<span style="color:#bbb">
+</span></span></span></code></pre><p>See also <a href="#page-theme">page theme</a></p>
+<h2 id="special-rule">Special rule</h2>
+<p>A page theme overrides the global theme.
+The global theme is set on the <a href="glossary.html#home-page">home page</a></p>
+<p>So what happens if you use both <code>theme</code> and <code>global-theme</code> on
+the same page? In the case of the home page, the rule is clear.</p>
+<p>Although <code>global-theme</code> sets the default theme, it's overriden
+by <code>theme</code>. This special rule only applies to the home page,
+because only the home page lets you set the global theme.</p>
+<h2 id="page-theme">page theme</h2>
+<p>A page <a href="glossary.htmle#theme">theme</a> applies
+theme styling on a per-page basis. It overrides any <a href="#global-theme">global theme</a>
+It's specified using <code>theme</code> in the front matter.</p>
+<p>To apply a theme named <code>informer</code> to
+the currentpage:</p>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#bbb">    </span>---<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#1e90ff;font-weight:bold">theme</span>:<span style="color:#bbb"> </span><span style="color:#a50">&#34;informer&#34;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>---<span style="color:#bbb">
+</span></span></span></code></pre><h3 id="can-a-page-have-both-global-and-page-themes">Can a page have both global and page themes?</h3>
+<p>You may be wondering what happens if you do this:</p>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#bbb">    </span>---<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#1e90ff;font-weight:bold">global-theme</span>:<span style="color:#bbb"> </span><span style="color:#a50">&#34;pocodocs&#34;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#1e90ff;font-weight:bold">theme</span>:<span style="color:#bbb"> </span><span style="color:#a50">&#34;informer&#34;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>---<span style="color:#bbb">
+</span></span></span></code></pre><p>There is only one condition where this makes any kind of sense.</p>
+<p>Note this only cano only work on the <a href="glossary-html#home-page">home page</a>,
+because <code>global-theme</code> is ignored on all other pages. Since <code>global-theme</code>
+establishes a preset to be used if no other theme is mentioned on
+a page, and since <code>theme</code> overrides the global theme,
+the preceding example would cause the theme named &quot;informer&quot;
+to be used on the home page itself.</p>
+<p>PocoCMS has  a <a href="#special-rule">special rule</a> that the home page normally
+uses the global theme, but only if no page theme has been specified.</p>
+
+</article>
+</div><!-- content-wrap -->
+
+</div><!-- page-container -->
+<script> {
+  // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
+  // Document.ready working back to IE 8.
+  // From https://stackoverflow.com/questions/2304941/what-is-the-non-jquery-equivalent-of-document-ready
+  function ready(fn) {
+    if (typeof fn !== 'function') {
+      throw new Error('Argument passed to ready should be a function');
+    }
+
+    if (document.readyState != 'loading') {
+      fn();
+    } else if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', fn, {
+        once: true // A boolean value indicating that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked.
+      });
+    } else {
+      document.attachEvent('onreadystatechange', function() {
+        if (document.readyState != 'loading')
+          fn();
+      });
+    }
+  }
+
+  // Demonstrate error checking 
+  //try {
+  //  window.ready(5);
+  //} catch (ex) {
+  //  console.log(ex.message);
+  //}
+
+
+  // HTML Document has been loaded. This is where it's safe 
+  // for you to execute code. For modularity's sake this 
+  // version calls an arbitrary function.
+  window.ready(function() {
+  // startHere() is just an arbitrary name. Can be anything.
+  startHere();
+  })
+
+  // --- START USER JAVASCRIPT CODE
+  function startHere() {
+  }
+  // --- END USER JAVASCRIPT CODE
+;
+
+
+}
+</script>
+</body>
+</html>

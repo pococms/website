@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Powered by PocoCMS</title>
+</head>
+<body>
+<div id="page-container">
+<div id="content-wrap">
+	
+	
+	
+<article id="article-poco">
+<h1 id="credits">Credits</h1>
+<h2 id="most-valuable-player-award-yusuke-inuzukas-goldmark-packages">Most Valuable Player Award: Yusuke Inuzuka's goldmark packages</h2>
+<p>The vast majority of the work for Poco CMS was created years
+before Poco CMS joined the world: it's the <a href="https://github.com/yuin/goldmark">goldmark parser</a> and related packages. They were created by the
+hugely impressive Yusuke Inuzuka, a <a href="http://inforno.net/">Japanese programmer</a>
+whose English is better than mine. His username on GitHub is
+<a href="https://github.com/yuin">Yuin</a>. Work like this would be impressive
+at any price, but free? Blows me away. And yes, I contributed.</p>
+<p>Thanks also to the many other <a href="https://github.com/yuin/goldmark/graphs/contributors">contributors</a> to <a href="https://github.com/yuin/goldmark">goldmark</a>.</p>
+<p>Poco CMS relies on many other inimitable Yuin, including:</p>
+<ul>
+<li>[https://github.com/yuin/goldmark-meta](<a href="https://github.com/yuin/goldmark-meta%5D">https://github.com/yuin/goldmark-meta]</a> for handling the YAML [front matter](front-matter.html]</li>
+<li><a href="https://github.com/yuin/goldmark-highlighting">https://github.com/yuin/goldmark-highlighting</a> to handley syntax highlighting for code</li>
+</ul>
+<h2 id="other-goldmark-related-packages">Other goldmark-related packages</h2>
+<ul>
+<li><a href="https://github.com/abhinav/goldmark-toc">https://github.com/abhinav/goldmark-toc</a> for table of contents support</li>
+</ul>
+<h2 id="alec-thomas-for-the-chroma-highlighter">Alec Thomas for the Chroma highlighter</h2>
+<p>PocoCMS relies on <a href="https://github.com/alecthomas/chroma">Chroma</a>
+for code syntax highlighting, thanks to the <a href="https://github.com/alecthomas">Alec Thomas</a>.</p>
+<h2 id="cdn-services">CDN services</h2>
+<p>Amazingly, <a href="https://www.jsdelivr.com/">jsDelivr</a> hosts open source files
+with no application process or permissions required. Just follow
+<code>gh</code> in URLs like the one below with your GitHub repository path
+and your file gets hosted automatically.</p>
+<pre><code>  ---
+  Stylesheets: 
+    - https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/poquito.css
+  ---
+</code></pre>
+<p>Thanks, <a href="https://www.jsdelivr.com/">jsDelivr</a> people!</p>
+<h2 id="references">References</h2>
+<ul>
+<li>Font selector fallbacks: <a href="https://www.cssfontstack.com">https://www.cssfontstack.com</a></li>
+</ul>
+
+</article>
+</div><!-- content-wrap -->
+
+</div><!-- page-container -->
+<script> {
+  // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
+  // Document.ready working back to IE 8.
+  // From https://stackoverflow.com/questions/2304941/what-is-the-non-jquery-equivalent-of-document-ready
+  function ready(fn) {
+    if (typeof fn !== 'function') {
+      throw new Error('Argument passed to ready should be a function');
+    }
+
+    if (document.readyState != 'loading') {
+      fn();
+    } else if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', fn, {
+        once: true // A boolean value indicating that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked.
+      });
+    } else {
+      document.attachEvent('onreadystatechange', function() {
+        if (document.readyState != 'loading')
+          fn();
+      });
+    }
+  }
+
+  // Demonstrate error checking 
+  //try {
+  //  window.ready(5);
+  //} catch (ex) {
+  //  console.log(ex.message);
+  //}
+
+
+  // HTML Document has been loaded. This is where it's safe 
+  // for you to execute code. For modularity's sake this 
+  // version calls an arbitrary function.
+  window.ready(function() {
+  // startHere() is just an arbitrary name. Can be anything.
+  startHere();
+  })
+
+  // --- START USER JAVASCRIPT CODE
+  function startHere() {
+  }
+  // --- END USER JAVASCRIPT CODE
+;
+
+
+}
+</script>
+</body>
+</html>

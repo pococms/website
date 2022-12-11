@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Powered by PocoCMS</title>
+</head>
+<body>
+<div id="page-container">
+<div id="content-wrap">
+	
+	
+	
+<article id="article-poco">
+<h1 id="pococms-release-checklist">PocoCMS release checklist</h1>
+<ul>
+<li>Change to the poco directory</li>
+<li>go build</li>
+<li>go test</li>
+<li>Check quickly through the source code</li>
+<li>go fmt</li>
+<li>Run all stylesheets through <code>vnu</code> via my <code>v</code> utility</li>
+<li><code>du -h</code> on the source directory</li>
+<li><code>tree</code> on the source directory</li>
+<li>Check document Markdown source code for ocurrences of TODO:,
+including as comments in Go template format</li>
+<li>Run poco in the poco directory</li>
+<li>Run the test script <code>/.ts1</code> in the poco directory</li>
+<li>Run this script. ASSUMES ~/pococms/poco/foobar/ IS A DISPOSABLE DIRECTORY</li>
+</ul>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#4c8317">#!/bin/zsh
+</span></span></span><span style="display:flex;"><span><span style="color:#4c8317"></span><span style="color:#a00">TESTDIR</span>=~/pococms/poco/foobar/
+</span></span><span style="display:flex;"><span><span style="color:#0aa">cd</span> ~/pococms/poco/
+</span></span><span style="display:flex;"><span>go build
+</span></span><span style="display:flex;"><span>rm -rf <span style="color:#a00">$TESTDIR</span>
+</span></span><span style="display:flex;"><span>mkdir -p <span style="color:#a00">$TESTDIR</span>
+</span></span><span style="display:flex;"><span><span style="color:#0aa">cd</span> <span style="color:#a00">$TESTDIR</span>
+</span></span><span style="display:flex;"><span>poco
+</span></span><span style="display:flex;"><span>ls <span style="color:#a00">$TESTDIR</span>/.poco/themes/informer
+</span></span></code></pre><h2 id="interactive-theme-tests">Interactive theme tests</h2>
+<ul>
+<li>For each theme click all links in all page layout elements</li>
+</ul>
+
+</article>
+</div><!-- content-wrap -->
+
+</div><!-- page-container -->
+<script> {
+  // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
+  // Document.ready working back to IE 8.
+  // From https://stackoverflow.com/questions/2304941/what-is-the-non-jquery-equivalent-of-document-ready
+  function ready(fn) {
+    if (typeof fn !== 'function') {
+      throw new Error('Argument passed to ready should be a function');
+    }
+
+    if (document.readyState != 'loading') {
+      fn();
+    } else if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', fn, {
+        once: true // A boolean value indicating that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked.
+      });
+    } else {
+      document.attachEvent('onreadystatechange', function() {
+        if (document.readyState != 'loading')
+          fn();
+      });
+    }
+  }
+
+  // Demonstrate error checking 
+  //try {
+  //  window.ready(5);
+  //} catch (ex) {
+  //  console.log(ex.message);
+  //}
+
+
+  // HTML Document has been loaded. This is where it's safe 
+  // for you to execute code. For modularity's sake this 
+  // version calls an arbitrary function.
+  window.ready(function() {
+  // startHere() is just an arbitrary name. Can be anything.
+  startHere();
+  })
+
+  // --- START USER JAVASCRIPT CODE
+  function startHere() {
+  }
+  // --- END USER JAVASCRIPT CODE
+;
+
+
+}
+</script>
+</body>
+</html>

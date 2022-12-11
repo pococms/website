@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Powered by PocoCMS</title>
+</head>
+<body>
+<div id="page-container">
+<div id="content-wrap">
+	
+	
+	
+<article id="article-poco">
+<h2 id="running-pococms">Running PocoCMS</h2>
+<ul>
+<li><a href="cli.html">Command-line operation</a></li>
+</ul>
+<h2 id="creating-static-websites-with-pococms">Creating static websites with PocoCMS</h2>
+<ul>
+<li><a href="tutorials.html">Tutorials</a></li>
+<li><a href="themes-using.html">Using themes</a></li>
+<li><a href="front-matter.html">Front matter</a></li>
+<li><a href="style-tags.html">Style tags</a></li>
+<li><a href="highlighting.html">Code highlighting</a></li>
+<li><a href="markdown-extensions.html">Markdown extensions</a></li>
+<li><a href="tips-and-tricks.html">PocoCMS Tips and tricks</a></li>
+</ul>
+<h2 id="themes">Themes</h2>
+<ul>
+<li><a href="themes-overview.html">Overview</a></li>
+<li><a href="themes-creating.html">Creating themes</a></li>
+<li><a href="css-tips.html">CSS tips</a></li>
+</ul>
+<h1 id="pococms-building-and-internals">PocoCMS building and internals</h1>
+<ul>
+<li><a href="technical-overview.html">Technical overview</a></li>
+<li><a href="build-from-source.html">Building from source</a></li>
+<li><a href="directories.html">Directories</a></li>
+<li><a href="documentation-conventions.html">Documentation conventions</a></li>
+<li><a href="release-checklist.html">Release checklist</a></li>
+</ul>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="reference.html">Reference</a></li>
+<li><a href="technical-overview.html">Technical overview</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+<li><a href="markdown-extensions.html">Markdown extensions</a></li>
+<li><a href="faq.hml">PocoCMS FAQ</a></li>
+<li><a href="credits.html">Credits</a></li>
+</ul>
+<p>docs/zazu.md</p>
+
+</article>
+</div><!-- content-wrap -->
+
+</div><!-- page-container -->
+<script> {
+  // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
+  // Document.ready working back to IE 8.
+  // From https://stackoverflow.com/questions/2304941/what-is-the-non-jquery-equivalent-of-document-ready
+  function ready(fn) {
+    if (typeof fn !== 'function') {
+      throw new Error('Argument passed to ready should be a function');
+    }
+
+    if (document.readyState != 'loading') {
+      fn();
+    } else if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', fn, {
+        once: true // A boolean value indicating that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked.
+      });
+    } else {
+      document.attachEvent('onreadystatechange', function() {
+        if (document.readyState != 'loading')
+          fn();
+      });
+    }
+  }
+
+  // Demonstrate error checking 
+  //try {
+  //  window.ready(5);
+  //} catch (ex) {
+  //  console.log(ex.message);
+  //}
+
+
+  // HTML Document has been loaded. This is where it's safe 
+  // for you to execute code. For modularity's sake this 
+  // version calls an arbitrary function.
+  window.ready(function() {
+  // startHere() is just an arbitrary name. Can be anything.
+  startHere();
+  })
+
+  // --- START USER JAVASCRIPT CODE
+  function startHere() {
+  }
+  // --- END USER JAVASCRIPT CODE
+;
+
+
+}
+</script>
+</body>
+</html>
