@@ -7,12 +7,14 @@ In case you're new to CSS, here's some handy code
 you can drop right into your own themes.
 
 ## Contents
+[How to do headers using list syntax](#header-list)  
 [Centering old-school](#centering)  
 [Font stacks](#font-stacks)  
 [Downloadable fonts](#downloadble-fonts)  
 
 See also
 * [Resources](resources.html) page with many classless CSS libraries 
+
 
 ## Centering
 
@@ -115,5 +117,46 @@ As a [style tag](style-tags.html):
  
 ## Downloadable Fonts 
 
-### TODO: Write this section ;)
+
+<a name="header-list">
+
+## How to do headers using list syntax
+
+Many PocoCMS header markdown files look like this:
+
+```
+* [MySite](/#)
+* [Report an issue](https://github.com/pococms/poco/issues)
+* [GitHub](https://github.com/pococms/poco)
+
+```
+
+This is list syntax but they don't look bullet lists, they look
+like menus. It's a commonly accepted way to create menus using
+the following CSS technique, which removes the bullet character
+using `list-style-type;none` for `header>ul`, and changes the 
+list orientation from vertical to horizontal using 
+`display:inline` for `header>ul>li`:
+
+```
+header>ul{list-style-type:none;}               
+header>ul>li{display:inline;padding-right:.5rem;font-size:1.25rem;} 
+header>ul>li>a,
+header>ul>li>a:link,
+header>ul>li>a:visited
+	{text-decoration:none;}
+```
+
+### Bonus header concept #1: automatically show the first item in the list larger than the rest
+
+```
+header>ul>li:first-child>a{font-size:3rem;font-weight:900;letter-spacing:-.1rem;padding-right:1rem;padding-left:0}
+```
+
+### Bonus header concept #2: Redefine the Markdown strikethrough characters to change the color of the selected letters
+
+```
+header>ul>li:first-child>a>del{text-decoration:none;color:red;}
+
+```
 
