@@ -26,10 +26,11 @@
 # Reference
 * [Reference](reference.html)
 * [Technical overview](technical-overview.html)
+* [Utilities](utilities.html)
 * [Resources](resources.html)
 * [Glossary](glossary.html)
 * [Markdown extensions](markdown-extensions.html)
-* [PocoCMS FAQ](faq.hml)
+* [PocoCMS FAQ](faq.html)
 * [Credits](credits.html)
 
 docs/zazu.md

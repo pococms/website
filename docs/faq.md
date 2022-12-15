@@ -6,7 +6,6 @@ to end the first line with two spaces. Imagine the
 little dot characters ·· are actually you pressing
 the space key twice:
 
-
 ```
 Line 1.··   ← Pretend those are 2 space characters
 Line 2.

@@ -1,4 +1,3 @@
-
 # CSS tips
 
 # TODO: Downloadable Fonts, StyleTags 
@@ -8,6 +7,7 @@ you can drop right into your own themes.
 
 ## Contents
 [How to do headers using list syntax](#header-list)  
+[How to show links with hover indicators](#link-hover)  
 [Centering old-school](#centering)  
 [Font stacks](#font-stacks)  
 [Downloadable fonts](#downloadble-fonts)  
@@ -27,6 +27,7 @@ header {text-align:center;padding-left:0;padding-right:0;width:100%;margin-left:
 ```
 
 <a name="font-stacks"></a>
+
 ## Font stacks for sans-serif, serif, and monospace 
 
 HTML defines [font families](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family) such as `sans-serif`, `serif`, and `monospace`.
@@ -46,7 +47,7 @@ Font families have page size overhead, unlike [downloadable fonts](#downloadable
 Here's what we like to use. It's all opinion, and this list is 
 subject to change.
 
-### Font stack for `sans-serif`
+### Font stack for sans-serif
 
 Here's the CSS you'd use to specify better defaults for the most
 popular font family on the web,`sans-serif`. You can almost
@@ -65,11 +66,11 @@ article{font-family:"system-ui","-apple-system","LucidaGrandeUI","HelveticaNeueD
 As a [style tag](style-tags.html):
  
       ---
-      style-tags:
+      styles:
         - "article{font-family:'system-ui','-apple-system','LucidaGrandeUI','HelveticaNeueDeskInterface-Regular','HelveticaNeueDeskInterface-Light','DroidSans','Ubuntu Light','Arial','Roboto-Light','Segoe UI Light','Tahoma','sans-serif';}"
       ---
 
-### Font stack for a more elegant `serif`
+### Font stack for a more elegant serif
 
 The [Palatino](https://en.wikipedia.org/wiki/Palatino)-style fonts
 are elegant and formal-looking. Many systems have something
@@ -111,16 +112,16 @@ article{font-family:Consolas,Monaco,Menlo,'DejaVue Sans Mono','Lucida Console',m
 As a [style tag](style-tags.html):
 
       ---
-      style-tags:
+      styles:
         - "article{font-family:Consolas,Monaco,Menlo,'DejaVue Sans Mono','Lucida Console',monospace;}"
       ---
  
 ## Downloadable Fonts 
 
-
-<a name="header-list">
+Downloadable fonts
 
 ## How to do headers using list syntax
+<a name="header-list">
 
 Many PocoCMS header markdown files look like this:
 
@@ -155,8 +156,37 @@ header>ul>li:first-child>a{font-size:3rem;font-weight:900;letter-spacing:-.1rem;
 
 ### Bonus header concept #2: Redefine the Markdown strikethrough characters to change the color of the selected letters
 
-```
-header>ul>li:first-child>a>del{text-decoration:none;color:red;}
+    header>ul>li:first-child>a>del{text-decoration:none;color:red;}
+
+## How to show links with special hover indicators 
+
+
+
+Modern menus in headers, footers, and nav tend to be shown
+the same whether previously visited or not. But often they
+show some kind of indicator when the user's mouse is 
+hovering over them. 
+
+To get this done you show the normal status with
+`text-decoration:none` for the normal `a`, 
+`a:link`, and `a:visited` states.
+
+Then for the `a:hover` and `a:active` states, 
+set `text-decoration:underline`. You could just
+as easily use a different text color, bold the text,
+or make its size larger. The great thing about
+this effect is that it's transient.
+
+
+Here's how to add that effect to a nav bar. If
+it were the header, you'd just replace each
+`nav` with a `header`.
 
 ```
+nav,nav>ul>li>a,nav>ul>li>a:link,nav>ul>li>a:visited
+  {background-color:blue;color:white;text-decoration:none;}
+nav>ul>li>a:hover,nav>ul>li>a:active
+  {text-decoration:underline;}
+```
+
 

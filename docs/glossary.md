@@ -38,6 +38,7 @@ of code in an article. Here's an example.
 ```
 
 ## CommmonMark
+
 The term *CommonMark* is the name of a community standard for
 for the [Markdown](#markdown) text formatting
 conventions used to generate your web pages. 
@@ -46,6 +47,7 @@ Markdown and markup.
 <a name="front-matter"></a>
 
 ## front matter
+
 Front matter is everything in between the line starting
 with `---` to its matching `---`  line at the end. All front
 matter entries consist of a single key followed by a `:`
@@ -76,7 +78,15 @@ A global [theme](#theme) creates
 default styling for every page
 in your site. 
 
-See also [page theme](#page-theme)
+The global theme can only be set on the [home page](#home-page).
+Use [page theme](#page-theme) to add a theme to a single page.
+
+To set the global theme, go to your home page and add this
+front matter (replace "poquito" with whatever theme name you wish):
+
+    ---
+    theme: "poquito"
+    ---
 
 
 ## home page
@@ -84,7 +94,7 @@ See also [page theme](#page-theme)
 The home page is a file named either `index.md` or `README.md`
 in the root directory of your project. It has some special
 properties, for example, it's the only file you can use to 
-`globaltheme` to set a theme for the site overall.
+`theme` to set a global theme for the site overall.
 
 *README.md vs index.md*
 
@@ -106,13 +116,13 @@ previous site generators roll, such as the one on GitHub.
 ### Defining a global theme on the home page
 
 The home page lets you define a global [theme](#theme) for the entire site.
-If you add `globaltheme:` followed by the theme name to the front
+If you add `theme:` followed by the theme name to the front
 matter as shown below, all pages of your site will default to
 the global theme without your having to specify it on each page.
 For example, this defines `wide` as the global theme:
 
     ---
-    theme: ".poco/themes/wide"
+    theme: "pocodocs"
     ---
 
 
@@ -142,13 +152,14 @@ look similar on most pages of your site. It usually has
 some common navigation elements.
 
 ### article
-* The `<article>` element contains the text of your 
+
+The `<article>` element contains the text of your 
 Markdown page after conversion to HTML. It appears under the navbar. It is normally unique on each page of your site. Search engines
 don't like to see articles or [title tags](front-matter#title)
 repeated.
 
 ### aside 
-* The `<aside>` element acts as a sidebar. It normally appears to the
+The `<aside>` element acts as a sidebar. It normally appears to the
 left or right of the article. HTML recognizes only one aside
 per page.
 
@@ -176,21 +187,26 @@ For more on layout elements, read about the structure of a
 
 
 ## Markdown
+
 Markdown is a sensible way to represent text files so that they read easily as plain text if printed out as is, but which also carry enough semantic meaning that they can be converted into HTML. Markdown is technically known as a *markup langauge*, which means that it contains both text, e.g. hello, world, and easily distinguishable annotations about how the text is used, e.g. marking up *hello* to emphasize the word in italics--its markup. The name markdown is a play on the term markup. The name markdown is a play on the term markup. 
 
 The closest thing to an industry standard for Markdown is CommonMark. PocoCMS converts all CommonMark text according to specification, and includes extensions for things like tables, strikethrough, and autolinks. See the source to Goldmark for more information on extensions.
 
 Take this example of Markdown you might use in a document:
+
 ```
 # Introduction
 
 *hello*, world
 ```
+
 The above would be converted in HTML that looks like this.
-```
+
+```html
 <h1>Introduction</h1>
 <p<em>hello</em>, world.</p>
 ```
+
 That means the `# Introduction` line actually represents the HTML heading type h1, which is the hightest level of organization. `## Introduction` would generate an h2 header, and so on.
 
 The asterisk characters are replaced by the `<em>` tag pair, which means they have the semantic power of emphasis. This is represented by HTML as italics, although you could override it in CSS.
@@ -199,6 +215,7 @@ In these help pages Markdown is synonyomous with markup and CommonMark.
 
 
 ## Markup 
+
 The term *markup* generally refers to the [Markdown](#markdown) text formatting
 conventions used to generate your web pages. In these help pages it is synonomous with 
 Markdown, markup, and [CommonMark](#commonmark).
@@ -210,18 +227,50 @@ such as PocoCMS the term normally refers to Markdown.
 ## page theme
 
 A page [theme](#theme) controls the appearance of a single page. 
-It overrides the [global theme](#globaltheme), if any.
+It overrides the [global theme](#theme), if any.
 
+To set a theme for a single page, use `pagetheme` in the 
+front matter like this, where you'd replace `pocodocs` with any
+theme you have available:
+
+    ---
+    pagetheme: "pocodocs"
+    ---
+
+
+## .poco directory
+
+Each site you create with PocoCMS has a directory named `.poco`
+in the same directory as your site's [home page](#home-page).
+It's automatically created when you use `poco -new` to create
+a site. The `.poco` directory contains things like 
+
+* All PocoCMS themes you have available
+* All CSS files required by your project
+* Javscript files required by your home page
+* A few small assets used to demonstrate PocoCMS features
+
+Wherever the Poco application is stored, it has a master copy
+of the `.poco directory` used to generate the `.poco` directory
+in each project. That means if you change the themes in that
+directory, you may wish to copy those changes to the `.poco`
+directories in projects you created prior to those changes.
 
 
 ## project
-A PocoCMS *project* is a directory tree with th
+
+A PocoCMS *project* is a directory tree with the
 source Markdown files and other assets required to 
 create a website. At a minimum, it needs a
 [home page](#home-page), which is a Markdown file named
 either `index.md` or `README.md`, and a webroot subdirectory,
-by default named `WWW`.
+by default named `WWW`. But you can't do much without
+a [.poco directory](#poco-directory), which contains assets
+such as themes and stylesheets.
 
+Sometimes we use the words `site` when we're talking about your
+project, even though technically your site is what's generated  by
+PocoCMS and copied into your [webroot](#webroot)
 
 ## site
 See [project](#project)
@@ -267,9 +316,10 @@ poco -themes
 Synonymous with [webroot](#web-root).
 
 ## webroot
+
 The webroot is a directory contains all files generated by Poco CMS required 
 for your website. By default it's a subdirectory under the directory 
-used for your home named `WWW` but you can 
+used for your project named `WWW`. You can 
 designate a different directory using the `webroot`
 [command line option](cli.html#webroot)
 

@@ -26,6 +26,7 @@ a wide variety of [favicons](https://en.wikipedia.org/wiki/Favicon).
 
 ## Web page performance
 * Google's [web.dev](https://web.dev/measure/) page quality measurement tool
+* Google's [PageSpeed Insights](https://pagespeed.web.dev) is worth running not just on pages you create but those on other sites, to see what they do well or how they need improvement
 * The [Pingdom Website Speed Test](https://tools.pingdom.com/) produces the clearest results
 
 ## Diagnostics
