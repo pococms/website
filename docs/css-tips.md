@@ -1,21 +1,21 @@
 # CSS tips
 
-# TODO: Downloadable Fonts, StyleTags 
 
 In case you're new to CSS, here's some handy code
 you can drop right into your own themes.
 
 ## Contents
-[How to do headers using list syntax](#header-list)  
+[How to do headers using list syntax](#how-to-do-headers-using-list-syntax)
 [How to show links with hover indicators](#link-hover)  
 [Centering old-school](#centering)  
 [Font stacks](#font-stacks)  
 [Downloadable fonts](#downloadable-fonts)  
+[GitHub-based files get free CDN hosting through jsdelivr.net](#github-based-files-get-free-cdn-hosting-through-jsdelivrnet)
 
 See also
+
 * [Resources](resources.html) page with many classless CSS libraries 
 
-<a name="header-list">
 ## How to do headers using list syntax
 
 Many PocoCMS header markdown files look like this:
@@ -211,5 +211,25 @@ nav,nav>ul>li>a,nav>ul>li>a:link,nav>ul>li>a:visited
 nav>ul>li>a:hover,nav>ul>li>a:active
   {text-decoration:underline;}
 ```
+
+
+## GitHub-based files get free CDN hosting through jsdelivr.net
+
+
+The CDN `jsdelivr.net` has a service that makes life much easier
+for people who want their stylesheets hosted on the web. They
+automatically host GitHub files if you start with the right
+URL, like this:
+
+
+* Start with `https://cdn.jsdelivr.net/gh/`
+* Add the Github path to your stylesheet without the GitHub part, inserting an `
+@` after the repo name. For example, for the stylesheet  
+at `https://github.com/markdowncss/retro/retro.css`, you would append
+the following: `https://github.com/markdowncss/retro@`
+* Add the hash number of the latest release, or release tag if one is provided. For example, the [retro](https://github.com/markdowncss/retro) stylesheet hash number at the moment is `3171af759c8cf61b990c65846d35a0dfb4031824`
+* Add the path of the file starting *after* the  the repo name.
+`css/retro.css` in this case.
+* The results is: `https://cdn.jsdelivr.net/gh/markdowncss/retro@3171af759c8cf61b990c65846d35a0dfb4031824/css/retro.css`
 
 
