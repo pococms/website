@@ -5,7 +5,6 @@ aside: "aside.md"
 footer: "footer.md"
 
 stylesheets:
-- "../../css/base.css"
 - simplicity.css
 ---
 

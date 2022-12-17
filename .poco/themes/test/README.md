@@ -1,11 +1,14 @@
 ---
-author: Tom Campbell
-branding: TEST THEME
-
+header: header.md
+nav: nav.md
+aside: aside.md
+footer: footer.md
+importrules:
+- "url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Oswald:wght@200&display=swap')"
+- "@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');"
 
 stylesheets:
-- https://fonts.xz.style/serve/inter.css 
-- https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css 
+- "../../css/base.css"
+- "test.css"
 ---
-# Test 
-Test is a test rig for themes
+
