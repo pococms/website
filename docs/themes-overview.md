@@ -6,27 +6,6 @@
 ## Downloadable fonts and @import rules
 
 Notes
-* @import statements need to come before other css rules (except @charset and @layer; see [MDN's @import](https://developer.mozilla.org/en-US/docs/Web/CSS/@import) documentation) so don't put them directly in a CSS file. Instead, add
-and `importfules` line to your theme's `README.md` file (see below). This
-allows PocoCMS to hoist all `@import` rules to the top of the CSS.
-
-Here's an example theme `README.md` showing use of `importrules`:
-
-    header: header.md
-    nav: nav.md
-    aside: aside.md
-    footer: footer.md
-
-    importrules:
-    - "url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Oswald:wght@200&display=swap');"
-    - "@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap'"
-
-
-    stylesheets:
-    - "../../css/reset.css"
-    - "../../css/poquito.css"
-    - "test.css"
-
 
 Left to itself, PocoCMS turns [markdown](glossary.html#markdown) into
 pure HTML with no styling. If you add a theme to the front matter,
