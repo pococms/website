@@ -10,4 +10,5 @@ styles:
 
 This is supposed to have a left aside
 
+[Theme demos](theme-demos.html)  
 [Documentation](index.html)

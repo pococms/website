@@ -5,6 +5,8 @@ theme: "pocodocs"
 
 # Welcome to website
 
-[Documentation](docs/index.html)
+* [Documentation](docs/index.html)
+* [Todo](todo.html)
+
 
 Learn more at [PocoCMS tutorials](https://pococms.com/docs/tutorials.html) 

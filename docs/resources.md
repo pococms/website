@@ -1,5 +1,9 @@
 # Resources
 
+## HTML
+
+[HTML Color Names](https://htmlcolorcodes.com/color-names/)
+
 ## Classless CSS
 
 Here are some promising classless CSS libraries you can

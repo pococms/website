@@ -13,7 +13,7 @@ Thanks also to the many other [contributors](https://github.com/yuin/goldmark/gr
 
 Poco CMS relies on many other inimitable Yuin, including:
 
-* [https://github.com/yuin/goldmark-meta](https://github.com/yuin/goldmark-meta] for handling the YAML [front matter](front-matter.html]
+* [https://github.com/yuin/goldmark-meta](https://github.com/yuin/goldmark-meta] for handling the YAML [front matter](front-matter.html)
 * [https://github.com/yuin/goldmark-highlighting](https://github.com/yuin/goldmark-highlighting) to handley syntax highlighting for code
 
 ## Other goldmark-related packages

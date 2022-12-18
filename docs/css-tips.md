@@ -5,12 +5,13 @@ In case you're new to CSS, here's some handy code
 you can drop right into your own themes.
 
 ## Contents
-[How to do headers using list syntax](#how-to-do-headers-using-list-syntax)
-[How to show links with hover indicators](#link-hover)  
+[How to do headers using list syntax](#how-to-do-headers-using-list-syntax)  
+[Links with hover indicators](#how-to-show-links-with-special-hover-indicators)  
+[Links with modern cursor and custom underline](#links-with-modern-cursor-and-custom-underline)  
 [Centering old-school](#centering)  
 [Font stacks](#font-stacks)  
 [Downloadable fonts](#downloadable-fonts)  
-[GitHub-based files get free CDN hosting through jsdelivr.net](#github-based-files-get-free-cdn-hosting-through-jsdelivrnet)
+[GitHub-based files get free CDN hosting through jsdelivr.net](#github-based-files-get-free-cdn-hosting-through-jsdelivrnet)  
 
 See also
 
@@ -27,8 +28,9 @@ Many PocoCMS header markdown files look like this:
 
 ```
 
-This is list syntax but they don't look bullet lists, they look
-like menus. It's a commonly accepted way to create menus using
+This is list syntax but when rendered as HTML they don't look bullet lists.
+Instead, they appear as menus.
+It's a commonly accepted way to create menus using
 the following CSS technique, which removes the bullet character
 using `list-style-type;none` for `header>ul`, and changes the 
 list orientation from vertical to horizontal using 
@@ -181,7 +183,15 @@ As a [style tag](style-tags.html):
       styles:
         - "article{font-family:Consolas,Monaco,Menlo,'DejaVue Sans Mono','Lucida Console',monospace;}"
       ---
+
+## Links with modern cursor and custom underline
  
+Here's how to create links that show a pointer cursor when 
+hovered over, and that show in blue but with lighter blue underline.
+
+```
+a{cursor:pointer;color:blue;text-decoration:none;border-bottom:1px dotted LightSkyBlue}
+```
 
 ## How to show links with special hover indicators 
 
@@ -218,18 +228,41 @@ nav>ul>li>a:hover,nav>ul>li>a:active
 
 The CDN `jsdelivr.net` has a service that makes life much easier
 for people who want their stylesheets hosted on the web. They
-automatically host GitHub files if you start with the right
-URL, like this:
+automatically host GitHub files if you transform the GitHub
+URL properly:
 
+#### Github file **retro.css**
 
+```
+https://github.com/markdowncss/retro/retro.css
+```
+
+#### jsdeliver file
+
+```
+https://cdn.jsdelivr.net/gh/markdowncss/retro@3171af759c8cf61b990c65846d35a0dfb4031824/css/retro.css
+```
+
+The trick is knowing which GitHub commit hash value (the number
+starting in this example with `3171af7`) to use, as
+described below.
+
+https://github.com/markdowncss/retro
 * Start with `https://cdn.jsdelivr.net/gh/`
 * Add the Github path to your stylesheet without the GitHub part, inserting an `
 @` after the repo name. For example, for the stylesheet  
 at `https://github.com/markdowncss/retro/retro.css`, you would append
 the following: `https://github.com/markdowncss/retro@`
-* Add the hash number of the latest release, or release tag if one is provided. For example, the [retro](https://github.com/markdowncss/retro) stylesheet hash number at the moment is `3171af759c8cf61b990c65846d35a0dfb4031824`
+* Add the git hash number of the latest release, or release tag if one is provided. For example, the [retro](https://github.com/markdowncss/retro) stylesheet hash number at the moment is `3171af759c8cf61b990c65846d35a0dfb4031824`. To
+learn which number to use, look at the home page of the GitHub repo and
+  look at the top line of the code listingl. It will show a short sequence
+  of numbers (like `3171af7` in this case), followed by a date, then
+  the number of commits. You click that shortened hash number and it
+  takes you to the actual commit, and atop the code listing you'll
+  see the word `commit` followed by its full value, which is 
+  `3171af759c8cf61b990c65846d35a0dfb4031824` in this example.
 * Add the path of the file starting *after* the  the repo name.
 `css/retro.css` in this case.
-* The results is: `https://cdn.jsdelivr.net/gh/markdowncss/retro@3171af759c8cf61b990c65846d35a0dfb4031824/css/retro.css`
+* The result: `https://cdn.jsdelivr.net/gh/markdowncss/retro@3171af759c8cf61b990c65846d35a0dfb4031824/css/retro.css`
 
 
