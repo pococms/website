@@ -1,5 +1,7 @@
 ---
 pagetheme: "newman"
+stylesheets:
+- "../../css/featuretable.css"
 ---
 #### Theme demos
 
@@ -13,4 +15,14 @@ find it on GitHub at [https://github.com/xz/new.css](https://github.com/xz/new.c
 
 It is designed to be used with the [Inter](https://rsms.me/inter/) font.
 
+## Supported features
 
+|     |                      |
+| --- | -------------------- |
+| ✅  | Header on/off        |
+| ✅  | Nav on/off           |
+| ❌  | Aside left on/off    |
+| ❌  | Aside right on/off   |
+| ✅  | Footer on/off        |
+| ✅  | Responsive           |
+| ✅  | Mobile support       |

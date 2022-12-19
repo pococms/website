@@ -9,3 +9,4 @@ table>tbody>tr{white-space:no-wrap;}
 
 /* Left-align all text in rows */
 table>tbody>tr>td{text-align:left}
+table{border:none;}

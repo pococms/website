@@ -8,7 +8,7 @@ stylesheets:
 
 # Base theme
 
-It doesn't look special, but that's the point. Base supports the
+It doesn't look special, but that's the point. [Base](https://github.com/pococms/poco/tree/main/.poco/themes/base) supports the
 entire set of theme framework features as shown in the
 table below. You get free support for header, nav bar,
 aside, footer, and mobile support. All you need to do is
