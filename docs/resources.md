@@ -1,5 +1,23 @@
 # Resources
 
+## Performance
+
+Paste your site URL into these pages and get the unvarnished truth
+about what might be interfering with user experience: from speed to
+accessibility to SEO.
+
+### Google's PageSpeed Insights
+
+Google's [PageSpeed Insights](https://pagespeed.web.dev) is 
+like a free consultant. The SEO insights are gold.
+
+### Pingdom's Website Speed Test
+
+When you're testing from the same country your site is
+hosted, you may not be getting realistic results.
+Pingdom's [Website Speed Test](https://tools.pingdom.com) lets you
+see how your site performance from different places on the planet.
+
 ## HTML
 
 [HTML Color Names](https://htmlcolorcodes.com/color-names/)

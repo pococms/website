@@ -5,6 +5,7 @@ theme: "pocodocs"
 
 # Welcome to website
 
+* [Theme demos](docs/theme-demos.html)
 * [Documentation](docs/index.html)
 * [Todo](todo.html)
 

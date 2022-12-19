@@ -7,6 +7,29 @@
 * Create an entry for it in `docs/theme-demos.md`
 * Create a file called `docs/demos/themename.md`
 
+* Include the a pagetheme and featureable.css stylesheet in its front matter
+
+      ---
+      pagetheme: "themename.md"
+      stylesheets:
+      - "../../css/featuretable.css"
+      ---
+
+* Include the compliance table. Here's the ❌ 
+
+      ## Supported features
+
+      |     |                      |
+      | --- | -------------------- |
+      | ✅  | Header on/off        |
+      | ✅  | Nav on/off           |
+      | ✅  | Aside left on/off    |
+      | ✅  | Aside right on/off   |
+      | ✅  | Footer on/off        |
+      | ✅  | Responsive           |
+      | ✅  | Mobile support       |
+ 
+
 See also:  
 * [Themes technical overview](themes-overview.html)
 * [Using themes](themes-using.html)

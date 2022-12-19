@@ -1,6 +1,7 @@
 ---
 pagetheme: "newman"
 ---
+#### Theme demos
 
 # Newman!
 

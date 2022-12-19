@@ -1,20 +1,18 @@
 ---
-pagetheme: "base"
+pagetheme: "pasteboard"
+aside: "docs/demos/pasteboard-aside.md"
 stylesheets:
 - "../../css/featuretable.css"
+styles:
+- "table>tbody>tr{line-height:.5rem;}"
+- "table>tbody>tr>td{text-align:left}"
+- "table{border:none;}"
 ---
-
 #### Theme demos
+# Pasteboard theme
 
-# Base theme
+Paperboard is centered in the page against a gray background.
 
-It doesn't look special, but that's the point. Base supports the
-entire set of theme framework features as shown in the
-table below. You get free support for header, nav bar,
-aside, footer, and mobile support. All you need to do is
-choose fonts, colors, padding, and so on.
-
-It's easy to customize with minimal additions to CSS.
 
 ## Supported features
 
@@ -27,8 +25,4 @@ It's easy to customize with minimal additions to CSS.
 | ✅  | Footer on/off        |
 | ✅  | Responsive           |
 | ✅  | Mobile support       |
-
-
-
-
 
