@@ -34,6 +34,37 @@ See also:
 * [Themes technical overview](themes-overview.html)
 * [Using themes](themes-using.html)
 
+## Adding skinny support to a PocoCMS framework project
+
+## TODO: Screen shots
+What if you want a theme that floats in the middle of a wide screen,
+showing its background like the Pasteboard or Rawdog themes?
+
+The default PocoCMS style framework generates sites with themes that stretch
+across the entire screen. You can change this behavior by
+adding the `skinny.css` after `base.css` in your theme's `README.md`
+file, like this:
+
+---
+header: "header.md"
+nav: "nav.md"
+aside: "aside.md"
+footer: "footer.md"
+
+stylesheets:
+- "../../css/base.css"
+- "../../css/skinny.css"
+---
+
+The contents are fairly brief:
+
+
+      html{background-color:gray;margin-left:auto;margin-right:auto;width:80%;}
+      body{margin:5% 5% 5% 10%;}
+      aside{width:20%;padding-left:1rem;}
+      header,nav,article,footer{margin-left:auto;margin-right:auto;}
+      footer{margin-right:10%;max-width:80%;}
+
 ## Adding framework support to a classless CSS stylesheet
 
 Here's an example of what it took to get full framework 
