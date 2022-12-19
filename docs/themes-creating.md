@@ -1,5 +1,12 @@
 # Creating PocoCMS themes
 
+
+## Theme creation checklist
+* Run it through `poco-theme-test` *themename*
+* Go to the website directory and run `poco-dir-update`
+* Create an entry for it in `docs/theme-demos.md`
+* Create a file called `docs/demos/themename.md`
+
 See also:  
 * [Themes technical overview](themes-overview.html)
 * [Using themes](themes-using.html)
