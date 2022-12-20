@@ -6,8 +6,8 @@ you can drop right into your own themes.
 
 ## Contents
 [How to do headers using list syntax](#how-to-do-headers-using-list-syntax)  
-[Links with hover indicators](#how-to-show-links-with-special-hover-indicators)  
 [Links with modern cursor and custom underline](#links-with-modern-cursor-and-custom-underline)  
+[How to show links with separate underline color](#how-to-show-links-with-separate-underline-color)  
 [Centering old-school](#centering)  
 [Font stacks](#font-stacks)  
 [Downloadable fonts](#downloadable-fonts)  
@@ -29,7 +29,7 @@ Many PocoCMS header markdown files look like this:
 ```
 
 This is list syntax but when rendered as HTML they don't look bullet lists.
-Instead, they appear as menus.
+Instead, they appear as horizontal menus.
 It's a commonly accepted way to create menus using
 the following CSS technique, which removes the bullet character
 using `list-style-type;none` for `header>ul`, and changes the 
@@ -45,6 +45,7 @@ header>ul>li>a:visited
 	{text-decoration:none;}
 ```
 
+
 ### Bonus header concept #1: automatically show the first item in the list larger than the rest
 
 ```
@@ -57,8 +58,7 @@ header>ul>li:first-child>a{font-size:3rem;font-weight:900;letter-spacing:-.1rem;
 ul>li:first-child>a>del{text-decoration:none;color:red;}
 ```
 
-
-
+[Return](#contents)
 
 ## Downloadable fonts
 
@@ -82,6 +82,7 @@ article>h1{font-family:'Oswald',sans-serif}
 
 For more details, see [Creating PocoCMS themes](themes-creating.html#downloadable-fonts)
 
+[Return](#contents)
 
 
 ## Centering
@@ -93,6 +94,7 @@ Replace `header` with whatever element you want centered.
 ```
 header {text-align:center;padding-left:0;padding-right:0;width:100%;margin-left:auto;margin-right:auto;}
 ```
+[Return](#contents)
 
 <a name="font-stacks"></a>
 
@@ -184,6 +186,8 @@ As a [style tag](style-tags.html):
         - "article{font-family:Consolas,Monaco,Menlo,'DejaVue Sans Mono','Lucida Console',monospace;}"
       ---
 
+[Return](#contents)
+
 ## Links with modern cursor and custom underline
  
 Here's how to create links that show a pointer cursor when 
@@ -193,7 +197,14 @@ hovered over, and that show in blue but with lighter blue underline.
 a{cursor:pointer;color:blue;text-decoration:none;border-bottom:1px dotted LightSkyBlue}
 ```
 
+[Return](#contents)
+
 ## How to show links with special hover indicators 
+
+HTML's default behavior is to show fresh links differently to
+ones you've visited before. The fresh ones show up in a bright blue
+and the visited ones appear in a sad, scab-like purple brown.
+Who wants that.
 
 Modern menus in headers, footers, and nav tend to be shown
 the same whether previously visited or not. But often they
@@ -211,17 +222,36 @@ or make its size larger. The great thing about
 this effect is that it's transient.
 
 
-Here's how to add that effect to a nav bar. If
-it were the header, you'd just replace each
-`nav` with a `header`.
+Here's how to add that default behavior to all
+your links. 
 
-```css
-nav,nav>ul>li>a,nav>ul>li>a:link,nav>ul>li>a:visited
-  {background-color:blue;color:white;text-decoration:none;}
-nav>ul>li>a:hover,nav>ul>li>a:active
-  {text-decoration:underline;}
+```
+a{color:blue;}
+a:link,
+a:visited {color:inherit;display:inline;} 
+a:hover,
+a:active {text-decoration:underline;} 
 ```
 
+[Return](#contents)
+
+## How to show links with separate underline color
+
+This is sort of a continuation of [Links with hover indicators](#how-to-show-links-with-special-hover-indicators). It shows you how to underline links
+with a different color from
+the font, only when they're in play: either being hovered
+over or active.
+
+This example shows how to change the underline color
+
+```
+a:hover,
+a:active {text-decoration:underline;
+  text-decoration-color: red;
+	-webkit-text-decoration-color: red;}
+```
+
+[Return](#contents)
 
 ## GitHub-based files get free CDN hosting through jsdelivr.net
 
@@ -264,5 +294,7 @@ learn which number to use, look at the home page of the GitHub repo and
 * Add the path of the file starting *after* the  the repo name.
 `css/retro.css` in this case.
 * The result: `https://cdn.jsdelivr.net/gh/markdowncss/retro@3171af759c8cf61b990c65846d35a0dfb4031824/css/retro.css`
+
+[Return](#contents)
 
 

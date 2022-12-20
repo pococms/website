@@ -1,5 +1,11 @@
 ---
 pagetheme: "hack"
+stylesheets:
+- "../../css/featuretable.css"
+
+styles:
+- "table,tr,td{border:none;}     /* Removes border from body of table */"     
+- "table td,table th{border:0;}  /* Removes border from header row */"
 ---
 #### THEME DEMOS
 

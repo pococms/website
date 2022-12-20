@@ -7,10 +7,10 @@
 * Create an entry for it in `docs/theme-demos.md`
 * Create a file called `docs/demos/themename.md`
 
-* Include the a pagetheme and featureable.css stylesheet in its front matter
+* Include the a pagetheme and featureable.css stylesheet in its front matter.
 
       ---
-      pagetheme: "themename.md"
+      pagetheme: "themename"
       stylesheets:
       - "../../css/featuretable.css"
       ---

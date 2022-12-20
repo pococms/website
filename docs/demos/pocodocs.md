@@ -1,5 +1,7 @@
 ---
 pagestyle: "pocodocs"
+stylesheets:
+- "../../css/featuretable.css"
 ---
 #### Theme demos
 

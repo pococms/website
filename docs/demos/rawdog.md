@@ -1,5 +1,7 @@
 ---
 pagetheme: "rawdog"
+stylesheets:
+- "../../css/featuretable.css"
 ---
 #### Theme demos
 

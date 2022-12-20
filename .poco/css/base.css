@@ -80,10 +80,10 @@ footer, header, hgroup, menu, nav, pre, section {
 /* Links show same if visited, underlined when hovered */
 a{color:blue;text-decoration:none;}
 a:visited{color:blue;text-decoration:none;}
-a:hover,a:active{color:red;text-decoration:underline;cursor:pointer}
+a:hover,a:active{color:inherit;text-decoration:underline;cursor:pointer}
 
 /* NOTE: padding-bottom on article shold be same as footer-height */
-article{width:80%;height:90vh;padding-bottom:10vh;}                         
+article{width:80%;height:100vh;}                         
 ol li, ul li  {margin-left:1em;}
 p {padding-bottom:1em;}
 
@@ -125,7 +125,7 @@ td, th{
   border: 1px solid;
 }
 
-article,nav,header,footer,aside{padding-left:5%;}
+article,nav,header,footer{padding-left:5%;}
 article,nav,header,footer,aside{background-color:white;}
 header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
 
@@ -135,16 +135,7 @@ article h4{font-weight:bold;color:gray}
 
 header>ul,nav>ul{list-style-type:none;}
 header>ul>li,nav>ul>li{display:inline;padding-right:.5rem;}
-/*
-header>ul>li>a,header>ul>li> a:link,header>ul>li>a:visited
-	{font-weight:normal;text-decoration:none;}
 
-nav,nav>ul>li>a,nav>ul>li>a:link,nav>ul>li>a:visited
-  {text-decoration:none}
-
-footer>p,footer>p>a,footer>ul>li{display:inline;text-decoration:none;}
-*
-*/
 
 @media (max-width:1080px){
   aside{display:none}

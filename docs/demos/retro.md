@@ -1,11 +1,11 @@
 ---
-pagetheme: "skyscraper"
+pagetheme: "retro"
 stylesheets:
 - "../../css/featuretable.css"
----
-#### Theme demos
 
-# Skyscraper theme
+styles:
+- "table>tbody>tr{line-height:1rem;}"
+--
 
 
 ## Supported features
@@ -16,6 +16,6 @@ stylesheets:
 | ✅  | Nav on/off           |
 | ✅  | Aside left on/off    |
 | ✅  | Aside right on/off   |
-| ✅  | Footer on/off        |
+| ❌  | Footer on/off        |
 | ✅  | Responsive           |
 | ✅  | Mobile support       |
