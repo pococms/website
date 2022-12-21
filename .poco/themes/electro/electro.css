@@ -133,6 +133,17 @@ aside > p,
 ifooter {border-top: 1px solid red;padding-bottom:1rem;} 
 footer > h2 {text-align:center;}
 footer > table {font-size:calc(80%);}
+footer > p, 
+  footer > h1,
+  footer > ul, 
+  footer > ul li a, 
+  footer > ol {
+	  font-family:'Nova Mono','sans-serif';
+}
+
+nav > h1, nav > h2, nav > h3 {font-family:'Nova Mono','sans-serif';}
+
+
 /* Give table columns to get some breathing room 
 footer > table > thead > tr > th {padding-right:2rem;} 
 footer > table > thead > tr > th {padding-top:1em;padding-right:2em;padding-bottom:1em;}
