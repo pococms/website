@@ -4,13 +4,248 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Powered by PocoCMS</title>
+
+<style></style>
+<style>
+
+/* base.css*/
+/* Works with optional headers, footers, nav, and 
+ * both left and right asides. 
+ * Must precede with reset.css of course 
+ *
+ * This is the equivalent of reset.css + poquito.css
+ * REM VS EM
+ * - Use rem for font sizes and @media query, because
+ *   rem is based on browser settings.
+ * - Use em for margins, padding, etc.
+ */
+
+/* *****************************************************
+ * RESET
+ ***************************************************** */
+
+html,body,nav,header,article,footer{width:100%;height:auto;max-width:100%;display:block;float:left;clear:both;overflow:auto;}
+html {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: inherit;}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, 
+a, abbr, acronym, address, big, cite, 
+del, dfn,img, ins, kbd, q, s, 
+small, strike, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, 
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family:
+    "system-ui",                           
+      "-apple-system",                  
+      "LucidaGrandeUI",                         
+      "HelveticaNeueDeskInterface-Regular",     
+      "HelveticaNeueDeskInterface-Light",        
+      "DroidSans",                           
+      "Ubuntu Light",
+      "Arial",  
+      "Roboto-Light",                            
+      "Segoe UI Light",                                   
+      "Tahoma",                             
+      "sans-serif";
+}
+
+/* Make touch interaction faster */
+a,area,button,[role="button"],input:not([type=range]),label,select,summary,textarea { -ms-touch-action: manipulation;touch-action: manipulation;}
+
+/* Largely undocumented and fails nvu validation. But removing it causes subtle problems, for example, adding extra left padding in header. */
+p,ol,ul,li,header {margin-block-start:0;margin-block-end:0;padding-inline-start:0;}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, pre, section {
+	display: block;
+}
+
+/* ******************************************************  
+ * FRAMEWORK WITH SUPPORT FOR HEADER, NAV, ASIDE, FOOTER
+ ***************************************************** */
+
+#page-container { 
+  position: relative;
+  min-height: 100vh;
+}
+/* This is nested just inside article, and closes right before footer */
+#content-wrap {
+  padding-bottom: 10vh;  /* NOTE: Should be same as Footer height */
+}
+
+
+/* Links show same if visited, underlined when hovered */
+a{color:blue;text-decoration:none;}
+a:visited{color:blue;text-decoration:none;}
+a:hover,a:active{color:inherit;text-decoration:underline;cursor:pointer}
+
+/* NOTE: padding-bottom on article shold be same as footer-height */
+article{width:80%;height:100vh;}                         
+ol li, ul li  {margin-left:1em;}
+p {padding-bottom:1em;}
+
+/* Note: footer height should be same as article padding-bottom */
+footer {width:100%;position:fixed;bottom:0;height:10vh;}
+aside{                                                                 
+  width:20%;                                    
+  padding:0 2rem 0 2rem;                          
+}  
+
+/* Article on the right, aside on the left */
+article{float:right;clear:right;}    
+aside{
+  float:left;                                
+}  
+
+/* Article on the left, aside on the right */
+article{float:left;clear:left;}
+aside{ 
+  float:right;
+}
+
+code,kbd,pre{
+  font-family: ui-monospace, SFMono-Regular, Monaco, monospace;
+}
+pre{
+  background-color: ghostwhite;
+  font-size: smaller;
+  overflow: auto;
+  padding: 1rem;
+}
+table{
+  /* Cells in table share borders */
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th{
+  padding: 0.5rem;
+  border: 1px solid;
+}
+
+article,nav,header,footer{padding-left:5%;}
+article,nav,header,footer,aside{background-color:white;}
+header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
+
+article>dl>dt {font-weight:bold;padding-top:1rem;}
+article>dl>dd {margin-left:0;padding-bottom:.5rem;}
+article h4{font-weight:bold;color:gray}
+
+header>ul,nav>ul{list-style-type:none;}
+header>ul>li,nav>ul>li{display:inline;padding-right:.5rem;}
+
+
+@media (max-width:1080px){
+  aside{display:none}
+  article{float:left;clear:left;width:100%}
+  html{font-size:20px;}
+}
+@media (max-width:720px){
+  header,nav,aside,footer{display:none}
+  article{padding:1rem;}
+  article{float:left;clear:left;width:100%}
+  html{font-size:20px;}
+}
+
+
+
+
+
+/* pocodocs.css*/
+header,nav{white-space:nowrap;overflow:hidden;}
+header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
+
+/*
+ * --------------------------------------------------
+ * If you have more than one item, use an unordered list. 
+ * These styles show the first item with branding applied,
+ * any number of links following, still slightly
+ * larger than body text, and a last link that
+ * looks like a button.
+ * --------------------------------------------------
+ */
+/*
+header > ul {line-height:4rem;}
+header > ul, nav > ul  {list-style-type:none;}
+header > ul > li{font-size:1.25rem;}
+header > ul > li, nav > ul > li{display:inline;padding-right:.5rem;}
+header > ul > li > a,
+header > ul > li > a:link, 
+header > ul > li > a:visited
+	{color:blue;font-weight:normal;text-decoration:none;}
+*/
+
+/*
+ * --------------------------------------------------
+ * Special feature: First item in list has biggest
+ * branding
+ * --------------------------------------------------
+ */
+header>ul>li:first-child>a{font-size:3rem;font-weight:900;letter-spacing:-.1rem;padding-right:1rem;padding-left:0}
+/*
+/ * --------------------------------------------------
+ * Special feature: Surround letters in first item 
+ * with ~~ characters to get change of color
+ * --------------------------------------------------
+ */
+header>ul>li:first-child>a>del{text-decoration:none;color:red;}
+
+
+nav>ul{line-height:2rem;}
+/* nav,nav>ul>li>a,nav>ul>li>a:link,nav>ul>li>a:visited{background-color:blue;color:white;text-decoration:none} */
+/* nav>ul>li>a:hover,nav>ul>li>a:active{text-decoration:underline;} */
+
+
+
+article>dl>dt {font-weight:bold;padding-top:1rem;}
+article>dl>dd {margin-left:0;padding-bottom:.5rem;}
+article>p {font-size:larger;line-height:1.75rem;padding:.25rem 0 .25rem} /* inline not block */
+pre{border:1px solid gray;padding:1rem;width:90%;background-color:ghostwhite; margin:1rem 0 1rem 0 !important} /* block, not inline */
+article>h1{font-size:3rem;font-weight:900;letter-spacing:-.1rem;padding-bottom:2rem;color:blue;}
+article>h2{font-size:2rem;padding-top:2.5rem;padding-bottom:.75rem}
+article>h3{color:blue;font-size:1.5rem;padding-top:1.5rem;padding-bottom:.5rem;font-weight:bold;}
+article>h4{font-weight:bold;}
+
+table{margin-top:1rem;}
+footer{line-height:2rem;}
+footer,footer>p,footer>p>a{color:white;background-color:blue;}
+
+</style>
 </head>
 <body>
 <div id="page-container">
 <div id="content-wrap">
 	
+<header id="header-poco"><ul>
+<li><a href="/#">poco<del>CMS</del></a></li>
+<li><a href="#/pages/build-from-source.html">Download</a></li>
+<li><a href="../pages/reference.html">Documentation</a></li>
+<li><a href="https://github.com/pococms/poco/issues">Report an issue</a></li>
+<li><a href="https://github.com/pococms/poco">GitHub</a></li>
+</ul>
+</header>
 	
 	
+<aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
+<ul>
+<li>Item 1 in the aside</li>
+<li>Item 2 in the aside</li>
+<li>Pocodocs theme!</li>
+</ul>
+</aside>
 <article id="article-poco">
 <h1 id="glossary">Glossary</h1>
 <h2 id="article">article</h2>
@@ -71,12 +306,19 @@ stylesheets:
 <p>A global <a href="#theme">theme</a> creates
 default styling for every page
 in your site.</p>
-<p>See also <a href="#page-theme">page theme</a></p>
+<p>The global theme can only be set on the <a href="#home-page">home page</a>.
+Use <a href="#page-theme">page theme</a> to add a theme to a single page.</p>
+<p>To set the global theme, go to your home page and add this
+front matter (replace &quot;poquito&quot; with whatever theme name you wish):</p>
+<pre><code>---
+theme: &quot;poquito&quot;
+---
+</code></pre>
 <h2 id="home-page">home page</h2>
 <p>The home page is a file named either <code>index.md</code> or <code>README.md</code>
 in the root directory of your project. It has some special
 properties, for example, it's the only file you can use to
-<code>globaltheme</code> to set a theme for the site overall.</p>
+<code>theme</code> to set a global theme for the site overall.</p>
 <p><em>README.md vs index.md</em></p>
 <p>If you have two home page files in the root directory,
 one named <code>README.md</code> and another named <code>index.md</code>,
@@ -91,12 +333,12 @@ for the distinguished file named <code>index.html</code> in its own webroot dire
 previous site generators roll, such as the one on GitHub.</p>
 <h3 id="defining-a-global-theme-on-the-home-page">Defining a global theme on the home page</h3>
 <p>The home page lets you define a global <a href="#theme">theme</a> for the entire site.
-If you add <code>globaltheme:</code> followed by the theme name to the front
+If you add <code>theme:</code> followed by the theme name to the front
 matter as shown below, all pages of your site will default to
 the global theme without your having to specify it on each page.
 For example, this defines <code>wide</code> as the global theme:</p>
 <pre><code>---
-theme: &quot;.poco/themes/wide&quot;
+theme: &quot;pocodocs&quot;
 ---
 </code></pre>
 <h2 id="layout-element">Layout element</h2>
@@ -119,18 +361,14 @@ is sandwiched between the header and the article. It should
 look similar on most pages of your site. It usually has
 some common navigation elements.</p>
 <h3 id="article-1">article</h3>
-<ul>
-<li>The <code>&lt;article&gt;</code> element contains the text of your
+<p>The <code>&lt;article&gt;</code> element contains the text of your
 Markdown page after conversion to HTML. It appears under the navbar. It is normally unique on each page of your site. Search engines
 don't like to see articles or <a href="front-matter#title">title tags</a>
-repeated.</li>
-</ul>
+repeated.</p>
 <h3 id="aside">aside</h3>
-<ul>
-<li>The <code>&lt;aside&gt;</code> element acts as a sidebar. It normally appears to the
+<p>The <code>&lt;aside&gt;</code> element acts as a sidebar. It normally appears to the
 left or right of the article. HTML recognizes only one aside
-per page.</li>
-</ul>
+per page.</p>
 <h3 id="footer">footer</h3>
 <ul>
 <li>The <code>&lt;footer&gt;</code> appears at the bottom of the page right after
@@ -159,10 +397,9 @@ current page, you'd add this to the <a href="#front-matter">front matter</a>.</p
 *hello*, world
 </code></pre>
 <p>The above would be converted in HTML that looks like this.</p>
-<pre><code>&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&lt;em&gt;hello&lt;/em&gt;, world.&lt;/p&gt;
-</code></pre>
-<p>That means the <code># Introduction</code> line actually represents the HTML heading type h1, which is the hightest level of organization. <code>## Introduction</code> would generate an h2 header, and so on.</p>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>&lt;<span style="color:#1e90ff;font-weight:bold">h1</span>&gt;Introduction&lt;/<span style="color:#1e90ff;font-weight:bold">h1</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#1e90ff;font-weight:bold">p</span><span style="color:#f00;background-color:#faa">&lt;</span><span style="color:#1e90ff">em</span>&gt;hello&lt;/<span style="color:#1e90ff;font-weight:bold">em</span>&gt;, world.&lt;/<span style="color:#1e90ff;font-weight:bold">p</span>&gt;
+</span></span></code></pre><p>That means the <code># Introduction</code> line actually represents the HTML heading type h1, which is the hightest level of organization. <code>## Introduction</code> would generate an h2 header, and so on.</p>
 <p>The asterisk characters are replaced by the <code>&lt;em&gt;</code> tag pair, which means they have the semantic power of emphasis. This is represented by HTML as italics, although you could override it in CSS.</p>
 <p>In these help pages Markdown is synonyomous with markup and CommonMark.</p>
 <h2 id="markup">Markup</h2>
@@ -173,14 +410,42 @@ Markdown, markup, and <a href="#commonmark">CommonMark</a>.</p>
 such as PocoCMS the term normally refers to Markdown.</p>
 <h2 id="page-theme">page theme</h2>
 <p>A page <a href="#theme">theme</a> controls the appearance of a single page.
-It overrides the <a href="#globaltheme">global theme</a>, if any.</p>
+It overrides the <a href="#theme">global theme</a>, if any.</p>
+<p>To set a theme for a single page, use <code>pagetheme</code> in the
+front matter like this, where you'd replace <code>pocodocs</code> with any
+theme you have available:</p>
+<pre><code>---
+pagetheme: &quot;pocodocs&quot;
+---
+</code></pre>
+<h2 id="poco-directory">.poco directory</h2>
+<p>Each site you create with PocoCMS has a directory named <code>.poco</code>
+in the same directory as your site's <a href="#home-page">home page</a>.
+It's automatically created when you use <code>poco -new</code> to create
+a site. The <code>.poco</code> directory contains things like</p>
+<ul>
+<li>All PocoCMS themes you have available</li>
+<li>All CSS files required by your project</li>
+<li>Javscript files required by your home page</li>
+<li>A few small assets used to demonstrate PocoCMS features</li>
+</ul>
+<p>Wherever the Poco application is stored, it has a master copy
+of the <code>.poco directory</code> used to generate the <code>.poco</code> directory
+in each project. That means if you change the themes in that
+directory, you may wish to copy those changes to the <code>.poco</code>
+directories in projects you created prior to those changes.</p>
 <h2 id="project">project</h2>
-<p>A PocoCMS <em>project</em> is a directory tree with th
+<p>A PocoCMS <em>project</em> is a directory tree with the
 source Markdown files and other assets required to
 create a website. At a minimum, it needs a
 <a href="#home-page">home page</a>, which is a Markdown file named
 either <code>index.md</code> or <code>README.md</code>, and a webroot subdirectory,
-by default named <code>WWW</code>.</p>
+by default named <code>WWW</code>. But you can't do much without
+a <a href="#poco-directory">.poco directory</a>, which contains assets
+such as themes and stylesheets.</p>
+<p>Sometimes we use the words <code>site</code> when we're talking about your
+project, even though technically your site is what's generated  by
+PocoCMS and copied into your <a href="#webroot">webroot</a></p>
 <h2 id="site">site</h2>
 <p>See <a href="#project">project</a></p>
 <h2 id="source-file">source file</h2>
@@ -214,13 +479,15 @@ this at the command line:</p>
 <h2 id="webroot">webroot</h2>
 <p>The webroot is a directory contains all files generated by Poco CMS required
 for your website. By default it's a subdirectory under the directory
-used for your home named <code>WWW</code> but you can
+used for your project named <code>WWW</code>. You can
 designate a different directory using the <code>webroot</code>
 <a href="cli.html#webroot">command line option</a></p>
 
 </article>
 </div><!-- content-wrap -->
 
+<footer id="footer-poco"><p><em>Powered by <a href="https://pococms.com">PocoCMS</a></em> · Copyright 2022 by Tom Campbell</p>
+</footer>
 </div><!-- page-container -->
 <script> {
   // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
@@ -266,6 +533,47 @@ designate a different directory using the <code>webroot</code>
   }
   // --- END USER JAVASCRIPT CODE
 ;
+
+
+var scrollTimer = -1;
+function bodyScroll()
+{
+  if(scrollTimer != -1){
+    clearTimeout(scrollTimer);
+  }
+  scrollTimer = window.setTimeout(sidebarHeight, 100);
+}
+function sidebarHeight() {
+    console.log("sidebarHeight()")
+  s=document.getElementById('aside-poco');
+  a=document.getElementById('article-poco'); 
+  if (s != null && a != null) {
+    // If there's a sidebar,
+    ha=a.offsetHeight;
+    hs=s.offsetHeight;
+    // If the article is longer, make
+    // the sidebar as long as the article.
+    if (ha>hs) {
+      h=a.offsetHeight+'px';s.style.height=h;
+    }
+    // If the sidebar is longer than the
+    // article, make the article as long
+    // as the sidebar.
+    else{
+      h=s.offsetHeight+'px';a.style.height=h;
+    }
+  }
+
+} 
+document.onreadystatechange = function () {
+  if (document.readyState == "interactive") {
+    // Init or start code here
+    bodyScroll();
+  }
+} 
+window.onresize=sidebarHeight;
+/* ES5 works fine */
+document.getElementsByTagName('body')[0].onscroll=bodyScroll();
 
 
 }

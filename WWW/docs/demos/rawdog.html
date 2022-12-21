@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Powered by PocoCMS</title>
+
+<style></style>
+<style>
+
+/* rawdog.css*/
+body{margin:5rem}
+article{background-color:white;padding:4rem;border:1px solid gray;box-shadow:3px 3px gray;}
+pre{background-color: ghostwhite;font-size: smaller;overflow: auto;padding: .5em}
+@media (max-width:720px){
+  body{margin:1rem;}
+  article{padding:1rem;margin:1rem;}
+  html{font-size:20px;}
+}
+
+
+
+
+/* ../../css/featuretable.css */
+/* Very specific stylesheet: used for feature tables in the theme demo area */
+td,th{text-align:left;border:none;line-spacing:.5rem;}
+table{white-space:no-wrap;}
+table{table-layout:fixed;width:40%;}
+table>tbody>tr{line-height:.5rem;}
+table>thead>tr>th{width:12rem}
+th:first-child,td:first-child{width:1rem;}
+table>tbody>tr{white-space:no-wrap;}
+
+/* Left-align all text in rows */
+table>tbody>tr>td{text-align:left}
+table{border:none;}
+
+</style>
+</head>
+<body>
+<div id="page-container">
+<div id="content-wrap">
+	
+	
+	
+<article id="article-poco">
+<h4 id="theme-demos">Theme demos</h4>
+<h1 id="rawdog-theme">Rawdog theme</h1>
+<p>Rawdog uses the most minimal of style sheets.
+It employs plain HTML and just a few tweaks to default
+colors, margins, and padding. Here's the whole thing.</p>
+<h2 id="unsupported-features-all-of-them">Unsupported features: all of them!</h2>
+<p>It does NOT support any special PocoCMS theme layout features:</p>
+<ul>
+<li>Header</li>
+<li>Nav</li>
+<li>Aside</li>
+<li>Footer</li>
+</ul>
+<h2 id="source-for-the-rawdog-theme-css">Source for the Rawdog theme CSS</h2>
+<p>The Rawdog theme css in <code>rawdoc.css</code> is the simplest of all PocoCMS themes:</p>
+<pre><code>  body{margin:5rem}
+  article{background-color:white;padding:4rem;border:1px solid gray;box-shadow:3px 3px gray;}
+  pre{background-color: ghostwhite;font-size: smaller;overflow: auto;padding: .5em}
+  @media (max-width:720px){
+    body{margin:1rem;}
+    article{padding:1rem;margin:1rem;}
+    html{font-size:20px;}
+  }
+</code></pre>
+<h2 id="supported-features">Supported features</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>Header on/off</td>
+</tr>
+<tr>
+<td>❌</td>
+<td>Nav on/off</td>
+</tr>
+<tr>
+<td>❌</td>
+<td>Aside left on/off</td>
+</tr>
+<tr>
+<td>❌</td>
+<td>Aside right on/off</td>
+</tr>
+<tr>
+<td>❌</td>
+<td>Footer on/off</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Responsive</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Mobile support</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+</div><!-- content-wrap -->
+
+</div><!-- page-container -->
+<script> {
+  // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
+  // Document.ready working back to IE 8.
+  // From https://stackoverflow.com/questions/2304941/what-is-the-non-jquery-equivalent-of-document-ready
+  function ready(fn) {
+    if (typeof fn !== 'function') {
+      throw new Error('Argument passed to ready should be a function');
+    }
+
+    if (document.readyState != 'loading') {
+      fn();
+    } else if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', fn, {
+        once: true // A boolean value indicating that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked.
+      });
+    } else {
+      document.attachEvent('onreadystatechange', function() {
+        if (document.readyState != 'loading')
+          fn();
+      });
+    }
+  }
+
+  // Demonstrate error checking 
+  //try {
+  //  window.ready(5);
+  //} catch (ex) {
+  //  console.log(ex.message);
+  //}
+
+
+  // HTML Document has been loaded. This is where it's safe 
+  // for you to execute code. For modularity's sake this 
+  // version calls an arbitrary function.
+  window.ready(function() {
+  // startHere() is just an arbitrary name. Can be anything.
+  startHere();
+  })
+
+  // --- START USER JAVASCRIPT CODE
+  function startHere() {
+  }
+  // --- END USER JAVASCRIPT CODE
+;
+
+
+var scrollTimer = -1;
+function bodyScroll()
+{
+  if(scrollTimer != -1){
+    clearTimeout(scrollTimer);
+  }
+  scrollTimer = window.setTimeout(sidebarHeight, 100);
+}
+function sidebarHeight() {
+    console.log("sidebarHeight()")
+  s=document.getElementById('aside-poco');
+  a=document.getElementById('article-poco'); 
+  if (s != null && a != null) {
+    // If there's a sidebar,
+    ha=a.offsetHeight;
+    hs=s.offsetHeight;
+    // If the article is longer, make
+    // the sidebar as long as the article.
+    if (ha>hs) {
+      h=a.offsetHeight+'px';s.style.height=h;
+    }
+    // If the sidebar is longer than the
+    // article, make the article as long
+    // as the sidebar.
+    else{
+      h=s.offsetHeight+'px';a.style.height=h;
+    }
+  }
+
+} 
+document.onreadystatechange = function () {
+  if (document.readyState == "interactive") {
+    // Init or start code here
+    bodyScroll();
+  }
+} 
+window.onresize=sidebarHeight;
+/* ES5 works fine */
+document.getElementsByTagName('body')[0].onscroll=bodyScroll();
+
+
+}
+</script>
+</body>
+</html>

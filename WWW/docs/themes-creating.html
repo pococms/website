@@ -4,24 +4,373 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Powered by PocoCMS</title>
+
+<style></style>
+<style>
+
+/* base.css*/
+/* Works with optional headers, footers, nav, and 
+ * both left and right asides. 
+ * Must precede with reset.css of course 
+ *
+ * This is the equivalent of reset.css + poquito.css
+ * REM VS EM
+ * - Use rem for font sizes and @media query, because
+ *   rem is based on browser settings.
+ * - Use em for margins, padding, etc.
+ */
+
+/* *****************************************************
+ * RESET
+ ***************************************************** */
+
+html,body,nav,header,article,footer{width:100%;height:auto;max-width:100%;display:block;float:left;clear:both;overflow:auto;}
+html {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: inherit;}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, 
+a, abbr, acronym, address, big, cite, 
+del, dfn,img, ins, kbd, q, s, 
+small, strike, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, 
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family:
+    "system-ui",                           
+      "-apple-system",                  
+      "LucidaGrandeUI",                         
+      "HelveticaNeueDeskInterface-Regular",     
+      "HelveticaNeueDeskInterface-Light",        
+      "DroidSans",                           
+      "Ubuntu Light",
+      "Arial",  
+      "Roboto-Light",                            
+      "Segoe UI Light",                                   
+      "Tahoma",                             
+      "sans-serif";
+}
+
+/* Make touch interaction faster */
+a,area,button,[role="button"],input:not([type=range]),label,select,summary,textarea { -ms-touch-action: manipulation;touch-action: manipulation;}
+
+/* Largely undocumented and fails nvu validation. But removing it causes subtle problems, for example, adding extra left padding in header. */
+p,ol,ul,li,header {margin-block-start:0;margin-block-end:0;padding-inline-start:0;}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, pre, section {
+	display: block;
+}
+
+/* ******************************************************  
+ * FRAMEWORK WITH SUPPORT FOR HEADER, NAV, ASIDE, FOOTER
+ ***************************************************** */
+
+#page-container { 
+  position: relative;
+  min-height: 100vh;
+}
+/* This is nested just inside article, and closes right before footer */
+#content-wrap {
+  padding-bottom: 10vh;  /* NOTE: Should be same as Footer height */
+}
+
+
+/* Links show same if visited, underlined when hovered */
+a{color:blue;text-decoration:none;}
+a:visited{color:blue;text-decoration:none;}
+a:hover,a:active{color:inherit;text-decoration:underline;cursor:pointer}
+
+/* NOTE: padding-bottom on article shold be same as footer-height */
+article{width:80%;height:100vh;}                         
+ol li, ul li  {margin-left:1em;}
+p {padding-bottom:1em;}
+
+/* Note: footer height should be same as article padding-bottom */
+footer {width:100%;position:fixed;bottom:0;height:10vh;}
+aside{                                                                 
+  width:20%;                                    
+  padding:0 2rem 0 2rem;                          
+}  
+
+/* Article on the right, aside on the left */
+article{float:right;clear:right;}    
+aside{
+  float:left;                                
+}  
+
+/* Article on the left, aside on the right */
+article{float:left;clear:left;}
+aside{ 
+  float:right;
+}
+
+code,kbd,pre{
+  font-family: ui-monospace, SFMono-Regular, Monaco, monospace;
+}
+pre{
+  background-color: ghostwhite;
+  font-size: smaller;
+  overflow: auto;
+  padding: 1rem;
+}
+table{
+  /* Cells in table share borders */
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th{
+  padding: 0.5rem;
+  border: 1px solid;
+}
+
+article,nav,header,footer{padding-left:5%;}
+article,nav,header,footer,aside{background-color:white;}
+header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
+
+article>dl>dt {font-weight:bold;padding-top:1rem;}
+article>dl>dd {margin-left:0;padding-bottom:.5rem;}
+article h4{font-weight:bold;color:gray}
+
+header>ul,nav>ul{list-style-type:none;}
+header>ul>li,nav>ul>li{display:inline;padding-right:.5rem;}
+
+
+@media (max-width:1080px){
+  aside{display:none}
+  article{float:left;clear:left;width:100%}
+  html{font-size:20px;}
+}
+@media (max-width:720px){
+  header,nav,aside,footer{display:none}
+  article{padding:1rem;}
+  article{float:left;clear:left;width:100%}
+  html{font-size:20px;}
+}
+
+
+
+
+
+/* pocodocs.css*/
+header,nav{white-space:nowrap;overflow:hidden;}
+header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
+
+/*
+ * --------------------------------------------------
+ * If you have more than one item, use an unordered list. 
+ * These styles show the first item with branding applied,
+ * any number of links following, still slightly
+ * larger than body text, and a last link that
+ * looks like a button.
+ * --------------------------------------------------
+ */
+/*
+header > ul {line-height:4rem;}
+header > ul, nav > ul  {list-style-type:none;}
+header > ul > li{font-size:1.25rem;}
+header > ul > li, nav > ul > li{display:inline;padding-right:.5rem;}
+header > ul > li > a,
+header > ul > li > a:link, 
+header > ul > li > a:visited
+	{color:blue;font-weight:normal;text-decoration:none;}
+*/
+
+/*
+ * --------------------------------------------------
+ * Special feature: First item in list has biggest
+ * branding
+ * --------------------------------------------------
+ */
+header>ul>li:first-child>a{font-size:3rem;font-weight:900;letter-spacing:-.1rem;padding-right:1rem;padding-left:0}
+/*
+/ * --------------------------------------------------
+ * Special feature: Surround letters in first item 
+ * with ~~ characters to get change of color
+ * --------------------------------------------------
+ */
+header>ul>li:first-child>a>del{text-decoration:none;color:red;}
+
+
+nav>ul{line-height:2rem;}
+/* nav,nav>ul>li>a,nav>ul>li>a:link,nav>ul>li>a:visited{background-color:blue;color:white;text-decoration:none} */
+/* nav>ul>li>a:hover,nav>ul>li>a:active{text-decoration:underline;} */
+
+
+
+article>dl>dt {font-weight:bold;padding-top:1rem;}
+article>dl>dd {margin-left:0;padding-bottom:.5rem;}
+article>p {font-size:larger;line-height:1.75rem;padding:.25rem 0 .25rem} /* inline not block */
+pre{border:1px solid gray;padding:1rem;width:90%;background-color:ghostwhite; margin:1rem 0 1rem 0 !important} /* block, not inline */
+article>h1{font-size:3rem;font-weight:900;letter-spacing:-.1rem;padding-bottom:2rem;color:blue;}
+article>h2{font-size:2rem;padding-top:2.5rem;padding-bottom:.75rem}
+article>h3{color:blue;font-size:1.5rem;padding-top:1.5rem;padding-bottom:.5rem;font-weight:bold;}
+article>h4{font-weight:bold;}
+
+table{margin-top:1rem;}
+footer{line-height:2rem;}
+footer,footer>p,footer>p>a{color:white;background-color:blue;}
+
+</style>
 </head>
 <body>
 <div id="page-container">
 <div id="content-wrap">
 	
+<header id="header-poco"><ul>
+<li><a href="/#">poco<del>CMS</del></a></li>
+<li><a href="#/pages/build-from-source.html">Download</a></li>
+<li><a href="../pages/reference.html">Documentation</a></li>
+<li><a href="https://github.com/pococms/poco/issues">Report an issue</a></li>
+<li><a href="https://github.com/pococms/poco">GitHub</a></li>
+</ul>
+</header>
 	
 	
+<aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
+<ul>
+<li>Item 1 in the aside</li>
+<li>Item 2 in the aside</li>
+<li>Pocodocs theme!</li>
+</ul>
+</aside>
 <article id="article-poco">
 <h1 id="creating-pococms-themes">Creating PocoCMS themes</h1>
+<h2 id="theme-creation-checklist">Theme creation checklist</h2>
+<ul>
+<li>
+<p>Run it through <code>poco-theme-test</code> <em>themename</em></p>
+</li>
+<li>
+<p>Go to the website directory and run <code>poco-dir-update</code></p>
+</li>
+<li>
+<p>Create an entry for it in <code>docs/theme-demos.md</code></p>
+</li>
+<li>
+<p>Create a file called <code>docs/demos/themename.md</code></p>
+</li>
+<li>
+<p>Include the a pagetheme and featureable.css stylesheet in its front matter.</p>
+<pre><code>---
+pagetheme: &quot;themename&quot;
+stylesheets:
+- &quot;../../css/featuretable.css&quot;
+---
+</code></pre>
+</li>
+<li>
+<p>Include the compliance table. Here's the ❌</p>
+<pre><code>## Supported features
+
+|     |                      |
+| --- | -------------------- |
+| ✅  | Header on/off        |
+| ✅  | Nav on/off           |
+| ✅  | Aside left on/off    |
+| ✅  | Aside right on/off   |
+| ✅  | Footer on/off        |
+| ✅  | Responsive           |
+| ✅  | Mobile support       |
+</code></pre>
+</li>
+</ul>
 <p>See also:</p>
 <ul>
 <li><a href="themes-overview.html">Themes technical overview</a></li>
 <li><a href="themes-using.html">Using themes</a></li>
 </ul>
-
+<h2 id="adding-skinny-support-to-a-pococms-framework-project">Adding skinny support to a PocoCMS framework project</h2>
+<h2 id="todo-screen-shots">TODO: Screen shots</h2>
+<p>What if you want a theme that floats in the middle of a wide screen,
+showing its background like the Pasteboard or Rawdog themes?</p>
+<p>The default PocoCMS style framework generates sites with themes that stretch
+across the entire screen. You can change this behavior by
+adding the <code>skinny.css</code> after <code>base.css</code> in your theme's <code>README.md</code>
+file, like this:</p>
+<hr />
+<p>header: &quot;header.md&quot;
+nav: &quot;nav.md&quot;
+aside: &quot;aside.md&quot;
+footer: &quot;footer.md&quot;</p>
+<p>stylesheets:</p>
+<ul>
+<li>&quot;../../css/base.css&quot;</li>
+<li>&quot;../../css/skinny.css&quot;</li>
+</ul>
+<hr />
+<p>The contents are fairly brief:</p>
+<pre><code>  html{background-color:gray;margin-left:auto;margin-right:auto;width:80%;}
+  body{margin:5% 5% 5% 10%;}
+  aside{width:20%;padding-left:1rem;}
+  header,nav,article,footer{margin-left:auto;margin-right:auto;}
+  footer{margin-right:10%;max-width:80%;}
+</code></pre>
+<h2 id="adding-framework-support-to-a-classless-css-stylesheet">Adding framework support to a classless CSS stylesheet</h2>
+<p>Here's an example of what it took to get full framework
+support for the Hack theme, which is
+based on the hack.css stylesheet by <a href="https://github.com/egoist">Egoist</a>.
+We extracted these elements from <code>base.css</code> and
+put them in a stylesheet named <code>override.css</code>:</p>
+<h5 id="filename-overridecss">filename: <strong>override.css</strong></h5>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">article</span>,<span style="color:#1e90ff;font-weight:bold">nav</span>,<span style="color:#1e90ff;font-weight:bold">header</span>,<span style="color:#1e90ff;font-weight:bold">footer</span>,<span style="color:#1e90ff;font-weight:bold">aside</span>{<span style="color:#00a">padding-left</span>:<span style="color:#099">5</span><span style="color:#0aa">%</span>;}
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">article</span>{<span style="color:#00a">width</span>:<span style="color:#099">80</span><span style="color:#0aa">%</span>}
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">aside</span>{<span style="color:#00a">width</span>:<span style="color:#099">20</span><span style="color:#0aa">%</span>}
+</span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">/* Article on the right, aside on the left  */</span>
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">article</span>{<span style="color:#00a">float</span>:<span style="color:#00a">right</span>;<span style="color:#00a">clear</span>:<span style="color:#00a">right</span>;}
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">aside</span>{<span style="color:#00a">float</span>:<span style="color:#00a">left</span>;}
+</span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">/* Article on the left, aside on the right  */</span>
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">article</span>{<span style="color:#00a">float</span>:<span style="color:#00a">left</span>;<span style="color:#00a">clear</span>:<span style="color:#00a">left</span>;}
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">aside</span>{<span style="color:#00a">float</span>:<span style="color:#00a">right</span>;}
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">footer</span> {<span style="color:#00a">width</span>:<span style="color:#099">100</span><span style="color:#0aa">%</span>;<span style="color:#00a">position</span>:<span style="color:#00a">fixed</span>;<span style="color:#00a">bottom</span>:<span style="color:#099">0</span>;<span style="color:#00a">height</span>:<span style="color:#099">10</span><span style="color:#0aa">vh</span>;}
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">footer</span>&gt;<span style="color:#1e90ff;font-weight:bold">p</span>,<span style="color:#1e90ff;font-weight:bold">footer</span>&gt;<span style="color:#1e90ff;font-weight:bold">p</span>&gt;<span style="color:#1e90ff;font-weight:bold">a</span>,<span style="color:#1e90ff;font-weight:bold">footer</span>&gt;<span style="color:#1e90ff;font-weight:bold">ul</span>&gt;<span style="color:#1e90ff;font-weight:bold">li</span>{<span style="color:#00a">display</span>:<span style="color:#00a">inline</span>;<span style="color:#00a">text-decoration</span>:<span style="color:#00a">none</span>;}
+</span></span></code></pre><h2 id="downloadable-fonts">Downloadable fonts</h2>
+<p>Downloadable fonts require an <code>@import</code> rule. <code>@import</code> rules need
+to come before other css rules (except @charset and @layer; see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@import">MDN's @import</a> documentation).
+Here's an example of a rule that gets the <a href="https://fonts.google.com/specimen/Oswald?vfquery=oswald">Oswald</a> font from Google.</p>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>@<span style="color:#00a">import</span> <span style="color:#1e90ff;font-weight:bold">url</span>(<span style="color:#a50">&#39;https://fonts.googleapis.com/css2?family=Oswald:wght@200&amp;display=swap&#39;</span>);
+</span></span></code></pre><p>Then you might want to redefine <code>&lt;h1&gt;</code> to use that font. You'd add
+this rule:</p>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">article</span>&gt;<span style="color:#1e90ff;font-weight:bold">h1</span>{<span style="color:#00a">font-family</span>:<span style="color:#a50">&#39;Oswald&#39;</span>,<span style="color:#00a">sans-serif</span>}
+</span></span></code></pre><p>Don't add the <code>@import</code> rule to your CSS file directly.
+Instead, add an <code>importrules</code> line to your theme's <code>README.md</code> file (see below). This allows PocoCMS to hoist all <code>@import</code> rules to the top of the CSS.</p>
+<p>Here's an example theme <code>README.md</code> showing use of <code>importrules</code>:</p>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">---</span>
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">header</span>: <span style="color:#1e90ff;font-weight:bold">header</span>.<span style="color:#0a0;text-decoration:underline">md</span>
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">nav</span>: <span style="color:#1e90ff;font-weight:bold">nav</span>.<span style="color:#0a0;text-decoration:underline">md</span>
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">aside</span>: <span style="color:#1e90ff;font-weight:bold">aside</span>.<span style="color:#0a0;text-decoration:underline">md</span>
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">footer</span>: <span style="color:#1e90ff;font-weight:bold">footer</span>.<span style="color:#0a0;text-decoration:underline">md</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">importrules</span>:
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">-</span> <span style="color:#a50">&#34;@import url(&#39;https://fonts.googleapis.com/css2?family=Oswald:wght@200&amp;display=swap&#39;;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">stylesheets</span>:
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">-</span> <span style="color:#a50">&#34;../../css/base.css&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">-</span> <span style="color:#a50">&#34;test.css&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">---</span>
+</span></span></code></pre><p>Then in one of the CSS files, for exampple, <code>test.css</code>, you'd have a rule like this:</p>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">article</span>&gt;<span style="color:#1e90ff;font-weight:bold">h1</span>{<span style="color:#00a">font-family</span>:<span style="color:#a50">&#39;Oswald&#39;</span>,<span style="color:#00a">sans-serif</span>}
+</span></span><span style="display:flex;"><span>
+</span></span></code></pre>
 </article>
 </div><!-- content-wrap -->
 
+<footer id="footer-poco"><p><em>Powered by <a href="https://pococms.com">PocoCMS</a></em> · Copyright 2022 by Tom Campbell</p>
+</footer>
 </div><!-- page-container -->
 <script> {
   // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
@@ -67,6 +416,47 @@
   }
   // --- END USER JAVASCRIPT CODE
 ;
+
+
+var scrollTimer = -1;
+function bodyScroll()
+{
+  if(scrollTimer != -1){
+    clearTimeout(scrollTimer);
+  }
+  scrollTimer = window.setTimeout(sidebarHeight, 100);
+}
+function sidebarHeight() {
+    console.log("sidebarHeight()")
+  s=document.getElementById('aside-poco');
+  a=document.getElementById('article-poco'); 
+  if (s != null && a != null) {
+    // If there's a sidebar,
+    ha=a.offsetHeight;
+    hs=s.offsetHeight;
+    // If the article is longer, make
+    // the sidebar as long as the article.
+    if (ha>hs) {
+      h=a.offsetHeight+'px';s.style.height=h;
+    }
+    // If the sidebar is longer than the
+    // article, make the article as long
+    // as the sidebar.
+    else{
+      h=s.offsetHeight+'px';a.style.height=h;
+    }
+  }
+
+} 
+document.onreadystatechange = function () {
+  if (document.readyState == "interactive") {
+    // Init or start code here
+    bodyScroll();
+  }
+} 
+window.onresize=sidebarHeight;
+/* ES5 works fine */
+document.getElementsByTagName('body')[0].onscroll=bodyScroll();
 
 
 }

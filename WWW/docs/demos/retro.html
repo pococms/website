@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Powered by PocoCMS</title>
+
+<style></style>
+<style>
+
+/* layout-test.css*/
+article,nav,header,footer{padding-left:5%;}
+article{height:90vh;width:80%}
+aside{width:20%}
+/* Article on the right, aside on the left  */
+article{float:right;clear:right;}
+aside{float:left;}
+/* Article on the left, aside on the right  */
+article{float:left;clear:left;}
+aside{float:right;}
+
+article{width:80%;height:90vh;margin-bottom:20vh;}                         
+
+/* html,body,nav,header,article,footer{width:100%;height:auto;max-width:100%;display:block;float:left;clear:both;overflow:auto;} */
+footer {background-color:white;width:100%;position:fixed;bottom:0;height:10vh;}
+footer>p,footer>p>a,footer>ul>li{display:inline;text-decoration:none;}
+
+
+
+
+/* retro.css*/
+
+
+pre,
+code {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+pre {
+  padding: .5rem;
+  line-height: 1.25;
+  overflow-x: scroll;
+}
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+a,
+a:visited {
+  color: #01ff70;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: #2ecc40;
+}
+
+.retro-no-decoration {
+  text-decoration: none;
+}
+
+html {
+  font-size: 12px;
+}
+
+@media screen and (min-width: 32rem) and (max-width: 48rem) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  line-height: 1.85;
+}
+
+p,
+.retro-p {
+  font-size: 1rem;
+  margin-bottom: 1.3rem;
+}
+
+h1,
+.retro-h1,
+h2,
+.retro-h2,
+h3,
+.retro-h3,
+h4,
+.retro-h4 {
+  margin: 1.414rem 0 .5rem;
+  font-weight: inherit;
+  line-height: 1.42;
+}
+
+h1,
+.retro-h1 {
+  margin-top: 0;
+  font-size: 3.998rem;
+}
+
+h2,
+.retro-h2 {
+  font-size: 2.827rem;
+}
+
+h3,
+.retro-h3 {
+  font-size: 1.999rem;
+}
+
+h4,
+.retro-h4 {
+  font-size: 1.414rem;
+}
+
+h5,
+.retro-h5 {
+  font-size: 1.121rem;
+}
+
+h6,
+.retro-h6 {
+  font-size: .88rem;
+}
+
+small,
+.retro-small {
+  font-size: .707em;
+}
+
+/* https://github.com/mrmrs/fluidity */
+
+img,
+canvas,
+iframe,
+video,
+svg,
+select,
+textarea {
+  max-width: 100%;
+}
+
+html,
+body {
+  background-color: #222;
+  min-height: 100%;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  color: #fafafa;
+  font-family: "Courier New";
+  line-height: 1.45;
+  margin: 6rem auto 1rem;
+  max-width: 48rem;
+  padding: .25rem;
+}
+
+pre {
+  background-color: #333;
+}
+
+blockquote {
+  border-left: 3px solid #01ff70;
+  padding-left: 1rem;
+}
+
+/* retro.css*/
+header,nav,article,footer,aside{padding-left:0}
+header{margin:0}
+h1{font-size:2.5em;}
+h2{font-size:1.75em;}
+h3{font-size:1.25em;}
+
+
+
+/* ../../css/featuretable.css */
+/* Very specific stylesheet: used for feature tables in the theme demo area */
+td,th{text-align:left;border:none;line-spacing:.5rem;}
+table{white-space:no-wrap;}
+table{table-layout:fixed;width:40%;}
+table>tbody>tr{line-height:.5rem;}
+table>thead>tr>th{width:12rem}
+th:first-child,td:first-child{width:1rem;}
+table>tbody>tr{white-space:no-wrap;}
+
+/* Left-align all text in rows */
+table>tbody>tr>td{text-align:left}
+table{border:none;}
+
+</style>
+
+<style>		table>tbody>tr{line-height:1rem;}
+</style>
+</head>
+<body>
+<div id="page-container">
+<div id="content-wrap">
+	
+<header id="header-poco"><p>RETRO</p>
+</header>
+	
+<nav id="nav-poco"><p>Navbar</p>
+</nav>
+	
+<aside id="aside-poco"><p>Aside test</p>
+<ul>
+<li>A</li>
+<li>B</li>
+<li>C</li>
+</ul>
+</aside>
+<article id="article-poco">
+<h2 id="supported-features">Supported features</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>Header on/off</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Nav on/off</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Aside left on/off</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Aside right on/off</td>
+</tr>
+<tr>
+<td>❌</td>
+<td>Footer on/off</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Responsive</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Mobile support</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+</div><!-- content-wrap -->
+
+</div><!-- page-container -->
+<script> {
+  // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
+  // Document.ready working back to IE 8.
+  // From https://stackoverflow.com/questions/2304941/what-is-the-non-jquery-equivalent-of-document-ready
+  function ready(fn) {
+    if (typeof fn !== 'function') {
+      throw new Error('Argument passed to ready should be a function');
+    }
+
+    if (document.readyState != 'loading') {
+      fn();
+    } else if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', fn, {
+        once: true // A boolean value indicating that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked.
+      });
+    } else {
+      document.attachEvent('onreadystatechange', function() {
+        if (document.readyState != 'loading')
+          fn();
+      });
+    }
+  }
+
+  // Demonstrate error checking 
+  //try {
+  //  window.ready(5);
+  //} catch (ex) {
+  //  console.log(ex.message);
+  //}
+
+
+  // HTML Document has been loaded. This is where it's safe 
+  // for you to execute code. For modularity's sake this 
+  // version calls an arbitrary function.
+  window.ready(function() {
+  // startHere() is just an arbitrary name. Can be anything.
+  startHere();
+  })
+
+  // --- START USER JAVASCRIPT CODE
+  function startHere() {
+  }
+  // --- END USER JAVASCRIPT CODE
+;
+
+
+var scrollTimer = -1;
+function bodyScroll()
+{
+  if(scrollTimer != -1){
+    clearTimeout(scrollTimer);
+  }
+  scrollTimer = window.setTimeout(sidebarHeight, 100);
+}
+function sidebarHeight() {
+    console.log("sidebarHeight()")
+  s=document.getElementById('aside-poco');
+  a=document.getElementById('article-poco'); 
+  if (s != null && a != null) {
+    // If there's a sidebar,
+    ha=a.offsetHeight;
+    hs=s.offsetHeight;
+    // If the article is longer, make
+    // the sidebar as long as the article.
+    if (ha>hs) {
+      h=a.offsetHeight+'px';s.style.height=h;
+    }
+    // If the sidebar is longer than the
+    // article, make the article as long
+    // as the sidebar.
+    else{
+      h=s.offsetHeight+'px';a.style.height=h;
+    }
+  }
+
+} 
+document.onreadystatechange = function () {
+  if (document.readyState == "interactive") {
+    // Init or start code here
+    bodyScroll();
+  }
+} 
+window.onresize=sidebarHeight;
+/* ES5 works fine */
+document.getElementsByTagName('body')[0].onscroll=bodyScroll();
+
+
+}
+</script>
+</body>
+</html>

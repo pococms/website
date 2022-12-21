@@ -164,64 +164,30 @@ header>ul>li,nav>ul>li{display:inline;padding-right:.5rem;}
 
 
 
-/* pocodocs.css*/
-header,nav{white-space:nowrap;overflow:hidden;}
-header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
-
-/*
- * --------------------------------------------------
- * If you have more than one item, use an unordered list. 
- * These styles show the first item with branding applied,
- * any number of links following, still slightly
- * larger than body text, and a last link that
- * looks like a button.
- * --------------------------------------------------
- */
-/*
-header > ul {line-height:4rem;}
-header > ul, nav > ul  {list-style-type:none;}
-header > ul > li{font-size:1.25rem;}
-header > ul > li, nav > ul > li{display:inline;padding-right:.5rem;}
-header > ul > li > a,
-header > ul > li > a:link, 
-header > ul > li > a:visited
-	{color:blue;font-weight:normal;text-decoration:none;}
-*/
-
-/*
- * --------------------------------------------------
- * Special feature: First item in list has biggest
- * branding
- * --------------------------------------------------
- */
-header>ul>li:first-child>a{font-size:3rem;font-weight:900;letter-spacing:-.1rem;padding-right:1rem;padding-left:0}
-/*
-/ * --------------------------------------------------
- * Special feature: Surround letters in first item 
- * with ~~ characters to get change of color
- * --------------------------------------------------
- */
-header>ul>li:first-child>a>del{text-decoration:none;color:red;}
-
-
-nav>ul{line-height:2rem;}
-/* nav,nav>ul>li>a,nav>ul>li>a:link,nav>ul>li>a:visited{background-color:blue;color:white;text-decoration:none} */
-/* nav>ul>li>a:hover,nav>ul>li>a:active{text-decoration:underline;} */
+/* skinny.css*/
+html{background-color:gray;margin-left:auto;margin-right:auto;width:80%;}
+body{margin:5% 5% 5% 10%;}
+aside{width:20%;padding-left:1rem;}
+header,nav,article,footer{margin-left:auto;margin-right:auto;}
+footer{margin-right:10%;max-width:80%;}
 
 
 
-article>dl>dt {font-weight:bold;padding-top:1rem;}
-article>dl>dd {margin-left:0;padding-bottom:.5rem;}
-article>p {font-size:larger;line-height:1.75rem;padding:.25rem 0 .25rem} /* inline not block */
-pre{border:1px solid gray;padding:1rem;width:90%;background-color:ghostwhite; margin:1rem 0 1rem 0 !important} /* block, not inline */
-article>h1{font-size:3rem;font-weight:900;letter-spacing:-.1rem;padding-bottom:2rem;color:blue;}
-article>h2{font-size:2rem;padding-top:2.5rem;padding-bottom:.75rem}
-article>h3{color:blue;font-size:1.5rem;padding-top:1.5rem;padding-bottom:.5rem;font-weight:bold;}
-article>h4{font-weight:bold;}
 
-table{margin-top:1rem;}
-footer{line-height:2rem;}
-footer,footer>p,footer>p>a{color:white;background-color:blue;}
+
+/* ../../css/featuretable.css */
+/* Very specific stylesheet: used for feature tables in the theme demo area */
+td,th{text-align:left;border:none;line-spacing:.5rem;}
+table{white-space:no-wrap;}
+table{table-layout:fixed;width:40%;}
+table>tbody>tr{line-height:.5rem;}
+table>thead>tr>th{width:12rem}
+th:first-child,td:first-child{width:1rem;}
+table>tbody>tr{white-space:no-wrap;}
+
+/* Left-align all text in rows */
+table>tbody>tr>td{text-align:left}
+table{border:none;}
 
 </style>
 </head>
@@ -230,33 +196,77 @@ footer,footer>p,footer>p>a{color:white;background-color:blue;}
 <div id="content-wrap">
 	
 <header id="header-poco"><ul>
-<li><a href="/#">poco<del>CMS</del></a></li>
-<li><a href="#/pages/build-from-source.html">Download</a></li>
-<li><a href="../pages/reference.html">Documentation</a></li>
-<li><a href="https://github.com/pococms/poco/issues">Report an issue</a></li>
-<li><a href="https://github.com/pococms/poco">GitHub</a></li>
+<li><strong><a href="#">Base theme header</a></strong></li>
+<li><a href="#">Reviews</a></li>
+<li><a href="#">Github</a></li>
+<li><a href="#">Profile</a></li>
+<li><a href="#">About</a></li>
 </ul>
 </header>
 	
-	
-<aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
-<ul>
-<li>Item 1 in the aside</li>
-<li>Item 2 in the aside</li>
-<li>Pocodocs theme!</li>
+<nav id="nav-poco"><ul>
+<li><a href="#">Base theme nav</a></li>
+<li><a href="#">Subscribe</a></li>
+<li><a href="#">Technical overview</a></li>
+<li><a href="#">Free trial</a></li>
 </ul>
+</nav>
+	
+<aside id="aside-poco"><h2 id="aside-demo-h2">Aside demo h2</h2>
+<h3 id="item-1">Item 1</h3>
+<p>Here's a good place to put a
+news item of current interest</p>
+<h3 id="item-2">Item 2</h3>
+<p>Here's a good place to put another
+news item of current interest</p>
 </aside>
 <article id="article-poco">
-<ul>
-<li><a href="/#">poco<del>CMS</del></a></li>
-<li><a href="docs/index.html">Documentation</a></li>
-<li><a href="https://github.com/pococms/poco">GitHub</a></li>
-</ul>
+<h4 id="theme-demos">Theme demos</h4>
+<h1 id="skyscraper-theme">Skyscraper theme</h1>
+<h2 id="supported-features">Supported features</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>Header on/off</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Nav on/off</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Aside left on/off</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Aside right on/off</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Footer on/off</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Responsive</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Mobile support</td>
+</tr>
+</tbody>
+</table>
 
 </article>
 </div><!-- content-wrap -->
 
-<footer id="footer-poco"><p><em>Powered by <a href="https://pococms.com">PocoCMS</a></em> · Copyright 2022 by Tom Campbell</p>
+<footer id="footer-poco"><p><a href="#">Contact</a> <a href="#">Privacy policy</a> <a href="#">Terms of service</a></p>
 </footer>
 </div><!-- page-container -->
 <script> {

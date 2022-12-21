@@ -4,32 +4,310 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Powered by PocoCMS</title>
+
+<style></style>
+<style>
+
+/* base.css*/
+/* Works with optional headers, footers, nav, and 
+ * both left and right asides. 
+ * Must precede with reset.css of course 
+ *
+ * This is the equivalent of reset.css + poquito.css
+ * REM VS EM
+ * - Use rem for font sizes and @media query, because
+ *   rem is based on browser settings.
+ * - Use em for margins, padding, etc.
+ */
+
+/* *****************************************************
+ * RESET
+ ***************************************************** */
+
+html,body,nav,header,article,footer{width:100%;height:auto;max-width:100%;display:block;float:left;clear:both;overflow:auto;}
+html {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: inherit;}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, 
+a, abbr, acronym, address, big, cite, 
+del, dfn,img, ins, kbd, q, s, 
+small, strike, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, 
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family:
+    "system-ui",                           
+      "-apple-system",                  
+      "LucidaGrandeUI",                         
+      "HelveticaNeueDeskInterface-Regular",     
+      "HelveticaNeueDeskInterface-Light",        
+      "DroidSans",                           
+      "Ubuntu Light",
+      "Arial",  
+      "Roboto-Light",                            
+      "Segoe UI Light",                                   
+      "Tahoma",                             
+      "sans-serif";
+}
+
+/* Make touch interaction faster */
+a,area,button,[role="button"],input:not([type=range]),label,select,summary,textarea { -ms-touch-action: manipulation;touch-action: manipulation;}
+
+/* Largely undocumented and fails nvu validation. But removing it causes subtle problems, for example, adding extra left padding in header. */
+p,ol,ul,li,header {margin-block-start:0;margin-block-end:0;padding-inline-start:0;}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, pre, section {
+	display: block;
+}
+
+/* ******************************************************  
+ * FRAMEWORK WITH SUPPORT FOR HEADER, NAV, ASIDE, FOOTER
+ ***************************************************** */
+
+#page-container { 
+  position: relative;
+  min-height: 100vh;
+}
+/* This is nested just inside article, and closes right before footer */
+#content-wrap {
+  padding-bottom: 10vh;  /* NOTE: Should be same as Footer height */
+}
+
+
+/* Links show same if visited, underlined when hovered */
+a{color:blue;text-decoration:none;}
+a:visited{color:blue;text-decoration:none;}
+a:hover,a:active{color:inherit;text-decoration:underline;cursor:pointer}
+
+/* NOTE: padding-bottom on article shold be same as footer-height */
+article{width:80%;height:100vh;}                         
+ol li, ul li  {margin-left:1em;}
+p {padding-bottom:1em;}
+
+/* Note: footer height should be same as article padding-bottom */
+footer {width:100%;position:fixed;bottom:0;height:10vh;}
+aside{                                                                 
+  width:20%;                                    
+  padding:0 2rem 0 2rem;                          
+}  
+
+/* Article on the right, aside on the left */
+article{float:right;clear:right;}    
+aside{
+  float:left;                                
+}  
+
+/* Article on the left, aside on the right */
+article{float:left;clear:left;}
+aside{ 
+  float:right;
+}
+
+code,kbd,pre{
+  font-family: ui-monospace, SFMono-Regular, Monaco, monospace;
+}
+pre{
+  background-color: ghostwhite;
+  font-size: smaller;
+  overflow: auto;
+  padding: 1rem;
+}
+table{
+  /* Cells in table share borders */
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th{
+  padding: 0.5rem;
+  border: 1px solid;
+}
+
+article,nav,header,footer{padding-left:5%;}
+article,nav,header,footer,aside{background-color:white;}
+header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
+
+article>dl>dt {font-weight:bold;padding-top:1rem;}
+article>dl>dd {margin-left:0;padding-bottom:.5rem;}
+article h4{font-weight:bold;color:gray}
+
+header>ul,nav>ul{list-style-type:none;}
+header>ul>li,nav>ul>li{display:inline;padding-right:.5rem;}
+
+
+@media (max-width:1080px){
+  aside{display:none}
+  article{float:left;clear:left;width:100%}
+  html{font-size:20px;}
+}
+@media (max-width:720px){
+  header,nav,aside,footer{display:none}
+  article{padding:1rem;}
+  article{float:left;clear:left;width:100%}
+  html{font-size:20px;}
+}
+
+
+
+
+
+/* pocodocs.css*/
+header,nav{white-space:nowrap;overflow:hidden;}
+header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
+
+/*
+ * --------------------------------------------------
+ * If you have more than one item, use an unordered list. 
+ * These styles show the first item with branding applied,
+ * any number of links following, still slightly
+ * larger than body text, and a last link that
+ * looks like a button.
+ * --------------------------------------------------
+ */
+/*
+header > ul {line-height:4rem;}
+header > ul, nav > ul  {list-style-type:none;}
+header > ul > li{font-size:1.25rem;}
+header > ul > li, nav > ul > li{display:inline;padding-right:.5rem;}
+header > ul > li > a,
+header > ul > li > a:link, 
+header > ul > li > a:visited
+	{color:blue;font-weight:normal;text-decoration:none;}
+*/
+
+/*
+ * --------------------------------------------------
+ * Special feature: First item in list has biggest
+ * branding
+ * --------------------------------------------------
+ */
+header>ul>li:first-child>a{font-size:3rem;font-weight:900;letter-spacing:-.1rem;padding-right:1rem;padding-left:0}
+/*
+/ * --------------------------------------------------
+ * Special feature: Surround letters in first item 
+ * with ~~ characters to get change of color
+ * --------------------------------------------------
+ */
+header>ul>li:first-child>a>del{text-decoration:none;color:red;}
+
+
+nav>ul{line-height:2rem;}
+/* nav,nav>ul>li>a,nav>ul>li>a:link,nav>ul>li>a:visited{background-color:blue;color:white;text-decoration:none} */
+/* nav>ul>li>a:hover,nav>ul>li>a:active{text-decoration:underline;} */
+
+
+
+article>dl>dt {font-weight:bold;padding-top:1rem;}
+article>dl>dd {margin-left:0;padding-bottom:.5rem;}
+article>p {font-size:larger;line-height:1.75rem;padding:.25rem 0 .25rem} /* inline not block */
+pre{border:1px solid gray;padding:1rem;width:90%;background-color:ghostwhite; margin:1rem 0 1rem 0 !important} /* block, not inline */
+article>h1{font-size:3rem;font-weight:900;letter-spacing:-.1rem;padding-bottom:2rem;color:blue;}
+article>h2{font-size:2rem;padding-top:2.5rem;padding-bottom:.75rem}
+article>h3{color:blue;font-size:1.5rem;padding-top:1.5rem;padding-bottom:.5rem;font-weight:bold;}
+article>h4{font-weight:bold;}
+
+table{margin-top:1rem;}
+footer{line-height:2rem;}
+footer,footer>p,footer>p>a{color:white;background-color:blue;}
+
+</style>
 </head>
 <body>
 <div id="page-container">
 <div id="content-wrap">
 	
+<header id="header-poco"><ul>
+<li><a href="/#">poco<del>CMS</del></a></li>
+<li><a href="#/pages/build-from-source.html">Download</a></li>
+<li><a href="../pages/reference.html">Documentation</a></li>
+<li><a href="https://github.com/pococms/poco/issues">Report an issue</a></li>
+<li><a href="https://github.com/pococms/poco">GitHub</a></li>
+</ul>
+</header>
 	
 	
+<aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
+<ul>
+<li>Item 1 in the aside</li>
+<li>Item 2 in the aside</li>
+<li>Pocodocs theme!</li>
+</ul>
+</aside>
 <article id="article-poco">
 <h1 id="css-tips">CSS tips</h1>
-<h1 id="todo-downloadable-fonts-styletags">TODO: Downloadable Fonts, StyleTags</h1>
 <p>In case you're new to CSS, here's some handy code
 you can drop right into your own themes.</p>
 <h2 id="contents">Contents</h2>
-<p><a href="#centering">Centering old-school</a><br />
+<p><a href="#how-to-do-headers-using-list-syntax">How to do headers using list syntax</a><br />
+<a href="#links-with-modern-cursor-and-custom-underline">Links with modern cursor and custom underline</a><br />
+<a href="#how-to-show-links-with-separate-underline-color">How to show links with separate underline color</a><br />
+<a href="#centering">Centering old-school</a><br />
 <a href="#font-stacks">Font stacks</a><br />
-<a href="#downloadble-fonts">Downloadable fonts</a></p>
+<a href="#downloadable-fonts">Downloadable fonts</a><br />
+<a href="#github-based-files-get-free-cdn-hosting-through-jsdelivrnet">GitHub-based files get free CDN hosting through jsdelivr.net</a></p>
 <p>See also</p>
 <ul>
 <li><a href="resources.html">Resources</a> page with many classless CSS libraries</li>
 </ul>
+<h2 id="how-to-do-headers-using-list-syntax">How to do headers using list syntax</h2>
+<p>Many PocoCMS header markdown files look like this:</p>
+<pre><code>* [MySite](/#)
+* [Report an issue](https://github.com/pococms/poco/issues)
+* [GitHub](https://github.com/pococms/poco)
+
+</code></pre>
+<p>This is list syntax but when rendered as HTML they don't look bullet lists.
+Instead, they appear as horizontal menus.
+It's a commonly accepted way to create menus using
+the following CSS technique, which removes the bullet character
+using <code>list-style-type;none</code> for <code>header&gt;ul</code>, and changes the
+list orientation from vertical to horizontal using
+<code>display:inline</code> for <code>header&gt;ul&gt;li</code>:</p>
+<pre><code>header&gt;ul{list-style-type:none;}               
+header&gt;ul&gt;li{display:inline;padding-right:.5rem;font-size:1.25rem;} 
+header&gt;ul&gt;li&gt;a,
+header&gt;ul&gt;li&gt;a:link,
+header&gt;ul&gt;li&gt;a:visited
+	{text-decoration:none;}
+</code></pre>
+<h3 id="bonus-header-concept-1-automatically-show-the-first-item-in-the-list-larger-than-the-rest">Bonus header concept #1: automatically show the first item in the list larger than the rest</h3>
+<pre><code>header&gt;ul&gt;li:first-child&gt;a{font-size:3rem;font-weight:900;letter-spacing:-.1rem;padding-right:1rem;padding-left:0}
+</code></pre>
+<h3 id="bonus-header-concept-2-redefine-the-markdown-strikethrough-characters-to-change-the-color-of-the-selected-letters">Bonus header concept #2: Redefine the Markdown strikethrough characters to change the color of the selected letters</h3>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">ul</span>&gt;<span style="color:#1e90ff;font-weight:bold">li</span>:<span style="color:#888">first-child</span>&gt;<span style="color:#1e90ff;font-weight:bold">a</span>&gt;<span style="color:#1e90ff;font-weight:bold">del</span>{<span style="color:#00a">text-decoration</span>:<span style="color:#00a">none</span>;<span style="color:#00a">color</span>:<span style="color:#00a">red</span>;}
+</span></span></code></pre><p><a href="#contents">Return</a></p>
+<h2 id="downloadable-fonts">Downloadable fonts</h2>
+<p>To use downloadable fonts, you need to add an import rule
+in the theme's front matter like this:</p>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">---</span>
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">importrules</span>:
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">-</span> <span style="color:#a50">&#34;@import url(&#39;https://fonts.googleapis.com/css2?family=Oswald:wght@200&amp;display=swap&#39;;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">---</span>
+</span></span></code></pre><p>Then in one of the CSS files, for exampple, <code>test.css</code>, you'd have a rule like this:</p>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">article</span>&gt;<span style="color:#1e90ff;font-weight:bold">h1</span>{<span style="color:#00a">font-family</span>:<span style="color:#a50">&#39;Oswald&#39;</span>,<span style="color:#00a">sans-serif</span>}
+</span></span><span style="display:flex;"><span>
+</span></span></code></pre><p>For more details, see <a href="themes-creating.html#downloadable-fonts">Creating PocoCMS themes</a></p>
+<p><a href="#contents">Return</a></p>
 <h2 id="centering">Centering</h2>
 <p>Here's how to center a div (or any block-level element) using
 old techniques that will work on any mobile browser.
 Replace <code>header</code> with whatever element you want centered.</p>
 <pre><code>header {text-align:center;padding-left:0;padding-right:0;width:100%;margin-left:auto;margin-right:auto;}
 </code></pre>
+<p><a href="#contents">Return</a></p>
 <p><a name="font-stacks"></a></p>
 <h2 id="font-stacks-for-sans-serif-serif-and-monospace">Font stacks for sans-serif, serif, and monospace</h2>
 <p>HTML defines <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-family">font families</a> such as <code>sans-serif</code>, <code>serif</code>, and <code>monospace</code>.
@@ -44,7 +322,7 @@ is that you're always guaranteed some kind of useful minimum.</p>
 <p>Font families have page size overhead, unlike <a href="#downloadable-fonts">downloadable fonts</a>.</p>
 <p>Here's what we like to use. It's all opinion, and this list is
 subject to change.</p>
-<h3 id="font-stack-for-sans-serif">Font stack for <code>sans-serif</code></h3>
+<h3 id="font-stack-for-sans-serif">Font stack for sans-serif</h3>
 <p>Here's the CSS you'd use to specify better defaults for the most
 popular font family on the web,<code>sans-serif</code>. You can almost
 never go wrong with it.</p>
@@ -56,11 +334,11 @@ but it could just as easily be replaced with
 </code></pre>
 <p>As a <a href="style-tags.html">style tag</a>:</p>
 <pre><code>  ---
-  style-tags:
+  styles:
     - &quot;article{font-family:'system-ui','-apple-system','LucidaGrandeUI','HelveticaNeueDeskInterface-Regular','HelveticaNeueDeskInterface-Light','DroidSans','Ubuntu Light','Arial','Roboto-Light','Segoe UI Light','Tahoma','sans-serif';}&quot;
   ---
 </code></pre>
-<h3 id="font-stack-for-a-more-elegant-serif">Font stack for a more elegant <code>serif</code></h3>
+<h3 id="font-stack-for-a-more-elegant-serif">Font stack for a more elegant serif</h3>
 <p>The <a href="https://en.wikipedia.org/wiki/Palatino">Palatino</a>-style fonts
 are elegant and formal-looking. Many systems have something
 approximating Palatino.</p>
@@ -88,16 +366,94 @@ but it could just as easily be replaced with
 </code></pre>
 <p>As a <a href="style-tags.html">style tag</a>:</p>
 <pre><code>  ---
-  style-tags:
+  styles:
     - &quot;article{font-family:Consolas,Monaco,Menlo,'DejaVue Sans Mono','Lucida Console',monospace;}&quot;
   ---
 </code></pre>
-<h2 id="downloadable-fonts">Downloadable Fonts</h2>
-<h3 id="todo-write-this-section-">TODO: Write this section ;)</h3>
+<p><a href="#contents">Return</a></p>
+<h2 id="links-with-modern-cursor-and-custom-underline">Links with modern cursor and custom underline</h2>
+<p>Here's how to create links that show a pointer cursor when
+hovered over, and that show in blue but with lighter blue underline.</p>
+<pre><code>a{cursor:pointer;color:blue;text-decoration:none;border-bottom:1px dotted LightSkyBlue}
+</code></pre>
+<p><a href="#contents">Return</a></p>
+<h2 id="how-to-show-links-with-special-hover-indicators">How to show links with special hover indicators</h2>
+<p>HTML's default behavior is to show fresh links differently to
+ones you've visited before. The fresh ones show up in a bright blue
+and the visited ones appear in a sad, scab-like purple brown.
+Who wants that.</p>
+<p>Modern menus in headers, footers, and nav tend to be shown
+the same whether previously visited or not. But often they
+show some kind of indicator when the user's mouse is
+hovering over them.</p>
+<p>To get this done you show the normal status with
+<code>text-decoration:none</code> for the normal <code>a</code>,
+<code>a:link</code>, and <code>a:visited</code> states.</p>
+<p>Then for the <code>a:hover</code> and <code>a:active</code> states,
+set <code>text-decoration:underline</code>. You could just
+as easily use a different text color, bold the text,
+or make its size larger. The great thing about
+this effect is that it's transient.</p>
+<p>Here's how to add that default behavior to all
+your links.</p>
+<pre><code>a{color:blue;}
+a:link,
+a:visited {color:inherit;display:inline;} 
+a:hover,
+a:active {text-decoration:underline;} 
+</code></pre>
+<p><a href="#contents">Return</a></p>
+<h2 id="how-to-show-links-with-separate-underline-color">How to show links with separate underline color</h2>
+<p>This is sort of a continuation of <a href="#how-to-show-links-with-special-hover-indicators">Links with hover indicators</a>. It shows you how to underline links
+with a different color from
+the font, only when they're in play: either being hovered
+over or active.</p>
+<p>This example shows how to change the underline color</p>
+<pre><code>a:hover,
+a:active {text-decoration:underline;
+  text-decoration-color: red;
+	-webkit-text-decoration-color: red;}
+</code></pre>
+<p><a href="#contents">Return</a></p>
+<h2 id="github-based-files-get-free-cdn-hosting-through-jsdelivrnet">GitHub-based files get free CDN hosting through jsdelivr.net</h2>
+<p>The CDN <code>jsdelivr.net</code> has a service that makes life much easier
+for people who want their stylesheets hosted on the web. They
+automatically host GitHub files if you transform the GitHub
+URL properly:</p>
+<h4 id="github-file-retrocss">Github file <strong>retro.css</strong></h4>
+<pre><code>https://github.com/markdowncss/retro/retro.css
+</code></pre>
+<h4 id="jsdeliver-file">jsdeliver file</h4>
+<pre><code>https://cdn.jsdelivr.net/gh/markdowncss/retro@3171af759c8cf61b990c65846d35a0dfb4031824/css/retro.css
+</code></pre>
+<p>The trick is knowing which GitHub commit hash value (the number
+starting in this example with <code>3171af7</code>) to use, as
+described below.</p>
+<p><a href="https://github.com/markdowncss/retro">https://github.com/markdowncss/retro</a></p>
+<ul>
+<li>Start with <code>https://cdn.jsdelivr.net/gh/</code></li>
+<li>Add the Github path to your stylesheet without the GitHub part, inserting an <code> @</code> after the repo name. For example, for the stylesheet<br />
+at <code>https://github.com/markdowncss/retro/retro.css</code>, you would append
+the following: <code>https://github.com/markdowncss/retro@</code></li>
+<li>Add the git hash number of the latest release, or release tag if one is provided. For example, the <a href="https://github.com/markdowncss/retro">retro</a> stylesheet hash number at the moment is <code>3171af759c8cf61b990c65846d35a0dfb4031824</code>. To
+learn which number to use, look at the home page of the GitHub repo and
+look at the top line of the code listingl. It will show a short sequence
+of numbers (like <code>3171af7</code> in this case), followed by a date, then
+the number of commits. You click that shortened hash number and it
+takes you to the actual commit, and atop the code listing you'll
+see the word <code>commit</code> followed by its full value, which is
+<code>3171af759c8cf61b990c65846d35a0dfb4031824</code> in this example.</li>
+<li>Add the path of the file starting <em>after</em> the  the repo name.
+<code>css/retro.css</code> in this case.</li>
+<li>The result: <code>https://cdn.jsdelivr.net/gh/markdowncss/retro@3171af759c8cf61b990c65846d35a0dfb4031824/css/retro.css</code></li>
+</ul>
+<p><a href="#contents">Return</a></p>
 
 </article>
 </div><!-- content-wrap -->
 
+<footer id="footer-poco"><p><em>Powered by <a href="https://pococms.com">PocoCMS</a></em> · Copyright 2022 by Tom Campbell</p>
+</footer>
 </div><!-- page-container -->
 <script> {
   // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
@@ -143,6 +499,47 @@ but it could just as easily be replaced with
   }
   // --- END USER JAVASCRIPT CODE
 ;
+
+
+var scrollTimer = -1;
+function bodyScroll()
+{
+  if(scrollTimer != -1){
+    clearTimeout(scrollTimer);
+  }
+  scrollTimer = window.setTimeout(sidebarHeight, 100);
+}
+function sidebarHeight() {
+    console.log("sidebarHeight()")
+  s=document.getElementById('aside-poco');
+  a=document.getElementById('article-poco'); 
+  if (s != null && a != null) {
+    // If there's a sidebar,
+    ha=a.offsetHeight;
+    hs=s.offsetHeight;
+    // If the article is longer, make
+    // the sidebar as long as the article.
+    if (ha>hs) {
+      h=a.offsetHeight+'px';s.style.height=h;
+    }
+    // If the sidebar is longer than the
+    // article, make the article as long
+    // as the sidebar.
+    else{
+      h=s.offsetHeight+'px';a.style.height=h;
+    }
+  }
+
+} 
+document.onreadystatechange = function () {
+  if (document.readyState == "interactive") {
+    // Init or start code here
+    bodyScroll();
+  }
+} 
+window.onresize=sidebarHeight;
+/* ES5 works fine */
+document.getElementsByTagName('body')[0].onscroll=bodyScroll();
 
 
 }

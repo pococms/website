@@ -1,3 +1,4 @@
+/* Successful experiment to split aside from body. However my aside stretching code defeats it */
 h1{ font-size:2.5em;padding-top:2rem; }
 h2{ font-size:2em;padding-top:1.5rem; }
 h3{ font-size:1.5em;padding-top:1.5rem; }
@@ -34,7 +35,9 @@ a:hover,
 a:active {text-decoration-color: red;
 	-webkit-text-decoration-color: red;}
 
-
+article,header,nav,footer{width:60%} 
+footer{margin:0;padding-right:0;width:48%;} /* TODO: wtf? 48%? Investigate when there's time */
+article {margin-right:10%;}
 article > h1, article > h2, article > h3 {font-family:'Nova Mono','sans-serif';}
 article > h1,article > h2 {font-weight:700;}
 article > h2 {padding-top:4rem;}
@@ -109,7 +112,6 @@ aside > p,
 /* ******************************/
 
 /* FOOTER */
-ifooter {border-top: 1px solid red;padding-bottom:1rem;} 
 footer > h2 {text-align:center;}
 footer > table {font-size:calc(80%);}
 /* Give table columns to get some breathing room 

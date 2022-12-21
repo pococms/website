@@ -247,11 +247,72 @@ footer,footer>p,footer>p>a{color:white;background-color:blue;}
 </ul>
 </aside>
 <article id="article-poco">
+<h1 id="utilities">Utilities</h1>
+<p>These utilities are unsupported and of limited use.</p>
 <ul>
-<li><a href="/#">poco<del>CMS</del></a></li>
-<li><a href="docs/index.html">Documentation</a></li>
-<li><a href="https://github.com/pococms/poco">GitHub</a></li>
+<li><a href="#poco-dir-update">poco-dir-upate</a> copies the master <code>.poco</code>
+directory into the current project.</li>
+<li><a href="#poco-gen-theme-test">poco-gen-theme-test</a> generates a number of pages
+to demonstrate theme features such as headers, asides, footers, and so on.</li>
+<li><a href="#svgplace">svgplace</a> generates placeholder image files</li>
 </ul>
+<h2 id="poco-dir-update">poco-dir-update</h2>
+<p>A Bash/zsh script to copy the contents of the application's <code>.poco</code> directory
+to the current project. It's useful in the following circumstances:</p>
+<ul>
+<li>You've made changes to themes in the</li>
+</ul>
+<h2 id="poco-gen-theme-test">poco-gen-theme-test</h2>
+<p>A Bash/zsh script to show theme options. It generates Markdown
+files to exercise many options available in a theme, generates
+a page for each option, then creates a site in a temporary directory
+so you can see them for yourself. (The operating system eventually
+deletes the temporary directory so you don't need to dispose of it.)</p>
+<p>Some of the options it creates:</p>
+<ul>
+<li>Article only with no header, nav, aside, or footer</li>
+<li>Header suppressed</li>
+<li>Nav suppressed</li>
+<li>Footer suppressed</li>
+<li>Aside suppressed</li>
+<li>Aside on left</li>
+<li>Aside on right</li>
+<li>Version with background shaded on all page layout elements</li>
+<li>And more.</li>
+</ul>
+<p>Just run it from the command line followed by the name of a theme,
+like this, where you'd replace <code>pocodocs</code> with whatever theme
+you wish to try:</p>
+<pre><code>poco-gen-theme-test pocodocs
+</code></pre>
+<p>By the way, you can see what themes are installed in your project like this:</p>
+<pre><code>poco -themes
+</code></pre>
+<h2 id="svgplace">svgplace</h2>
+<p>The <code>svgplace</code> Bash/zsh script generates a placeholder SVG file in the shape of a box, with optional text inside.</p>
+<p>The command line options are, in order:</p>
+<ul>
+<li>Width</li>
+<li>Height</li>
+<li>Text in quotes</li>
+<li>Filename</li>
+</ul>
+<p>They are all optional with default values.</p>
+<p>Example invocations:</p>
+<pre><code># Create a 256x128 empty box with the filename foo.svg
+svgplace
+</code></pre>
+<p>Result:</p>
+<p><img src="box256x128.svg" alt="" /></p>
+<pre><code># Create a 200x200 empty box with the filename foo.svg
+svgplace 200 200
+</code></pre>
+<p>Result:</p>
+<p><img src="box200x200.svg" alt="" /></p>
+<pre><code># Create a 300x300 box with the text &quot;hello, world.&quot;
+svgplace 300 300 &quot;hello, world.&quot; box.svg
+</code></pre>
+<p><img src="box300x300.svg" alt="" /></p>
 
 </article>
 </div><!-- content-wrap -->
