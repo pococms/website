@@ -5,6 +5,8 @@
 ## PUT THIS SOMEHWERE
 ## Downloadable fonts and @import rules
 
+
+* [Theme structure](#theme-structure)
 Notes
 
 Left to itself, PocoCMS turns [markdown](glossary.html#markdown) into
@@ -13,7 +15,7 @@ that all changes:
 
 ```
 ---
-theme: ".poco/themes/tufte"
+theme: "tufte"
 ---
 # The Tufte theme
 My, aren't we elegant
@@ -71,6 +73,10 @@ Notes about global themes:
 it will be ignored
 * Declaring a page theme (that is, `theme:` in the front matter)
 overrides the global theme for that page--even the home page.
+
+## Theme structure
+
+### README.md
 
 ## Example theme file
 

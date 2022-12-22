@@ -1,12 +1,14 @@
 ---
 title: "Powered by PocoCMS"
-theme: "pocodocs"
+theme: "informer"
 ---
 
 # Welcome to website
 
 * [Theme demos](docs/theme-demos.html)
+* [Creating themes](themes-creating.html)  
 * [Documentation](docs/index.html)
+* [Reference](docs/reference.html)
 * [Todo](todo.html)
 
 

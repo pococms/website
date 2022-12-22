@@ -41,6 +41,11 @@ and your file gets hosted automatically.
 
 Thanks, [jsDelivr](https://www.jsdelivr.com/) people!
 
+
+## Graphics asseets
+
+* [Lucide](https://lucide.dev/) icons
+
 ## References
 
 * Font selector fallbacks: https://www.cssfontstack.com 

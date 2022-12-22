@@ -11,6 +11,7 @@
 [Resources](resources.html)  
 [Markdown extensions](markdown-extensions.html)  
 [CSS tips](css-tips.html)  
+[YAML usage](yaml-usage.html)  
 
 ## Internal
 [Release checklist](release-checklist.html)  
@@ -30,7 +31,6 @@ a wide variety of [favicons](https://en.wikipedia.org/wiki/Favicon).
 * The [Pingdom Website Speed Test](https://tools.pingdom.com/) produces the clearest results
 
 ## Diagnostics
-* Page showing all [FrontMatter settings](pages/diagnostics/allfeatures.html)
 * [mdemo.html](demo/mdemo.html) Shows most Markup capabilities
 
 

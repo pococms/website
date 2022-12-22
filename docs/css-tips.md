@@ -140,6 +140,22 @@ As a [style tag](style-tags.html):
         - "article{font-family:'system-ui','-apple-system','LucidaGrandeUI','HelveticaNeueDeskInterface-Regular','HelveticaNeueDeskInterface-Light','DroidSans','Ubuntu Light','Arial','Roboto-Light','Segoe UI Light','Tahoma','sans-serif';}"
       ---
 
+### Font stack for articles using a serif font
+
+If you want your articles to use old-school Times Roman-style newspaper serif fonts, 
+but updated for a cleaner look, how about this:
+
+      ---
+      article>p,article>ul,article > ol {font-family:Cambria, 'Hoefler Text', Utopia, 'Liberation Serif', 'Nimbus Roman No9 L Regular', Times, 'Times New Roman', serif;}
+      ---
+
+As a [style-tag](style-tags.html):
+
+      ---
+      styles:
+      - "article > p, article > ul, article > ol {font-family:Cambria, 'Hoefler Text', Utopia, 'Liberation Serif', 'Nimbus Roman No9 L Regular', Times, 'Times New Roman', serif;}"
+      ---
+
 ### Font stack for a more elegant serif
 
 The [Palatino](https://en.wikipedia.org/wiki/Palatino)-style fonts

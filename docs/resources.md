@@ -1,4 +1,15 @@
-# Resources
+# Resources: an all-you-can-eat buffet of free and surprisingly useful resources, even for commercial use
+
+#### By [Tom Campbell](https://pococms.com) ![Twitter profile](twitter-14px-clear.svg) | Dec 21, 2022 at 7:30pm
+
+#### By [Tom Campbell](https://pococms.com) ![Twitter profile](twitter-10-clear.svg) | Dec 21, 2022 at 7:30pm
+
+#### By [Tom Campbell](https://pococms.com) ![Facebook profile](facebook-14px-clear.svg) | Dec 21, 2022 at 7:30pm
+
+![Facebook profile](facebook-14px-clear.svg)
+
+
+![Twitter profile](twitter-10-clear.svg)
 
 ## Performance
 
@@ -20,7 +31,11 @@ see how your site performance from different places on the planet.
 
 ## HTML
 
-[HTML Color Names](https://htmlcolorcodes.com/color-names/)
+Sometimes it's convenient and maybe even a little fun to use colors by name instead of
+obscure RGB values or hex codes. Modern browsers recognize 140 
+[HTML Color Names](https://htmlcolorcodes.com/color-names/), even though official 
+web standards admit to only [16](https://www.w3.org/wiki/CSS3/Color/Basic_color_keywords)
+(boo, hiss).
 
 ## Classless CSS
 
@@ -31,5 +46,14 @@ use in your own themes.
 
 ## Type
 
-* The (Inter)[https://rsms.me/inter/#charset] font is a new [sans-serif](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#sans-serif) font designed
+* The [Inter](https://rsms.me/inter/#charset) font is a new [sans-serif](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#sans-serif) font designed
 designed for clarity.
+
+## Icons
+
+* [Lucide](https://lucide.dev) open source icons
+
+## Other graphic assets
+
+* 
+* [CSS Gradient](https://cssgradient.io/) generator goes into more depth than you'd think It has a handy generator on the home page, but then gets into things like [CSS Gradient Text](https://cssgradient.io/blog/css-gradient-text/),  [Gradient Backgrounds](https://cssgradient.io/blog/how-to-create-a-gradient-background/), [Patterns with CSS Gradients](https://cssgradient.io/blog/gradient-patterns/), done-for-you [CSS Gradient Swatches](https://cssgradient.io/swatches/), and  much more.
