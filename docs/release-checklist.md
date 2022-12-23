@@ -11,19 +11,13 @@
 * Check document Markdown source code for ocurrences of TODO:, 
 including as comments in Go template format
 * Run poco in the poco directory
-* Run the test script `/.ts1` in the poco directory
-* Run this script. ASSUMES ~/pococms/poco/foobar/ IS A DISPOSABLE DIRECTORY
-```bash
-#!/bin/zsh
-TESTDIR=~/pococms/poco/foobar/
-cd ~/pococms/poco/
-go build
-rm -rf $TESTDIR
-mkdir -p $TESTDIR
-cd $TESTDIR
-poco
-ls $TESTDIR/.poco/themes/informer
-```
+* Run the test scripts `/.ts1` `/.ts2` in the poco directory
+* cd ~/pococms/website and run `poco-dir-update`
+
+## Check for assets
+* In the website/docs/img-sample-gordon-house-224x168.jpg
+
+
 ## Interactive theme tests
 * For each theme click all links in all page layout elements
 

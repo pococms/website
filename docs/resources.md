@@ -1,21 +1,29 @@
+#### WORLD
 # Resources: an all-you-can-eat buffet of free and surprisingly useful resources, even for commercial use
 
-#### By [Tom Campbell](https://pococms.com) ![Twitter profile](twitter-14px-clear.svg) | Dec 21, 2022 at 7:30pm
+This is a curated list of ways to make your web publishing fast and cheaper.
+They are all free (some may require attribution or a signup process) and
+have withstood the test of time... for a couple of years.
 
-#### By [Tom Campbell](https://pococms.com) ![Twitter profile](twitter-10-clear.svg) | Dec 21, 2022 at 7:30pm
+#### **By** [Tom Campbell](https://pococms.com) [![Twitter profile](twitter-14px-blue.svg)@pococms](https://twitter.com/pococms)  | Dec 21, 2022 at 7:30pm
 
-#### By [Tom Campbell](https://pococms.com) ![Facebook profile](facebook-14px-clear.svg) | Dec 21, 2022 at 7:30pm
+![Image of happy fisherman unknowingly hooking a huge fish underwater](fishing-3635221.svg)
 
-![Facebook profile](facebook-14px-clear.svg)
-
-
-![Twitter profile](twitter-10-clear.svg)
+## All resources are free
+## Some require attribution
+## They're great time savers
 
 ## Performance
 
 Paste your site URL into these pages and get the unvarnished truth
 about what might be interfering with user experience: from speed to
 accessibility to SEO.
+
+* itme
+* imt
+* tim3
+
+## RANDOM h2
 
 ### Google's PageSpeed Insights
 
@@ -51,7 +59,27 @@ designed for clarity.
 
 ## Icons
 
+* [icongram](https://icongr.am) made it so simple to get icons
+using their amazing API. They offer thousands of icons,
+but you can get them in any size and color by specifying
+what you'd like on the command line. For example, this
+yields a YouTube logo in SVG format, size 32x32 pixels,
+in red (color #`FF0000`).
+
+```
+https://icongr.am/simple/youtube.svg?size=32&color=FF0000
+```
+
+* Don't underestimate the 1800+ [Bootstrap icons](https://icons.getbootstrap.com/),
+
+
 * [Lucide](https://lucide.dev) open source icons
+
+## SVG graphics
+
+[SVGViewer](https://www.svgviewer.dev) can remove padding from SVGS, validate them, optimize them,
+and more.
+
 
 ## Other graphic assets
 

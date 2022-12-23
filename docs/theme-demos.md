@@ -4,6 +4,7 @@
 * [Base](demos/base.html)
 * [Electro](demos/electro.html)
 * [Hack](demos/hack.html)
+* [Informer](demos/informer.html)
 * [Newman](demos/newman.html)
 * [Paper](demos/paper.html)
 * [Pasteboard](demos/pasteboard.html)

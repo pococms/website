@@ -1,6 +1,36 @@
 # CSS tips
 
 
+# RAW MATERIAL: TABLES
+
+From the Informer theme
+
+```
+footer,footer>p,footer>p>a{color:white;background-color:blue;}
+footer{color:black;background-color:white;}
+footer>table{font-size:.75em;}
+/* Make change to all headers (first row of table) */
+/* Next 2 lines of code are required. */
+table{table-layout:fixed;width:95%;}
+footer>table th{font-weight:bold;width:5%;}
+
+footer>table>th,footer>table>td{color:yellow;width:5rem;}
+footer>table th{border:0;}  /* Removes border from header row */
+footer>table td{border:0;}  /* Remove border from all other rows */
+footer>table>thead>tr{line-height:1.5rem;} /* Set height of header row */
+footer>table>tbody>tr{line-height:0;} /* Set height of all other rows */
+
+/*This seems unnecessary */
+footer>table{
+  /* Cells in table share borders */
+  border-collapse: collapse;
+  border:none;
+}
+/* Text-align all rows left */
+footer>table>tbody>tr>td{text-align:left}
+```
+
+
 In case you're new to CSS, here's some handy code
 you can drop right into your own themes.
 
@@ -9,6 +39,7 @@ you can drop right into your own themes.
 [Links with modern cursor and custom underline](#links-with-modern-cursor-and-custom-underline)  
 [How to show links with separate underline color](#how-to-show-links-with-separate-underline-color)  
 [Centering old-school](#centering)  
+[Font reset](#font-reset)
 [Font stacks](#font-stacks)  
 [Downloadable fonts](#downloadable-fonts)  
 [GitHub-based files get free CDN hosting through jsdelivr.net](#github-based-files-get-free-cdn-hosting-through-jsdelivrnet)  
@@ -95,6 +126,14 @@ Replace `header` with whatever element you want centered.
 header {text-align:center;padding-left:0;padding-right:0;width:100%;margin-left:auto;margin-right:auto;}
 ```
 [Return](#contents)
+
+## Font reset
+
+Here's how to change the font of everything all at once. Obviously what comes after
+`font-family` is your choice. This example comes from the [Informer](https://github.com/pococms/poco/tree/main/.poco/themes/informer) theme in the [informer.css](https://github.com/pococms/poco/blob/main/.poco/themes/informer/informer.css) file.
+```
+body,article,header,footer,aside,a,p,h1,h2,h3,h4,h5,h6 {font-family:Cambria,'Hoefler Text',Utopia,'Liberation Serif','Nimbus Roman No9 L Regular',Times,'Times New Roman',serif;}
+```
 
 <a name="font-stacks"></a>
 

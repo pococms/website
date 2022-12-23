@@ -6,7 +6,8 @@ theme: "informer"
 # Welcome to website
 
 * [Theme demos](docs/theme-demos.html)
-* [Creating themes](themes-creating.html)  
+* [Creating themes](docs/themes-creating.html)  
+* [Resources](docs/resources.html)
 * [Documentation](docs/index.html)
 * [Reference](docs/reference.html)
 * [Todo](todo.html)
