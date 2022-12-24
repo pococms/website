@@ -1,7 +1,17 @@
 # CSS tips
 
 
+
+
+## rem vs em
+
+* Use rem for font sizes and @media query, because rem is based 
+on browser settings.
+* Use em for margins, padding, etc.
+
 # RAW MATERIAL: TABLES
+
+
 
 From the Informer theme
 

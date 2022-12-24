@@ -1,3 +1,6 @@
+---
+pagetheme: informer
+---
 #### WORLD
 # Resources: an all-you-can-eat buffet of free and surprisingly useful resources, even for commercial use
 
