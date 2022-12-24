@@ -12,10 +12,21 @@
 including as comments in Go template format
 * Run poco in the poco directory
 * Run the test scripts `/.ts1` `/.ts2` in the poco directory
+* Follow directions in the test scripts, notably looking for
+  - Sidebars in both short and log documents
+  - Themes in nested directories
 * cd ~/pococms/website and run `poco-dir-update`
 
 ## Check for assets
-* In the website/docs/img-sample-gordon-house-224x168.jpg
+* Am I still using
+  - website/docs/img-sample-gordon-house-224x168.jpg
+
+* Probably want to eliminate or replace these files, especially if I figure out how to get CSS working smoothly with SVG
+	- .poco/img/facebook-14px-clear.svg
+	- .poco/img/facebook-24px-blue.svg
+	- .poco/img/twitter-14px-blue.svg
+	- .poco/img/twitter-14px-clear.svg
+	- .poco/img/youtube-14px-red.svg
 
 
 ## Interactive theme tests

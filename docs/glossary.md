@@ -261,11 +261,18 @@ directories in projects you created prior to those changes.
 
 A PocoCMS *project* is a directory tree with the
 source Markdown files and other assets required to 
-create a website. At a minimum, it needs a
-[home page](#home-page), which is a Markdown file named
-either `index.md` or `README.md`, and a webroot subdirectory,
-by default named `WWW`. But you can't do much without
-a [.poco directory](#poco-directory), which contains assets
+create a website. The name of that directory 
+is also known as the name of your project. 
+
+### Parts of a project
+At a minimum, a project consists of:
+
+* its containing directory,
+* a [home page](#home-page), which is a Markdown file named
+either `index.md` or `README.md`, and
+* a webroot subdirectory, by default named `WWW`. 
+
+You can't do much without a [.poco directory](#poco-directory), which contains assets
 such as themes and stylesheets.
 
 Sometimes we use the words `site` when we're talking about your

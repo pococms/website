@@ -3,6 +3,7 @@ pagetheme: "informer"
 stylesheets:
 - "../../css/featuretable.css"
 aside: "docs/demos/informer-aside.md"
+#aside: "informer-aside.md"
 ---
 # Informer helps you create news sites fast
 

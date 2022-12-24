@@ -1,5 +1,5 @@
 ---
-pagestyle: "pocodocs"
+pagetheme: "pocodocs"
 stylesheets:
 - "../../css/featuretable.css"
 ---

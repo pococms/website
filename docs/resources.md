@@ -77,9 +77,9 @@ https://icongr.am/simple/youtube.svg?size=32&color=FF0000
 
 ## SVG graphics
 
-[SVGViewer](https://www.svgviewer.dev) can remove padding from SVGS, validate them, optimize them,
+* [SVGViewer](https://www.svgviewer.dev) can remove padding from SVGS, validate them, optimize them,
 and more.
-
+* [Vecta Nano](https://vecta.io/nano) compresses SVG files with an online interface
 
 ## Other graphic assets
 

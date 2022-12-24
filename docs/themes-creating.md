@@ -1,5 +1,15 @@
 # Creating PocoCMS themes
 
+# Correct order of theme files
+
+```
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+- ../../css/type.css
+- ../../css/colors.css
+- ../../css/media.css
+```
 
 ## Theme creation checklist
 * Run it through `poco-theme-test` *themename*
