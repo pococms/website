@@ -1,16 +1,5 @@
 # Creating PocoCMS themes
 
-# Correct order of theme files
-
-```
-- ../../css/reset.css
-- ../../css/sizes.css
-- ../../css/layout.css
-- ../../css/type.css
-- ../../css/colors.css
-- ../../css/media.css
-```
-
 ## Theme creation checklist
 * Run it through `poco-theme-test` *themename*
 * Go to the website directory and run `poco-dir-update`
@@ -38,7 +27,114 @@
       | ✅  | Footer on/off        |
       | ✅  | Responsive           |
       | ✅  | Mobile support       |
+      | ✅  | Dark mode support    |
  
+## Separation of Concerns
+
+The PocoCMS [theme framework](theme-framework.html) isn't very big,
+but it does a huge amount of work. It has to handle many conflicting
+interests: responsiveness, optional header/nav/aside/footer,
+aside placements, looking good on both short pages and long ones,
+mobile support, and more.
+
+Instead of doing something like this:
+
+```
+article > 3 {
+  font-size: 1.5em;
+  line-height: 1.75em;
+  font-family: 'Roboto Condensed','sans-serif';
+  font-weight: bold;
+  color:gray;
+}
+```
+
+The framework splits up each job:
+
+##### filename: **overrides.css**
+
+```
+/* OVERRIDE FRAMEWORK SIZES */
+
+article > 3 {
+  font-size: 1.5em;
+  line-height: 1.75em;
+}
+
+/* OVERRIDE FRAMEWORK LAYOUT */
+
+/* OVERRIDE FRAMEWORK TYPOGRAPHY AND FONTS */
+
+article > 3 {
+  font-family: 'Roboto Condensed','sans-serif';
+  font-weight: bold;
+}
+
+/* OVERRIDE FRAMEWORK COLORS */
+
+article > 3 {
+  color:gray;
+}
+
+
+/* OVERRIDE FRAMEWORK MEDIA QUERIES */
+
+```
+
+
+
+* When you're creating your theme it's a best practice to append 
+a file callled `overrides.css` to the end of the list in 
+youre theme's 'README.md', like this
+
+
+```
+stylesheets:
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+- ../../css/type.css
+- ../../css/colors.css
+- ../../css/skinny.css  # Optional
+- ../../css/media.css
+- ../../css/overrides.css
+---
+```
+
+* It's a best practice to separate the content of `overrides.css`
+into overrides that are in the same order as your stylesheet list.
+Separate theme with comments:
+
+##### filename: **overrides.css**
+
+```
+/* OVERRIDE FRAMEWORK SIZES */
+
+/* OVERRIDE FRAMEWORK LAYOUT */
+
+/* OVERRIDE FRAMEWORK TYPOGRAPHY AND FONTS */
+
+/* OVERRIDE FRAMEWORK COLORS */
+
+/* OVERRIDE FRAMEWORK MEDIA QUERIES */
+
+```
+
+# Dark mode
+
+Put this at the bottom of your `overrides.css` file:
+
+```
+/* DARK MODE THEME SUPPORT (KEEP THIS AT END OF FILE) */
+@media (prefers-color-scheme: dark) {
+  html,header,article{
+    background-color:black;color:white
+  }
+}
+```
+
+
+
 
 See also:  
 * [Themes technical overview](themes-overview.html)

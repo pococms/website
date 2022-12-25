@@ -12,6 +12,8 @@
 [Markdown extensions](markdown-extensions.html)  
 [CSS tips](css-tips.html)  
 [YAML usage](yaml-usage.html)  
+[SEO](seo.html)
+
 
 ## Internal
 [Release checklist](release-checklist.html)  

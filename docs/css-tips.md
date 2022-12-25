@@ -45,6 +45,8 @@ In case you're new to CSS, here's some handy code
 you can drop right into your own themes.
 
 ## Contents
+
+[2 colors in your logo text](#2-colors-in-your-logo-text)   
 [How to do headers using list syntax](#how-to-do-headers-using-list-syntax)  
 [Links with modern cursor and custom underline](#links-with-modern-cursor-and-custom-underline)  
 [How to show links with separate underline color](#how-to-show-links-with-separate-underline-color)  
@@ -57,6 +59,37 @@ you can drop right into your own themes.
 See also
 
 * [Resources](resources.html) page with many classless CSS libraries 
+
+## 2 colors in your logo text
+
+In the [PocoCMS](https://pococms.com) header you'll note that `Poco` is one
+color and `CMS` is another, even though it's selectable text. We cheated a little
+by reassigning the Markdown strikethrough characters. Normally when you start
+and end text with two tile characters (`~~`), as in:
+
+#### You type:
+
+```
+I ~~really don't~~ love politicians
+
+```
+
+And the result is:
+
+I ~~really don't~~ love politicians  
+
+Since it's highly unlikely you'd want strikethrough characters
+in a header, it's safe to style them like this. (The `del`
+attribute is strikethrough.)
+
+```
+header > ul > li:first-child > a > del, header > p > del {
+  color:red;text-decoration:none;font-weight:900;
+}
+```
+
+Note that this example keeps it specifically to the header.
+That reduces the likelihood of problems down the line.
 
 ## How to do headers using list syntax
 

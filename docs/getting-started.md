@@ -1,10 +1,5 @@
 # Getting Started
 
-## Installation
-
-## TODO: INSTALL INSTRUCTIONS. They should make sure it works with `poco -h` or something
-
-
 PocoCMS lets you start a website in just a few seconds. Here's how.
 
 * Come up with a name and location for your site. Let's cleverly call it `mysite`
@@ -46,7 +41,7 @@ poco -serve
 
 * This launches a simple webserver that lets you see the site
 as others on the web will see it. To view it in a browser,
-start the browse and paste in the line with `http://localhost`
+start the browser and paste in the line with `http://localhost`
 as shown below:
 
 ```
