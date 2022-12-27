@@ -8,7 +8,7 @@ and assume it's in the current directory.
 
 If there's already such a directory name, use something else. That directory
 will contain all the files you need to generate your site, so in this 
-documenetation it's called your [project](glossary#project) or  [site](glossary#site).
+documentation it's called your [project](glossary.html#project) or  [site](glossary.html#site).
 They're synonomous.
 
 * Create the new site with poco:
@@ -25,7 +25,7 @@ Poco responds instantly that the site has been created:
 Site published to /Users/tom/pococms/poco/mysite/WWW/index.html
 ```
 
-* Change to that directory:
+* Change to the directory you just created:
 
 ```
 cd mysite

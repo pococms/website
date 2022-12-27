@@ -42,6 +42,8 @@ You can get a summary of command-line options with the `-h` flag
 and you'll get something like this (in progress as docs are being
 written):
 
+TODO: UPDATE
+
 ```
 poco -h
  -cleanup
@@ -106,6 +108,20 @@ Site published to /Users/tom/hmtl/demosite/WWW/index.html
 ```
 
 {{- /* TODO: screenshots of both kinds of output for timestamp */ -}}
+
+## Copy a theme with -from and -toh
+
+If you want to create a new theme, the quickest way is
+to use the `-from` and `-to` options. You follow `-from` with the
+theme you want to copy from, and follow `-to` wth the new theme name.
+
+Suppose you want to create a new theme named `future` from
+the existing `electro` theme. You'd do so this way:
+
+```
+poco -from electro -to future
+```
+
 
 ## timestamp
 
