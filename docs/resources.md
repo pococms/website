@@ -2,6 +2,7 @@
 pagetheme: informer
 ---
 #### WORLD
+
 # Resources: an all-you-can-eat buffet of free and surprisingly useful resources, even for commercial use
 
 This is a curated list of ways to make your web publishing fast and cheaper.
@@ -84,7 +85,22 @@ https://icongr.am/simple/youtube.svg?size=32&color=FF0000
 and more.
 * [Vecta Nano](https://vecta.io/nano) compresses SVG files with an online interface
 
+## Popular screen sizes for responsive design
+* [BrowserStack](https://www.browserstack.com/) has a rare, data-backed writeup at [What is the ideal screen size for responsive design?](https://www.browserstack.com/guide/ideal-screen-sizes-for-responsive-design) to help your figure
+out what `@media` queries you might want shoot for. It covers both
+mobile and desktop, but combining them, you'll learn that the top sizes
+are 1920x1080 (10%), 1366x768 (6%), and 360x640 (6%).
+
+### Top 5 screen resolutions
+
+| Resolution  | % of users |
+| ----------- | ---------- |
+| 1920x1080   | 9.94%      |
+| 1366x768    | 6.22%      |
+| 360x640     | 5.88%      |
+| 414x896     | 4.21%      |
+| 1536x864    | 3.94%      |
+
 ## Other graphic assets
 
-* 
 * [CSS Gradient](https://cssgradient.io/) generator goes into more depth than you'd think It has a handy generator on the home page, but then gets into things like [CSS Gradient Text](https://cssgradient.io/blog/css-gradient-text/),  [Gradient Backgrounds](https://cssgradient.io/blog/how-to-create-a-gradient-background/), [Patterns with CSS Gradients](https://cssgradient.io/blog/gradient-patterns/), done-for-you [CSS Gradient Swatches](https://cssgradient.io/swatches/), and  much more.

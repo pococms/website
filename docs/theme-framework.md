@@ -2,6 +2,10 @@
 
 # TODO: All of it!
 
+## MISC
+* `skinny.css` is what makes the Skyscraper theme so narrow.
+Pasteboard uses `medium-skinny.css`. They can be used
+interchangeably.
 
 ## Separation of Concerns
 

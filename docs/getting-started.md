@@ -1,17 +1,29 @@
 # Getting Started
 
-PocoCMS lets you start a website in just a few seconds. Here's how.
+PocoCMS lets you start a website in just a few seconds. 
+
+Before we go there, make sure you can:
+
+* Open a command prompt for yor operating system
+* Use a text editor
+* Understand how to create and navigate directories from the command prompt
+
+Besides those things you won't need any other knowledge. 
+These directions guide you through everything you need to know
+step by step. OK, time to build a website in exactly one second
+more than it takes to read these directions!
+
+## Create a site
 
 * Come up with a name and location for your site. Let's cleverly call it `mysite`
 and assume it's in the current directory.
 
 
-If there's already such a directory name, use something else. That directory
-will contain all the files you need to generate your site, so in this 
-documentation it's called your [project](glossary.html#project) or  [site](glossary.html#site).
-They're synonomous.
+That directory will contain all the files you need to generate your site.
+In this documentation it's called your [project](glossary.html#project) or 
+[site](glossary.html#site). They're usually synonomous.
 
-* Create the new site with poco:
+* Create the new site with poco -new:
 
 You'll type `poco -new` followed by the directory name, like this:
 
@@ -25,7 +37,7 @@ Poco responds instantly that the site has been created:
 Site published to /Users/tom/pococms/poco/mysite/WWW/index.html
 ```
 
-* Change to the directory you just created:
+* Change to the project directory you just created:
 
 ```
 cd mysite
@@ -41,18 +53,67 @@ poco -serve
 
 * This launches a simple webserver that lets you see the site
 as others on the web will see it. To view it in a browser,
-start the browser and paste in the line with `http://localhost`
+start the browser and paste in the line with `http://localhost:54321`
 as shown below:
 
 ```
-23 Dec 2022 19:43:34 Web server running at:
+Web server running at:
 
 http://localhost:54321
 
 To stop the web server, press Ctrl+C
 ```
 
+You'll see what you've created:
 
-* TODO: Screenshot
+![Default home page created by PocoCMS](img/home-page-default-1366x768.png)
 
+If you run in dark mode you'll see something different:
 
+![Default home page created by PocoCMS](img/home-page-default-dark-1366x768.png)
+
+## View the files PocoCMS created
+
+Let's take a look at what `poco -new` just did. Get a directory
+listing. It will appear something like this:
+
+```
+WWW
+.poco
+index.md
+```
+
+We'll explain the `WWW` and `.poco` directories in a few moments.
+
+* Take a look at the contents of the `index.md` file:
+
+```
+---
+theme: "base"
+---
+# Welcome to mysite
+
+hello, world.
+
+Learn more at [PocoCMS tutorials](https://pococms.com/docs/tutorials.html) 
+```
+
+Notices there's a directory called `WWW`. Examine its contents.
+
+##### **Directory** WWW
+
+```
+index.html
+```
+
+##### **file** WWW/index.html
+
+You'll see the file `WWW/index.html`:
+
+```
+.
+├── WWW
+│   └── index.html
+├── .poco
+└── index.md
+```

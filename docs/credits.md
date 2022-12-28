@@ -11,7 +11,7 @@ at any price, but free? Blows me away. And yes, I contributed.
 
 Thanks also to the many other [contributors](https://github.com/yuin/goldmark/graphs/contributors) to [goldmark](https://github.com/yuin/goldmark).
 
-Poco CMS relies on many other inimitable Yuin, including:
+Poco CMS relies on many other inimitable Yuin creations, including:
 
 * [https://github.com/yuin/goldmark-meta](https://github.com/yuin/goldmark-meta] for handling the YAML [front matter](front-matter.html)
 * [https://github.com/yuin/goldmark-highlighting](https://github.com/yuin/goldmark-highlighting) to handley syntax highlighting for code
@@ -30,17 +30,14 @@ for code syntax highlighting, thanks to the [Alec Thomas](https://github.com/ale
 ## CDN services
 
 Amazingly, [jsDelivr](https://www.jsdelivr.com/) hosts open source files
-with no application process or permissions required. Just follow
-`gh` in URLs like the one below with your GitHub repository path
-and your file gets hosted automatically. 
-      
-      ---
-      Stylesheets: 
-        - https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/poquito.css
-      ---
+with no application process or permissions required. Use their
+wonderfully convenient [Migrating from GitHub to jsDelivr](https://www.jsdelivr.com/github) page to convert a GitHub file like `https://github.com/pococms/poco/blob/main/.poco/css/layout.css` into  `https://cdn.jsdelivr.net/gh/pococms/poco@main/.poco/css/layout.css`, no muss, no fuss.
 
 Thanks, [jsDelivr](https://www.jsdelivr.com/) people!
 
+## CSS
+
+* Nested menus are possible thanks to Ray Messina's [Targeting Menu Elements with Submenus in a Navigation Bar](https://css-tricks.com/targetting-menu-elements-submenus-navigation-bar/), [Marking sub-menued items (sexy version)](https://codepen.io/RayM/pen/ARQmVQ) on CodePen.
 
 ## Graphics asseets
 

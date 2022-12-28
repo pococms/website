@@ -354,44 +354,26 @@ a:active {text-decoration:underline;
 ## GitHub-based files get free CDN hosting through jsdelivr.net
 
 
-The CDN `jsdelivr.net` has a service that makes life much easier
-for people who want their stylesheets hosted on the web. They
-automatically host GitHub files if you transform the GitHub
-URL properly:
+The CDN `jsdelivr.net` has a [Migrating from GitHub to jsDelivr](https://www.jsdelivr.com/github) service 
+that makes life much easier for people who want their stylesheets hosted on the web. Here's how.
 
-#### Github file **retro.css**
+* Visit the [Migrating from GitHub to jsDelivr](https://www.jsdelivr.com/github) page.
+* Grab a the URL of a filename from GitHub, for example, this
 
-```
-https://github.com/markdowncss/retro/retro.css
-```
-
-#### jsdeliver file
+file created by [Egoist](https://github.com/egoist) and used as the backbone of the PocoCMS Hack theme.
 
 ```
-https://cdn.jsdelivr.net/gh/markdowncss/retro@3171af759c8cf61b990c65846d35a0dfb4031824/css/retro.css
+https://github.com/egoist/hack/blob/master/src/css/hack.css
 ```
 
-The trick is knowing which GitHub commit hash value (the number
-starting in this example with `3171af7`) to use, as
-described below.
+* Paste that URL into the **GitHub** field.
+* It's instantly transformed in the **jsdelivr** field as:
 
-https://github.com/markdowncss/retro
-* Start with `https://cdn.jsdelivr.net/gh/`
-* Add the Github path to your stylesheet without the GitHub part, inserting an `
-@` after the repo name. For example, for the stylesheet  
-at `https://github.com/markdowncss/retro/retro.css`, you would append
-the following: `https://github.com/markdowncss/retro@`
-* Add the git hash number of the latest release, or release tag if one is provided. For example, the [retro](https://github.com/markdowncss/retro) stylesheet hash number at the moment is `3171af759c8cf61b990c65846d35a0dfb4031824`. To
-learn which number to use, look at the home page of the GitHub repo and
-  look at the top line of the code listingl. It will show a short sequence
-  of numbers (like `3171af7` in this case), followed by a date, then
-  the number of commits. You click that shortened hash number and it
-  takes you to the actual commit, and atop the code listing you'll
-  see the word `commit` followed by its full value, which is 
-  `3171af759c8cf61b990c65846d35a0dfb4031824` in this example.
-* Add the path of the file starting *after* the  the repo name.
-`css/retro.css` in this case.
-* The result: `https://cdn.jsdelivr.net/gh/markdowncss/retro@3171af759c8cf61b990c65846d35a0dfb4031824/css/retro.css`
+
+```
+https://github.com/egoist/hack/blob/master/src/css/hack.css
+```
+
 
 [Return](#contents)
 
