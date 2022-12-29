@@ -8,6 +8,84 @@
 <style></style>
 <style>
 
+/* root.css*/
+/* HEY ROOT */
+
+
+
+/* ************************************/
+/*  LIGHT COLOR SCHEME (FALLBACK)     */
+/* ************************************/
+
+:root {
+  --a:blue;                   /* Default link color */
+  --fg:black;                 /* Default text color. */
+  --bg:white;                 /* Default background color */
+  --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --h1-fg:var(--fg);          /* Default h1 text color */
+  --h2-fg:gray;               /* Default h2 text color */
+  --h3-fg:var(--fg);          /* Default h3 text color */
+  --h4-fg:gray;               /* Default h4 text color */
+  --h5-fg:var(--fg);          /* Default h5 text color */
+  --h6-fg:var(--fg);          /* Default h6 text color */
+  --code-fg:var(--fg);        /* Text color for code inside a paragraph */
+  --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
+  --pre-fg:var(--code-fg);    /* Text color for fenced code */
+  --pre-bg:var(--code-bg);    /* Background color for fenced code */
+}
+
+/* ************************************/
+/*  LIGHT COLOR SCHEME                */
+/* ************************************/
+
+@media (prefers-color-scheme:light) {
+:root {
+  --a:blue;                   /* Default link color */
+  --fg:black;                 /* Default text color. */
+  --bg:white;                 /* Default background color */
+  --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --h1-fg:var(--fg);          /* Default h1 text color */
+  --h2-fg:gray;               /* Default h2 text color */
+  --h3-fg:var(--fg);          /* Default h3 text color */
+  --h4-fg:gray;               /* Default h4 text color */
+  --h5-fg:var(--fg);          /* Default h5 text color */
+  --h6-fg:var(--fg);          /* Default h6 text color */
+  --code-fg:var(--fg);        /* Text color for code inside a paragraph */
+  --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
+  --pre-fg:var(--code-fg);    /* Text color for fenced code */
+  --pre-bg:var(--code-bg);    /* Background color for fenced code */
+}
+
+
+
+/* ************************************/
+/*  DARK COLOR SCHEME                 */
+/* ************************************/
+
+}
+@media (prefers-color-scheme: dark) {
+:root {
+  --a:cyan;                   /* Default link color */
+  --fg:white;                 /* Default text color */
+  --bg:MidnightBlue;          /* Default background color */
+  --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --h1-fg:var(--fg);          /* Default h1 text color */
+  --h2-fg:Lavender;           /* Default h2 text color */
+  --h3-fg:SkyBlue;            /* Default h3 text color */
+  --h4-fg:Silver;             /* Default h4 text color */
+  --h5-fg:var(--fg);          /* Default h5 text color */
+  --h6-fg:var(--fg);          /* Default h6 text color */
+  --code-fg:black;            /* Text color for code inside a paragraph */
+  --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
+  --pre-fg:var(--code-fg);    /* Text color for fenced code */
+  --pre-bg:var(--code-bg);    /* Background color for fenced code */
+}
+}
+
+
+
+
+
 /* inter.css*/
 @font-face {
     font-family: 'Inter';
@@ -185,15 +263,16 @@
 
 /* media.css*/
 @media (max-width:1080px){
-  aside{display:none}
-  article{float:left;clear:left;width:100%}
   html{font-size:20px;}
+  body{width:100%;margin:0}
+  aside{display:none}
+  article{margin:0;float:left;clear:left;width:100%}
 }
 @media (max-width:720px){
-  header,nav,aside,footer{display:none}
-  article{padding:1rem;}
-  article{float:left;clear:left;width:100%}
   html{font-size:20px;}
+  header,nav,aside,footer{display:none}
+  article{padding:1em;}
+  article{float:left;clear:left;width:100%}
 }
 
 
@@ -202,24 +281,35 @@
 
 /* ../../css/featuretable.css */
 /* Very specific stylesheet: used for feature tables in the theme demo area */
-td,th{text-align:left;border:none;line-spacing:.5rem;}
-table{white-space:no-wrap;}
-table{table-layout:fixed;width:40%;}
-table>tbody>tr{line-height:.5rem;}
-table>thead>tr>th{width:12rem}
-th:first-child,td:first-child{width:1rem;}
-table>tbody>tr{white-space:no-wrap;}
 
-/* Left-align all text in rows */
-table>tbody>tr>td{text-align:left}
-table{border:none;}
+
+/* Remove lines in all rows except header */
+article>table>tbody>tr>td{text-align:left}
+
+/* Remove lines from all rows of table except header */
+article>table>tbody>tr>td{border:none;}
+
+/* Remove lines from table header. */
+article>table>thead>tr>th{border:none;} 
+
+/* Force text to stay in one row of the same height */
+article>table{white-space:nowrap;}
+
+/* Keep the table narrow. It spaces columns closer. */
+article>table{table-layout:fixed;width:35%;}
+
+/* Make rows shorter */
+article>table>tbody>tr{line-height:.5rem;}
+
+/* Make columns 12 rem wide */
+article th{width:12rem;}
+
+/* First column is just wide enough for checkbox character */
+article th:first-child{width:1rem;}
 
 </style>
 </head>
-<body>
-<div id="page-container">
-<div id="content-wrap">
-	
+<body>	
 <header id="header-poco"><h1 id="newman-theme">Newman theme</h1>
 </header>
 	
@@ -275,13 +365,11 @@ find it on GitHub at <a href="https://github.com/xz/new.css">https://github.com/
 </table>
 
 </article>
-</div><!-- content-wrap -->
 
 <footer id="footer-poco"><a href="#">About</a> <a href="#">Privacy</a> <a href="#">Terms of service</a>
 
 
 </footer>
-</div><!-- page-container -->
 <script> {
   // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
   // Document.ready working back to IE 8.

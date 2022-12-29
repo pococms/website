@@ -1,5 +1,26 @@
 # Creating PocoCMS themes
 
+
+## TODO: themename.css
+
+Add something like this:
+
+```
+@media (prefers-color-scheme:light) {
+:root {
+  --html-bg:black;
+}
+}
+```
+
+```
+@media (prefers-color-scheme:dark) {
+:root {
+  --html-bg:SteelBlue;
+  --html-bg:red;
+}
+}
+```
 ## Theme creation checklist
 * Run it through `poco-theme-test` *themename*
 * Go to the website directory and run `poco-dir-update`

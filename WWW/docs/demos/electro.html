@@ -12,22 +12,85 @@
 </style>
 <style>
 
-/* base.css*/
-/* Works with optional headers, footers, nav, and 
- * both left and right asides. 
- * Must precede with reset.css of course 
- *
- * This is the equivalent of reset.css + poquito.css
- * REM VS EM
- * - Use rem for font sizes and @media query, because
- *   rem is based on browser settings.
- * - Use em for margins, padding, etc.
- */
+/* root.css*/
+/* HEY ROOT */
 
-/* *****************************************************
- * RESET
- ***************************************************** */
 
+
+/* ************************************/
+/*  LIGHT COLOR SCHEME (FALLBACK)     */
+/* ************************************/
+
+:root {
+  --a:blue;                   /* Default link color */
+  --fg:black;                 /* Default text color. */
+  --bg:white;                 /* Default background color */
+  --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --h1-fg:var(--fg);          /* Default h1 text color */
+  --h2-fg:gray;               /* Default h2 text color */
+  --h3-fg:var(--fg);          /* Default h3 text color */
+  --h4-fg:gray;               /* Default h4 text color */
+  --h5-fg:var(--fg);          /* Default h5 text color */
+  --h6-fg:var(--fg);          /* Default h6 text color */
+  --code-fg:var(--fg);        /* Text color for code inside a paragraph */
+  --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
+  --pre-fg:var(--code-fg);    /* Text color for fenced code */
+  --pre-bg:var(--code-bg);    /* Background color for fenced code */
+}
+
+/* ************************************/
+/*  LIGHT COLOR SCHEME                */
+/* ************************************/
+
+@media (prefers-color-scheme:light) {
+:root {
+  --a:blue;                   /* Default link color */
+  --fg:black;                 /* Default text color. */
+  --bg:white;                 /* Default background color */
+  --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --h1-fg:var(--fg);          /* Default h1 text color */
+  --h2-fg:gray;               /* Default h2 text color */
+  --h3-fg:var(--fg);          /* Default h3 text color */
+  --h4-fg:gray;               /* Default h4 text color */
+  --h5-fg:var(--fg);          /* Default h5 text color */
+  --h6-fg:var(--fg);          /* Default h6 text color */
+  --code-fg:var(--fg);        /* Text color for code inside a paragraph */
+  --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
+  --pre-fg:var(--code-fg);    /* Text color for fenced code */
+  --pre-bg:var(--code-bg);    /* Background color for fenced code */
+}
+
+
+
+/* ************************************/
+/*  DARK COLOR SCHEME                 */
+/* ************************************/
+
+}
+@media (prefers-color-scheme: dark) {
+:root {
+  --a:cyan;                   /* Default link color */
+  --fg:white;                 /* Default text color */
+  --bg:MidnightBlue;          /* Default background color */
+  --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --h1-fg:var(--fg);          /* Default h1 text color */
+  --h2-fg:Lavender;           /* Default h2 text color */
+  --h3-fg:SkyBlue;            /* Default h3 text color */
+  --h4-fg:Silver;             /* Default h4 text color */
+  --h5-fg:var(--fg);          /* Default h5 text color */
+  --h6-fg:var(--fg);          /* Default h6 text color */
+  --code-fg:black;            /* Text color for code inside a paragraph */
+  --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
+  --pre-fg:var(--code-fg);    /* Text color for fenced code */
+  --pre-bg:var(--code-bg);    /* Background color for fenced code */
+}
+}
+
+
+
+
+
+/* reset.css*/
 html,body,nav,header,article,footer{width:100%;height:auto;max-width:100%;display:block;float:left;clear:both;overflow:auto;}
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
@@ -78,141 +141,176 @@ footer, header, hgroup, menu, nav, pre, section {
 	display: block;
 }
 
-/* ******************************************************  
- * FRAMEWORK WITH SUPPORT FOR HEADER, NAV, ASIDE, FOOTER
- ***************************************************** */
 
-#page-container { 
-  position: relative;
-  min-height: 100vh;
-}
-/* This is nested just inside article, and closes right before footer */
-#content-wrap {
-  padding-bottom: 10vh;  /* NOTE: Should be same as Footer height */
-}
 
+
+/* sizes.css*/
+ol li, ul li  {margin-left:1em;}
+p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
+td,th{padding: 0.5em;}
+/* TC: New */
+pre{
+  font-size: smaller;
+  overflow: auto;
+  padding: 1em;
+  margin:.5rem 0 0 0;
+}
+header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
+header>ul>li,nav>ul>li{padding-right:.5em;}
+article ol,article ul{margin-left:1em;}
+article{width:80%;height:100vh;}  
+article{padding-bottom:10vh}  /* Must match footer height */
+aside{width:20%;padding:0 2em 0 2em;}  
+footer {height:10vh;} /* Must match article padding-bottom */
+
+article,nav,header,aside,footer{padding-left:5%;}
+article>dl>dt {padding-top:1em;}
+article>dl>dd {margin-left:0;padding-bottom:0/*.5em*/;}
+
+h1{ font-size:2.5em;padding-top:2em;font-weight:bold; }
+h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:0;}
+h3{ font-size:1.5em;padding-top:1.25em;font-weight:bold;padding-bottom:1.25em;}
+h4{ font-size:.9em;padding-top:1em;}
+h5{ font-size:.8em; }
+h6{ font-size:0.9em; }
+
+
+
+
+/* layout.css*/
 
 /* Links show same if visited, underlined when hovered */
-a{color:blue;text-decoration:none;}
-a:visited{color:blue;text-decoration:none;}
+a{text-decoration:none;}
+a:visited{text-decoration:none;}
 a:hover,a:active{color:inherit;text-decoration:underline;cursor:pointer}
 
-/* NOTE: padding-bottom on article shold be same as footer-height */
-article{width:80%;height:100vh;}                         
-ol li, ul li  {margin-left:1em;}
-p {padding-bottom:1em;}
+/* Table cells share borders */
+table{border-collapse:collapse;}
 
-/* Note: footer height should be same as article padding-bottom */
-footer {width:100%;position:fixed;bottom:0;height:10vh;}
-aside{                                                                 
-  width:20%;                                    
-  padding:0 2rem 0 2rem;                          
-}  
+/* No one wants unordered lists in header, nav, footer to be vertical */
+header>ul,nav>ul,footer>ul{list-style-type:none;}
+header>ul>li,nav>ul>li,footer>ul>li{display:inline;}
 
 /* Article on the right, aside on the left */
 article{float:right;clear:right;}    
-aside{
-  float:left;                                
-}  
+aside{float:left;}  
 
 /* Article on the left, aside on the right */
 article{float:left;clear:left;}
-aside{ 
-  float:right;
-}
+aside{float:right;}
 
+/* TODO: Removing this seems safe */
+/* Handle page with light text. Have to stretch article and aside.  
+footer {position:fixed;bottom:0;}
+*/
+
+
+
+/* type.css*/
 code,kbd,pre{
   font-family: ui-monospace, SFMono-Regular, Monaco, monospace;
 }
-pre{
-  background-color: ghostwhite;
-  font-size: smaller;
-  overflow: auto;
-  padding: 1rem;
+
+article>dl>dt{font-weight:bold;}
+article h4{font-weight:bold;}
+
+
+
+
+/* colors.css*/
+html{background-color:var(--html-bg);}
+article,nav,header,footer,aside{color:var(--fg);background-color:var(--bg);}
+a{color:var(--a);}
+code{
+  color:var(--code-fg);
+  background-color:var(--code-bg);
 }
-table{
-  /* Cells in table share borders */
-  border-collapse: collapse;
-  width: 100%;
+pre{
+  color:var(--pre-fg);
+  background-color:var(--pre-bg);
 }
 td, th{
-  padding: 0.5rem;
-  border: 1px solid;
+  border: 1px solid gray;
 }
 
-article,nav,header,footer{padding-left:5%;}
-article,nav,header,footer,aside{background-color:white;}
-header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
-
-article>dl>dt {font-weight:bold;padding-top:1rem;}
-article>dl>dd {margin-left:0;padding-bottom:.5rem;}
-article h4{font-weight:bold;color:gray}
-
-header>ul,nav>ul{list-style-type:none;}
-header>ul>li,nav>ul>li{display:inline;padding-right:.5rem;}
-
-
-@media (max-width:1080px){
-  aside{display:none}
-  article{float:left;clear:left;width:100%}
-  html{font-size:20px;}
-}
-@media (max-width:720px){
-  header,nav,aside,footer{display:none}
-  article{padding:1rem;}
-  article{float:left;clear:left;width:100%}
-  html{font-size:20px;}
-}
-
+h2{color:var(--h2-fg);}
+h3{color:var(--h3-fg);}
+h4{color:var(--h4-fg);}
 
 
 
 
 /* skinny.css*/
-html{background-color:gray;margin-left:auto;margin-right:auto;width:80%;}
-body{margin:5% 5% 5% 10%;}
-aside{width:20%;padding-left:1rem;}
-header,nav,article,footer{margin-left:auto;margin-right:auto;}
-footer{margin-right:10%;max-width:80%;}
+html{background-color:var(--html-bg);margin-left:auto;margin-right:auto;width:100%;}
+body{width:60%;margin:5% 20% 5% 20%;}
+aside{width:30%;}
+article{width:70%;}
+footer{width:100%;}
+header,nav,footer{margin-left:auto;margin-right:auto;}
+
+
+
+
+/* media.css*/
+@media (max-width:1080px){
+  html{font-size:20px;}
+  body{width:100%;margin:0}
+  aside{display:none}
+  article{margin:0;float:left;clear:left;width:100%}
+}
+@media (max-width:720px){
+  html{font-size:20px;}
+  header,nav,aside,footer{display:none}
+  article{padding:1em;}
+  article{float:left;clear:left;width:100%}
+}
+
 
 
 
 /* electro.css*/
-h1{ font-size:2.5em;padding-top:2rem; }
-h2{ font-size:2em;padding-top:1.5rem; }
-h3{ font-size:1.5em;padding-top:1.5rem; }
-h4{ font-size:.9em;padding-top:1rem;}
-h5{ font-size:.8em; }
-h6{ font-size:0.9em; }
-
-
-nav > p, 
-  nav > h1,
-  nav > ul, 
-  nav > ul li a, 
-  nav > ol {
-	  font-family:'Nova Mono','sans-serif';
+@media (prefers-color-scheme: dark) {
+  html,header,article{background-color:black;color:white}
 }
 
-nav > h1, nav > h2, nav > h3 {font-family:'Nova Mono','sans-serif';}
-
-a,
-a:link,
-a:visited {color:blue;} 
-a:hover,
-a:active {pointer:cursor;text-decoration:underline;} 
-
-a:hover,
-a:active {text-decoration-color: red;
-	-webkit-text-decoration-color: red;}
+header a:hover,
+header a:active {text-decoration:underline;} 
 
 
-article > h1, article > h2, article > h3 {font-family:'Nova Mono','sans-serif';}
 
-article > h1,article > h2 {font-weight:700;}
 article > h2 {padding-top:4rem;}
-article > h4 {font-weight:normal;font-size:1em;padding-bottom:1em; } /* Byline */
-article > h4 > strong {font-weight:bold;} /* Byline */
+
+
+article > p > strong {font-family:'Roboto Condensed','sans-serif';font-weight:700;}
+article > p > code, article > code, article > pre, article > pre > code {
+		font-family:'monospace';
+		overflow:auto;
+    padding-bottom:1em;
+    line-height:1.5em;
+		}
+
+article > p > a,
+article > p > a:link,
+article > p >  a:visited
+	{font-family:'Roboto Condensed','sans-serif';font-weight:bold;text-decoration:underline;}
+article > p >  a:hover,
+article > p >  a:active
+	{text-decoration:underline;}
+
+article > img, article > p > img {width:100%;}
+aside > p > img, aside > img {float:left;}
+
+
+/* OVERRIDE FRAMEWORK FONTS */
+header > p {font-size:3rem;font-weight:700;display:inline;} 
+
+header > p, nav > p,
+  header > h1, nav > h1,
+  header > ul, nav > ul,
+  header > ul li a, nav > ul li a,
+  header > ol, nav > ol {
+	  font-family:'Nova Mono','sans-serif';
+}
 
 article > p, 
   article > ul, 
@@ -226,73 +324,20 @@ article > p,
 		line-height:2.25rem;
 		padding-bottom:1rem;
 }
-html,header{background-color:#CD433F;}
-article,nav,aside,footer{background-color:white}
-inav{color:#CD433F;background-color:#F7F7F8;}
 
-/* ******************************/
-/*  HEADER TAG                  */
-/* ******************************/
-
-header > p, 
-  header > h1,
-  header > ul, 
-  header > ul li a, 
-  header > ol {
-	  font-size:2.5rem;font-family:'Nova Mono','sans-serif';
+article > h1, article > h2, article > h3 {
+  font-family:'Nova Mono','sans-serif';font-weight:700;
 }
 
-header > p {font-size:3rem;font-weight:700;display:inline;} 
-header{color:white;height:4rem;}
-header a,
-header a:link,
-header a:visited {color:white;} 
-header a:hover,
-header a:active {pointer:cursor;text-decoration:underline;} 
+article > h4 {
+  font-weight:normal;
+} /* Byline */
 
-a:hover,
-a:active {text-decoration-color: red;
-	-webkit-text-decoration-color: red;}
+article > h4 > strong {
+  font-weight:bold;
+} /* Byline */
 
 
-
-article > p > strong {font-family:'Roboto Condensed','sans-serif';font-weight:700;}
-/* Override font rule for code */
-article > p > code, article > code, article > pre, article > pre > code {
-		font-family:'monospace';
-		overflow:auto;
-    imargin-top:0;
-    padding-bottom:1em;
-    line-height:1.5em;
-		}
-article > pre { padding-left: 1em;font-size:1.25rem;}
-article > p > code {padding:.125em .25em .125em .25em;border:1px solid gray;border-radius:.125em;}
-article > p > a,
-article > p > a:link,
-article > p >  a:visited
-	{font-family:'Roboto Condensed','sans-serif';font-weight:bold;text-decoration:underline;}
-article > p >  a:hover,
-article > p >  a:active
-	{text-decoration:underline;}
-
-
-iarticle > table > td,th {padding:1rem;}
-iarticle > table > tbody > tr > td {padding:1rem;border-bottom:.1px solid gray;}
-
-article > ul > li:before > input[type="text"]:disabled {color:red;} /* list-style-type:none;*/ 
-article > ul > li > input[type="text"]:disabled {color:red;} 
-article > ul > li > input[type="text"] {color:blue;} 
-
-article > img, article > p > img {width:100%;}
-
-/* ******************************/
-/*  SIDEBAR (ASIDE TAG)         */
-/* ******************************/
-
-
-
-aside {padding-right:1em;}
-aside > p > img, aside > img {float:left;}
 aside > p, 
   aside > h1,
   aside > h2,
@@ -304,58 +349,118 @@ aside > p,
 }
 
 
-
-/* ******************************/
-/*  FOOTER                      */
-/* ******************************/
-
-/* FOOTER */
-ifooter {border-top: 1px solid red;padding-bottom:1rem;} 
-footer > h2 {text-align:center;}
-footer > table {font-size:calc(80%);}
 footer > p, 
+  footer > p > a,
   footer > h1,
+  footer > h2,
+  footer > h3,
   footer > ul, 
   footer > ul li a, 
-  footer > ol {
+  footer> ol {
 	  font-family:'Nova Mono','sans-serif';
 }
 
-nav > h1, nav > h2, nav > h3 {font-family:'Nova Mono','sans-serif';}
 
+/* OVERRIDE FRAMEWORK COLORS */
 
-/* Give table columns to get some breathing room 
-footer > table > thead > tr > th {padding-right:2rem;} 
-footer > table > thead > tr > th {padding-top:1em;padding-right:2em;padding-bottom:1em;}
-footer > table > tbody > tr > td {padding-right:3em;}
-*/
+a:hover,
+a:active {text-decoration-color: red;
+	-webkit-text-decoration-color: red;
+}
+h2{color:gray;}
+h4{color:gray}
+
+html,header{background-color:#CD433F;}
+header{color:white;height:4rem;}
+header a,
+header a:link,
+header a:visited {color:white;} 
+
+article,nav,aside{background-color:white}
+
+article > ul > li:before > input[type="text"]:disabled {
+  color:red;
+} /* list-style-type:none;*/ 
+article > ul > li > input[type="text"]:disabled {
+  color:red;
+} 
+article > ul > li > input[type="text"] {
+  color:blue;
+} 
+
+/* OVERRIDE FRAMEWORK SIZES */
+header{height:4rem;}
+header > p, 
+  header > h1,
+  header > ul, 
+  header > ul li a, 
+  header > ol {
+	  font-size:2.5rem;
+}
+
+article > p, 
+  article > ul, 
+  article > ul li a, 
+  article > ol, 
+  article > dd, 
+  article > dl,
+  article > hr {
+		font-size:1.5rem;
+		line-height:2.25rem;
+		padding-bottom:1rem;
+}
+
+article > h4 {
+  font-size:1em;padding-bottom:1em;
+} /* Byline */
+
+/* DARK MODE THEME SUPPORT (KEEP THIS AT END OF FILE) */
+@media (prefers-color-scheme: dark) {
+  html,header,article{
+    background-color:black;color:white
+  }
+}
+
 
 
 
 
 /* ../../css/featuretable.css */
 /* Very specific stylesheet: used for feature tables in the theme demo area */
-td,th{text-align:left;border:none;line-spacing:.5rem;}
-table{white-space:no-wrap;}
-table{table-layout:fixed;width:40%;}
-table>tbody>tr{line-height:.5rem;}
-table>thead>tr>th{width:12rem}
-th:first-child,td:first-child{width:1rem;}
-table>tbody>tr{white-space:no-wrap;}
 
-/* Left-align all text in rows */
-table>tbody>tr>td{text-align:left}
-table{border:none;}
+
+/* Remove lines in all rows except header */
+article>table>tbody>tr>td{text-align:left}
+
+/* Remove lines from all rows of table except header */
+article>table>tbody>tr>td{border:none;}
+
+/* Remove lines from table header. */
+article>table>thead>tr>th{border:none;} 
+
+/* Force text to stay in one row of the same height */
+article>table{white-space:nowrap;}
+
+/* Keep the table narrow. It spaces columns closer. */
+article>table{table-layout:fixed;width:35%;}
+
+/* Make rows shorter */
+article>table>tbody>tr{line-height:.5rem;}
+
+/* Make columns 12 rem wide */
+article th{width:12rem;}
+
+/* First column is just wide enough for checkbox character */
+article th:first-child{width:1rem;}
 
 </style>
 </head>
-<body>
-<div id="page-container">
-<div id="content-wrap">
-	
+<body>	
 <header id="header-poco"><ul>
 <li><strong><a href="#">Electro theme header</a></strong></li>
+<li><a href="#">Reviews</a></li>
 <li><a href="#">Github</a></li>
+<li><a href="#">Profile</a></li>
 <li><a href="#">About</a></li>
 </ul>
 </header>
@@ -418,11 +523,13 @@ news item of current interest</p>
 </table>
 
 </article>
-</div><!-- content-wrap -->
 
-<footer id="footer-poco"><p><a href="#">Contact</a> <a href="#">Privacy policy</a> <a href="#">Terms of service</a></p>
+<footer id="footer-poco"><ul>
+<li><a href="#">Contact</a></li>
+<li><a href="#">Privacy policy</a></li>
+<li><a href="#">Terms of service</a></li>
+</ul>
 </footer>
-</div><!-- page-container -->
 <script> {
   // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
   // Document.ready working back to IE 8.

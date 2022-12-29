@@ -1,46 +1,26 @@
-/* layout that supports header, nav, aside, and footer. */
-#page-container { 
-  position: relative;
-  min-height: 100vh;
-}
-/* This is nested just inside article, and closes right before footer */
-#content-wrap {
-  padding-bottom: 10vh;    /* NOTE: Should be same as Footer height */
-}
-body{
-  height:100vh;
-}
-header{height:8vh;}
-nav{height:4vh;}
-aside{ 
-  float:left; /* Change to float:left for right sidebar */
-  width:6rem;
-  padding:1rem;
-}
-/* NOTE: Footer height must be same as #content-wrap padding-bottom */
-footer {position: absolute;bottom: 0;width: 100%;height: 10vh;}
-table{
-  border-collapse: collapse;
-  width: 100%;
-}
-td, th{
-  padding: 0.5rem;
-  border: 1px solid;
-}
-pre{
-  font-size: smaller;
-  overflow: auto;
-  padding: 1rem;
-}
-table{
-  border-collapse: collapse;
-  width: 100%;
-}
-td, th{
-  padding: 0.5rem;
-  border: 1px solid LightGray;
-}
-@media (max-width:720px){
-  header,nav,aside,footer{display:none}
-  article{padding:1rem;}
-}
+
+/* Links show same if visited, underlined when hovered */
+a{text-decoration:none;}
+a:visited{text-decoration:none;}
+a:hover,a:active{color:inherit;text-decoration:underline;cursor:pointer}
+
+/* Table cells share borders */
+table{border-collapse:collapse;}
+
+/* No one wants unordered lists in header, nav, footer to be vertical */
+header>ul,nav>ul,footer>ul{list-style-type:none;}
+header>ul>li,nav>ul>li,footer>ul>li{display:inline;}
+
+/* Article on the right, aside on the left */
+article{float:right;clear:right;}    
+aside{float:left;}  
+
+/* Article on the left, aside on the right */
+article{float:left;clear:left;}
+aside{float:right;}
+
+/* TODO: Removing this seems safe */
+/* Handle page with light text. Have to stretch article and aside.  
+footer {position:fixed;bottom:0;}
+*/
+

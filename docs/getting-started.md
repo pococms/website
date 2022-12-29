@@ -98,7 +98,7 @@ hello, world.
 Learn more at [PocoCMS tutorials](https://pococms.com/docs/tutorials.html) 
 ```
 
-Notices there's a directory called `WWW`. Examine its contents.
+Notice there's a directory called `WWW`. Examine its contents.
 
 ##### **Directory** WWW
 

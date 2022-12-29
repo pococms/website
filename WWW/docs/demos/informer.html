@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Powered by PocoCMS</title>
+
+<style></style>
+<style>
+
+/* root.css*/
+/* HEY ROOT */
+
+
+
+/* ************************************/
+/*  LIGHT COLOR SCHEME (FALLBACK)     */
+/* ************************************/
+
+:root {
+  --a:blue;                   /* Default link color */
+  --fg:black;                 /* Default text color. */
+  --bg:white;                 /* Default background color */
+  --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --h1-fg:var(--fg);          /* Default h1 text color */
+  --h2-fg:gray;               /* Default h2 text color */
+  --h3-fg:var(--fg);          /* Default h3 text color */
+  --h4-fg:gray;               /* Default h4 text color */
+  --h5-fg:var(--fg);          /* Default h5 text color */
+  --h6-fg:var(--fg);          /* Default h6 text color */
+  --code-fg:var(--fg);        /* Text color for code inside a paragraph */
+  --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
+  --pre-fg:var(--code-fg);    /* Text color for fenced code */
+  --pre-bg:var(--code-bg);    /* Background color for fenced code */
+}
+
+/* ************************************/
+/*  LIGHT COLOR SCHEME                */
+/* ************************************/
+
+@media (prefers-color-scheme:light) {
+:root {
+  --a:blue;                   /* Default link color */
+  --fg:black;                 /* Default text color. */
+  --bg:white;                 /* Default background color */
+  --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --h1-fg:var(--fg);          /* Default h1 text color */
+  --h2-fg:gray;               /* Default h2 text color */
+  --h3-fg:var(--fg);          /* Default h3 text color */
+  --h4-fg:gray;               /* Default h4 text color */
+  --h5-fg:var(--fg);          /* Default h5 text color */
+  --h6-fg:var(--fg);          /* Default h6 text color */
+  --code-fg:var(--fg);        /* Text color for code inside a paragraph */
+  --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
+  --pre-fg:var(--code-fg);    /* Text color for fenced code */
+  --pre-bg:var(--code-bg);    /* Background color for fenced code */
+}
+
+
+
+/* ************************************/
+/*  DARK COLOR SCHEME                 */
+/* ************************************/
+
+}
+@media (prefers-color-scheme: dark) {
+:root {
+  --a:cyan;                   /* Default link color */
+  --fg:white;                 /* Default text color */
+  --bg:MidnightBlue;          /* Default background color */
+  --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --h1-fg:var(--fg);          /* Default h1 text color */
+  --h2-fg:Lavender;           /* Default h2 text color */
+  --h3-fg:SkyBlue;            /* Default h3 text color */
+  --h4-fg:Silver;             /* Default h4 text color */
+  --h5-fg:var(--fg);          /* Default h5 text color */
+  --h6-fg:var(--fg);          /* Default h6 text color */
+  --code-fg:black;            /* Text color for code inside a paragraph */
+  --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
+  --pre-fg:var(--code-fg);    /* Text color for fenced code */
+  --pre-bg:var(--code-bg);    /* Background color for fenced code */
+}
+}
+
+
+
+
+
+/* reset.css*/
+html,body,nav,header,article,footer{width:100%;height:auto;max-width:100%;display:block;float:left;clear:both;overflow:auto;}
+html {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: inherit;}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, 
+a, abbr, acronym, address, big, cite, 
+del, dfn,img, ins, kbd, q, s, 
+small, strike, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, 
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family:
+    "system-ui",                           
+      "-apple-system",                  
+      "LucidaGrandeUI",                         
+      "HelveticaNeueDeskInterface-Regular",     
+      "HelveticaNeueDeskInterface-Light",        
+      "DroidSans",                           
+      "Ubuntu Light",
+      "Arial",  
+      "Roboto-Light",                            
+      "Segoe UI Light",                                   
+      "Tahoma",                             
+      "sans-serif";
+}
+
+/* Make touch interaction faster */
+a,area,button,[role="button"],input:not([type=range]),label,select,summary,textarea { -ms-touch-action: manipulation;touch-action: manipulation;}
+
+/* Largely undocumented and fails nvu validation. But removing it causes subtle problems, for example, adding extra left padding in header. */
+p,ol,ul,li,header {margin-block-start:0;margin-block-end:0;padding-inline-start:0;}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, pre, section {
+	display: block;
+}
+
+
+
+
+/* sizes.css*/
+ol li, ul li  {margin-left:1em;}
+p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
+td,th{padding: 0.5em;}
+/* TC: New */
+pre{
+  font-size: smaller;
+  overflow: auto;
+  padding: 1em;
+  margin:.5rem 0 0 0;
+}
+header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
+header>ul>li,nav>ul>li{padding-right:.5em;}
+article ol,article ul{margin-left:1em;}
+article{width:80%;height:100vh;}  
+article{padding-bottom:10vh}  /* Must match footer height */
+aside{width:20%;padding:0 2em 0 2em;}  
+footer {height:10vh;} /* Must match article padding-bottom */
+
+article,nav,header,aside,footer{padding-left:5%;}
+article>dl>dt {padding-top:1em;}
+article>dl>dd {margin-left:0;padding-bottom:0/*.5em*/;}
+
+h1{ font-size:2.5em;padding-top:2em;font-weight:bold; }
+h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:0;}
+h3{ font-size:1.5em;padding-top:1.25em;font-weight:bold;padding-bottom:1.25em;}
+h4{ font-size:.9em;padding-top:1em;}
+h5{ font-size:.8em; }
+h6{ font-size:0.9em; }
+
+
+
+
+/* layout.css*/
+
+/* Links show same if visited, underlined when hovered */
+a{text-decoration:none;}
+a:visited{text-decoration:none;}
+a:hover,a:active{color:inherit;text-decoration:underline;cursor:pointer}
+
+/* Table cells share borders */
+table{border-collapse:collapse;}
+
+/* No one wants unordered lists in header, nav, footer to be vertical */
+header>ul,nav>ul,footer>ul{list-style-type:none;}
+header>ul>li,nav>ul>li,footer>ul>li{display:inline;}
+
+/* Article on the right, aside on the left */
+article{float:right;clear:right;}    
+aside{float:left;}  
+
+/* Article on the left, aside on the right */
+article{float:left;clear:left;}
+aside{float:right;}
+
+/* TODO: Removing this seems safe */
+/* Handle page with light text. Have to stretch article and aside.  
+footer {position:fixed;bottom:0;}
+*/
+
+
+
+/* type.css*/
+code,kbd,pre{
+  font-family: ui-monospace, SFMono-Regular, Monaco, monospace;
+}
+
+article>dl>dt{font-weight:bold;}
+article h4{font-weight:bold;}
+
+
+
+
+/* colors.css*/
+html{background-color:var(--html-bg);}
+article,nav,header,footer,aside{color:var(--fg);background-color:var(--bg);}
+a{color:var(--a);}
+code{
+  color:var(--code-fg);
+  background-color:var(--code-bg);
+}
+pre{
+  color:var(--pre-fg);
+  background-color:var(--pre-bg);
+}
+td, th{
+  border: 1px solid gray;
+}
+
+h2{color:var(--h2-fg);}
+h3{color:var(--h3-fg);}
+h4{color:var(--h4-fg);}
+
+
+
+
+/* media.css*/
+@media (max-width:1080px){
+  html{font-size:20px;}
+  body{width:100%;margin:0}
+  aside{display:none}
+  article{margin:0;float:left;clear:left;width:100%}
+}
+@media (max-width:720px){
+  html{font-size:20px;}
+  header,nav,aside,footer{display:none}
+  article{padding:1em;}
+  article{float:left;clear:left;width:100%}
+}
+
+
+
+
+/* informer.css*/
+/* informer.css */
+body,article,header,footer,aside,a,p,h1,h2,h3,h4,h5,h6 {font-family:Cambria,'Hoefler Text',Utopia,'Liberation Serif','Nimbus Roman No9 L Regular',Times,'Times New Roman',serif;}
+html{font-size:16px}
+p,p a,strong,em,a{font-size:1rem;line-height:1.75em}
+table{margin-top:1rem;}
+
+
+article{width:65%}
+aside{width:35%}
+aside{border-left: 1px solid #DCDCDC;padding:1rem;}
+aside>h2{font-size:1.5em;font-weight:bold;}
+aside>h3{width:60%;font-size:1em;font-weight:bold;padding-top:3rem;}
+aside>h4{padding-top:2rem;font-size:1em;font-weight:bold;color:gray;}
+aside>p>img{float:right;width:45%}
+aside>p{line-height:1rem;padding-right:.5rem}
+
+/*
+ * --------------------------------------------------
+ * TODO: Document this. Pattern looks like this
+ * --------------------------------------------------
+ */
+
+aside>h5{font-style:italic;padding-left:0;color:gray}
+aside>h4+p+h5{padding-bottom:1rem;border-bottom:1px solid #CDCDCD;}
+
+
+footer{height:20vh;}
+footer{border-top:1px solid gray;}
+footer>table{white-space:nowrap}
+footer>table{font-size:.75em;}
+footer>table>td{width:1rem;}
+/* Make change to all headers (first row of table) */
+table{table-layout:fixed;width:100%;}
+footer>table th{border:0;}  /* Removes border from header row */
+footer>table td{border:0;}  /* Remove border from all other rows */
+footer>table>thead>tr{line-height:1.5rem;} /* Set height of header row */
+footer>table>tbody>tr{line-height:0;} /* Set height of all other rows */
+
+/* Text-align all rows left */
+footer>table>tbody>tr>td{text-align:left}
+
+
+article p>a,article p>a:visited{text-decoration:underline;text-decoration-color:blue;
+	-webkit-text-decoration-color:blue;}
+
+article>p{padding:.25rem 0 .25rem} 
+h1 {font-size:1.75rem;font-weight:bold;padding-top:1.75rem}
+article>h2{font-size:1.25rem;font-weight:bold;padding-top:1.25rem;padding-bottom:.5em;}
+article>p>img{width:95%;}
+article>p{width:95%}
+
+/*
+ * --------------------------------------------------
+ * TODO: Document this. It's used for those bulleted
+ * lists at the beginning of an article, but with
+ * SEO powers
+ * It works with an h4 (byline) followed by h2s,
+ * or an h4 followed by an img followed by an h2
+ * --------------------------------------------------
+ */
+
+article>h4+p+h2:before,
+article>h2+h2:before, 
+article>h4+h2:before{content:'■';margin-right:.5rem;}
+article>h4+p+h2,
+article>h2+h2, 
+article>h4+h2{padding-top:.25rem}
+
+
+article>h4{font-weight:normal;}
+article>h4>strong{color:black;font-weight:bold;}
+article>h4>em{font-weight:normal;}
+article>h4>a>img {width:14px;margin-left:.5rem;margin-right:.15rem;} /* Social media icons in byline */
+
+header,nav{white-space:nowrap;overflow:hidden;}
+header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
+header{border-bottom:1px solid #DCDCDC;margin-bottom:1rem;}
+header > ul {height:6rem;}
+article,nav,header,footer{padding-left:5%;} 
+
+/*
+ * --------------------------------------------------
+ * If you have more than one item, use an unordered list. 
+ * These styles show the first item with branding applied,
+ * any number of links following, still slightly
+ * larger than body text, and a last link that
+ * looks like a button.
+ * --------------------------------------------------
+ */
+header > ul, nav > ul  {list-style-type:none;}
+header > ul > li{font-size:1.25rem;}
+header > ul > li, nav > ul > li{display:inline;padding-right:.5rem;}
+
+/*
+ * --------------------------------------------------
+ * TODO: Document
+ * Special feature: First item in list has biggest
+ * branding
+ * --------------------------------------------------
+ */
+header > ul > li:first-child > a {font-size:3em;padding-right:1rem;text-decoration:none;letter-spacing:-.05em}
+
+
+/*
+ * --------------------------------------------------
+ * Special feature: Surround letters in first item 
+ * with ~~ characters to get change of color
+ * --------------------------------------------------
+ */
+header>ul>li:first-child>a>del{text-decoration:none;color:red;}
+
+
+nav{margin-bottom:1rem;}
+nav>ul{line-height:2rem;}
+nav>p>a{padding-right:2rem;}
+nav a,nav>ul>li>a,nav>ul>li>a:link,nav>ul>li>a:visited{text-decoration:none}
+nav>p>a:active,nav>p>a:hover,nav>ul>li>a:hover,nav>ul>li>a:active{
+  text-decoration:underline;
+  text-decoration-color:blue;
+	-webkit-text-decoration-color:blue;}
+
+
+
+article>dl>dt {font-weight:bold;padding-top:1rem;}
+article>dl>dd {margin-left:0;padding-bottom:.5rem;}
+
+article>h3{color:dimgray;font-size:1.5rem;padding-top:1rem;;padding-bottom:.5rem}
+
+@media (prefers-color-scheme:light) {
+:root {
+  --a:black;
+}
+}
+
+@media (prefers-color-scheme:dark) {
+:root {
+  --a:white;
+}
+}
+
+
+
+
+/* ../../css/featuretable.css */
+/* Very specific stylesheet: used for feature tables in the theme demo area */
+
+
+/* Remove lines in all rows except header */
+article>table>tbody>tr>td{text-align:left}
+
+/* Remove lines from all rows of table except header */
+article>table>tbody>tr>td{border:none;}
+
+/* Remove lines from table header. */
+article>table>thead>tr>th{border:none;} 
+
+/* Force text to stay in one row of the same height */
+article>table{white-space:nowrap;}
+
+/* Keep the table narrow. It spaces columns closer. */
+article>table{table-layout:fixed;width:35%;}
+
+/* Make rows shorter */
+article>table>tbody>tr{line-height:.5rem;}
+
+/* Make columns 12 rem wide */
+article th{width:12rem;}
+
+/* First column is just wide enough for checkbox character */
+article th:first-child{width:1rem;}
+
+</style>
+</head>
+<body>	
+<header id="header-poco"><ul>
+<li><a href="https://pococms.com">Informer theme</a></li>
+<li><a href="#">Topics</a></li>
+<li><a href="#">Columns</a></li>
+<li><a href="#">Insights</a></li>
+<li><a href="#">More</a></li>
+<li><a href="#">Subscribe</a></li>
+</ul>
+</header>
+	
+<nav id="nav-poco"><p><a href="#">Archives</a> <a href="#">RSS</a>  <a href="#">About</a>   <a href="#">Contact</a>   <a href="#">Sitemap</a>  <a href="#">Terms of Service</a>  <a href="#">Privacy Policy</a></p>
+</nav>
+	
+<aside id="aside-poco"><h3 id="chehalis-estate-on-the-market">CHEHALIS ESTATE ON THE MARKET</h3>
+<p><img src="img-sample-gordon-house-224x168.jpg" alt="Sample image of house" /></p>
+<p>I'd like to see what a second paragraph will do here <br />
+Guess whose house is on the market?</p>
+<h5 id="members-only">Members only</h5>
+<h3 id="gets-whos-at-the-whiskey">GET'S WHO'S AT THE WHISKEY?</h3>
+<p><img src="img-sample-trent-200x134.jpg" alt="Picture of Trent Reznor" /></p>
+<p>There's going to be a very special show at the Whisky.
+We're not allowed to say who it is, but it's no one
+from Eight Inch Nails.</p>
+<h5 id="entertainment">Entertainment</h5>
+<h4 id="scandal-sheet">Scandal sheet</h4>
+<p>A source known to us tells us the mayor isn't long
+for this political world and will resign at 12 p.m.
+Friday</p>
+<h5 id="3-min-read">3 min read</h5>
+</aside>
+<article id="article-poco">
+<h1 id="informer-helps-you-create-news-sites-fast">Informer helps you create news sites fast</h1>
+<p>Its font size is small, following the convention of sites
+like <a href="https://www.wsj.com/">The Wall Street Journal</a> and
+<a href="https://www.nytimes.com/">The New York Times</a>.</p>
+<h2 id="supported-features">Supported features</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>Header on/off</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Nav on/off</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Aside left on/off</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Aside right on/off</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Footer on/off</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Responsive</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Mobile support</td>
+</tr>
+</tbody>
+</table>
+<h2 id="special-features">Special features</h2>
+<ul>
+<li>The h4 byline followed by an image and some h2s, or
+just the h4 byline followed by some h2s, shows the h2s
+as bulletted. But not in the rest of the article. So either this:</li>
+</ul>
+<pre><code>#### **By** [Tom Campbell](https://pococms.com) [![Twitter profile](twitter-14px-blue.svg)@pococms](https://twitter.com/pococms)  | Dec 21, 2022 at 7:30pm
+
+![Image of happy fisherman unknowingly hooking a huge fish underwater](fishing-3635221.svg)
+
+## All resources are free
+## Some require attribution
+## They're great time savers
+</code></pre>
+<ul>
+<li>Or this:</li>
+</ul>
+<pre><code>#### **By** [Tom Campbell](https://pococms.com) [![Twitter profile](twitter-14px-blue.svg)@pococms](https://twitter.com/pococms)  | Dec 21, 2022 at 7:30pm
+
+## All resources are free
+## Some require attribution
+## They're great time savers
+</code></pre>
+<p>Will show only the h2s immediately  after with bullets</p>
+<h3 id="asidemd">aside.md</h3>
+<h4 id="pattern-1">Pattern 1</h4>
+<pre><code>### CHEHALIS ESTATE ON THE MARKET
+![Sample image of house](img-sample-gordon-house-224x168.jpg)
+
+I'd like to see what a second paragraph will do here    
+Guess whose house is on the market?
+##### Members only
+
+</code></pre>
+<h4 id="pattern-2">Pattern 2</h4>
+<pre><code>### GET'S WHO'S AT THE WHISKEY?
+
+![Picture of Trent Reznor](img-sample-trent-200x134.jpg)
+
+There's going to be a very special show at the Whisky.
+We're not allowed to say who it is, but it's no one
+from Eight Inch Nails.
+
+##### Entertainment
+</code></pre>
+<p>Pattern 3:</p>
+<pre><code>#### Scandal sheet
+
+A source known to us tells us the mayor isn't long 
+for this political world and will resign at 12 p.m.
+Friday
+
+##### 3 min read
+</code></pre>
+
+</article>
+
+<footer id="footer-poco"><table>
+<thead>
+<tr>
+<th align="left">WORLD NEWS</th>
+<th align="left">LOCAL NEWS</th>
+<th align="left">TECH</th>
+<th align="left">ARTS</th>
+<th align="left">SOCIAL MEDIA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">North America</td>
+<td align="left">State</td>
+<td align="left">Reviews</td>
+<td align="left">Literary</td>
+<td align="left">Twitter</td>
+</tr>
+<tr>
+<td align="left">South America</td>
+<td align="left">Weather</td>
+<td align="left">Analysis</td>
+<td align="left">Television</td>
+<td align="left">Facebook</td>
+</tr>
+<tr>
+<td align="left">Europe</td>
+<td align="left">Traffic</td>
+<td align="left">Stocks</td>
+<td align="left">Cinema</td>
+<td align="left">Instagram</td>
+</tr>
+<tr>
+<td align="left">Asia</td>
+<td align="left">Crime</td>
+<td align="left">New products</td>
+<td align="left">Podcasts</td>
+<td align="left">YouTube</td>
+</tr>
+<tr>
+<td align="left">Africa</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">WhatsApp</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Reddit</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">LinkedIn</td>
+</tr>
+</tbody>
+</table>
+</footer>
+<script> {
+  // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
+  // Document.ready working back to IE 8.
+  // From https://stackoverflow.com/questions/2304941/what-is-the-non-jquery-equivalent-of-document-ready
+  function ready(fn) {
+    if (typeof fn !== 'function') {
+      throw new Error('Argument passed to ready should be a function');
+    }
+
+    if (document.readyState != 'loading') {
+      fn();
+    } else if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', fn, {
+        once: true // A boolean value indicating that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked.
+      });
+    } else {
+      document.attachEvent('onreadystatechange', function() {
+        if (document.readyState != 'loading')
+          fn();
+      });
+    }
+  }
+
+  // Demonstrate error checking 
+  //try {
+  //  window.ready(5);
+  //} catch (ex) {
+  //  console.log(ex.message);
+  //}
+
+
+  // HTML Document has been loaded. This is where it's safe 
+  // for you to execute code. For modularity's sake this 
+  // version calls an arbitrary function.
+  window.ready(function() {
+  // startHere() is just an arbitrary name. Can be anything.
+  startHere();
+  })
+
+  // --- START USER JAVASCRIPT CODE
+  function startHere() {
+  }
+  // --- END USER JAVASCRIPT CODE
+;
+
+
+var scrollTimer = -1;
+function bodyScroll()
+{
+  if(scrollTimer != -1){
+    clearTimeout(scrollTimer);
+  }
+  scrollTimer = window.setTimeout(sidebarHeight, 100);
+}
+function sidebarHeight() {
+    console.log("sidebarHeight()")
+  s=document.getElementById('aside-poco');
+  a=document.getElementById('article-poco'); 
+  if (s != null && a != null) {
+    // If there's a sidebar,
+    ha=a.offsetHeight;
+    hs=s.offsetHeight;
+    // If the article is longer, make
+    // the sidebar as long as the article.
+    if (ha>hs) {
+      h=a.offsetHeight+'px';s.style.height=h;
+    }
+    // If the sidebar is longer than the
+    // article, make the article as long
+    // as the sidebar.
+    else{
+      h=s.offsetHeight+'px';a.style.height=h;
+    }
+  }
+
+} 
+document.onreadystatechange = function () {
+  if (document.readyState == "interactive") {
+    // Init or start code here
+    bodyScroll();
+  }
+} 
+window.onresize=sidebarHeight;
+/* ES5 works fine */
+document.getElementsByTagName('body')[0].onscroll=bodyScroll();
+
+
+}
+</script>
+</body>
+</html>

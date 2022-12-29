@@ -7,7 +7,13 @@ nav: nav.md
 footer: footer.md
 
 stylesheets:
-- "../../css/base.css"
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+- ../../css/type.css
+- ../../css/colors.css
+- ../../css/media.css
 - "informer.css"
 ---
 # Informer helps you create news sites fast

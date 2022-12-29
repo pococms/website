@@ -23,24 +23,35 @@ pre{background-color: ghostwhite;font-size: smaller;overflow: auto;padding: .5em
 
 /* ../../css/featuretable.css */
 /* Very specific stylesheet: used for feature tables in the theme demo area */
-td,th{text-align:left;border:none;line-spacing:.5rem;}
-table{white-space:no-wrap;}
-table{table-layout:fixed;width:40%;}
-table>tbody>tr{line-height:.5rem;}
-table>thead>tr>th{width:12rem}
-th:first-child,td:first-child{width:1rem;}
-table>tbody>tr{white-space:no-wrap;}
 
-/* Left-align all text in rows */
-table>tbody>tr>td{text-align:left}
-table{border:none;}
+
+/* Remove lines in all rows except header */
+article>table>tbody>tr>td{text-align:left}
+
+/* Remove lines from all rows of table except header */
+article>table>tbody>tr>td{border:none;}
+
+/* Remove lines from table header. */
+article>table>thead>tr>th{border:none;} 
+
+/* Force text to stay in one row of the same height */
+article>table{white-space:nowrap;}
+
+/* Keep the table narrow. It spaces columns closer. */
+article>table{table-layout:fixed;width:35%;}
+
+/* Make rows shorter */
+article>table>tbody>tr{line-height:.5rem;}
+
+/* Make columns 12 rem wide */
+article th{width:12rem;}
+
+/* First column is just wide enough for checkbox character */
+article th:first-child{width:1rem;}
 
 </style>
 </head>
-<body>
-<div id="page-container">
-<div id="content-wrap">
-	
+<body>	
 	
 	
 <article id="article-poco">
@@ -109,9 +120,7 @@ colors, margins, and padding. Here's the whole thing.</p>
 </table>
 
 </article>
-</div><!-- content-wrap -->
 
-</div><!-- page-container -->
 <script> {
   // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
   // Document.ready working back to IE 8.

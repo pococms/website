@@ -319,6 +319,44 @@ this at the command line:
 poco -themes
 ```
 
+## user application data directory
+
+Every operating system has a preferred location for storing
+data from third-party apps such as PocoCMS.
+
+PocoCMS comes with a package of themes, stylesheets, graphic assets, and
+JavaScript files, and a few other goodies.  When you create a [project](#project) 
+with `poco -new`, these are all copied into the `.poco` subdirectory.
+The original source of those themes is under `pococms` in
+your user application data directory. Here's how to view your 
+user application data directory in some of PocoCMS's supported
+operating systems. Open up a terminal and type:
+
+### Viewing your user application data directory on Windows
+
+```
+echo %AppData%
+echo %AppData%\pococms
+```
+
+### Viewing your user application data directory on Mac
+
+```
+echo $HOME/Library/Caches
+echo $HOME/Library/Caches/pococms
+```
+
+
+### Viewing your user application data directory on Linux
+```
+echo $XDG_CACHE_HOME
+echo $XDG_CACHE_HOME/pococms
+```
+
+
+
+
+
 ## web root
 Synonymous with [webroot](#web-root).
 

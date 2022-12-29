@@ -2,6 +2,22 @@
 Keywords: "PocoCMS, PocoCMS summary, technical overview, how does PocoCMS work"
 ---
 
+## Installation
+
+PocoCMS is distribued as a single executable file. Upon startup, PocoCMS:
+
+* Queries the system to see where user application data is stored.
+* Checks to see if that directory contains a subdirectory named `pococms`
+* If no such directory can be found, it's created and populated by
+the "factory installed" `.poco` directory contained within the executable.
+* A new file called `.poco/INSTALLED` is created at that point. It's used
+as a heuristic and simply contains the time and date the directory was created. Sometimes it's hard to know if a `.poco` directory exists
+but is empty. Instead of trying to figure out what should be in a subdirectory
+under `.poco`, the INSTALLED file can be used to guess that `.poco` is
+probably not empty.
+* When a new PocoCMS project is created via `poco -new`, the factory `.poco`
+directory is copied from the PocoCMS user application data directory.
+
 # PocoCMS Technical Overview
 
 PocoCMS is a single executable file that reads a

@@ -8,22 +8,85 @@
 <style></style>
 <style>
 
-/* base.css*/
-/* Works with optional headers, footers, nav, and 
- * both left and right asides. 
- * Must precede with reset.css of course 
- *
- * This is the equivalent of reset.css + poquito.css
- * REM VS EM
- * - Use rem for font sizes and @media query, because
- *   rem is based on browser settings.
- * - Use em for margins, padding, etc.
- */
+/* root.css*/
+/* HEY ROOT */
 
-/* *****************************************************
- * RESET
- ***************************************************** */
 
+
+/* ************************************/
+/*  LIGHT COLOR SCHEME (FALLBACK)     */
+/* ************************************/
+
+:root {
+  --a:blue;                   /* Default link color */
+  --fg:black;                 /* Default text color. */
+  --bg:white;                 /* Default background color */
+  --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --h1-fg:var(--fg);          /* Default h1 text color */
+  --h2-fg:gray;               /* Default h2 text color */
+  --h3-fg:var(--fg);          /* Default h3 text color */
+  --h4-fg:gray;               /* Default h4 text color */
+  --h5-fg:var(--fg);          /* Default h5 text color */
+  --h6-fg:var(--fg);          /* Default h6 text color */
+  --code-fg:var(--fg);        /* Text color for code inside a paragraph */
+  --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
+  --pre-fg:var(--code-fg);    /* Text color for fenced code */
+  --pre-bg:var(--code-bg);    /* Background color for fenced code */
+}
+
+/* ************************************/
+/*  LIGHT COLOR SCHEME                */
+/* ************************************/
+
+@media (prefers-color-scheme:light) {
+:root {
+  --a:blue;                   /* Default link color */
+  --fg:black;                 /* Default text color. */
+  --bg:white;                 /* Default background color */
+  --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --h1-fg:var(--fg);          /* Default h1 text color */
+  --h2-fg:gray;               /* Default h2 text color */
+  --h3-fg:var(--fg);          /* Default h3 text color */
+  --h4-fg:gray;               /* Default h4 text color */
+  --h5-fg:var(--fg);          /* Default h5 text color */
+  --h6-fg:var(--fg);          /* Default h6 text color */
+  --code-fg:var(--fg);        /* Text color for code inside a paragraph */
+  --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
+  --pre-fg:var(--code-fg);    /* Text color for fenced code */
+  --pre-bg:var(--code-bg);    /* Background color for fenced code */
+}
+
+
+
+/* ************************************/
+/*  DARK COLOR SCHEME                 */
+/* ************************************/
+
+}
+@media (prefers-color-scheme: dark) {
+:root {
+  --a:cyan;                   /* Default link color */
+  --fg:white;                 /* Default text color */
+  --bg:MidnightBlue;          /* Default background color */
+  --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --h1-fg:var(--fg);          /* Default h1 text color */
+  --h2-fg:Lavender;           /* Default h2 text color */
+  --h3-fg:SkyBlue;            /* Default h3 text color */
+  --h4-fg:Silver;             /* Default h4 text color */
+  --h5-fg:var(--fg);          /* Default h5 text color */
+  --h6-fg:var(--fg);          /* Default h6 text color */
+  --code-fg:black;            /* Text color for code inside a paragraph */
+  --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
+  --pre-fg:var(--code-fg);    /* Text color for fenced code */
+  --pre-bg:var(--code-bg);    /* Background color for fenced code */
+}
+}
+
+
+
+
+
+/* reset.css*/
 html,body,nav,header,article,footer{width:100%;height:auto;max-width:100%;display:block;float:left;clear:both;overflow:auto;}
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
@@ -74,92 +137,118 @@ footer, header, hgroup, menu, nav, pre, section {
 	display: block;
 }
 
-/* ******************************************************  
- * FRAMEWORK WITH SUPPORT FOR HEADER, NAV, ASIDE, FOOTER
- ***************************************************** */
 
-#page-container { 
-  position: relative;
-  min-height: 100vh;
-}
-/* This is nested just inside article, and closes right before footer */
-#content-wrap {
-  padding-bottom: 10vh;  /* NOTE: Should be same as Footer height */
-}
 
+
+/* sizes.css*/
+ol li, ul li  {margin-left:1em;}
+p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
+td,th{padding: 0.5em;}
+/* TC: New */
+pre{
+  font-size: smaller;
+  overflow: auto;
+  padding: 1em;
+  margin:.5rem 0 0 0;
+}
+header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
+header>ul>li,nav>ul>li{padding-right:.5em;}
+article ol,article ul{margin-left:1em;}
+article{width:80%;height:100vh;}  
+article{padding-bottom:10vh}  /* Must match footer height */
+aside{width:20%;padding:0 2em 0 2em;}  
+footer {height:10vh;} /* Must match article padding-bottom */
+
+article,nav,header,aside,footer{padding-left:5%;}
+article>dl>dt {padding-top:1em;}
+article>dl>dd {margin-left:0;padding-bottom:0/*.5em*/;}
+
+h1{ font-size:2.5em;padding-top:2em;font-weight:bold; }
+h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:0;}
+h3{ font-size:1.5em;padding-top:1.25em;font-weight:bold;padding-bottom:1.25em;}
+h4{ font-size:.9em;padding-top:1em;}
+h5{ font-size:.8em; }
+h6{ font-size:0.9em; }
+
+
+
+
+/* layout.css*/
 
 /* Links show same if visited, underlined when hovered */
-a{color:blue;text-decoration:none;}
-a:visited{color:blue;text-decoration:none;}
+a{text-decoration:none;}
+a:visited{text-decoration:none;}
 a:hover,a:active{color:inherit;text-decoration:underline;cursor:pointer}
 
-/* NOTE: padding-bottom on article shold be same as footer-height */
-article{width:80%;height:100vh;}                         
-ol li, ul li  {margin-left:1em;}
-p {padding-bottom:1em;}
+/* Table cells share borders */
+table{border-collapse:collapse;}
 
-/* Note: footer height should be same as article padding-bottom */
-footer {width:100%;position:fixed;bottom:0;height:10vh;}
-aside{                                                                 
-  width:20%;                                    
-  padding:0 2rem 0 2rem;                          
-}  
+/* No one wants unordered lists in header, nav, footer to be vertical */
+header>ul,nav>ul,footer>ul{list-style-type:none;}
+header>ul>li,nav>ul>li,footer>ul>li{display:inline;}
 
 /* Article on the right, aside on the left */
 article{float:right;clear:right;}    
-aside{
-  float:left;                                
-}  
+aside{float:left;}  
 
 /* Article on the left, aside on the right */
 article{float:left;clear:left;}
-aside{ 
-  float:right;
-}
+aside{float:right;}
 
+/* TODO: Removing this seems safe */
+/* Handle page with light text. Have to stretch article and aside.  
+footer {position:fixed;bottom:0;}
+*/
+
+
+
+/* type.css*/
 code,kbd,pre{
   font-family: ui-monospace, SFMono-Regular, Monaco, monospace;
 }
-pre{
-  background-color: ghostwhite;
-  font-size: smaller;
-  overflow: auto;
-  padding: 1rem;
+
+article>dl>dt{font-weight:bold;}
+article h4{font-weight:bold;}
+
+
+
+
+/* colors.css*/
+html{background-color:var(--html-bg);}
+article,nav,header,footer,aside{color:var(--fg);background-color:var(--bg);}
+a{color:var(--a);}
+code{
+  color:var(--code-fg);
+  background-color:var(--code-bg);
 }
-table{
-  /* Cells in table share borders */
-  border-collapse: collapse;
-  width: 100%;
+pre{
+  color:var(--pre-fg);
+  background-color:var(--pre-bg);
 }
 td, th{
-  padding: 0.5rem;
-  border: 1px solid;
+  border: 1px solid gray;
 }
 
-article,nav,header,footer{padding-left:5%;}
-article,nav,header,footer,aside{background-color:white;}
-header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
-
-article>dl>dt {font-weight:bold;padding-top:1rem;}
-article>dl>dd {margin-left:0;padding-bottom:.5rem;}
-article h4{font-weight:bold;color:gray}
-
-header>ul,nav>ul{list-style-type:none;}
-header>ul>li,nav>ul>li{display:inline;padding-right:.5rem;}
+h2{color:var(--h2-fg);}
+h3{color:var(--h3-fg);}
+h4{color:var(--h4-fg);}
 
 
+
+
+/* media.css*/
 @media (max-width:1080px){
-  aside{display:none}
-  article{float:left;clear:left;width:100%}
   html{font-size:20px;}
+  body{width:100%;margin:0}
+  aside{display:none}
+  article{margin:0;float:left;clear:left;width:100%}
 }
 @media (max-width:720px){
-  header,nav,aside,footer{display:none}
-  article{padding:1rem;}
-  article{float:left;clear:left;width:100%}
   html{font-size:20px;}
+  header,nav,aside,footer{display:none}
+  article{padding:1em;}
+  article{float:left;clear:left;width:100%}
 }
-
 
 
 
@@ -167,24 +256,35 @@ header>ul>li,nav>ul>li{display:inline;padding-right:.5rem;}
 
 /* ../../css/featuretable.css */
 /* Very specific stylesheet: used for feature tables in the theme demo area */
-td,th{text-align:left;border:none;line-spacing:.5rem;}
-table{white-space:no-wrap;}
-table{table-layout:fixed;width:40%;}
-table>tbody>tr{line-height:.5rem;}
-table>thead>tr>th{width:12rem}
-th:first-child,td:first-child{width:1rem;}
-table>tbody>tr{white-space:no-wrap;}
 
-/* Left-align all text in rows */
-table>tbody>tr>td{text-align:left}
-table{border:none;}
+
+/* Remove lines in all rows except header */
+article>table>tbody>tr>td{text-align:left}
+
+/* Remove lines from all rows of table except header */
+article>table>tbody>tr>td{border:none;}
+
+/* Remove lines from table header. */
+article>table>thead>tr>th{border:none;} 
+
+/* Force text to stay in one row of the same height */
+article>table{white-space:nowrap;}
+
+/* Keep the table narrow. It spaces columns closer. */
+article>table{table-layout:fixed;width:35%;}
+
+/* Make rows shorter */
+article>table>tbody>tr{line-height:.5rem;}
+
+/* Make columns 12 rem wide */
+article th{width:12rem;}
+
+/* First column is just wide enough for checkbox character */
+article th:first-child{width:1rem;}
 
 </style>
 </head>
-<body>
-<div id="page-container">
-<div id="content-wrap">
-	
+<body>	
 <header id="header-poco"><ul>
 <li><strong><a href="#">Base theme header</a></strong></li>
 <li><a href="#">Reviews</a></li>
@@ -202,11 +302,10 @@ table{border:none;}
 </ul>
 </nav>
 	
-<aside id="aside-poco"><h2 id="aside-demo-h2">Aside demo h2</h2>
-<h3 id="item-1">Item 1</h3>
+<aside id="aside-poco"><h4 id="item-1">Item 1</h4>
 <p>Here's a good place to put a
 news item of current interest</p>
-<h3 id="item-2">Item 2</h3>
+<h4 id="item-2">Item 2</h4>
 <p>Here's a good place to put another
 news item of current interest</p>
 </aside>
@@ -260,7 +359,6 @@ choose fonts, colors, padding, and so on.</p>
 </table>
 
 </article>
-</div><!-- content-wrap -->
 
 <footer id="footer-poco"><ul>
 <li><a href="#">Contact</a></li>
@@ -268,7 +366,6 @@ choose fonts, colors, padding, and so on.</p>
 <li><a href="#">Terms of service</a></li>
 </ul>
 </footer>
-</div><!-- page-container -->
 <script> {
   // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
   // Document.ready working back to IE 8.

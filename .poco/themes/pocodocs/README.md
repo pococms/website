@@ -1,13 +1,16 @@
 ---
-author: "Tom Campbell"
-branding: "PocoCMS Documentation theme"
-header: "header.md"
-footer: "footer.md"
-aside: "aside.md"
+header: header.md
+nav: nav.md
+aside: aside.md
+footer: footer.md
 stylesheets:
-- "../../css/base.css"
-- "../../css/layout-test.css"
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+- ../../css/type.css
+- ../../css/colors.css
+- ../../css/media.css
 - "pocodocs.css"
+- "big-circles.css"
 ---
-
-PocoDocs is a cheerful, colorful theme for reference documentation.

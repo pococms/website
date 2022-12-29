@@ -48,8 +48,4 @@ footer, header, hgroup, menu, nav, pre, section {
 	display: block;
 }
 
-table {
-  /* Cells in a table share borders */
-	border-collapse: collapse;
-}
- 
+

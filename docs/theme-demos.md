@@ -9,7 +9,6 @@
 * [Paper](demos/paper.html)
 * [Pasteboard](demos/pasteboard.html)
 * [PocoDocs](demos/pocodocs.html)
-* [Retro](demos/retro.html)
 * [Rawdog](demos/rawdog.html)
 * [Skyscraper](demos/skyscraper.html)
 * [Tufte](demos/tufte.html)
