@@ -3,7 +3,7 @@
 
 ## TODO: themename.css
 
-Add something like this:
+Add something like this at the end:
 
 ```
 @media (prefers-color-scheme:light) {
@@ -11,9 +11,7 @@ Add something like this:
   --html-bg:black;
 }
 }
-```
 
-```
 @media (prefers-color-scheme:dark) {
 :root {
   --html-bg:SteelBlue;
@@ -91,17 +89,22 @@ article > 3 {
   font-weight: bold;
 }
 
-/* OVERRIDE FRAMEWORK COLORS */
+/* OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT & DARK THEMES */
 
-article > 3 {
-  color:gray;
+@media (prefers-color-scheme:light) {
+:root {
+  --article-h2-fg:red;        /* Article h2 text color */
+}
+  article>h6>a{background-color:var(--bg);border:1px solid black;}
 }
 
-
-/* OVERRIDE FRAMEWORK MEDIA QUERIES */
-
+@media (prefers-color-scheme:dark) {
+:root {
+  --article-h2-fg:cyan;       /* Article h2 text color */
+}
+  article>h6>a{background-color:var(--bg);border:1px solid white;}
+}
 ```
-
 
 
 * When you're creating your theme it's a best practice to append 

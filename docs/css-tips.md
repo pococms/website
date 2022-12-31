@@ -48,6 +48,35 @@ you can drop right into your own themes.
 
 [2 colors in your logo text](#2-colors-in-your-logo-text)   
 [How to do headers using list syntax](#how-to-do-headers-using-list-syntax)  
+[Unordered lists with no bullet characters or indentation]()
+/* --------------------------------------------------
+ * Aside unordered lists are used for table of 
+ * contents, so disable indentation and bullet 
+ * character. Use size, color, and underline
+ * to indicate level.
+ * --------------------------------------------------
+ */   
+
+/* Disable list indentation and bullet characters. */
+aside > ul li {list-style-type: none; }
+aside > ul li  {margin-left:0em;}
+
+/* Line-spacing for whole unordered list */
+aside ul {line-height:1.4rem;}
+
+/* 1st level of list */
+aside ul li a {font-size:1.2rem;}
+aside ul li a {color:cyan;}
+aside ul li a {text-decoration:underline}
+
+/* 2nd level of list */
+aside ul ul li a {color:red;border:none;text-decoration:none;}
+
+/* 3rd level of list */
+aside ul ul ul li a 
+ {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}
+
+
 [Links with modern cursor and custom underline](#links-with-modern-cursor-and-custom-underline)  
 [How to show links with separate underline color](#how-to-show-links-with-separate-underline-color)  
 [Centering old-school](#centering)  
@@ -90,6 +119,48 @@ header > ul > li:first-child > a > del, header > p > del {
 
 Note that this example keeps it specifically to the header.
 That reduces the likelihood of problems down the line.
+
+## Unordered lists with no bullet characters or indentation
+
+The Pocodocs theme uses special unordered list
+formatting for asides where a table of contents works best. 
+Unordered lists are normally indented,
+and of course have bullet characters preceding list items.
+Since there's limited space in the sidebar, this
+technique shows how to indicate level through other
+signals. Each of the first 3 levels uses something
+other than bullets or indentation to show list level.
+The
+
+```
+/* --------------------------------------------------
+ * Aside unordered lists are used for table of 
+ * contents, so disable indentation and bullet 
+ * character. Use size, color, and underline
+ * to indicate level.
+ * --------------------------------------------------
+ */   
+
+/* Disable list indentation and bullet characters. */
+aside > ul li {list-style-type: none; }
+aside > ul li  {margin-left:0em;}
+
+/* Line-spacing for whole unordered list */
+aside ul {line-height:1.4rem;}
+
+/* 1st level of list */
+aside ul li a {font-size:1.2rem;}
+aside ul li a {color:cyan;}
+aside ul li a {text-decoration:underline}
+
+/* 2nd level of list */
+aside ul ul li a {color:red;border:none;text-decoration:none;}
+
+/* 3rd level of list */
+aside ul ul ul li a {
+  font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;
+}
+```
 
 ## How to do headers using list syntax
 

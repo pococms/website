@@ -1,3 +1,6 @@
+---
+aside: docs/gs-aside.md
+---
 # Getting Started
 
 PocoCMS lets you start a website in just a few seconds. 

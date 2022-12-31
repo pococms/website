@@ -144,20 +144,13 @@ footer, header, hgroup, menu, nav, pre, section {
 ol li, ul li  {margin-left:1em;}
 p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
 td,th{padding: 0.5em;}
-/* TC: New */
-pre{
-  font-size: smaller;
-  overflow: auto;
-  padding: 1em;
-  margin:.5rem 0 0 0;
-}
+pre{font-size: smaller;overflow: auto;padding:1em;margin:.5rem 0 0 0;}
 header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
 header>ul>li,nav>ul>li{padding-right:.5em;}
-article ol,article ul{margin-left:1em;}
-article{width:80%;height:80vh;}  
-article{padding-bottom:10vh}  /* Must match footer height */
+article{width:80%;height:65vh;}  
+article{padding-bottom:15vh}  /* Must match footer height */
 aside{width:20%;padding:0 2em 0 2em;}  
-footer {height:10vh;} /* Must match article padding-bottom */
+footer {height:35vh;} /* Must match article padding-bottom */
 
 article,nav,header,aside,footer{padding-left:5%;}
 article>dl>dt {padding-top:1em;}
@@ -194,11 +187,6 @@ aside{float:left;}
 /* Article on the left, aside on the right */
 article{float:left;clear:left;}
 aside{float:right;}
-
-/* TODO: Removing this seems safe */
-/* Handle page with light text. Have to stretch article and aside.  
-footer {position:fixed;bottom:0;}
-*/
 
 
 
@@ -254,6 +242,40 @@ h4{color:var(--h4-fg);}
 
 
 /* pocodocs.css*/
+article{width:70%}  
+aside{width:30%;}  
+
+/* Article on the right, aside on the left */
+article{float:right;clear:right;}    
+aside{float:left;}  
+aside{padding-top:8em;}
+/* --------------------------------------------------
+ * Aside unordered lists are used for table of 
+ * contents, so disable indentation and bullet 
+ * character. Use size, color, and underline
+ * to indicate level.
+ * --------------------------------------------------
+ */   
+
+/* Disable list indentation and bullet characters. */
+aside > ul li {list-style-type: none; }
+aside > ul li  {margin-left:0em;}
+
+/* Line-spacing for whole unordered list */
+aside ul {line-height:1.4rem;}
+
+/* 1st level of list */
+aside ul li a {font-size:1.2rem;}
+aside ul li a {color:cyan;}
+aside ul li a {text-decoration:underline}
+
+/* 2nd level of list */
+aside ul ul li a {color:red;border:none;text-decoration:none;}
+
+/* 3rd level of list */
+aside ul ul ul li a 
+ {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}
+
 /* --------------------------------------------------
  * Images: full width, light drop shadow 
  * --------------------------------------------------
@@ -297,7 +319,10 @@ html{
     'Tahoma',                             
     'sans-serif';
 }
+
 header>ul>li:first-child>a{font-weight:900;letter-spacing:-.1rem;}
+article>h5>strong{text-decoration:underline;}
+// xxxx article>h6>a{line-height:6em;padding:1em;background-color:var(--bg);border:1px solid black;}
 
 /* The article may be wider than you want text and
  * code listings to be. This narrows the text and
@@ -320,8 +345,8 @@ ol {
 }
 
 /* OVERRIDE FRAMEWORK COLORS */
-article>h2{color:red;}
-article>h5>strong{color:blue;}
+article>h2{color:var(--article-h2-fg);}
+article>h5>strong{color:var(--fg);}
 
 /* --------------------------------------------------
  * Special feature: Surround letters in first item 
@@ -333,7 +358,19 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 /* OVERRIDE FRAMEWORK MEDIA QUERIES */
 
 
+@media (prefers-color-scheme:light) {
+:root {
+  --article-h2-fg:red;        /* Article h2 text color */
+}
+  article>h6>a{background-color:var(--bg);border:4px solid green;}
+}
 
+@media (prefers-color-scheme:dark) {
+:root {
+  --article-h2-fg:cyan;       /* Article h2 text color */
+}
+  article>h6>a{background-color:var(--bg);border:4px solid yellow;}
+}
 
 
 /* big-circles.css*/
@@ -408,11 +445,26 @@ ol li:before {
 <nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/themes-creating.html">Creating themes</a> <a href="/docs/technical-overview.html">Technical overiew</a> <a href="/docs/css-tips.html">CSS tips</a> <a href="/docs/reference.html">Reference</a> <a href="/docs/resources.html">Resources</a></p>
 </nav>
 	
-<aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
+<aside id="aside-poco"><ul>
+<li><a href="getting-started.html">Getting started</a>
 <ul>
-<li>Item 1 in the aside</li>
-<li>Item 2 in the aside</li>
-<li>Pocodocs theme!</li>
+<li><a href="getting-started.html#create-a-site">Create a site</a></li>
+<li><a href="getting-started.html#view-the-files-pococms-created">View the files PocoCMS created</a></li>
+</ul>
+</li>
+<li><a href="gs-edit-page.html">Editing the page</a></li>
+<li><a href="gs-change-theme.html">Changing themes</a>
+<ul>
+<li><a href="gs-change-theme.html#front-matter">Front matter</a></li>
+<li><a href="gs-change-theme.html#trying-a-few-more-themes">Trying a few more themes</a></li>
+</ul>
+</li>
+<li><a href="gs-parts-of-theme.html">The parts of a PocoCMS theme</a>
+<ul>
+<li><a href="gs-parts-of-theme.html#header-nav-article-aside-and-footer">Header, nav, article, aside, and footer</a></li>
+<li><a href="gs-parts-of-theme.html#layout-elements">Layout elements</a></li>
+</ul>
+</li>
 </ul>
 </aside>
 <article id="article-poco">

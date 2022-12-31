@@ -1,3 +1,6 @@
+---
+aside: docs/gs-aside.md
+---
 # Editing the page
 
 To make changes to the main part of the web page (the [article](glossary.html#article)), you'll edit the file `index.md`.

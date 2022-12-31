@@ -144,20 +144,13 @@ footer, header, hgroup, menu, nav, pre, section {
 ol li, ul li  {margin-left:1em;}
 p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
 td,th{padding: 0.5em;}
-/* TC: New */
-pre{
-  font-size: smaller;
-  overflow: auto;
-  padding: 1em;
-  margin:.5rem 0 0 0;
-}
+pre{font-size: smaller;overflow: auto;padding:1em;margin:.5rem 0 0 0;}
 header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
 header>ul>li,nav>ul>li{padding-right:.5em;}
-article ol,article ul{margin-left:1em;}
-article{width:80%;height:80vh;}  
-article{padding-bottom:10vh}  /* Must match footer height */
+article{width:80%;height:65vh;}  
+article{padding-bottom:15vh}  /* Must match footer height */
 aside{width:20%;padding:0 2em 0 2em;}  
-footer {height:10vh;} /* Must match article padding-bottom */
+footer {height:35vh;} /* Must match article padding-bottom */
 
 article,nav,header,aside,footer{padding-left:5%;}
 article>dl>dt {padding-top:1em;}
@@ -194,11 +187,6 @@ aside{float:left;}
 /* Article on the left, aside on the right */
 article{float:left;clear:left;}
 aside{float:right;}
-
-/* TODO: Removing this seems safe */
-/* Handle page with light text. Have to stretch article and aside.  
-footer {position:fixed;bottom:0;}
-*/
 
 
 
@@ -254,6 +242,40 @@ h4{color:var(--h4-fg);}
 
 
 /* pocodocs.css*/
+article{width:70%}  
+aside{width:30%;}  
+
+/* Article on the right, aside on the left */
+article{float:right;clear:right;}    
+aside{float:left;}  
+aside{padding-top:8em;}
+/* --------------------------------------------------
+ * Aside unordered lists are used for table of 
+ * contents, so disable indentation and bullet 
+ * character. Use size, color, and underline
+ * to indicate level.
+ * --------------------------------------------------
+ */   
+
+/* Disable list indentation and bullet characters. */
+aside > ul li {list-style-type: none; }
+aside > ul li  {margin-left:0em;}
+
+/* Line-spacing for whole unordered list */
+aside ul {line-height:1.4rem;}
+
+/* 1st level of list */
+aside ul li a {font-size:1.2rem;}
+aside ul li a {color:cyan;}
+aside ul li a {text-decoration:underline}
+
+/* 2nd level of list */
+aside ul ul li a {color:red;border:none;text-decoration:none;}
+
+/* 3rd level of list */
+aside ul ul ul li a 
+ {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}
+
 /* --------------------------------------------------
  * Images: full width, light drop shadow 
  * --------------------------------------------------
@@ -297,7 +319,10 @@ html{
     'Tahoma',                             
     'sans-serif';
 }
+
 header>ul>li:first-child>a{font-weight:900;letter-spacing:-.1rem;}
+article>h5>strong{text-decoration:underline;}
+// xxxx article>h6>a{line-height:6em;padding:1em;background-color:var(--bg);border:1px solid black;}
 
 /* The article may be wider than you want text and
  * code listings to be. This narrows the text and
@@ -320,8 +345,8 @@ ol {
 }
 
 /* OVERRIDE FRAMEWORK COLORS */
-article>h2{color:red;}
-article>h5>strong{color:blue;}
+article>h2{color:var(--article-h2-fg);}
+article>h5>strong{color:var(--fg);}
 
 /* --------------------------------------------------
  * Special feature: Surround letters in first item 
@@ -333,7 +358,19 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 /* OVERRIDE FRAMEWORK MEDIA QUERIES */
 
 
+@media (prefers-color-scheme:light) {
+:root {
+  --article-h2-fg:red;        /* Article h2 text color */
+}
+  article>h6>a{background-color:var(--bg);border:4px solid green;}
+}
 
+@media (prefers-color-scheme:dark) {
+:root {
+  --article-h2-fg:cyan;       /* Article h2 text color */
+}
+  article>h6>a{background-color:var(--bg);border:4px solid yellow;}
+}
 
 
 /* big-circles.css*/
@@ -453,7 +490,33 @@ you can drop right into your own themes.</p>
 <h2 id="contents">Contents</h2>
 <p><a href="#2-colors-in-your-logo-text">2 colors in your logo text</a><br />
 <a href="#how-to-do-headers-using-list-syntax">How to do headers using list syntax</a><br />
-<a href="#links-with-modern-cursor-and-custom-underline">Links with modern cursor and custom underline</a><br />
+<a href="">Unordered lists with no bullet characters or indentation</a>
+/* --------------------------------------------------</p>
+<ul>
+<li>Aside unordered lists are used for table of</li>
+<li>contents, so disable indentation and bullet</li>
+<li>character. Use size, color, and underline</li>
+<li>to indicate level.</li>
+<li>
+<hr />
+</li>
+</ul>
+<p>*/</p>
+<p>/* Disable list indentation and bullet characters. */
+aside &gt; ul li {list-style-type: none; }
+aside &gt; ul li  {margin-left:0em;}</p>
+<p>/* Line-spacing for whole unordered list */
+aside ul {line-height:1.4rem;}</p>
+<p>/* 1st level of list */
+aside ul li a {font-size:1.2rem;}
+aside ul li a {color:cyan;}
+aside ul li a {text-decoration:underline}</p>
+<p>/* 2nd level of list */
+aside ul ul li a {color:red;border:none;text-decoration:none;}</p>
+<p>/* 3rd level of list */
+aside ul ul ul li a
+{font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}</p>
+<p><a href="#links-with-modern-cursor-and-custom-underline">Links with modern cursor and custom underline</a><br />
 <a href="#how-to-show-links-with-separate-underline-color">How to show links with separate underline color</a><br />
 <a href="#centering">Centering old-school</a><br />
 <a href="#font-reset">Font reset</a>
@@ -484,6 +547,44 @@ attribute is strikethrough.)</p>
 </code></pre>
 <p>Note that this example keeps it specifically to the header.
 That reduces the likelihood of problems down the line.</p>
+<h2 id="unordered-lists-with-no-bullet-characters-or-indentation">Unordered lists with no bullet characters or indentation</h2>
+<p>The Pocodocs theme uses special unordered list
+formatting for asides where a table of contents works best.
+Unordered lists are normally indented,
+and of course have bullet characters preceding list items.
+Since there's limited space in the sidebar, this
+technique shows how to indicate level through other
+signals. Each of the first 3 levels uses something
+other than bullets or indentation to show list level.
+The</p>
+<pre><code>/* --------------------------------------------------
+ * Aside unordered lists are used for table of 
+ * contents, so disable indentation and bullet 
+ * character. Use size, color, and underline
+ * to indicate level.
+ * --------------------------------------------------
+ */   
+
+/* Disable list indentation and bullet characters. */
+aside &gt; ul li {list-style-type: none; }
+aside &gt; ul li  {margin-left:0em;}
+
+/* Line-spacing for whole unordered list */
+aside ul {line-height:1.4rem;}
+
+/* 1st level of list */
+aside ul li a {font-size:1.2rem;}
+aside ul li a {color:cyan;}
+aside ul li a {text-decoration:underline}
+
+/* 2nd level of list */
+aside ul ul li a {color:red;border:none;text-decoration:none;}
+
+/* 3rd level of list */
+aside ul ul ul li a {
+  font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;
+}
+</code></pre>
 <h2 id="how-to-do-headers-using-list-syntax">How to do headers using list syntax</h2>
 <p>Many PocoCMS header markdown files look like this:</p>
 <pre><code>* [MySite](/#)

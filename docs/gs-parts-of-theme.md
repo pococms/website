@@ -1,3 +1,7 @@
+---
+aside: docs/gs-aside.md
+---
+
 # The parts of a PocoCMS theme
 
 You've learned that you can change themes easily, and that they
@@ -20,13 +24,13 @@ can have dramatically different appearances:
 As the MDN web docs observe in [Document and website structure](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure) these are the main parts of 
 an HTML document:
 
-* [Header](glossary#header) (the HTML `<header>` tag)
-* [Nav bar](glossary#nav) (The HTML `<nav>` tag)
+* [Header](glossary.html#header) (the HTML `<header>` tag)
+* [Nav bar](glossary.html#nav) (The HTML `<nav>` tag)
 * Main area (PocoCMS calls it the [article](glossary.html#article)) and
 it uses the `<article>` tag
 * Sidebars (PocoCMS calls it the [aside](glossary.html#aside) because in HTML
 it's `<aside>` tag
-* [Footer](glossary#footer) (the HTML `<footer>` tag
+* [Footer](glossary.html#footer) (the HTML `<footer>` tag
 
 This illustration shows these parts of the document using a typical PocoCMS theme:
 

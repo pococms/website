@@ -1,3 +1,6 @@
+---
+aside: docs/gs-aside.md
+---
 # Changing themes
 
 Recall that we were left with this newly edited page:
