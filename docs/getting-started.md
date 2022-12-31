@@ -68,9 +68,9 @@ You'll see what you've created:
 
 ![Default home page created by PocoCMS](img/home-page-default-1366x768.png)
 
-If you run in dark mode you'll see something different:
+On a mobile device it would look almost the same:
 
-![Default home page created by PocoCMS](img/home-page-default-dark-1366x768.png)
+![Default home page created by PocoCMS](img/home-page-default-mobile-360x640.png)
 
 ## View the files PocoCMS created
 
@@ -89,7 +89,7 @@ We'll explain the `WWW` and `.poco` directories in a few moments.
 
 ```
 ---
-theme: "base"
+title: "Powered with &hearts; by PocoCMS"
 ---
 # Welcome to mysite
 
@@ -120,5 +120,5 @@ You'll see the file `WWW/index.html`:
 
 That is what the browser renders when you view the site.
 
-###### [Next: Edit the page](gs-edit-page.html)
+###### [Previous: Getting started](getting-started.html) [Next: Edit the page](gs-edit-page.html)
 

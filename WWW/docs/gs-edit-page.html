@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Powered by PocoCMS</title>
+	<title>Powered with &hearts; by PocoCMS</title>
 
 <style></style>
 <style>
@@ -154,7 +154,7 @@ pre{
 header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
 header>ul>li,nav>ul>li{padding-right:.5em;}
 article ol,article ul{margin-left:1em;}
-article{width:80%;height:100vh;}  
+article{width:80%;height:80vh;}  
 article{padding-bottom:10vh}  /* Must match footer height */
 aside{width:20%;padding:0 2em 0 2em;}  
 footer {height:10vh;} /* Must match article padding-bottom */
@@ -320,6 +320,7 @@ ol {
 }
 
 /* OVERRIDE FRAMEWORK COLORS */
+article>h2{color:red;}
 article>h5>strong{color:blue;}
 
 /* --------------------------------------------------
@@ -421,7 +422,7 @@ ol li:before {
 <li>Load <code>index.md</code> into your text editor. It looks like this:</li>
 </ul>
 <pre><code>---
-theme: &quot;base&quot;
+title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
 ---
 # Welcome to mysite
 
@@ -434,7 +435,10 @@ Learn more at [PocoCMS tutorials](https://pococms.com/docs/tutorials.html)
 to something more helpful. In the example below, replace <code>https://example.com</code>
 with the name of your own website.</li>
 </ul>
-<pre><code># Welcome to mysite
+<pre><code>---
+title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
+---
+# Welcome to mysite
 
 Hello from https://example.com. Our site is changing quickly.
 
@@ -445,8 +449,12 @@ Hello from https://example.com. Our site is changing quickly.
 <pre><code>poco
 </code></pre>
 <ul>
-<li>And refresh the page:</li>
+<li>Refresh the page. On mobile it would look like this:</li>
 </ul>
+<p><img src="img/home-page-first-edit-1366x768.png" alt="Screen shot of edited home page" /></p>
+<p>Note that web links in the article get turned into into clickable links automatically.</p>
+<p>But... this look just has to go. It's not going to impress your audience. Let's change the theme.</p>
+<h6 id="previous-getting-startedgetting-startedhtml-next-changing-themesgs-change-themehtml"><a href="getting-started.html">Previous: Getting started</a> <a href="gs-change-theme.html">Next: Changing themes</a></h6>
 
 </article>
 

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Powered by PocoCMS</title>
+	<title>Powered with &hearts; by PocoCMS</title>
 
 <style></style>
 <style>
@@ -154,7 +154,7 @@ pre{
 header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
 header>ul>li,nav>ul>li{padding-right:.5em;}
 article ol,article ul{margin-left:1em;}
-article{width:80%;height:100vh;}  
+article{width:80%;height:80vh;}  
 article{padding-bottom:10vh}  /* Must match footer height */
 aside{width:20%;padding:0 2em 0 2em;}  
 footer {height:10vh;} /* Must match article padding-bottom */
@@ -320,6 +320,7 @@ ol {
 }
 
 /* OVERRIDE FRAMEWORK COLORS */
+article>h2{color:red;}
 article>h5>strong{color:blue;}
 
 /* --------------------------------------------------
@@ -416,8 +417,67 @@ ol li:before {
 </aside>
 <article id="article-poco">
 <h1 id="changing-themes">Changing themes</h1>
-<h6 id="next-changing-themesgs-change-themehtml"><a href="gs-change-theme.html">Next: Changing themes</a></h6>
-<h6 id="previous-getting-startedgs-change-themehtml-next-todogs-todohtml"><a href="gs-change-theme.html">Previous: Getting started</a> <a href="gs-TODO.html">Next: TODO:</a></h6>
+<p>Recall that we were left with this newly edited page:</p>
+<p><img src="img/home-page-first-edit-1366x768.png" alt="Screen shot of edited home page" /></p>
+<p>We can totally remodel this tiny site with one change.</p>
+<ul>
+<li>Add <code>theme: informer</code> between the lines at the top of the <code>index.md</code> page:</li>
+</ul>
+<pre><code>---
+title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
+theme: informer
+---
+# Welcome to mysite
+
+Hello from https://example.com. Our site is changing quickly.
+</code></pre>
+<ul>
+<li>Save the file and run poco again.</li>
+</ul>
+<p>Things are looking up!</p>
+<p><img src="img/home-page-theme-informer-1366x768.png" alt="Screenshot of PocoCMS Informer theme" /></p>
+<p>If you're in dark mode, you will see that the theme automatically takes advantage of it:</p>
+<p><img src="img/home-page-theme-informer-dark-1366x768.png" alt="Screenshot of PocoCMS Informer theme in dark mode" /></p>
+<p>That's because it was made with the <a href="theme-framework.html">PocoCMS theme framework</a>,
+which has a ton of other advantages, such as automatic mobile support responsive mode,
+and other traits to be discussed later.</p>
+<h2 id="front-matter">Front matter</h2>
+<p>By the way, you'll note that you can change how the blog looks
+by changing things you see in between lines of 3 dashes (<code>---</code>)
+as shown here:</p>
+<pre><code>---
+title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
+theme: informer
+---
+</code></pre>
+<p>You will have noticed that it doesn't affect the text of the article.
+That's because it's technically a separate document called the
+<a href="glossary.html#front-matter">front matter</a>. You don't need
+front matter in a PocoCMS file, but you'll find it's
+a big part of your existence when changing the look
+and format of your websites. Much more about
+front matter as lessons progress.</p>
+<h2 id="trying-a-few-more-themes">Trying a few more themes</h2>
+<ul>
+<li>Let's look at another theme, Electro:</li>
+</ul>
+<pre><code>---
+title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
+theme: electro 
+---
+</code></pre>
+<p><img src="img/home-page-theme-electro-1366x768.png" alt="Screenshot of PocoCMS Electro theme" /></p>
+<ul>
+<li>Finally, let's choose something generic: the Base theme.
+Base is, well, the basis of all PocoCMS themes that use the <a href="theme-framework.html">framework</a>.</li>
+</ul>
+<pre><code>---
+title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
+theme: base 
+---
+</code></pre>
+<p><img src="img/home-page-theme-base-1366x768.png" alt="Screenshot of PocoCMS Base theme" /></p>
+<h6 id="previous-editing-the-pagegs-editing-pagehtml-next-parts-of-a-themegs-parts-of-themehtml"><a href="gs-editing-page.html">Previous: Editing the page</a> <a href="gs-parts-of-theme.html">Next: Parts of a theme</a></h6>
 
 </article>
 

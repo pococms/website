@@ -64,10 +64,9 @@ separate `<style>` tags in the finished HTML document.
 
     ---
     title: "Introducing PocoCMS"
-    theme: ".poco/themes/probot"
+    theme: "base"
     stylesheets: 
-    - poquito.css
-    - pococms.css
+    - ../../css/skinny.css
     ---
 
 See [Front matter](front-matter.html) for more details.
@@ -223,7 +222,6 @@ Markdown, markup, and [CommonMark](#commonmark).
 Technically speaking HTML is also a [markup language](https://en.wikipedia.org/wiki/Markup_language) but in the context of static site generators
 such as PocoCMS the term normally refers to Markdown.
 
-
 ## page theme
 
 A page [theme](#theme) controls the appearance of a single page. 
@@ -279,6 +277,29 @@ Sometimes we use the words `site` when we're talking about your
 project, even though technically your site is what's generated  by
 PocoCMS and copied into your [webroot](#webroot)
 
+## semantic meaning
+
+The term *semantic meaning*  
+means in HTML that the structure of a document gives
+different weight to the information being presented. 
+For example, if you make the title of your page
+distinct simply by choosing large letters in boldface,
+you're missing out. If instead you enclose it 
+in `<h1>` tags, search engines and screen readers
+will probably assume it's something people are more
+likely to scan and remember.
+
+Conversely, if you fill your page with dozens of
+`<h1>` tags they will lose their semantic power.
+
+Your page is not just made of the [article](#article). It also
+has other [layout elements](#layout-elment): the header, nav bar, aside,
+and footer. These too are given semantic meaning.
+By definition the aside will be considered less
+important than the article. The header is probably more
+important than the footer, and so on.
+
+
 ## site
 See [project](#project)
 
@@ -296,7 +317,7 @@ contained in a directory (folder).
 The directory is used as the name of the theme. 
 The theme can specify styles to include on every page of the site. 
 The theme can also specify 
-[layout elements](#layout-elements): a [header](#header), [nav bar](#nav), [footer](#footer), or [aside](#aside) to include on each page.
+[layout elements](#layout-element): a [header](#header), [nav bar](#nav), [footer](#footer), or [aside](#aside) to include on each page.
 
 There two kinds of themes: global, and page. A global theme causes all
 pages in the site to use the same theme without having to specify it

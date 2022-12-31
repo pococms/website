@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Powered by PocoCMS</title>
+	<title>Powered with &hearts; by PocoCMS</title>
 
 <style></style>
 <style>
@@ -154,7 +154,7 @@ pre{
 header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
 header>ul>li,nav>ul>li{padding-right:.5em;}
 article ol,article ul{margin-left:1em;}
-article{width:80%;height:100vh;}  
+article{width:80%;height:80vh;}  
 article{padding-bottom:10vh}  /* Must match footer height */
 aside{width:20%;padding:0 2em 0 2em;}  
 footer {height:10vh;} /* Must match article padding-bottom */
@@ -320,6 +320,7 @@ ol {
 }
 
 /* OVERRIDE FRAMEWORK COLORS */
+article>h2{color:red;}
 article>h5>strong{color:blue;}
 
 /* --------------------------------------------------
@@ -463,10 +464,9 @@ of multiple stylesheet names that will  be added as
 separate <code>&lt;style&gt;</code> tags in the finished HTML document.</p>
 <pre><code>---
 title: &quot;Introducing PocoCMS&quot;
-theme: &quot;.poco/themes/probot&quot;
+theme: &quot;base&quot;
 stylesheets: 
-- poquito.css
-- pococms.css
+- ../../css/skinny.css
 ---
 </code></pre>
 <p>See <a href="front-matter.html">Front matter</a> for more details.</p>
@@ -620,6 +620,24 @@ such as themes and stylesheets.</p>
 <p>Sometimes we use the words <code>site</code> when we're talking about your
 project, even though technically your site is what's generated  by
 PocoCMS and copied into your <a href="#webroot">webroot</a></p>
+<h2 id="semantic-meaning">semantic meaning</h2>
+<p>The term <em>semantic meaning</em><br />
+means in HTML that the structure of a document gives
+different weight to the information being presented.
+For example, if you make the title of your page
+distinct simply by choosing large letters in boldface,
+you're missing out. If instead you enclose it
+in <code>&lt;h1&gt;</code> tags, search engines and screen readers
+will probably assume it's something people are more
+likely to scan and remember.</p>
+<p>Conversely, if you fill your page with dozens of
+<code>&lt;h1&gt;</code> tags they will lose their semantic power.</p>
+<p>Your page is not just made of the <a href="#article">article</a>. It also
+has other <a href="#layout-elment">layout elements</a>: the header, nav bar, aside,
+and footer. These too are given semantic meaning.
+By definition the aside will be considered less
+important than the article. The header is probably more
+important than the footer, and so on.</p>
 <h2 id="site">site</h2>
 <p>See <a href="#project">project</a></p>
 <h2 id="source-file">source file</h2>
@@ -633,7 +651,7 @@ contained in a directory (folder).
 The directory is used as the name of the theme.
 The theme can specify styles to include on every page of the site.
 The theme can also specify
-<a href="#layout-elements">layout elements</a>: a <a href="#header">header</a>, <a href="#nav">nav bar</a>, <a href="#footer">footer</a>, or <a href="#aside">aside</a> to include on each page.</p>
+<a href="#layout-element">layout elements</a>: a <a href="#header">header</a>, <a href="#nav">nav bar</a>, <a href="#footer">footer</a>, or <a href="#aside">aside</a> to include on each page.</p>
 <p>There two kinds of themes: global, and page. A global theme causes all
 pages in the site to use the same theme without having to specify it
 every time in the page front matter. See <a href="#home-page">home page</a> for
