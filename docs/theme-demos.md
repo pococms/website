@@ -1,6 +1,5 @@
 # PocoCMS Theme demos
 
-* [Theme checklist](themes-creating.html)
 * [Base](demos/base.html)
 * [Electro](demos/electro.html)
 * [Hack](demos/hack.html)

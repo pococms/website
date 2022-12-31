@@ -68,10 +68,6 @@ You'll see what you've created:
 
 ![Default home page created by PocoCMS](img/home-page-default-1366x768.png)
 
-On a mobile device it would look almost the same:
-
-![Default home page created by PocoCMS](img/home-page-default-mobile-360x640.png)
-
 ## View the files PocoCMS created
 
 Let's take a look at what `poco -new` just did. Get a directory

@@ -13,11 +13,7 @@
 [CSS tips](css-tips.html)  
 [YAML usage](yaml-usage.html)  
 [SEO](seo.html)
-
-
-## Internal
-[Release checklist](release-checklist.html)  
-[Documentation conventions](documentation-conventions.html)  
+[Internal affairs](internal-affairs.html)
 
 ## HTML references
 * [CSS validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
