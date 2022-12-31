@@ -11,6 +11,7 @@ have withstood the test of time... for a couple of years.
 
 #### **By** [Tom Campbell](https://pococms.com) [![Twitter profile](twitter-14px-blue.svg)@pococms](https://twitter.com/pococms)  | Dec 21, 2022 at 7:30pm
 
+![Photgraph of a wet shiny city](img/buildings-668616_640.jpg)
 ![Image of happy fisherman unknowingly hooking a huge fish underwater](fishing-3635221.svg)
 
 ## All resources are free

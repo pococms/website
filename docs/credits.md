@@ -43,6 +43,9 @@ Thanks, [jsDelivr](https://www.jsdelivr.com/) people!
 
 * [Lucide](https://lucide.dev/) icons
 
+## Stock images
+* Image by [Michael Pewny](https://pixabay.com/users/mpewny-777390/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=668616) from [Pixabay](https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=668616)
+
 ## References
 
 * Font selector fallbacks: https://www.cssfontstack.com 

@@ -23,7 +23,7 @@ That directory will contain all the files you need to generate your site.
 In this documentation it's called your [project](glossary.html#project) or 
 [site](glossary.html#site). They're usually synonomous.
 
-* Create the new site with poco -new:
+* Create the new site with `poco -new`:
 
 You'll type `poco -new` followed by the directory name, like this:
 
@@ -100,13 +100,13 @@ Learn more at [PocoCMS tutorials](https://pococms.com/docs/tutorials.html)
 
 Notice there's a directory called `WWW`. Examine its contents.
 
-##### **Directory** WWW
+##### **Directory:** WWW
 
 ```
 index.html
 ```
 
-##### **file** WWW/index.html
+##### **file:** WWW/index.html
 
 You'll see the file `WWW/index.html`:
 
@@ -117,3 +117,8 @@ You'll see the file `WWW/index.html`:
 ├── .poco
 └── index.md
 ```
+
+That is what the browser renders when you view the site.
+
+###### [Next: Edit the page](gs-edit-page.html)
+

@@ -307,6 +307,8 @@ article>p,article>ul,article>ul>li,article>pre{
   width:80%;
 }
 article>h1{padding-bottom:.8em;}
+article>h5{padding-top:1em;}
+article>h6>a{line-height:6em;padding:1em;background-color:var(--bg);border:1px solid black;}
 /* Code inside a paragraph */
 article>p>code,article>ul>li>code,article>ul>li>p>code{
   border-radius:.25em;
@@ -318,7 +320,7 @@ ol {
 }
 
 /* OVERRIDE FRAMEWORK COLORS */
-/* article>p,article>h1,article>h3{color:var(--fg);} */
+article>h5>strong{color:blue;}
 
 /* --------------------------------------------------
  * Special feature: Surround letters in first item 
@@ -434,7 +436,7 @@ and assume it's in the current directory.</li>
 In this documentation it's called your <a href="glossary.html#project">project</a> or
 <a href="glossary.html#site">site</a>. They're usually synonomous.</p>
 <ul>
-<li>Create the new site with poco -new:</li>
+<li>Create the new site with <code>poco -new</code>:</li>
 </ul>
 <p>You'll type <code>poco -new</code> followed by the directory name, like this:</p>
 <pre><code>poco -new mysite
@@ -494,10 +496,10 @@ hello, world.
 Learn more at [PocoCMS tutorials](https://pococms.com/docs/tutorials.html) 
 </code></pre>
 <p>Notice there's a directory called <code>WWW</code>. Examine its contents.</p>
-<h5 id="directory-www"><strong>Directory</strong> WWW</h5>
+<h5 id="directory-www"><strong>Directory:</strong> WWW</h5>
 <pre><code>index.html
 </code></pre>
-<h5 id="file-wwwindexhtml"><strong>file</strong> WWW/index.html</h5>
+<h5 id="file-wwwindexhtml"><strong>file:</strong> WWW/index.html</h5>
 <p>You'll see the file <code>WWW/index.html</code>:</p>
 <pre><code>.
 ├── WWW
@@ -505,6 +507,7 @@ Learn more at [PocoCMS tutorials](https://pococms.com/docs/tutorials.html)
 ├── .poco
 └── index.md
 </code></pre>
+<h6 id="next-changing-themesgs-change-themehtml"><a href="gs-change-theme.html">Next: Changing themes</a></h6>
 
 </article>
 
