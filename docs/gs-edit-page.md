@@ -16,15 +16,13 @@ Learn more at [PocoCMS tutorials](https://pococms.com/docs/tutorials.html)
 ```
 
 * Delete the line starting with `Learn more`, and `change hello, world`
-to something more helpful:
+to something more helpful. In the example below, replace `https://example.com`
+with the name of your own website.
 
 ```
----
-theme: "base"
----
 # Welcome to mysite
 
-Thanks for visiting! We'll change that header in just a moment.
+Hello from https://example.com. Our site is changing quickly.
 
 ```
 

@@ -265,7 +265,7 @@ article > img, article > p > img {
   margin-top:1em;margin-bottom:2em;
 }
 /* OVERRIDE FRAMEWORK PADDING, MARGIN, HEIGHTS */
-header{line-height:4em;}
+header{line-height:4em;padding-top:2em;}
 header>ul>li:first-child>a{padding-right:1rem;padding-left:0}
 
 nav>ul{line-height:2em;}
@@ -417,10 +417,16 @@ ol li:before {
 <article id="article-poco">
 <h1 id="documentation-conventions">Documentation conventions</h1>
 <p>This describes how Markdown is standardized for the PocoCMS documentation.</p>
+<h2 id="screenshots">Screenshots</h2>
+<ul>
+<li>Most desktop screenshots are taken at 1366x768</li>
+<li>Use 360x460 for phone vertical shots (it's the most common)</li>
+<li>Considering 1920x1080 for theme previews</li>
+</ul>
 <h3 id="filenames-for-code-fences">Filenames for code fences</h3>
-<p>Start as an he with <code>####</code>, add <code>file</code>, then use strong<br />
+<p>Start as an h5 with <code>#####</code>, add <code>file</code>, then use strong<br />
 around the actualy filename, like this:</p>
-<pre><code>#### file **footer.md**
+<pre><code>##### file: **footer.md**
 </code></pre>
 
 </article>
