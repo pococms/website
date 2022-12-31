@@ -393,15 +393,15 @@ ol li:before {
 </head>
 <body>	
 <header id="header-poco"><ul>
-<li><a href="/#">poco<del>CMS</del></a></li>
-<li><a href="#/pages/build-from-source.html">Download</a></li>
-<li><a href="../pages/reference.html">Documentation</a></li>
+<li><a href="https://pococms.com">poco<del>CMS</del></a></li>
+<li><a href="https://github.com/pococms/downloads/tree/main/dist">Download</a></li>
+<li><a href="docs/index.html">Documentation</a></li>
 <li><a href="https://github.com/pococms/poco/issues">Report an issue</a></li>
 <li><a href="https://github.com/pococms/poco">GitHub</a></li>
 </ul>
 </header>
 	
-<nav id="nav-poco"><p><a href="docs/resources.html">Resources</a></p>
+<nav id="nav-poco"><p><a href="docs/theme-demos.html">Theme demos</a> <a href="docs/themes-creating.html">Creating themes</a> <a href="docs/technical-overview.html">Technical overiew</a> <a href="docs/css-tips.html">CSS tips</a> <a href="docs/reference.html">Reference</a> <a href="docs/resources.html">Resources</a></p>
 </nav>
 	
 <aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
@@ -412,6 +412,21 @@ ol li:before {
 </ul>
 </aside>
 <article id="article-poco">
+<h2 id="installation">Installation</h2>
+<p>PocoCMS is distribued as a single executable file. Upon startup, PocoCMS:</p>
+<ul>
+<li>Queries the system to see where user application data is stored.</li>
+<li>Checks to see if that directory contains a subdirectory named <code>pococms</code></li>
+<li>If no such directory can be found, it's created and populated by
+the &quot;factory installed&quot; <code>.poco</code> directory contained within the executable.</li>
+<li>A new file called <code>.poco/INSTALLED</code> is created at that point. It's used
+as a heuristic and simply contains the time and date the directory was created. Sometimes it's hard to know if a <code>.poco</code> directory exists
+but is empty. Instead of trying to figure out what should be in a subdirectory
+under <code>.poco</code>, the INSTALLED file can be used to guess that <code>.poco</code> is
+probably not empty.</li>
+<li>When a new PocoCMS project is created via <code>poco -new</code>, the factory <code>.poco</code>
+directory is copied from the PocoCMS user application data directory.</li>
+</ul>
 <h1 id="pococms-technical-overview">PocoCMS Technical Overview</h1>
 <p>PocoCMS is a single executable file that reads a
 directory tree of files, converts Markdown files
