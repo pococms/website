@@ -29,6 +29,7 @@
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
@@ -52,6 +53,7 @@
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
@@ -78,6 +80,7 @@
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:black;            /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
@@ -273,7 +276,8 @@ aside ul li a {font-size:1.2rem;}
 aside ul li a {text-decoration:underline}
 
 /* 2nd level of list */
-aside ul ul li a {color:red;border:none;text-decoration:none;}
+aside ul ul li a {border:none;text-decoration:none;}
+
 
 /* 3rd level of list */
 aside ul ul ul li a 
@@ -355,17 +359,22 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 @media (prefers-color-scheme:light) {
 :root {
   --article-h2-fg:red;        /* Article h2 text color */
+  --aside-h2-fg:gray;         /* Aside h2 text color */
 }
   article>h6>a{background-color:var(--bg);border:1px solid black;}
 
+
   /* 1st level of list */
   aside ul li a {color:blue;}
+  /* 2nd level of list */
+  aside ul ul li a {color:var(--aside-h2-fg);}
 
 }
 
 @media (prefers-color-scheme:dark) {
 :root {
   --article-h2-fg:cyan;       /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
 }
   article>h6>a{background-color:var(--bg);border:1px solid white;}
 
@@ -404,7 +413,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <a href="#header">header</a>
 <a href="#footer">footer</a>
 <a href="#nav">nav</a>
-<a href="#script-after">script-after</a></p>
+<a href="#scriptafter">scriptafter</a></p>
 <p><em>Front matter</em> optionally starts your file. It contains
 instructions for things Markdown can't do for you,
 for example, choosing a theme, inserting Javascript
@@ -457,12 +466,13 @@ like this:</p>
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#1e90ff;font-weight:bold">html</span>&gt;
 </span></span></code></pre><p>You will normally see a more complex structure, with
 nonprinting commands that start the file:</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#1e90ff;font-weight:bold">title</span>:<span style="color:#bbb"> </span><span style="color:#a50">&#34;Introducing PocoCMS&#34;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#1e90ff;font-weight:bold">keywords</span>:<span style="color:#bbb"> </span><span style="color:#a50">&#34;static site generator, jamstack, cms&#34;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>hello, world. <span style="color:#bbb">
-</span></span></span></code></pre><p>The text between the two <code>---</code> lines is considered a separate
+<pre><code>---
+title: &quot;Introducing PocoCMS&quot;
+keywords: &quot;static site generator, jamstack, cms&quot;
+---
+hello, world. 
+</code></pre>
+<p>The text between the two <code>---</code> lines is considered a separate
 document with no direct relation to the remainder of the
 file, which is the Markdown portion. It's called <em>front matter</em>
 by convention, but what lies between the bracketing <code>---</code>
@@ -492,16 +502,19 @@ self-promoting <code>&lt;title&gt;</code> tag:</p>
 <pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>&lt;<span style="color:#1e90ff;font-weight:bold">title</span>&gt;Powered by PocoCMS&lt;/<span style="color:#1e90ff;font-weight:bold">title</span>&gt;
 </span></span></code></pre><p>That's because an HTML file is not considered valid without a title.
 As you've already surmised, this portion of the front matter</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#1e90ff;font-weight:bold">title</span>:<span style="color:#bbb"> </span><span style="color:#a50">&#34;Introducing PocoCMS&#34;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span></code></pre><p>Is responsible for this line of HTML:</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>&lt;<span style="color:#1e90ff;font-weight:bold">title</span>&gt;Introducing PocoCMS&lt;/<span style="color:#1e90ff;font-weight:bold">title</span>&gt;
-</span></span></code></pre><p>And obviously this line of front matter</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#1e90ff;font-weight:bold">keywords</span>:<span style="color:#bbb"> </span>static site generator, jamstack, cms<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span></code></pre><p>Caused a <code>keywords</code> metatag to be inserted into the file:</p>
+<pre><code>---
+title: &quot;Introducing PocoCMS&quot;
+---
+</code></pre>
+<p>Is responsible for this line of HTML:</p>
+<pre><code>&lt;title&gt;Introducing PocoCMS&lt;/title&gt;
+</code></pre>
+<p>And obviously this line of front matter</p>
+<pre><code>---
+keywords: static site generator, jamstack, cms
+---
+</code></pre>
+<p>Caused a <code>keywords</code> metatag to be inserted into the file:</p>
 <pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>&lt;<span style="color:#1e90ff;font-weight:bold">meta</span> <span style="color:#1e90ff">name</span>=<span style="color:#a50">&#34;keywords&#34;</span> <span style="color:#1e90ff">content</span>=<span style="color:#a50">&#34;static site generator, jamstack, cms&#34;</span>&gt;
 </span></span></code></pre><p>Return to <a href="#front-matter">top</a></p>
 <h2 id="formatting-rules">Formatting rules</h2>
@@ -523,36 +536,41 @@ the key precedes a colon and the value comes after the colon.</li>
 case sensitive. So while this will create a <code>&lt;title&gt;</code>
 tag in your HTML document:</li>
 </ul>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#1e90ff;font-weight:bold">title</span>:<span style="color:#bbb"> </span>PocoCMS makes cry out with joy<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span></code></pre><p>This will not:</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#1e90ff;font-weight:bold">Title</span>:<span style="color:#bbb"> </span>I&#39;m totally invisible<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span></code></pre><ul>
+<pre><code>---
+title: PocoCMS makes cry out with joy
+---
+</code></pre>
+<p>This will not:</p>
+<pre><code>---
+Title: I'm totally invisible
+---
+</code></pre>
+<ul>
 <li>YAML documents usually can't be empty. Don't start a file
 with empty front matter like this:</li>
 </ul>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span></code></pre><h2 id="author">author</h2>
+<pre><code>---
+---
+</code></pre>
+<h2 id="author">author</h2>
 <p>Causes an <code>author</code> metatag to be inserted into the file.</p>
 <h3 id="example">Example</h3>
 <p>Using this <code>Author</code> declaration in the front matter:</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#1e90ff;font-weight:bold">author</span>:<span style="color:#bbb"> </span><span style="color:#a50">&#34;Tom Campbell&#34;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span></code></pre><p>Causes this metatag to be generated:</p>
+<pre><code>---
+author: &quot;Tom Campbell&quot;
+---
+</code></pre>
+<p>Causes this metatag to be generated:</p>
 <pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>&lt;<span style="color:#1e90ff;font-weight:bold">meta</span> <span style="color:#1e90ff">name</span>=<span style="color:#a50">&#34;author&#34;</span> <span style="color:#1e90ff">content</span>=<span style="color:#a50">&#34;Tom Campbell&#34;</span>&gt;
 </span></span></code></pre><h2 id="description">description</h2>
 <p>Causes a <code>description</code> metatag to be inserted into the file.</p>
 <h3 id="example-1">Example</h3>
 <p>Using this <code>Description</code> in the front matter:</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#1e90ff;font-weight:bold">description</span>:<span style="color:#bbb"> </span><span style="color:#a50">&#34;PocoCMS is the easiest static site generator available&#34;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span></code></pre><p>Causes this metatag to be generated:</p>
+<pre><code>---
+description: &quot;PocoCMS is the easiest static site generator available&quot;
+---
+</code></pre>
+<p>Causes this metatag to be generated:</p>
 <pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>&lt;<span style="color:#1e90ff;font-weight:bold">meta</span> <span style="color:#1e90ff">name</span>=<span style="color:#a50">&#34;description&#34;</span> <span style="color:#1e90ff">content</span>=<span style="color:#a50">&#34;PocoCMS is the easiest static site generator available&#34;</span>&gt;
 </span></span></code></pre><h2 id="global-theme">global-theme</h2>
 <p>Defines a <a href="glossary.html#theme">theme</a> to be used as
@@ -585,10 +603,11 @@ front matter, which changes the language to Icelandic:</li>
 <p>Causes a [<code>robots</code> metatag](<a href="https://moz.com/learn/seo/robots-meta-directives#:~:text=Robots%20meta%20directives%20(sometimes%20called,or%20index%20web%20page%20content.)">https://moz.com/learn/seo/robots-meta-directives#:~:text=Robots%20meta%20directives%20(sometimes%20called,or%20index%20web%20page%20content.)</a> to be inserted into the file.</p>
 <h3 id="example-3">Example</h3>
 <p>Using this <code>Robots</code> entry in the front matter:</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#1e90ff;font-weight:bold">robots</span>:<span style="color:#bbb"> </span><span style="color:#a50">&#34;NoIndex&#34;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span></code></pre><p>Causes this metatag to be generated:</p>
+<pre><code>---
+robots: &quot;NoIndex&quot;
+---
+</code></pre>
+<p>Causes this metatag to be generated:</p>
 <pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>&lt;<span style="color:#1e90ff;font-weight:bold">meta</span> <span style="color:#1e90ff">name</span>=<span style="color:#a50">&#34;robots&#34;</span> <span style="color:#1e90ff">content</span>=<span style="color:#a50">&#34;noindex&#34;</span>&gt;
 </span></span></code></pre><p><strong>NOTE</strong></p>
 <p>Be careful following this example! It tells
@@ -616,28 +635,30 @@ doesn't publish them.</li>
 as shown below.</li>
 </ul>
 <h3 id="example-4">Example</h3>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#1e90ff;font-weight:bold">skip-publish</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>- 401k-info.xls<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>- node_modules<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>- www<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>- .git<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>- .DS_Store<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>- .gitignore<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span></code></pre><p>Here are some common items to skip:</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#1e90ff;font-weight:bold">skip-publish</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>- node_modules<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>- htdocs<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>- public_html<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>- www<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>- .git<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>- .DS_Store<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>- .gitignore<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span></code></pre><h2 id="theme">theme</h2>
+<pre><code>---
+    skip-publish:
+    - 401k-info.xls
+    - node_modules
+    - www
+    - .git
+    - .DS_Store
+    - .gitignore
+---
+
+</code></pre>
+<p>Here are some common items to skip:</p>
+<pre><code>---
+skip-publish:
+- node_modules
+- htdocs
+- public_html
+- www
+- .git
+- .DS_Store
+- .gitignore
+---
+</code></pre>
+<h2 id="theme">theme</h2>
 <p>Defines a <a href="glossary.html#page-theme">page theme</a> to be used as
 the default for all pages in the site.
 It is optional.  The global theme can be overridden
@@ -677,16 +698,16 @@ read as shown beloe in a web browser:</p>
 for each file in the list.</p>
 <h3 id="example-5">Example</h3>
 <p>Using these <code>Stylesheets</code> in the front matter:</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#1e90ff;font-weight:bold">stylesheets</span>:<span style="color:#bbb"> 
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>- <span style="color:#a50">&#34;poquito.css&#34;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>- <span style="color:#a50">&#34;https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/pocodocs.css&#34;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span></code></pre><p>Causes this HTML to be generated:</p>
+<pre><code>---
+stylesheets: 
+- &quot;poquito.css&quot;
+- &quot;https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/pocodocs.css&quot;
+---
+</code></pre>
+<p>Causes this HTML to be generated:</p>
 <pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>&lt;<span style="color:#1e90ff;font-weight:bold">link</span> <span style="color:#1e90ff">rel</span>=<span style="color:#a50">&#34;stylesheet&#34;</span> <span style="color:#1e90ff">href</span>=<span style="color:#a50">&#34;poquito.css&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#1e90ff;font-weight:bold">link</span> <span style="color:#1e90ff">rel</span>=<span style="color:#a50">&#34;stylesheet&#34;</span> <span style="color:#1e90ff">href</span>=<span style="color:#a50">&#34;https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/pocodocs.css&#34;</span>&gt;
-</span></span></code></pre><p>xxxx</p>
-<h1 id="style-tags">style-tags</h1>
+</span></span></code></pre><h1 id="styles">styles</h1>
 <p>Causes a <code>&lt;style&gt;</code> tag to be inserted into the file
 for each line in the list. Because they
 are inserted after <a href="#stylesheets">Stylesheets</a> they
@@ -696,12 +717,14 @@ It's a good way to develop stylesheets slowly, or
 to override colors for a light them to make it
 dark, and vice versa.</p>
 <h3 id="example-6">Example</h3>
-<p>Using this <code>style-tags</code> entry in the front matter:</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#1e90ff;font-weight:bold">style-tags</span>:<span style="color:#bbb"> 
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>- <span style="color:#a50">&#34;article&gt;p{color:blue;}&#34;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#0aa;text-decoration:underline">---</span><span style="color:#bbb">
-</span></span></span></code></pre><p>Will cause the text on this page to be blue.</p>
+<p>Using this <code>styles</code> entry in the front matter to color all
+your article text blue:</p>
+<pre><code>---
+style: 
+- &quot;article&gt;p{color:blue;}&quot;
+---
+</code></pre>
+<p>Will cause the text on this page to be blue.</p>
 <p>Causes this HTML to be generated:</p>
 <pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>&lt;<span style="color:#1e90ff;font-weight:bold">style</span>&gt;<span style="color:#1e90ff;font-weight:bold">article</span>&gt;<span style="color:#1e90ff;font-weight:bold">p</span>{<span style="color:#00a">color</span>:<span style="color:#00a">blue</span>;}&lt;/<span style="color:#1e90ff;font-weight:bold">style</span>&gt;
 </span></span></code></pre>

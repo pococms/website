@@ -2,6 +2,7 @@
 
 [Technical overview](technical-overview.html)  
 [Using themes](themes-using.html)  
+[Theme framework](theme-framework.html)  
 [Themes technical overview](themes-overview.html)  
 [Creating themes](themes-creating.html)  
 [PocoCMS command line options](cli.html)  

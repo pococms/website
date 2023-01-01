@@ -6,7 +6,7 @@
 [header](#header)
 [footer](#footer)
 [nav](#nav)
-[script-after](#script-after)  
+[scriptafter](#scriptafter)  
 
 
 *Front matter* optionally starts your file. It contains
@@ -76,7 +76,7 @@ It generates the following HTML document:
 You will normally see a more complex structure, with
 nonprinting commands that start the file:
 
-```yaml
+```
 ---
 title: "Introducing PocoCMS"
 keywords: "static site generator, jamstack, cms"
@@ -124,7 +124,7 @@ self-promoting `<title>` tag:
 That's because an HTML file is not considered valid without a title. 
 As you've already surmised, this portion of the front matter
 
-```yaml
+```
 ---
 title: "Introducing PocoCMS"
 ---
@@ -132,13 +132,13 @@ title: "Introducing PocoCMS"
 
 Is responsible for this line of HTML:
 
-```html
+```
 <title>Introducing PocoCMS</title>
 ```
 
 And obviously this line of front matter
 
-```yaml
+```
 ---
 keywords: static site generator, jamstack, cms
 ---
@@ -171,7 +171,7 @@ the key precedes a colon and the value comes after the colon.
 case sensitive. So while this will create a `<title>`
 tag in your HTML document:
 
-```yaml
+```
 ---
 title: PocoCMS makes cry out with joy
 ---
@@ -179,7 +179,7 @@ title: PocoCMS makes cry out with joy
 
 This will not:
 
-```yaml
+```
 ---
 Title: I'm totally invisible
 ---
@@ -188,7 +188,7 @@ Title: I'm totally invisible
 * YAML documents usually can't be empty. Don't start a file
 with empty front matter like this:
 
-```yaml
+```
 ---
 ---
 ```
@@ -201,7 +201,7 @@ Causes an `author` metatag to be inserted into the file.
 
 Using this `Author` declaration in the front matter:
 
-```yaml
+```
 ---
 author: "Tom Campbell"
 ---
@@ -220,7 +220,7 @@ Causes a `description` metatag to be inserted into the file.
 ### Example
 
 Using this `Description` in the front matter:
-```yaml
+```
 ---
 description: "PocoCMS is the easiest static site generator available"
 ---
@@ -275,7 +275,7 @@ Causes a [`robots` metatag](https://moz.com/learn/seo/robots-meta-directives#:~:
 
 Using this `Robots` entry in the front matter:
 
-```yaml
+```
 ---
 robots: "NoIndex"
 ---
@@ -318,7 +318,7 @@ as shown below.
 
 ### Example
 
-```yaml
+```
 ---
     skip-publish:
     - 401k-info.xls
@@ -333,7 +333,7 @@ as shown below.
 
 Here are some common items to skip:
 
-```yaml
+```
 ---
 skip-publish:
 - node_modules
@@ -399,7 +399,7 @@ for each file in the list.
 ### Example
 
 Using these `Stylesheets` in the front matter:
-```yaml
+```
 ---
 stylesheets: 
 - "poquito.css"
@@ -414,9 +414,7 @@ Causes this HTML to be generated:
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/pocodocs.css">
 ```
 
-xxxx
-
-# style-tags
+# styles
 
 Causes a `<style>` tag to be inserted into the file
 for each line in the list. Because they
@@ -429,10 +427,12 @@ dark, and vice versa.
 
 ### Example
 
-Using this `style-tags` entry in the front matter:
-```yaml
+Using this `styles` entry in the front matter to color all
+your article text blue:
+
+```
 ---
-style-tags: 
+style: 
 - "article>p{color:blue;}"
 ---
 ```

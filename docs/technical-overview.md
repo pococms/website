@@ -2,6 +2,374 @@
 Keywords: "PocoCMS, PocoCMS summary, technical overview, how does PocoCMS work"
 ---
 
+# PocoCMS Technical Overview
+
+PocoCMS is a single executable file that reads a
+directory tree of files, converts Markdown files
+to HTML, and passes the rest through to
+the webroot directory unchanged. 
+The [webroot](glossary.html#webroot) is where
+HTML, stylesheets, and other file assets
+are sent to be published on the Web.
+
+You can theme your website on a global or per-page
+basis. Themes are simple directories with
+CSS declarations and templates for page
+layout features: header, nav, aside, and footer.
+
+PocoCMS is meant above all to be unobtrusive,
+easy to learn, and extremely easy to get
+started with. You don't
+have to create weird special files get started,
+or download a theme from some obscure
+location on the web. Just type some Markdown, making
+sure the root of your site has a file named `index.md`
+or `README.md`, and you can get started immediately.
+
+## A PocoCMS site is in a single directory
+
+A PocoCMS site must occupy its own directory. All files
+are expected to be in that directory, including theme
+files, graphic assets, style sheets, and so on.
+
+
+
+
+## The PocoCMS theme framework
+
+Most PocoCMS themes use the PocoCMS [theme framework](theme-framework.html),
+which lets you publish complete-looking sites within a few
+seconds of choosing your theme. It's touched on here, but
+the [theme framework](theme-framework.html) page goes into
+more detail.
+
+The framework is optimized for quick development, and you
+can learn more at [Creating themes](themes-creating.html).
+
+
+## Global vs. page themes
+
+A `theme` declaration on the home page is also known as the [global theme](glossary.html#global-theme). It lets you propagate the theme through all
+pages in the site.
+
+### All pages inherit the home page theme, unless...
+
+PocoCMS has theme support, so you can just mention a theme
+in the [front matter](glossary.html#front-matter) of
+the [home page](glossary.html#home-page) and
+all other pages in the site will inherit that theme:
+
+##### file: **index.md**
+
+```
+---
+theme: informer
+---
+```
+
+### an individual page overrides the theme using pagetheme
+
+But sometimes you want to override the theme for one or more
+pages. You can do it on a per-page basis by using the `pagetheme`
+declaration:
+
+##### file: **not-the-home-page.md**
+
+```
+---
+pagetheme: electro
+---
+```
+
+A theme can also include template files for the
+header, nav bar, aside (a.k.a. sidebar), and footer.
+
+### Expensive web designers hate this 1 weird trick
+
+Suppose you want a separate theme for the home page than
+for the rest of the site? It's a common case because the
+  home page is often used for sales purposes.
+
+Remember that you declare a global theme on the
+home page using the `theme` declaration, but that
+you can override themes on a per-page basis using 
+`pagetheme`? Yeah, you see where we're going.
+
+This is how you create a site using the `pocodocs` theme
+for everything but the home page, but you use the `hero`
+  theme for the home page itself. You put *both* declarations
+  on the home page:
+
+##### file: **index.md**
+
+```
+---
+theme: pocodocs
+pagetheme: hero
+---
+```
+
+## Starting a site
+
+* When you create a new site with `poco -new mysite` (replace
+`mysite` with the path to a directory you want to create for your site),
+a directory is created with the following contents:
+
+  - A starter `index.md` file with some YAML [front matter](glossary.html#front-matter)
+  - An empty directory called `WWW`
+  - A populated directory called `.poco`, to be explained in a moment.
+
+```
+├── .poco
+├── WWW
+│   └── index.html
+└── index.md
+
+```
+
+This is a simplified view of the directory structure. 
+For a more accurate one, see
+[Complete tree listing of a new project](#complete-tree-listing-of-a-new-project)
+
+
+## Building a site
+
+* When you generate a site from within the directory like this, here's 
+what happens.
+
+```
+cd mysite
+poco
+```
+
+
+Invoking `poco` by itself builds the site, which means the following:
+
+* PocoCMS checks to make sure it's in a valid project, which
+means it looks for the `index.md` (or `README.md`) home page
+in root, a `WWW` directory, and a nonempty `.poco` directory off root.
+* Then, for each Markdown file in the directory tree, PocoCMS:
+  - Checks for a theme named in its [front matter](gs-change-theme.html#front-matter). Let's imagine the theme is `base`.
+  - Looks for that theme in the `.poco/themes` directory. So it would
+look in `.poco/themes/base`. Quit with an error if no such directory is found.
+  - In the theme's directory, checks for the files required to make
+  up a theme. Those files are `README.md` and `LICENSE` (no extension).
+  [LICENSE files](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository) indicate the
+  copyright status of the theme.
+  - The `README.md` file contains front matter describing a list of stylesheets
+  and Markdown or HTML files required for the page elements
+  (header, footer, and so on). For the `base` theme, the list looks like this:
+
+##### Directory: **base** theme
+
+```
+header: header.md
+nav: nav.md
+aside: aside.md
+footer: footer.md
+stylesheets:
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+- ../../css/type.css
+- ../../css/colors.css
+- ../../css/media.css
+---
+```
+## Theme structure
+
+A theme is nameed by its subdirectory. The `README.me`
+file in that subdirectory has a special use. It
+determines what files are used to produce the theme.
+
+
+### Stylesheets in the theme's README.md file
+
+The list of one or more stylesheets in standard Markdown unordered
+list format are required for each page that uses the theme.
+
+If a stylesheet is in the theme directory it
+will appear like this:
+
+```
+stylesheets:
+- electro.css
+```
+
+### Stylesheets that live on the web 
+
+They can also be specified by URL, as in:
+
+```
+stylesheets:
+- https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
+```
+
+If you don't use a theme or include a `stylesheets` declaration,
+no problem. PocoCMS will just crank out raw unstyled HTML.
+
+### Stylesheet paths and the ../ notation
+
+Stylesheet paths begin at the root of the project. 
+The `../` notation means to go down a directory. Here's
+how to interpret something like this:
+
+```
+stylesheets:
+- ../../css/root.css
+```
+
+If somehow there were stylesheets in the `themes` 
+directory, they'd be reached like this:
+
+```
+stylesheets:
+- ../nope.css
+```
+Or in the `.poco` directory, also not gonna happen:
+
+```
+stylesheets:
+- ../../hellno.css
+```
+
+Knowing that, here's a directory tree showing where themes 
+appear:
+
+```
+.
+├── index.md
+│   
+├── WWW
+│   └── index.html
+│   
+└─── .poco
+    │
+    ├── css
+    │   ├── colors.css
+    │   ├── .. etc
+    │   └── type.css
+    │
+    └── themes
+        ├── base
+        │   ├── LICENSE
+        │   ├── README.md
+        └── .. etc
+
+
+```
+
+We need access to the `css` directory from a subdirectory
+under `themes`, for example, `base` in that illustration.
+
+It's part of the file system so it ends up looking like this:
+
+```
+stylesheets:
+- ../../css/root.css
+```
+
+And that's how all the theme framework themes get to
+share CSS files. It allows updates to the framework
+by changing only a single file, instead of having
+to propagate changes to multiple theme directories.
+
+## Files used for page layout elements
+
+The contents of each of the [page layout elements](glossary.html#layout-element) (`header`, `nav`, `aside`, and `footer`) are derived from the file listed after the element:
+
+```
+header: header.md
+nav: nav.md
+aside: aside.md
+footer: footer.md
+```
+
+If you don't want a theme to support a particular layout element,
+just remove the line. None of the page layout elements
+is required.
+
+The filenames can be anything you want, but here at the 
+massive corporate Poco HQ we aren't very creative and follow
+this convention stricly.
+
+For example,
+`header.md` could be as simple as:
+
+##### File: **header.md**
+
+```
+Welcome to our incredible site
+```
+
+More likely, depending on your site's CSS, it will look something like this: a Markdown unordered list, and will be rendered as horizontal links
+on the header:
+
+```
+* [pocoCMS](https://pococms.com)
+* [Download](https://github.com/pococms/downloads/tree/main/dist)
+* [Documentation](/docs/index.html)
+* [Report an issue](https://github.com/pococms/poco/issues)
+* [GitHub](https://github.com/pococms/poco)
+```
+
+This is also likely for the nav and footer.
+
+### Files can be Markdown or HTML
+
+If a file ends in `.md` it's treated as Markdown. If it ends in
+`.html` it's an HTML file and is inserted directly into the
+output stream. If it's HTML, you must include the proper
+tags for each page layout element: `<header>` and `</header>`,
+`<footer>` and `</footer>`, and so on.
+
+### Page layout elements are included on every page, unless you SUPPRESS...
+
+When PocoCMS generates a site, every page uses that theme
+incorporates the CSS files required for that theme. The same
+is true with the header, nav, footer and aside. Assuming files
+for them exist in the `README.md` front matter, each generated
+page will have them all. But they can be suppressed on a
+page-by-page basis using SUPPRESS. For example, if you don't
+wait a page to have a nav bar just do this:
+
+```
+---
+nav: SUPPRESS
+---
+# Missing!
+
+What happened to the navbar on this page?
+```
+
+### ...OR replace a page layout element with a local file
+
+You can also replace any single page layout element by
+creating a file for it in the same directory. Suppose you
+want to remind users to check for an important update. You'd
+do this. Your article would include an `nav` declaration like this one
+  in the front matter:
+
+##### File: **beta-users.md**
+
+```
+nav: news-update.md
+# New release!
+
+Beta users should update immediately. See the news announcement above.
+```
+
+Then instead of whatever navbar was included in your theme, it's
+overridden by the file called `news-update.md` (use any filename you want).
+
+##### File: **news-update.md**
+
+```
+If you used beta version 10.0.9, please **[upgrade now](beta-10-0-0.html)**
+```
+
+
 ## Installation
 
 PocoCMS is distribued as a single executable file. Upon startup, PocoCMS:
@@ -17,38 +385,6 @@ under `.poco`, the INSTALLED file can be used to guess that `.poco` is
 probably not empty.
 * When a new PocoCMS project is created via `poco -new`, the factory `.poco`
 directory is copied from the PocoCMS user application data directory.
-
-# PocoCMS Technical Overview
-
-PocoCMS is a single executable file that reads a
-directory tree of files, converts Markdown files
-to HTML, and passes the rest through to
-the webroot directory unchanged. 
-The [webroot](glossary.html#webroot) is where
-HTML, stylesheets, and other file assets
-are sent to be published on the Web.
-
-PocoCMS is meant above all to be unobtrusive,
-easy to learn, and extremely easy to get
-started with. You don't
-have to create weird special files get started,
-or download a theme from some obscure
-location on the web. Just type some Markdown, making
-sure the root of your site has a file named `index.md`
-or `README.md`, and you can get started immediately.
-
-Even if you don't know [Markdown](glossary.html#markdown),
-you can just type plain text. Even links get turned into
-live hyperlinks without any effort.
-
-## Looking good
-
-PocoCMS has theme support, so you can just mention a theme
-in the [front matter](glossary.html#front-matter) of
-the [home page](glossary.html#home-page) and
-all other pages in the site will inherit that theme.
-A theme can also include template files for the
-header, nav bar, aside (a.k.a. sidebar), and footer.
 
 ## Running PocoCMS
 
@@ -115,5 +451,200 @@ to generate a `<link>` tag that pulls in a minimal
 spreadsheet from a CDN. It could just as easily
 be a local file but this makes for a quick demo.
 
-## PocoCMS themes
+## .poco directory structure 
+
+Here's an accurate view of the contents of
+the `.poco` directory in a new site. Repetitive
+elements have been replaced by an `.. etc` note.
+
+```
+.
+├── index.md
+│   
+├── WWW
+│   └── index.html
+│   
+└─── .poco
+    ├── css
+    │   ├── colors.css
+    │   ├── .. etc
+    │   └── type.css
+    │
+    ├── demo
+    │   ├── img-sample-night-sky-1280x853.jpg
+    │   ├── .. etc
+    │   └── mdemo.md
+    │
+    ├── endjs
+    │   ├── empty1.js
+    │   └── empty2.js
+    │
+    ├── img
+    │   ├── facebook-14px-clear.svg
+    │   ├── facebook-24px-blue.svg
+    │   ├── .. etc
+    │   ├── twitter-14px-blue.svg
+    │   ├── twitter-14px-clear.svg
+    │   └── youtube-14px-red.svg
+    │
+    ├── js
+    │   ├── docready.js
+    │   ├── last
+    │   │   └── aside.js
+    │   └── userlast
+    │       └── notes.txt
+    │
+    └── themes
+        ├── base
+        │   ├── LICENSE
+        │   ├── README.md
+        │   ├── aside.md
+        │   ├── footer.md
+        │   ├── header.md
+        │   └── nav.md
+        │
+        ├── electro
+        │   ├── LICENSE
+        │   ├── README.md
+        │   ├── aside.md
+        │   ├── electro.css
+        │   ├── footer.md
+        │   ├── header.md
+        │   └── nav.md
+        └── .. etc
+
+```
+## Complete tree listing of a new project
+
+```
+.
+├── index.md
+├── WWW
+│   └── index.html
+└── .poco
+    ├── css
+    │   ├── colors.css
+    │   ├── featuretable.css
+    │   ├── layout.css
+    │   ├── media.css
+    │   ├── medium-skinny.css
+    │   ├── nav-menu.css
+    │   ├── reset.css
+    │   ├── root.css
+    │   ├── sizes.css
+    │   ├── skinny.css
+    │   └── type.css
+    ├── demo
+    │   ├── img-sample-night-sky-1280x853.jpg
+    │   ├── index.md
+    │   ├── mdemo.md
+    │   └── show-layout.md
+    ├── endjs
+    │   ├── empty1.js
+    │   └── empty2.js
+    ├── img
+    │   ├── facebook-14px-clear.svg
+    │   ├── facebook-24px-blue.svg
+    │   ├── twitter-14px-blue.svg
+    │   ├── twitter-14px-clear.svg
+    │   └── youtube-14px-red.svg
+    ├── js
+    │   ├── docready.js
+    │   ├── last
+    │   │   └── aside.js
+    │   └── userlast
+    │       └── notes.txt
+    └── themes
+        ├── base
+        │   ├── LICENSE
+        │   ├── README.md
+        │   ├── aside.md
+        │   ├── footer.md
+        │   ├── header.md
+        │   └── nav.md
+        ├── electro
+        │   ├── LICENSE
+        │   ├── README.md
+        │   ├── aside.md
+        │   ├── electro.css
+        │   ├── footer.md
+        │   ├── header.md
+        │   └── nav.md
+        ├── hack
+        │   ├── LICENSE
+        │   ├── README.md
+        │   ├── aside.md
+        │   ├── footer.md
+        │   ├── hack.css
+        │   ├── header.md
+        │   └── nav.md
+        ├── informer
+        │   ├── LICENSE
+        │   ├── README.md
+        │   ├── aside.md
+        │   ├── dark.css
+        │   ├── footer.md
+        │   ├── header.md
+        │   ├── index.md
+        │   ├── informer.css
+        │   ├── nav.md
+        │   └── reset.css
+        ├── newman
+        │   ├── LICENSE
+        │   ├── README.md
+        │   ├── footer.md
+        │   ├── header.md
+        │   └── nav.md
+        ├── paper
+        │   ├── LICENSE
+        │   ├── README.md
+        │   ├── aside.md
+        │   ├── footer.md
+        │   ├── header.md
+        │   └── nav.md
+        ├── pasteboard
+        │   ├── LICENSE
+        │   ├── README.md
+        │   ├── aside.md
+        │   ├── foo.css
+        │   ├── footer.md
+        │   ├── header.md
+        │   ├── nav.md
+        │   └── pasteboard.css
+        ├── pocodocs
+        │   ├── LICENSE
+        │   ├── README.md
+        │   ├── aside.md
+        │   ├── big-circles.css
+        │   ├── footer.md
+        │   ├── header.md
+        │   ├── nav.md
+        │   └── pocodocs.css
+        ├── rawdog
+        │   ├── LICENSE
+        │   ├── README.md
+        │   └── rawdog.css
+        ├── skyscraper
+        │   ├── LICENSE
+        │   ├── README.md
+        │   ├── aside.md
+        │   ├── footer.md
+        │   ├── header.md
+        │   ├── nav.md
+        │   └── skyscraper.css
+        └── tufte
+            ├── LICENSE
+            ├── README.md
+            ├── aside.md
+            ├── dark.css
+            ├── footer.html
+            ├── footer.md
+            ├── header.md
+            ├── index.md
+            ├── layout-only.css
+            ├── nav.md
+            └── tufte.css
+ 
+```
+
 

@@ -29,6 +29,7 @@
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
@@ -52,6 +53,7 @@
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
@@ -78,6 +80,7 @@
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:black;            /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
@@ -273,7 +276,8 @@ aside ul li a {font-size:1.2rem;}
 aside ul li a {text-decoration:underline}
 
 /* 2nd level of list */
-aside ul ul li a {color:red;border:none;text-decoration:none;}
+aside ul ul li a {border:none;text-decoration:none;}
+
 
 /* 3rd level of list */
 aside ul ul ul li a 
@@ -355,17 +359,22 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 @media (prefers-color-scheme:light) {
 :root {
   --article-h2-fg:red;        /* Article h2 text color */
+  --aside-h2-fg:gray;         /* Aside h2 text color */
 }
   article>h6>a{background-color:var(--bg);border:1px solid black;}
 
+
   /* 1st level of list */
   aside ul li a {color:blue;}
+  /* 2nd level of list */
+  aside ul ul li a {color:var(--aside-h2-fg);}
 
 }
 
 @media (prefers-color-scheme:dark) {
 :root {
   --article-h2-fg:cyan;       /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
 }
   article>h6>a{background-color:var(--bg);border:1px solid white;}
 
@@ -437,8 +446,7 @@ be something like:</li>
 <pre><code>./poco ~/mysite
 ./poco -server ~/mysite
 </code></pre>
-<pre><code>But you should put `poco` on the system path as soon as possible.
-</code></pre>
+<p>But you should put <code>poco</code> on the system path as soon as possible.</p>
 
 </article>
 

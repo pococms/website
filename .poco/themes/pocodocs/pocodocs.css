@@ -26,7 +26,8 @@ aside ul li a {font-size:1.2rem;}
 aside ul li a {text-decoration:underline}
 
 /* 2nd level of list */
-aside ul ul li a {color:red;border:none;text-decoration:none;}
+aside ul ul li a {border:none;text-decoration:none;}
+
 
 /* 3rd level of list */
 aside ul ul ul li a 
@@ -108,17 +109,22 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 @media (prefers-color-scheme:light) {
 :root {
   --article-h2-fg:red;        /* Article h2 text color */
+  --aside-h2-fg:gray;         /* Aside h2 text color */
 }
   article>h6>a{background-color:var(--bg);border:1px solid black;}
 
+
   /* 1st level of list */
   aside ul li a {color:blue;}
+  /* 2nd level of list */
+  aside ul ul li a {color:var(--aside-h2-fg);}
 
 }
 
 @media (prefers-color-scheme:dark) {
 :root {
   --article-h2-fg:cyan;       /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
 }
   article>h6>a{background-color:var(--bg);border:1px solid white;}
 

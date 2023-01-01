@@ -46,6 +46,6 @@ go build
 ./poco ~/mysite
 ./poco -server ~/mysite
 ```
-    But you should put `poco` on the system path as soon as possible.
+  But you should put `poco` on the system path as soon as possible.
 
 

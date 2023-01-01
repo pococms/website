@@ -29,6 +29,7 @@
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
@@ -52,6 +53,7 @@
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
@@ -78,6 +80,7 @@
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:black;            /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
@@ -273,7 +276,8 @@ aside ul li a {font-size:1.2rem;}
 aside ul li a {text-decoration:underline}
 
 /* 2nd level of list */
-aside ul ul li a {color:red;border:none;text-decoration:none;}
+aside ul ul li a {border:none;text-decoration:none;}
+
 
 /* 3rd level of list */
 aside ul ul ul li a 
@@ -355,17 +359,22 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 @media (prefers-color-scheme:light) {
 :root {
   --article-h2-fg:red;        /* Article h2 text color */
+  --aside-h2-fg:gray;         /* Aside h2 text color */
 }
   article>h6>a{background-color:var(--bg);border:1px solid black;}
 
+
   /* 1st level of list */
   aside ul li a {color:blue;}
+  /* 2nd level of list */
+  aside ul ul li a {color:var(--aside-h2-fg);}
 
 }
 
 @media (prefers-color-scheme:dark) {
 :root {
   --article-h2-fg:cyan;       /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
 }
   article>h6>a{background-color:var(--bg);border:1px solid white;}
 
@@ -398,68 +407,373 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </aside>
 <article id="article-poco">
 <h1 id="the-pococms-theme-framework">The PocoCMS theme framework</h1>
-<h1 id="todo-all-of-it">TODO: All of it!</h1>
-<h2 id="misc">MISC</h2>
+<p>The PocoCMS theme framework is a set of CSS and text files
+designed to make it predictable
+and fast to design attractive themes with these qualities:</p>
 <ul>
-<li><code>skinny.css</code> is what makes the Skyscraper theme so narrow.
-Pasteboard uses <code>medium-skinny.css</code>. They can be used
-interchangeably.</li>
+<li>You should be able to choose a theme and start doing serious
+work within a few seconds: with just a theme name and
+Markdown files, you should be able to publish your site
+moments after starting</li>
+<li>Both mobile and desktop friendly</li>
+<li>Responsive (change behavior to accomodate different screen sizes)</li>
+<li>Accomodate dark themes</li>
+<li>Work on older browsers</li>
+<li>Provide good results in bandwidth-hungry situations by keeping file sizes very small</li>
+<li>Support sidebars (called <a href="glossary.html#aside">asides</a> in PocoCMS and
+HTML) on either side of the page</li>
+<li>Support optional header, navbars, asides, and footers</li>
+<li>Hide header, navbars, asides, or footers on a per-page basis</li>
+<li>Replace header, navbars, asides, or footers on a per-page basis</li>
+<li>Have good <a href="#glossary.html#seo">SEO</a> right out of the box, making it easier for your sites</li>
+<li>Work entirely without CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors">classes</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors">ids</a>.</li>
 </ul>
-<h2 id="separation-of-concerns">Separation of Concerns</h2>
-<p>The PocoCMS <a href="theme-framework.html">theme framework</a> isn't very big,
-but it does a huge amount of work. It has to handle many conflicting
-interests: responsiveness, optional header/nav/aside/footer,
-aside placements, looking good on both short pages and long ones,
-mobile support, and more.</p>
-<p>Instead of doing something like this:</p>
-<pre><code>article &gt; 3 {
-  font-size: 1.5em;
-  line-height: 1.75em;
-  font-family: 'Roboto Condensed','sans-serif';
-  font-weight: bold;
-  color:gray;
-}
+<h2 id="pococms-theme-framework-overview">PocoCMS theme framework overview</h2>
+<p>When a <a href="glossary.html#markdown">Markdown</a> file gets converted to
+HTML, PocoCMS inserts stylesheets and, if the theme supports
+these features, <a href="glossary.html#layout-elements">page layout elements</a>
+into the HTML</p>
+<ul>
+<li>header styles, recurring text and images, and formatting</li>
+<li>nav styles, recurring text and images, and formatting</li>
+<li>aside styles, recurring text and images, and formatting</li>
+<li>header styles, recurring text and images, and formatting</li>
+<li>footer styles, recurring text and images, and formatting</li>
+</ul>
+<p>Everything listed is optional.</p>
+<h3 id="what-poco-does-when-it-runs">What poco does when it runs</h3>
+<p>If you're in a directory created as a Poco <a href="glossary.html#site">site</a>,
+you run poco like this:</p>
+<pre><code>poco
 </code></pre>
-<p>The framework splits up each job:</p>
-<h5 id="filename-overridescss">filename: <strong>overrides.css</strong></h5>
-<pre><code>/* OVERRIDE FRAMEWORK SIZES */
-
-article &gt; 3 {
-  font-size: 1.5em;
-  line-height: 1.75em;
+<p>It will then find every Markdown file on your site, convert it
+to HTML, and deposit the results in the <a href="glossary.html#webroot">webroot</a>
+directory, usually named <code>WWW</code>.</p>
+<p>So if a file consists of nothing but:</p>
+<pre><code>hello, world
+</code></pre>
+<p>Its most important contents will be generated as:</p>
+<pre><code>&lt;article id=&quot;article-poco&quot;&gt;
+&lt;p&gt;hello, world.&lt;/p&gt;
+&lt;/article&gt;
+</code></pre>
+<p>If you add a theme, you'll get a few more elements on the page.</p>
+<pre><code>---
+theme: base
+---
+hello, world
+</code></pre>
+<p>The <code>base</code> theme defines header, footer, nav bar, and so on,
+so here's an abbreviated sample of the generated HTML:</p>
+<h5 id="filename-wwwindexhtml">Filename: <strong>WWW/index.html</strong></h5>
+<pre><code>&lt;style&gt;
+:root {
+  --a:blue;                   /* Default link color */
+  --fg:black;                 /* Default text color. */
+  --bg:white;                 /* Default background color */
+  --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  .. etc
 }
+&lt;/head&gt;
+&lt;body&gt;	
+&lt;header id=&quot;header-poco&quot;&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&quot;#&quot;&gt;Base theme header&lt;/a&gt;&lt;/strong&gt;
+&lt;/li&gt;
+.. etc
+&lt;/ul&gt;
+&lt;/header&gt;
+	
+&lt;nav id=&quot;nav-poco&quot;&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Base theme nav&lt;/a&gt;&lt;/li&gt;
+.. etc
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Technical overview&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
 
-/* OVERRIDE FRAMEWORK LAYOUT */
-
-/* OVERRIDE FRAMEWORK TYPOGRAPHY AND FONTS */
-
-article &gt; 3 {
-  font-family: 'Roboto Condensed','sans-serif';
-  font-weight: bold;
-}
-
-/* OVERRIDE FRAMEWORK COLORS */
-
-article &gt; 3 {
-  color:gray;
-}
-
-
-/* OVERRIDE FRAMEWORK MEDIA QUERIES */
+&lt;article id=&quot;article-poco&quot;&gt;
+&lt;p&gt;hello, world.&lt;/p&gt;
+&lt;/article&gt;
+	
+&lt;aside id=&quot;aside-poco&quot;&gt;&lt;h4 id=&quot;item-1&quot;&gt;Item 1&lt;/h4&gt;
+&lt;p&gt;Here's a good place to put a
+news item of current interest&lt;/p&gt;
+&lt;h4 id=&quot;item-2&quot;&gt;Item 2&lt;/h4&gt;
+&lt;p&gt;Here's a good place to put another
+news item of current interest&lt;/p&gt;
+&lt;/aside&gt;
 
 </code></pre>
-<h2 id="theme-file-order">Theme file order</h2>
-<pre><code>- ../../css/reset.css
+<p>These elements are supplied by the theme's <a href="#theme-readme-md-file">README.md</a> file.
+More about that later.</p>
+<h3 id="refresher-the-top-part-between-----lines-is-a-yaml-document-that-controls-page-appearance">Refresher: the top part between <code>---</code> lines is a YAML document that controls page appearance</h3>
+<p>So adding the <code>theme</code> designation doesn't change what text
+appears in between the <code>&lt;article&gt;/&lt;/article&gt;</code> tags, but it does
+affect the styling. The portion between the two <code>---</code> lines is
+cleverly regarded as a separate document, not part of the Markdown
+article at all. It is a separate data description language
+called <a href="glossary.html#yaml">YAML</a> YAML is a dictionary: it
+provides a &quot;key&quot; or lookup term like <code>theme</code>, then returns its value, for
+example, <code>informer</code>.</p>
+<p>Most of the YAML you'll see in PocoCMS represents either a single
+value or a simple list of values. The key is followed by a colon,
+which separates the key from the value. Both are shockingly
+known as key/value pairs.</p>
+<p>Here's an example of each kind.</p>
+<pre><code>---
+theme: newfoo
+stylesheets:
+- new.css
+- foo.css
+- juststopalready.css
+---
+</code></pre>
+<p>In the above example, the key <code>theme</code> has a single value: the
+mythical theme named <code>newfoo</code>.</p>
+<p>The <code>stylesheets</code> key has a list of values, one per line. So
+<code>new.css</code>,<code>foo.css</code>, and <code>juststopalready.css</code> all make up
+value assigned to the <code>stylesheets</code> list.</p>
+<h2 id="contents-of-a-theme-directory">Contents of a theme directory</h2>
+<p>In this example the user wishes make <code>base</code> their global theme.
+Where does it come from?</p>
+<h5 id="filename-indexmd">Filename: <strong>index.md</strong></h5>
+<pre><code>---
+theme: informer 
+---
+
+Check out this newsy site!
+</code></pre>
+<p>As PocoCMS is generating HTML it reads the <code>theme</code> key
+and looks for the Informer theme. It is expected to
+be in a subdirectory under <code>.poco/themes</code>. A simplified
+view of the file structure is shown below:</p>
+<pre><code>.
+├── index.md
+│   
+├── WWW
+│   └── index.html
+│   
+└─── .poco
+    │
+    ├── css
+    │   ├── colors.css
+    │   ├── layout.css
+    │   ├── media.css
+    │   ├── medium-skinny.css
+    │   ├── reset.css
+    │   ├── root.css
+    │   ├── sizes.css
+    │   ├── skinny.css
+    │   └── type.css
+    │
+    └── themes
+        ├── base
+        │   ├── LICENSE
+        │   ├── README.md
+        │   ├── aside.md
+        │   ├── footer.md
+        │   ├── header.md
+        │   └── nav.md
+ 
+</code></pre>
+<p>As you can see, the theme directory has the following elements:</p>
+<ul>
+<li>A name (derived from the directory name, <code>base</code> in this example)</li>
+<li>A <code>LICENSE</code> file (all uppercase, no extension). It's required, and serves the same person
+as a GitHub <a href="https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository">LICENSE files</a>.
+It indicates the terms under which the theme creator allows it to be distributed.</li>
+<li>A <code>README.md</code> file in standard Markdown format. It must present,
+although it may be empty.</li>
+<li>Optional and not shown above: other files needed by that particular theme. In
+the case above, it's a Markdown file for each page <a href="glossary.html#layout-element">layout element</a>. Stylesheets often show up in the directory too.</li>
+</ul>
+<h2 id="license-file">LICENSE file</h2>
+<p>The required <code>LICENSE</code> file may contain any text, but you're
+encouraged to use an existing license as described by the
+GitHub <a href="https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository">LICENSE files</a> page.kj:w</p>
+<h2 id="theme-readmemd-file">Theme README.md file</h2>
+<p>If you want your theme to have a header, navbar, aside, or footer, you
+include those keys in the front matter:</p>
+<pre><code>---
+stylesheets:
+- ../../css/root.css
+- ../../css/reset.css
 - ../../css/sizes.css
 - ../../css/layout.css
 - ../../css/type.css
 - ../../css/colors.css
-- ../../css/skinny.css # Optional. Put before media.css if used
 - ../../css/media.css
+header: header.md
+nav: nav.md
+aside: aside.md
+footer: footer.md
+---
 </code></pre>
+<p>The value for the key is the name of a file. It can be any name.
+Those are just the conventions used by PocoCMS.</p>
+<h2 id="pococms-theme-framework-stylesheets">PocoCMS theme framework stylesheets</h2>
+<p>You'll see these files in the <code>.poco/css</code> directory.
+You will normally want to include them in this order
+when you <a href="themes-creating.html">create a theme</a>.</p>
 <ul>
-<li>Note that if you use <code>skinny.css</code> it must come before <code>media.css</code></li>
+<li><a href="#rootcss">root.css</a></li>
+<li><a href="#resetcss">reset.css</a></li>
+<li><a href="#sizescss">sizes.css</a></li>
+<li><a href="#layoutcss">layout.css</a></li>
+<li><a href="#typecss">type.css</a></li>
+<li><a href="#colorscss">colors.css</a></li>
+<li><a href="#mediacss">media.css</a></li>
 </ul>
+<p>And optionally:</p>
+<ul>
+<li><a href="#skinnycss">skinny.css</a></li>
+<li><a href="#medium-skinnycss">medium-skinny.css</a></li>
+</ul>
+<h3 id="rootcss">root.css</h3>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/root.css">root.css</a> file</p>
+<h3 id="resetcss">reset.css</h3>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/reset.css">reset.css</a> file</p>
+<h3 id="sizescss">sizes.css</h3>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/sizes.css">sizes.css</a> file</p>
+<h3 id="layoutcss">layout.css</h3>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/layout.css">layout.css</a> file</p>
+<h3 id="typecss">type.css</h3>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/type.css">type.css</a> file</p>
+<h3 id="colorscss">colors.css</h3>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/color.css">color.css</a> file</p>
+<h3 id="mediacss">media.css</h3>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/media.css">media.css</a> file</p>
+<h3 id="skinnycss">skinny.css</h3>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/skinny.css">skinny.css</a> file</p>
+<h3 id="medium-skinnycss">medium-skinny.css</h3>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/medium-skinny.css">medium-skinny.css</a> file</p>
+<h2 id="stylesheets-in-the-themes-readmemd-file">Stylesheets in the theme's README.md file</h2>
+<p>The list of one or more stylesheets in standard Markdown unordered
+list format are required for each page that uses the theme.</p>
+<p>If a stylesheet is in the theme directory it
+will appear like this:</p>
+<pre><code>stylesheets:
+- electro.css
+</code></pre>
+<h3 id="stylesheets-that-live-on-the-web">Stylesheets that live on the web</h3>
+<p>They can also be specified by URL, as in:</p>
+<pre><code>stylesheets:
+- https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
+</code></pre>
+<p>If you don't use a theme or include a <code>stylesheets</code> declaration,
+no problem. PocoCMS will just crank out raw unstyled HTML.</p>
+<h3 id="stylesheet-paths-and-the--notation">Stylesheet paths and the ../ notation</h3>
+<p>Stylesheet paths begin at the root of the project.
+The <code>../</code> notation means to go down a directory. Here's
+how to interpret something like this:</p>
+<pre><code>stylesheets:
+- ../../css/root.css
+</code></pre>
+<p>If somehow there were stylesheets in the <code>themes</code>
+directory, they'd be reached like this:</p>
+<pre><code>stylesheets:
+- ../nope.css
+</code></pre>
+<p>Or in the <code>.poco</code> directory, also not gonna happen:</p>
+<pre><code>stylesheets:
+- ../../hellno.css
+</code></pre>
+<p>Knowing that, here's a directory tree showing where themes
+appear:</p>
+<pre><code>.
+├── index.md
+│   
+├── WWW
+│   └── index.html
+│   
+└─── .poco
+    │
+    ├── css
+    │   ├── colors.css
+    │   ├── .. etc
+    │   └── type.css
+    │
+    └── themes
+        ├── base
+        │   ├── LICENSE
+        │   ├── README.md
+        └── .. etc
+
+
+</code></pre>
+<p>We need access to the <code>css</code> directory from a subdirectory
+under <code>themes</code>, for example, <code>base</code> in that illustration.</p>
+<p>It's part of the file system so it ends up looking like this:</p>
+<pre><code>stylesheets:
+- ../../css/root.css
+</code></pre>
+<p>And that's how all the theme framework themes get to
+share CSS files. It allows updates to the framework
+by changing only a single file, instead of having
+to propagate changes to multiple theme directories.</p>
+<h3 id="files-used-for-page-layout-elements">Files used for page layout elements</h3>
+<p>The contents of each of the <a href="glossary.html#layout-element">page layout elements</a> (<code>header</code>, <code>nav</code>, <code>aside</code>, and <code>footer</code>) are derived from the file listed after the element:</p>
+<pre><code>header: header.md
+nav: nav.md
+aside: aside.md
+footer: footer.md
+</code></pre>
+<p>If you don't want a theme to support a particular layout element,
+just remove the line. None of the page layout elements
+is required.</p>
+<p>The filenames can be anything you want, but here at the
+massive corporate Poco HQ we aren't very creative and follow
+this convention stricly.</p>
+<p>For example,
+<code>header.md</code> could be as simple as:</p>
+<h5 id="file-headermd">File: <strong>header.md</strong></h5>
+<pre><code>Welcome to our incredible site
+</code></pre>
+<p>More likely, depending on your site's CSS, it will look something like this: a Markdown unordered list, and will be rendered as horizontal links
+on the header:</p>
+<pre><code>* [pocoCMS](https://pococms.com)
+* [Download](https://github.com/pococms/downloads/tree/main/dist)
+* [Documentation](/docs/index.html)
+* [Report an issue](https://github.com/pococms/poco/issues)
+* [GitHub](https://github.com/pococms/poco)
+</code></pre>
+<p>This is also likely for the nav and footer.</p>
+<h3 id="files-can-be-markdown-or-html">Files can be Markdown or HTML</h3>
+<p>If a file ends in <code>.md</code> it's treated as Markdown. If it ends in
+<code>.html</code> it's an HTML file and is inserted directly into the
+output stream. If it's HTML, you must include the proper
+tags for each page layout element: <code>&lt;header&gt;</code> and <code>&lt;/header&gt;</code>,
+<code>&lt;footer&gt;</code> and <code>&lt;/footer&gt;</code>, and so on.</p>
+<h3 id="page-layout-elements-are-included-on-every-page-unless-you-suppress">Page layout elements are included on every page, unless you SUPPRESS...</h3>
+<p>When PocoCMS generates a site, every page uses that theme
+incorporates the CSS files required for that theme. The same
+is true with the header, nav, footer and aside. Assuming files
+for them exist in the <code>README.md</code> front matter, each generated
+page will have them all. But they can be suppressed on a
+page-by-page basis using SUPPRESS. For example, if you don't
+wait a page to have a nav bar just do this:</p>
+<pre><code>nav: SUPPRESS
+---
+# Missing!
+
+What happened to the navbar on this page?
+</code></pre>
+<h3 id="or-replace-a-page-layout-element-with-a-local-file">...OR replace a page layout element with a local file</h3>
+<p>You can also replace any single page layout element by
+creating a file for it in the same directory as the article. Suppose you
+want to remind users to check for an important update. You'd
+do this. Your article would include an <code>nav</code> declaration like this one
+in the front matter:</p>
+<h5 id="file-beta-usersmd">File: <strong>beta-users.md</strong></h5>
+<pre><code>nav: news-update.md
+# New release!
+
+Beta users should update immediately. See the news announcement above.
+</code></pre>
+<p>Then instead of whatever navbar was included in your theme, it's
+overridden by the file called <code>news-update.md</code> (use any filename you want).</p>
+<h5 id="file-news-updatemd">File: <strong>news-update.md</strong></h5>
+<pre><code>If you used beta version 10.0.9, please **[upgrade now](beta-10-0-0.html)**
+</code></pre>
 
 </article>
 

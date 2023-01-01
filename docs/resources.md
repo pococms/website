@@ -27,6 +27,9 @@ accessibility to SEO.
 * itme
 * imt
 * tim3
+## SEO
+* Google's perspecitve on the all-important [title tag](https://developers.google.com/search/docs/appearance/title-link). In PocoCMS you supply it
+using `title` in your page's [front matter](front-matter.html#title)
 
 ## RANDOM h2
 

@@ -299,6 +299,14 @@ By definition the aside will be considered less
 important than the article. The header is probably more
 important than the footer, and so on.
 
+## SEO
+
+SEO, or search engine optimization, is the art of structuring and
+writing your site so that it's more likely to be found on the web.
+For example, making sure each page of your site has a different
+[title](#title)
+
+
 
 ## site
 See [project](#project)
@@ -339,6 +347,11 @@ this at the command line:
 ```bash
 poco -themes
 ```
+## title
+
+Each HTML document should have a [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title) tag. Often the title tag determines what
+text appears to people [searching on the web](https://developers.google.com/search/docs/appearance/title-link), and it's normally
+used for browser tabs as well. 
 
 ## user application data directory
 
@@ -375,9 +388,6 @@ echo $XDG_CACHE_HOME/pococms
 ```
 
 
-
-
-
 ## web root
 Synonymous with [webroot](#web-root).
 
@@ -389,5 +399,77 @@ used for your project named `WWW`. You can
 designate a different directory using the `webroot`
 [command line option](cli.html#webroot)
 
+## YAML
+
+YAML is a language used to describe data in a way that people
+can figure out very easily, just the way [Markdown](#markdown)
+is a way to describe how a document should be displayed.
+
+### key/value pairs
+
+YAML can get pretty descriptive but it's mostly used to
+represent either single values, or simple lists of values.
+Each of thes entities is described by a title called a
+*key*, and it's assigned a *value* in the YAML.
+
+
+In YAML, key/value pairs are separated by a colon, as shown next.
+
+### Keys that hold a single value
+
+For example, here the `header` key is assigned the
+value `news-header.md`:
+
+```
+---
+header: news-header.md
+---
+```
+
+In this particular context the value is treated as a filename,
+but that doesn't matter here. The key is `header` and its
+value is `news-header.md`.
+
+Note that the key and the value are on the same line.
+
+### Keys that hold a list of values
+
+A key can hold a list of values. In that case, the key
+and `:` colon are on line by themselves,
+and the list values are separated by new 
+lines, thd `-` character followed by a space,
+and then the value:
+
+
+```
+---
+stylesheets:
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+- ../../css/type.css
+- ../../css/colors.css
+- ../../css/media.css
+```
+### Value lists are ordered
+
+When style sheets are declared in a document, their order
+is important. CSS works that way on purpose. You can define
+rules on document A, and if document B follows it,
+anything B defines that's found in A is overriden.
+
+YAML values lists preserve their ordering, so in the
+example above it is guaranteed that `../../css/root.css` 
+will get loaded first, then`../../css/reset.css` and so on.
+ 
+ 
+
+
+The rules used here are restrictive but YAML is much
+more expressive than that. PocoCMS uses very simple
+formatting to make it easier to stay consistent and
+to scan lists at a glance. 
+Learn more about YAML at [YAML.org](https://yaml.org/)
 
 

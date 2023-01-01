@@ -29,6 +29,7 @@
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
@@ -52,6 +53,7 @@
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
@@ -78,6 +80,7 @@
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:black;            /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
@@ -273,7 +276,8 @@ aside ul li a {font-size:1.2rem;}
 aside ul li a {text-decoration:underline}
 
 /* 2nd level of list */
-aside ul ul li a {color:red;border:none;text-decoration:none;}
+aside ul ul li a {border:none;text-decoration:none;}
+
 
 /* 3rd level of list */
 aside ul ul ul li a 
@@ -355,17 +359,22 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 @media (prefers-color-scheme:light) {
 :root {
   --article-h2-fg:red;        /* Article h2 text color */
+  --aside-h2-fg:gray;         /* Aside h2 text color */
 }
   article>h6>a{background-color:var(--bg);border:1px solid black;}
 
+
   /* 1st level of list */
   aside ul li a {color:blue;}
+  /* 2nd level of list */
+  aside ul ul li a {color:var(--aside-h2-fg);}
 
 }
 
 @media (prefers-color-scheme:dark) {
 :root {
   --article-h2-fg:cyan;       /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
 }
   article>h6>a{background-color:var(--bg);border:1px solid white;}
 
@@ -619,6 +628,11 @@ and footer. These too are given semantic meaning.
 By definition the aside will be considered less
 important than the article. The header is probably more
 important than the footer, and so on.</p>
+<h2 id="seo">SEO</h2>
+<p>SEO, or search engine optimization, is the art of structuring and
+writing your site so that it's more likely to be found on the web.
+For example, making sure each page of your site has a different
+<a href="#title">title</a></p>
 <h2 id="site">site</h2>
 <p>See <a href="#project">project</a></p>
 <h2 id="source-file">source file</h2>
@@ -647,7 +661,11 @@ theme: .poco/themes/wide
 <p>To find out what themes are installed on your machine, just run
 this at the command line:</p>
 <pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>poco -themes
-</span></span></code></pre><h2 id="user-application-data-directory">user application data directory</h2>
+</span></span></code></pre><h2 id="title">title</h2>
+<p>Each HTML document should have a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title">title</a> tag. Often the title tag determines what
+text appears to people <a href="https://developers.google.com/search/docs/appearance/title-link">searching on the web</a>, and it's normally
+used for browser tabs as well.</p>
+<h2 id="user-application-data-directory">user application data directory</h2>
 <p>Every operating system has a preferred location for storing
 data from third-party apps such as PocoCMS.</p>
 <p>PocoCMS comes with a package of themes, stylesheets, graphic assets, and
@@ -677,6 +695,56 @@ for your website. By default it's a subdirectory under the directory
 used for your project named <code>WWW</code>. You can
 designate a different directory using the <code>webroot</code>
 <a href="cli.html#webroot">command line option</a></p>
+<h2 id="yaml">YAML</h2>
+<p>YAML is a language used to describe data in a way that people
+can figure out very easily, just the way <a href="#markdown">Markdown</a>
+is a way to describe how a document should be displayed.</p>
+<h3 id="keyvalue-pairs">key/value pairs</h3>
+<p>YAML can get pretty descriptive but it's mostly used to
+represent either single values, or simple lists of values.
+Each of thes entities is described by a title called a
+<em>key</em>, and it's assigned a <em>value</em> in the YAML.</p>
+<p>In YAML, key/value pairs are separated by a colon, as shown next.</p>
+<h3 id="keys-that-hold-a-single-value">Keys that hold a single value</h3>
+<p>For example, here the <code>header</code> key is assigned the
+value <code>news-header.md</code>:</p>
+<pre><code>---
+header: news-header.md
+---
+</code></pre>
+<p>In this particular context the value is treated as a filename,
+but that doesn't matter here. The key is <code>header</code> and its
+value is <code>news-header.md</code>.</p>
+<p>Note that the key and the value are on the same line.</p>
+<h3 id="keys-that-hold-a-list-of-values">Keys that hold a list of values</h3>
+<p>A key can hold a list of values. In that case, the key
+and <code>:</code> colon are on line by themselves,
+and the list values are separated by new
+lines, thd <code>-</code> character followed by a space,
+and then the value:</p>
+<pre><code>---
+stylesheets:
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+- ../../css/type.css
+- ../../css/colors.css
+- ../../css/media.css
+</code></pre>
+<h3 id="value-lists-are-ordered">Value lists are ordered</h3>
+<p>When style sheets are declared in a document, their order
+is important. CSS works that way on purpose. You can define
+rules on document A, and if document B follows it,
+anything B defines that's found in A is overriden.</p>
+<p>YAML values lists preserve their ordering, so in the
+example above it is guaranteed that <code>../../css/root.css</code>
+will get loaded first, then<code>../../css/reset.css</code> and so on.</p>
+<p>The rules used here are restrictive but YAML is much
+more expressive than that. PocoCMS uses very simple
+formatting to make it easier to stay consistent and
+to scan lists at a glance.
+Learn more about YAML at <a href="https://yaml.org/">YAML.org</a></p>
 
 </article>
 
