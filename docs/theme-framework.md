@@ -266,42 +266,98 @@ And optionally:
 
 ### root.css
 
-The PocoCMS theme framework's [root.css](https://github.com/pococms/poco/blob/main/.poco/css/root.css) file
+The PocoCMS theme framework's [root.css](https://github.com/pococms/poco/blob/main/.poco/css/root.css) file defines [CSS variables](https://www.freecodecamp.org/news/what-are-css-variables-and-how-to-use-them/), 
+also known as custom properties.
+CSS variables make tasks like adjusting light vs. dark theme colors 
+or widths easier to maintain and much quicker to adjust.
+
+They let you think in terms of "What do I want the default
+text color to be on many page elements?" instead of "What's the
+fastest way to search for the color of only the elements I want changed?".
+
+CSS variables allow you to define values this way:
+
+```
+:root {
+  --a:blue;                   /* Default link color */
+  --fg:black;                 /* Default text color. */
+  --bg:white;                 /* Default background color */
+  --code-fg:var(--fg);        /* Text color for code inside a paragraph */
+ }
+```
+
+A later CSS file such as [colors.css](#colorscss) uses them like this,
+which declares that the navbar, header, and footer should
+all share the default text and background colors: 
+
+```
+nav,header,footer{color:var(--fg);background-color:var(--bg);}
+``` 
+`root.css` comes first because it's best to keep CSS variable
+declarations at the top.
 
 ### reset.css
 
-The PocoCMS theme framework's [reset.css](https://github.com/pococms/poco/blob/main/.poco/css/reset.css) file
+The PocoCMS theme framework's [reset.css](https://github.com/pococms/poco/blob/main/.poco/css/reset.css) file creates a baseline set of behaviors so that
+later stylesheets can rely on a consistent set of defaults across browsers.
+It's best to leave this file unedited. The whole theme framework
+relies on that state. Nothing wrong with adding your own, additional
+resets in a separate file though.
 
 ### sizes.css
 
-The PocoCMS theme framework's [sizes.css](https://github.com/pococms/poco/blob/main/.poco/css/sizes.css) file
+The PocoCMS theme framework's [sizes.css](https://github.com/pococms/poco/blob/main/.poco/css/sizes.css) file defines values used for width, height,
+padding, and margins. Most are arbitrary and just tend to
+look good at all screen sizes. But if you wanted, for example, to
+adjust line spacings on all paragraphs of text, you could do it here:
+
+##### Filename: **.poco/css/sizes.css**
+
+```
+p,ol,ul {line-height:1.75em;padding-top:.25em;padding-bottom:.5em;}
+```
+
+What's useful about this file is that it covers many details it's easy
+to forget. In the example above it's easy to miss that you probably 
+want your paragraphs of text in ordered and unordered lists to employ 
+the same spacing. This takes care of it all at once.
 
 ### layout.css
 
-The PocoCMS theme framework's [layout.css](https://github.com/pococms/poco/blob/main/.poco/css/layout.css) file
+The PocoCMS theme framework's [layout.css](https://github.com/pococms/poco/blob/main/.poco/css/layout.css) file handles how page elements are arranged but most crucically
+it defines the relationship between article and aside so that both right and
+left orientation work. 
 
 ### type.css
 
-The PocoCMS theme framework's [type.css](https://github.com/pococms/poco/blob/main/.poco/css/type.css) file
+The PocoCMS theme framework's [type.css](https://github.com/pococms/poco/blob/main/.poco/css/type.css) file sets a few font values for common use.
 
 ### colors.css
 
-The PocoCMS theme framework's [color.css](https://github.com/pococms/poco/blob/main/.poco/css/colors.css) file
+The PocoCMS theme framework's [color.css](https://github.com/pococms/poco/blob/main/.poco/css/colors.css) file is a central location for site color values. Probably
+to be subsumed by [media.css](#mediacss)
 
 ### media.css
 
-The PocoCMS theme framework's [media.css](https://github.com/pococms/poco/blob/main/.poco/css/media.css) file
+The PocoCMS theme framework's [media.css](https://github.com/pococms/poco/blob/main/.poco/css/media.css) file defines color sets for both dark and light themes.
+It also lets you change behavior of pages based on screen size, or any other
+media queries you wish to use.
 
 ### skinny.css
 
-The PocoCMS theme framework's [skinny.css](https://github.com/pococms/poco/blob/main/.poco/css/skinny.css) file
+The PocoCMS theme framework's [skinny.css](https://github.com/pococms/poco/blob/main/.poco/css/skinny.css) file changes a theme like [Base](https://pococms.com/docs/demos/base.html)
+into, which fills the screen, to a theme like [Skyscraper](https://pococms.com/docs/demos/skyscraper.html), which shows the theme in the center of the screen with unused space
+to the side. 
+
+See also [medium-skinny.css](#medium-skinnycss)
 
 ### medium-skinny.css
 
-The PocoCMS theme framework's [medium-skinny.css](https://github.com/pococms/poco/blob/main/.poco/css/medium-skinny.css) file
+The PocoCMS theme framework's [medium-skinny.css](https://github.com/pococms/poco/blob/main/.poco/css/medium-skinny.css) file changes a theme like [Base](https://pococms.com/docs/demos/base.html)
+which fills the screen, to a theme like [Pasteboard](https://pococms.com/docs/demos/pasteboard.html), which shows the theme in the center of the screen with some unused space
+to the side
 
-
-
+See also [medium-skinny.css](#medium-skinnycss)
 
 
 ## Stylesheets in the theme's README.md file

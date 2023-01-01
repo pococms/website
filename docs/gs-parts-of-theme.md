@@ -32,6 +32,8 @@ it uses the `<article>` tag
 it's `<aside>` tag
 * [Footer](glossary.html#footer) (the HTML `<footer>` tag
 
+#### Anatomy
+
 This illustration shows these parts of the document using a typical PocoCMS theme:
 
 ![Illustration showing header, nav, article, aside, and footer](img/theme-parts.png) 

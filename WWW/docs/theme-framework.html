@@ -9,9 +9,6 @@
 <style>
 
 /* root.css*/
-/* HEY ROOT */
-
-
 
 /* ************************************/
 /*  LIGHT COLOR SCHEME (FALLBACK)     */
@@ -29,11 +26,14 @@
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --article-width:80%;        /* Should add up to 100% with --aside-width */
+  --aside-width:20%;          /* Should add up to 100% with --aside-width */
   --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
   --pre-bg:var(--code-bg);    /* Background color for fenced code */
+  --padding-left:25%;         /* Where the header, nav, and footer usually start */
 }
 
 /* ************************************/
@@ -53,11 +53,14 @@
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --article-width:80%;        /* Should add up to 100% with --aside-width */
+  --aside-width:20%;        /* Should add up to 100% with --aside-width */
   --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
   --pre-bg:var(--code-bg);    /* Background color for fenced code */
+  --padding-left:5%;          /* Where the header, nav, and footer usually start */
 }
 
 
@@ -80,11 +83,14 @@
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --article-width:80%;        /* Should add up to 100% with --aside-width */
+  --aside-width:20%;        /* Should add up to 100% with --aside-width */
   --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:black;            /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
   --pre-bg:var(--code-bg);    /* Background color for fenced code */
+  --padding-left:5%;          /* Where the header, nav, and footer usually start */
 }
 }
 
@@ -153,14 +159,12 @@ td,th{padding: 0.5em;}
 pre{font-size: smaller;overflow: auto;padding:1em;margin:.5rem 0 0 0;}
 header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
 header>ul>li,nav>ul>li{padding-right:.5em;}
-article{width:80%;height:auto;}  
-iarticle{padding-bottom:15vh} 
-aside{width:20%;padding:0 2em 0 2em;}  
-ifooter {height:10vh;} 
+article{width:var(--article-width);height:auto;}  
+aside{width:var(--aside-width);padding:0 2em 0 2em;}  
 footer {padding-top:2em;}
-article,nav,header,aside,footer{padding-left:5%;}
+article,nav,header,aside,footer{padding-left:var(--padding-left);}
 article>dl>dt {padding-top:1em;}
-article>dl>dd {margin-left:0;padding-bottom:0/*.5em*/;}
+article>dl>dd {margin-left:0;padding-bottom:0;}
 
 h1{ font-size:2.5em;padding-top:2em;font-weight:bold; }
 h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:0;}
@@ -173,11 +177,6 @@ h6{ font-size:0.9em; }
 
 
 /* layout.css*/
-
-/* Links show same if visited, underlined when hovered */
-a{text-decoration:none;}
-a:visited{text-decoration:none;}
-a:hover,a:active{color:inherit;text-decoration:underline;cursor:pointer}
 
 /* Table cells share borders */
 table{border-collapse:collapse;}
@@ -197,6 +196,11 @@ aside{float:right;}
 
 
 /* type.css*/
+/* Links show same if visited, underlined when hovered */
+a{text-decoration:none;}
+a:visited{text-decoration:none;}
+a:hover,a:active{color:inherit;text-decoration:underline;cursor:pointer}
+
 code,kbd,pre{
   font-family: ui-monospace, SFMono-Regular, Monaco, monospace;
 }
@@ -395,7 +399,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </ul>
 </header>
 	
-<nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/themes-creating.html">Creating themes</a> <a href="/docs/technical-overview.html">Technical overiew</a> <a href="/docs/css-tips.html">CSS tips</a> <a href="/docs/reference.html">Reference</a> <a href="/docs/resources.html">Resources</a></p>
+<nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/technical-overview.html">Technical overiew</a></p>
 </nav>
 	
 <aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
@@ -629,23 +633,69 @@ when you <a href="themes-creating.html">create a theme</a>.</p>
 <li><a href="#medium-skinnycss">medium-skinny.css</a></li>
 </ul>
 <h3 id="rootcss">root.css</h3>
-<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/root.css">root.css</a> file</p>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/root.css">root.css</a> file defines <a href="https://www.freecodecamp.org/news/what-are-css-variables-and-how-to-use-them/">CSS variables</a>,
+also known as custom properties.
+CSS variables make tasks like adjusting light vs. dark theme colors
+or widths easier to maintain and much quicker to adjust.</p>
+<p>They let you think in terms of &quot;What do I want the default
+text color to be on many page elements?&quot; instead of &quot;What's the
+fastest way to search for the color of only the elements I want changed?&quot;.</p>
+<p>CSS variables allow you to define values this way:</p>
+<pre><code>:root {
+  --a:blue;                   /* Default link color */
+  --fg:black;                 /* Default text color. */
+  --bg:white;                 /* Default background color */
+  --code-fg:var(--fg);        /* Text color for code inside a paragraph */
+ }
+</code></pre>
+<p>A later CSS file such as <a href="#colorscss">colors.css</a> uses them like this,
+which declares that the navbar, header, and footer should
+all share the default text and background colors:</p>
+<pre><code>nav,header,footer{color:var(--fg);background-color:var(--bg);}
+</code></pre>
+<p><code>root.css</code> comes first because it's best to keep CSS variable
+declarations at the top.</p>
 <h3 id="resetcss">reset.css</h3>
-<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/reset.css">reset.css</a> file</p>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/reset.css">reset.css</a> file creates a baseline set of behaviors so that
+later stylesheets can rely on a consistent set of defaults across browsers.
+It's best to leave this file unedited. The whole theme framework
+relies on that state. Nothing wrong with adding your own, additional
+resets in a separate file though.</p>
 <h3 id="sizescss">sizes.css</h3>
-<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/sizes.css">sizes.css</a> file</p>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/sizes.css">sizes.css</a> file defines values used for width, height,
+padding, and margins. Most are arbitrary and just tend to
+look good at all screen sizes. But if you wanted, for example, to
+adjust line spacings on all paragraphs of text, you could do it here:</p>
+<h5 id="filename-pococsssizescss">Filename: <strong>.poco/css/sizes.css</strong></h5>
+<pre><code>p,ol,ul {line-height:1.75em;padding-top:.25em;padding-bottom:.5em;}
+</code></pre>
+<p>What's useful about this file is that it covers many details it's easy
+to forget. In the example above it's easy to miss that you probably
+want your paragraphs of text in ordered and unordered lists to employ
+the same spacing. This takes care of it all at once.</p>
 <h3 id="layoutcss">layout.css</h3>
-<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/layout.css">layout.css</a> file</p>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/layout.css">layout.css</a> file handles how page elements are arranged but most crucically
+it defines the relationship between article and aside so that both right and
+left orientation work.</p>
 <h3 id="typecss">type.css</h3>
-<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/type.css">type.css</a> file</p>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/type.css">type.css</a> file sets a few font values for common use.</p>
 <h3 id="colorscss">colors.css</h3>
-<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/color.css">color.css</a> file</p>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/colors.css">color.css</a> file is a central location for site color values. Probably
+to be subsumed by <a href="#mediacss">media.css</a></p>
 <h3 id="mediacss">media.css</h3>
-<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/media.css">media.css</a> file</p>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/media.css">media.css</a> file defines color sets for both dark and light themes.
+It also lets you change behavior of pages based on screen size, or any other
+media queries you wish to use.</p>
 <h3 id="skinnycss">skinny.css</h3>
-<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/skinny.css">skinny.css</a> file</p>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/skinny.css">skinny.css</a> file changes a theme like <a href="https://pococms.com/docs/demos/base.html">Base</a>
+into, which fills the screen, to a theme like <a href="https://pococms.com/docs/demos/skyscraper.html">Skyscraper</a>, which shows the theme in the center of the screen with unused space
+to the side.</p>
+<p>See also <a href="#medium-skinnycss">medium-skinny.css</a></p>
 <h3 id="medium-skinnycss">medium-skinny.css</h3>
-<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/medium-skinny.css">medium-skinny.css</a> file</p>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/medium-skinny.css">medium-skinny.css</a> file changes a theme like <a href="https://pococms.com/docs/demos/base.html">Base</a>
+which fills the screen, to a theme like <a href="https://pococms.com/docs/demos/pasteboard.html">Pasteboard</a>, which shows the theme in the center of the screen with some unused space
+to the side</p>
+<p>See also <a href="#medium-skinnycss">medium-skinny.css</a></p>
 <h2 id="stylesheets-in-the-themes-readmemd-file">Stylesheets in the theme's README.md file</h2>
 <p>The list of one or more stylesheets in standard Markdown unordered
 list format are required for each page that uses the theme.</p>

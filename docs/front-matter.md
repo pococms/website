@@ -1,13 +1,10 @@
 # Front Matter
 
-# TODO
-[aside](#aside)
+{{- /* # TODO:
 [branding](#branding)
-[header](#header)
-[footer](#footer)
-[nav](#nav)
 [scriptafter](#scriptafter)  
-
+*/
+-}} 
 
 *Front matter* optionally starts your file. It contains
 instructions for things Markdown can't do for you,
@@ -26,23 +23,22 @@ front matter options PocoCMS provides.
 ## Alphabetical list of front matter options
 
 
-[aside](#aside)
+[aside](#aside) 
 [author](#author)  
-[branding](#branding)
 [description](#description)  
-[footer](#footer)
-[global-theme](#global-theme)
-[header](#header)
-[keywords](#keywords)  
+[footer](#footer)  
+[header](#header)  
+[keywords](#keywords)   
 [key/value pairs](#keyvalue-pairs)  
-[lang](#lang)
-[nav](#nav)
-[robots](#robots)  
+[lang](#lang)  
+[nav](#nav)  
+[pagetheme](#pagetheme)  
+[robots](#robots) 
 [script-after](#script-after)  
-[skip-publish](#skippublish)  
-[style-tags](#styletags)  
+[skip](#skip)  
+[styles](#styletags)  
 [stylesheets](#stylesheets)  
-[theme](#theme)
+[theme](#theme)  
 [title](#title)  
 
 Return to [top](#front-matter)
@@ -193,6 +189,41 @@ with empty front matter like this:
 ---
 ```
 
+## aside
+
+Controls behavior of the sidebar, shown in [Anatomy](gs-parts-of-theme.html#anatomy).
+
+1. When given the value "right" or "left", determines whether an [aside](glossary.html#aside) appears to the
+left or right of the article. Some themes may not support it
+but all [theme framework-based themes](theme-framework.html) 
+allow it by defaut. For example:
+
+```
+---
+aside: left
+---
+```
+2. When given the value as SUPPRESS, hides the sidebar for this page only.
+```
+---
+aside: SUPPRESS
+---
+```
+3. When given a filename, uses the contents of that file instead of the
+value supplied by the theme. 
+```
+---
+aside: new-aside.md
+---
+```
+
+##### Filename: **new-aside.md**
+
+```
+Announcement soon. Check the [news](news.html) page tomorrow!
+```
+
+
 ## author 
 
 Causes an `author` metatag to be inserted into the file.
@@ -231,19 +262,54 @@ Causes this metatag to be generated:
 ```html
 <meta name="description" content="PocoCMS is the easiest static site generator available">
 ```
+## footer 
 
-## global-theme 
+Controls behavior of the footer, shown in [Anatomy](gs-parts-of-theme.html#anatomy).
 
-Defines a [theme](glossary.html#theme) to be used as 
-the default for all pages in the site. 
-It is optional.  The global theme can be overridden 
-on a per-page basis using [theme](#theme).
+1. When given the value as SUPPRESS, hides the footer for this page only.
+```
+---
+footer: SUPPRESS
+---
+```
+2. When given a filename, uses the contents of that file instead of the
+value supplied by the theme. 
+```
+---
+footer: new-footer.md
+---
+```
 
-    ```
-    ---
-    global-theme: /Users/blake/pocothemes/informer
-    ---
-    ```
+##### Filename: **new-footer.md**
+
+```
+Powered by PocoCMS!
+```
+
+
+## header
+
+Controls behavior of the footer, shown in [Anatomy](gs-parts-of-theme.html#anatomy).
+
+1. When given the value as SUPPRESS, hides the header for this page only.
+```
+---
+header: SUPPRESS
+---
+```
+2. When given a filename, uses the contents of that file instead of the
+value supplied by the theme. 
+```
+---
+header: new-header.md
+---
+```
+
+##### Filename: **new-header.md**
+
+```
+**Powered by PocoCMS!**
+```
 
 ## lang
 
@@ -265,6 +331,43 @@ front matter, which changes the language to Icelandic:
 
 
 <html lang="en">
+
+## nav 
+
+Controls behavior of the navbar, shown in [Anatomy](gs-parts-of-theme.html#anatomy).
+
+1. When given the value as SUPPRESS, hides the navbar for this page only.
+```
+---
+nav: SUPPRESS
+---
+```
+3. When given a filename, uses the contents of that file instead of the
+value supplied by the theme. 
+```
+---
+nav: new-navbar.md
+---
+```
+
+##### Filename: **new-navbar.md**
+
+```
+Announcement soon. Check the [news](news.html) page tomorrow!
+```
+
+## pagetheme 
+
+Defines a [page theme](glossary.html#page-theme) to 
+replace the global [theme](#theme) if any,
+on a per-page pgases. 
+
+    ```
+    ---
+    pagetheme: hero
+    ---
+    ```
+
 
 
 ## robots 
@@ -294,8 +397,8 @@ search engines *not* to index your page, which is
 the opposite of what you normally want.
 
 
-## skip-publish
-`skip-publish` lists files and directories you don't want to be published.
+## skip
+`skip` lists files and directories you don't want to be published.
 
 Remember that if a directory contains the files `index.md`, `installation.md`,
 and `avatar.png`, and `401K-info.xls`, here's what will happen when you 
@@ -313,20 +416,20 @@ the personal spreadsheet with your 401K details published.
 `.git` is included here for good form but 
 PocoCMS treats directories with that name starts with `.` as hidden and
 doesn't publish them.
-* The answer to these problems is to list what you don't want published in `skip-publish` 
+* The answer to these problems is to list what you don't want published in `skip` 
 as shown below.
 
 ### Example
 
 ```
 ---
-    skip-publish:
-    - 401k-info.xls
-    - node_modules
-    - www
-    - .git
-    - .DS_Store
-    - .gitignore
+skip:
+- 401k-info.xls
+- node_modules
+- www
+- .git
+- .DS_Store
+- .gitignore
 ---
 
 ```
@@ -346,19 +449,19 @@ skip-publish:
 ---
 ```
 
-## theme 
+## theme
 
-Defines a [page theme](glossary.html#page-theme) to be used as 
-the default for all pages in the site. 
+Defines a [theme](glossary.html#theme) to be used as 
+the default for all pages in the site. It's also
+called the *global theme* informally.
 It is optional.  The global theme can be overridden 
-on a per-page basis using [theme](#theme).
+on a per-page basis using [pagetheme](#pagetheme).
 
     ```
     ---
-    global-theme: /Users/blake/pocothemes/informer
+    theme: pocodocs
     ---
     ```
-
 
 ## title
 The `Title` key lets you set a title for your HTML page.

@@ -402,121 +402,65 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/technical-overview.html">Technical overiew</a></p>
 </nav>
 	
-<aside id="aside-poco"><ul>
-<li><a href="getting-started.html">Getting started</a>
+<aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
 <ul>
-<li><a href="getting-started.html#create-a-site">Create a site</a></li>
-<li><a href="getting-started.html#view-the-files-pococms-created">View the files PocoCMS created</a></li>
-</ul>
-</li>
-<li><a href="gs-edit-page.html">Editing the page</a></li>
-<li><a href="gs-change-theme.html">Changing themes</a>
-<ul>
-<li><a href="gs-change-theme.html#front-matter">Front matter</a></li>
-<li><a href="gs-change-theme.html#trying-a-few-more-themes">Trying a few more themes</a></li>
-</ul>
-</li>
-<li><a href="gs-parts-of-theme.html">The parts of a PocoCMS theme</a>
-<ul>
-<li><a href="gs-parts-of-theme.html#header-nav-article-aside-and-footer">Header, nav, article, aside, and footer</a></li>
-<li><a href="gs-parts-of-theme.html#layout-elements">Layout elements</a></li>
-</ul>
-</li>
+<li>Item 1 in the aside</li>
+<li>Item 2 in the aside</li>
+<li>Pocodocs theme!</li>
 </ul>
 </aside>
 <article id="article-poco">
-<h1 id="getting-started">Getting Started</h1>
-<p>PocoCMS lets you start a website in just a few seconds.</p>
-<p>Before we go there, make sure you can:</p>
+<h1 id="quickie-tutorial-for-programmers">Quickie tutorial for programmers</h1>
 <ul>
-<li>Open a command prompt for your operating system</li>
-<li>Use a text editor</li>
-<li>Understand how to create and navigate directories from the command prompt</li>
+<li>Create a site:</li>
 </ul>
-<p>Besides those things you won't need any other knowledge.
-These directions guide you through everything you need to know
-step by step. OK, time to build a website in exactly one second
-more than it takes to read these directions!</p>
-<h2 id="create-a-site">Create a site</h2>
-<ul>
-<li>Come up with a name and location for your site. Let's cleverly call it <code>mysite</code>
-and assume it's in the current directory.</li>
-</ul>
-<p>That directory will contain all the files you need to generate your site.
-In this documentation it's called your <a href="glossary.html#project">project</a> or
-<a href="glossary.html#site">site</a>. They're usually synonomous.</p>
-<ul>
-<li>Create the new site with <code>poco -new</code>:</li>
-</ul>
-<p>You'll type <code>poco -new</code> followed by the directory name, like this:</p>
 <pre><code>poco -new mysite
-</code></pre>
-<p>Poco responds instantly that the site has been created:</p>
-<pre><code>Site published to /Users/tom/pococms/poco/mysite/WWW/index.html
-</code></pre>
-<ul>
-<li>Change to the project directory you just created:</li>
-</ul>
-<pre><code>cd mysite
+cd mysite
+
 </code></pre>
 <ul>
-<li>
-<p>We'll look at the files PocoCMS generated in a moment, but let's view the site.</p>
-</li>
-<li>
-<p>Run <code>poco -serve</code>:</p>
-</li>
+<li>View it in a webserver by running -serve and pasting
+<code>http://localhost:54321</code> into your browser.</li>
 </ul>
 <pre><code>poco -serve
 </code></pre>
 <ul>
-<li>This launches a simple webserver that lets you see the site
-as others on the web will see it. To view it in a browser,
-start the browser and paste in the line with <code>http://localhost:54321</code>
-as shown below:</li>
-</ul>
-<pre><code>Web server running at:
-
-http://localhost:54321
-
-To stop the web server, press Ctrl+C
-</code></pre>
-<p>You'll see what you've created:</p>
-<p><img src="img/home-page-default-1366x768.png" alt="Default home page created by PocoCMS" /></p>
-<h2 id="view-the-files-pococms-created">View the files PocoCMS created</h2>
-<p>Let's take a look at what <code>poco -new</code> just did. Get a directory
-listing. It will appear something like this:</p>
-<pre><code>WWW
-.poco
-index.md
-</code></pre>
-<p>We'll explain the <code>WWW</code> and <code>.poco</code> directories in a few moments.</p>
-<ul>
-<li>Take a look at the contents of the <code>index.md</code> file:</li>
+<li>Edit the <code>index.md</code> file to use a theme:</li>
 </ul>
 <pre><code>---
+theme: informer
 title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
 ---
-# Welcome to mysite
-
-hello, world.
-
-Learn more at [PocoCMS tutorials](https://pococms.com/docs/tutorials.html) 
 </code></pre>
-<p>Notice there's a directory called <code>WWW</code>. Examine its contents.</p>
-<h5 id="directory-www"><strong>Directory:</strong> WWW</h5>
-<pre><code>index.html
+<ul>
+<li>
+<p>Refresh. Noice!</p>
+</li>
+<li>
+<p>Edit the <code>index.md</code> file to hide the navbar:</p>
+</li>
+</ul>
+<pre><code>---
+nav: SUPPRESS
+---
 </code></pre>
-<h5 id="file-wwwindexhtml"><strong>file:</strong> WWW/index.html</h5>
-<p>You'll see the file <code>WWW/index.html</code>:</p>
-<pre><code>.
-├── WWW
-│   └── index.html
-├── .poco
-└── index.md
+<ul>
+<li>
+<p>Refresh to see it's changed.</p>
+</li>
+<li>
+<p>Try another theme:</p>
+</li>
+</ul>
+<pre><code>---
+theme: electro 
+---
 </code></pre>
-<p>That is what the browser renders when you view the site.</p>
-<h6 id="previous-getting-startedgetting-startedhtml-next-edit-the-pagegs-edit-pagehtml"><a href="getting-started.html">Previous: Getting started</a> <a href="gs-edit-page.html">Next: Edit the page</a></h6>
+<ul>
+<li>Drop to the command line and list all themes:</li>
+</ul>
+<pre><code>poco -themes
+</code></pre>
 
 </article>
 
