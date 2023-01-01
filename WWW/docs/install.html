@@ -389,52 +389,56 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/themes-creating.html">Creating themes</a> <a href="/docs/technical-overview.html">Technical overiew</a> <a href="/docs/css-tips.html">CSS tips</a> <a href="/docs/reference.html">Reference</a> <a href="/docs/resources.html">Resources</a></p>
 </nav>
 	
-<aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
-<ul>
-<li>Item 1 in the aside</li>
-<li>Item 2 in the aside</li>
-<li>Pocodocs theme!</li>
-</ul>
-</aside>
 <article id="article-poco">
-<h1 id="poco-cms-reference">Poco CMS Reference</h1>
-<p><a href="technical-overview.html">Technical overview</a><br />
-<a href="themes-using.html">Using themes</a><br />
-<a href="themes-overview.html">Themes technical overview</a><br />
-<a href="themes-creating.html">Creating themes</a><br />
-<a href="cli.html">PocoCMS command line options</a><br />
-<a href="glossary.html">PocoCMS glossary</a><br />
-<a href="highlighting.html">Code highlighting</a><br />
-<a href="front-matter.html">Front matter</a><br />
-<a href="resources.html">Resources</a><br />
-<a href="markdown-extensions.html">Markdown extensions</a><br />
-<a href="css-tips.html">CSS tips</a><br />
-<a href="yaml-usage.html">YAML usage</a><br />
-<a href="seo.html">SEO</a>
-<a href="internal-affairs.html">Internal affairs</a></p>
-<h2 id="html-references">HTML references</h2>
+<h1 id="installing-pococms">Installing PocoCMS</h1>
+<p><strong>This part is a bit rough. Will improve it ASAP. Plan is to work up versions for</strong></p>
 <ul>
-<li><a href="https://jigsaw.w3.org/css-validator/#validate_by_input">CSS validator</a></li>
-<li><a href="https://htmlcolorcodes.com/color-names">HTML Color Names</a> for people who like a simplified color chart with actual names for colors</li>
+<li>Homebrew</li>
+<li>Chocolately</li>
+<li>Apt/get?</li>
 </ul>
-<h2 id="utilities">Utilities</h2>
+<h2 id="installing-the-latest-binary">Installing the latest binary</h2>
 <ul>
-<li>Amazing <a href="https://realfavicongenerator.net">Favicon generator</a> took a PNG image, then turned it into
-a wide variety of <a href="https://en.wikipedia.org/wiki/Favicon">favicons</a>.</li>
+<li>The easiest way to get PocoCMS is to find the latest version at
+the <a href="https://github.com/pococms/downloads/tree/main/dist">Downloads</a> page.</li>
+<li>Obviously it's best to copy that to your system path.</li>
 </ul>
-<h2 id="web-page-performance">Web page performance</h2>
+<h2 id="installing-from-source">Installing from source</h2>
 <ul>
-<li>Google's <a href="https://web.dev/measure/">web.dev</a> page quality measurement tool</li>
-<li>Google's <a href="https://pagespeed.web.dev">PageSpeed Insights</a> is worth running not just on pages you create but those on other sites, to see what they do well or how they need improvement</li>
-<li>The <a href="https://tools.pingdom.com/">Pingdom Website Speed Test</a> produces the clearest results</li>
+<li>PocoCMS is written in Go, so you'll obviously need to download it
+from the <a href="https://go.dev">Go homepage</a>.</li>
+<li>You'll need to install <a href="https://git-scm.com/downloads">Git</a> to
+download the source from GitHub.</li>
+<li>Optional but highly recommended: PocoCMS is hosted on <a href="https://github.com/pococms/poco">GitHub</a>,
+so you should probably <a href="https://github.com/signup">get an account on GitHub</a>.</li>
+<li>Then you install it as you would any other GitHub repo. Drop into the
+terminal, then
+<ol>
+<li>Change to the directory you want Git to be installed in. It will be generated in a subdirectory of that directory. For example, on Unix or Mac, it might
+be something like:</li>
+</ol>
+</li>
 </ul>
-<h2 id="diagnostics">Diagnostics</h2>
-<ul>
-<li><a href="demo/mdemo.html">mdemo.html</a> Shows most Markup capabilities</li>
-</ul>
-<p><a href="faq.html">Frequently Asked Questions</a></p>
-<h2 id="markdown-and-the-commonmark-specification">Markdown and the Commonmark specification</h2>
-<p><a href="https://daringfireball.net/projects/markdown/">Markdown</a> was originally created by John Gruber of <a href="https://daringfireball.net">Daring Fireball</a>.  It was a fairly informal specification so a group of Markdown enthusiasts created a more comprehensive spec at <a href="https://commonmark.org">Commonmark.org</a>.</p>
+<pre><code>cd ~/code
+</code></pre>
+<ol start="2">
+<li>Download the repo as you would any other repo:</li>
+</ol>
+<pre><code>git clone https://github.com/pococms/poco
+</code></pre>
+<ol start="3">
+<li>Compile!</li>
+</ol>
+<pre><code>go build
+</code></pre>
+<ol start="4">
+<li>This will give you a <code>poco</code> in the current directory. Start you first project like this:</li>
+</ol>
+<pre><code>./poco ~/mysite
+./poco -server ~/mysite
+</code></pre>
+<pre><code>But you should put `poco` on the system path as soon as possible.
+</code></pre>
 
 </article>
 

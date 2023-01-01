@@ -28,6 +28,7 @@
   --h4-fg:gray;               /* Default h4 text color */
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
+  --article-h2-fg:var(--fg);  /* Article h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
@@ -50,6 +51,7 @@
   --h4-fg:gray;               /* Default h4 text color */
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
+  --article-h2-fg:var(--fg);  /* Article h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
@@ -75,6 +77,7 @@
   --h4-fg:Silver;             /* Default h4 text color */
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
+  --article-h2-fg:var(--fg);  /* Article h2 text color */
   --code-fg:black;            /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
@@ -147,11 +150,11 @@ td,th{padding: 0.5em;}
 pre{font-size: smaller;overflow: auto;padding:1em;margin:.5rem 0 0 0;}
 header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
 header>ul>li,nav>ul>li{padding-right:.5em;}
-article{width:80%;height:65vh;}  
-article{padding-bottom:15vh}  /* Must match footer height */
+article{width:80%;height:auto;}  
+iarticle{padding-bottom:15vh} 
 aside{width:20%;padding:0 2em 0 2em;}  
-footer {height:35vh;} /* Must match article padding-bottom */
-
+ifooter {height:10vh;} 
+footer {padding-top:2em;}
 article,nav,header,aside,footer{padding-left:5%;}
 article>dl>dt {padding-top:1em;}
 article>dl>dd {margin-left:0;padding-bottom:0/*.5em*/;}
@@ -242,13 +245,14 @@ h4{color:var(--h4-fg);}
 
 
 /* pocodocs.css*/
-article{width:70%}  
-aside{width:30%;}  
+article{width:75%}  
+aside{width:25%;}  
 
 /* Article on the right, aside on the left */
 article{float:right;clear:right;}    
 aside{float:left;}  
 aside{padding-top:8em;}
+
 /* --------------------------------------------------
  * Aside unordered lists are used for table of 
  * contents, so disable indentation and bullet 
@@ -266,7 +270,6 @@ aside ul {line-height:1.4rem;}
 
 /* 1st level of list */
 aside ul li a {font-size:1.2rem;}
-aside ul li a {color:cyan;}
 aside ul li a {text-decoration:underline}
 
 /* 2nd level of list */
@@ -322,7 +325,6 @@ html{
 
 header>ul>li:first-child>a{font-weight:900;letter-spacing:-.1rem;}
 article>h5>strong{text-decoration:underline;}
-// xxxx article>h6>a{line-height:6em;padding:1em;background-color:var(--bg);border:1px solid black;}
 
 /* The article may be wider than you want text and
  * code listings to be. This narrows the text and
@@ -333,16 +335,9 @@ article>p,article>ul,article>ul>li,article>pre{
 }
 article>h1{padding-bottom:.8em;}
 article>h5{padding-top:1em;}
+/* h6 links become buttons (for Prev/Next usge)
+ */
 article>h6>a{line-height:6em;padding:1em;background-color:var(--bg);border:1px solid black;}
-/* Code inside a paragraph */
-article>p>code,article>ul>li>code,article>ul>li>p>code{
-  border-radius:.25em;
-  padding:.25em .5em .25em .5em;
-}
-/* TODO: Not sure if necessary */
-ol {
-  list-style: circle outside;
-}
 
 /* OVERRIDE FRAMEWORK COLORS */
 article>h2{color:var(--article-h2-fg);}
@@ -355,80 +350,29 @@ article>h5>strong{color:var(--fg);}
  */
 header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 
-/* OVERRIDE FRAMEWORK MEDIA QUERIES */
-
+/* OVERRIDE MEDIA QUERIES. LIGHT AND DARK THEMES */
 
 @media (prefers-color-scheme:light) {
 :root {
   --article-h2-fg:red;        /* Article h2 text color */
 }
-  article>h6>a{background-color:var(--bg);border:4px solid green;}
+  article>h6>a{background-color:var(--bg);border:1px solid black;}
+
+  /* 1st level of list */
+  aside ul li a {color:blue;}
+
 }
 
 @media (prefers-color-scheme:dark) {
 :root {
   --article-h2-fg:cyan;       /* Article h2 text color */
 }
-  article>h6>a{background-color:var(--bg);border:4px solid yellow;}
+  article>h6>a{background-color:var(--bg);border:1px solid white;}
+
+  /* 1st level of list */
+  aside ul li a {color:cyan;}
+
 }
-
-
-/* big-circles.css*/
-/* Does an oversized numbered list. Special effect seldom needed. */
-/* https://jsfiddle.net/yum3e2t6/ */
-
-
-ol {
-  list-style: circle outside;
-  counter-reset: poco-counter;
-}
-
-ol li {
-    display:block;
-    line-height:var(--size);
-    line-height:3em;
-    padding-left: 3em; /* Distance from bullet to text */
-    list-style: none;
-    overflow: hidden;
-    counter-increment:poco-counter;
-    width: 100%;
-    display: block;
-    float: left;
-    position: relative
-}
-
-ol li:before {
-    content: counter(poco-counter);
-    float: left;
-
-    position: absolute;
-    left: 0em; /* Increase to move bullet to right  */
-    text-align: center;
-    color: #fff;
-    /* line-height: 3em; */
-
-    /* Keep width and height the same size for a circle */
-    width: 3em; height: 3em;
-    background:blue;
-    -moz-border-radius: 999px;
-    -webkit-border-radius: 999px;
-    border-radius: 999px
-}
-
-/* To keep text centered, ol li line-height must match 
- * ol li:before width and height */
-ol li {
-  font-size:1.5em; /* Scales up everything */
-  margin-bottom:.5em;
-  line-height:2em;
-}
-
-ol li:before {
-  width: 2em;
-  height: 2em;
-}
-
-
 
 </style>
 </head>
@@ -456,7 +400,6 @@ ol li:before {
 <h1 id="pococms-command-line-options">PocoCMS command-line options</h1>
 <p>You run <code>poco</code> from the command line with this format:</p>
 <pre><code>poco {optional flags} {optional directory name}
-
 </code></pre>
 <p>If you run Poco by itself, it asssumes the current
 directory is a <a href="glossary.html#project">PocoCMS project</a>.
@@ -466,27 +409,29 @@ and it will generate the HTML output in the <a href="glossary.html#webroot">webr
 directory, called <code>WWW</code> by default.</p>
 <p>If you are in a Poco directory, the output of <code>poco</code> all by itself
 looks something like this:</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>poco
-</span></span><span style="display:flex;"><span>Site published to /Users/tom/mysite/WWW/index.html
-</span></span></code></pre><p>You can then load that file right into a web browser for
+<pre><code>poco
+Site published to /Users/tom/mysite/WWW/index.html
+</code></pre>
+<p>You can then load that file right into a web browser for
 decent results, or get full coverage by running the built-in server:</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>poco -serve
-</span></span><span style="display:flex;"><span><span style="color:#099">15</span> Dec <span style="color:#099">2023</span> 16:17:39 Web server running at http://localhost:54321
-</span></span><span style="display:flex;"><span>To stop the web server, press Ctrl+C
-</span></span></code></pre><p>Just paste the URL into your browser and you'll see the site as
-others on the Web will see it</p>
+<pre><code>poco -serve
+Web server running at:
+
+http://localhost:54321
+
+To stop the web server, press Ctrl+C
+</code></pre>
+<p>Just paste the URL into your browser and you'll see the site as
+others on the Web will see it.</p>
 <h3 id="command-line-option-help">Command-line option help</h3>
 <p>You can get a summary of command-line options with the <code>-h</code> flag
 and you'll get something like this (in progress as docs are being
 written):</p>
-<p>TODO: UPDATE</p>
 <pre><code>poco -h
  -cleanup
     	Delete publish directory before converting files (default true)
   -lang string
     	HTML language designation, such as en or fr (default &quot;en&quot;)
-  -link-styles
-    	Link to stylesheets instead of inlining them
   -new string
     	Create a new site
   -port string
@@ -505,10 +450,11 @@ written):</p>
     	Display information about project as it's generated
   -webroot string
     	Subdirectory used for generated HTML files (default &quot;WWW&quot;)
+
 </code></pre>
 <h3 id="command-line-options-come-immediately-after-poco">Command-line options come immediately after <code>poco</code></h3>
-<p>lemember that you can builtn in another directory
-(see <a href="building-a-project-in-another-directory.html">Building a project in another directory</a> but just remember it's command-line optins first, directory
+<p>Remember that you can build in another directory
+(see <a href="building-a-project-in-another-directory.html">Building a project in another directory</a> but just remember it's command-line options first, directory
 name second.</p>
 <p><strong>GOOD: Command-line options first</strong></p>
 <pre><code>poco -timestamp ~/mydir/mysite
@@ -560,6 +506,45 @@ directory you'd like to use. For example:</p>
 </code></pre>
 <p>You'll see results something like this:</p>
 <pre><code>PocoCMS: Site published to /Users/travis/mysite/public_html
+</code></pre>
+<h2 id="skip">skip</h2>
+<p><code>skip</code> lists files and directories you don't want to be published.</p>
+<p>Remember that if a directory contains the files <code>index.md</code>, <code>installation.md</code>,
+and <code>avatar.png</code>, and <code>401K-info.xls</code>, here's what will happen when you
+run PocoCMS:</p>
+<ul>
+<li>
+<p><code>index.md</code> and <code>installation.md</code> will be converted to HTML document files
+named <code>index.html</code> and <code>installation.html</code>. The the HTML files will be published
+The Markdown files will not.</p>
+</li>
+<li>
+<p>By design, all files other than than Markdown files get published. That's
+because they're assumed to be required for the site. In this example,
+it makes sense that <code>avatar.png</code> gets published but you may not want
+the personal spreadsheet with your 401K details published.</p>
+</li>
+<li>
+<p>Likewise, you probably don't want directories like <code>node_modules</code>,
+<code>.DS_Store</code>, or <code>.git</code> published.</p>
+<p><code>.git</code> is included here for good form but
+PocoCMS treats directories with that name starts with <code>.</code> as hidden and
+doesn't publish them.</p>
+</li>
+<li>
+<p>The answer to these problems is to list what you don't want published in <code>skip</code>
+as shown below.</p>
+</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre><code>---
+skip:
+- 401k-info.xls
+- node_modules
+- .git
+- .DS_Store
+- .gitignore
+---
 </code></pre>
 
 </article>

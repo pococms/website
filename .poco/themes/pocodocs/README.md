@@ -12,5 +12,4 @@ stylesheets:
 - ../../css/colors.css
 - ../../css/media.css
 - "pocodocs.css"
-- "big-circles.css"
 ---

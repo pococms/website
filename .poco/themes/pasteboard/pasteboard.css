@@ -1,7 +1,5 @@
 
-ifooter {height:10vh;} /* Must match article padding-bottom */
-
-article>h1{/*letter-spacing:-.1em;*/padding-bottom:2em;}
+article>h1{padding-bottom:2em;}
 article>h2{font-size:1.75em;padding-top:2.5em;padding-bottom:.75em}
 aside>p{margin-top:0;padding-top:.5em;}
 aside>h3{padding:0;line-height:1.2em;}
@@ -18,7 +16,7 @@ article>h4{color:gray;font-weight:bold;}
  * looks like a button.
  * --------------------------------------------------
  */
-header > ul {line-height:4em;}
+header > ul {line-height:3em;}
 
 /*
  * --------------------------------------------------

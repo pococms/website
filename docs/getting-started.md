@@ -7,7 +7,7 @@ PocoCMS lets you start a website in just a few seconds.
 
 Before we go there, make sure you can:
 
-* Open a command prompt for yor operating system
+* Open a command prompt for your operating system
 * Use a text editor
 * Understand how to create and navigate directories from the command prompt
 

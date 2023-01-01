@@ -1,10 +1,11 @@
-article{width:70%}  
-aside{width:30%;}  
+article{width:75%}  
+aside{width:25%;}  
 
 /* Article on the right, aside on the left */
 article{float:right;clear:right;}    
 aside{float:left;}  
 aside{padding-top:8em;}
+
 /* --------------------------------------------------
  * Aside unordered lists are used for table of 
  * contents, so disable indentation and bullet 
@@ -22,7 +23,6 @@ aside ul {line-height:1.4rem;}
 
 /* 1st level of list */
 aside ul li a {font-size:1.2rem;}
-aside ul li a {color:cyan;}
 aside ul li a {text-decoration:underline}
 
 /* 2nd level of list */
@@ -78,7 +78,6 @@ html{
 
 header>ul>li:first-child>a{font-weight:900;letter-spacing:-.1rem;}
 article>h5>strong{text-decoration:underline;}
-// xxxx article>h6>a{line-height:6em;padding:1em;background-color:var(--bg);border:1px solid black;}
 
 /* The article may be wider than you want text and
  * code listings to be. This narrows the text and
@@ -89,16 +88,9 @@ article>p,article>ul,article>ul>li,article>pre{
 }
 article>h1{padding-bottom:.8em;}
 article>h5{padding-top:1em;}
+/* h6 links become buttons (for Prev/Next usge)
+ */
 article>h6>a{line-height:6em;padding:1em;background-color:var(--bg);border:1px solid black;}
-/* Code inside a paragraph */
-article>p>code,article>ul>li>code,article>ul>li>p>code{
-  border-radius:.25em;
-  padding:.25em .5em .25em .5em;
-}
-/* TODO: Not sure if necessary */
-ol {
-  list-style: circle outside;
-}
 
 /* OVERRIDE FRAMEWORK COLORS */
 article>h2{color:var(--article-h2-fg);}
@@ -118,6 +110,10 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
   --article-h2-fg:red;        /* Article h2 text color */
 }
   article>h6>a{background-color:var(--bg);border:1px solid black;}
+
+  /* 1st level of list */
+  aside ul li a {color:blue;}
+
 }
 
 @media (prefers-color-scheme:dark) {
@@ -125,4 +121,8 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
   --article-h2-fg:cyan;       /* Article h2 text color */
 }
   article>h6>a{background-color:var(--bg);border:1px solid white;}
+
+  /* 1st level of list */
+  aside ul li a {color:cyan;}
+
 }

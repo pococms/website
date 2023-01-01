@@ -397,44 +397,42 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </ul>
 </aside>
 <article id="article-poco">
-<h1 id="poco-cms-reference">Poco CMS Reference</h1>
-<p><a href="technical-overview.html">Technical overview</a><br />
-<a href="themes-using.html">Using themes</a><br />
-<a href="themes-overview.html">Themes technical overview</a><br />
-<a href="themes-creating.html">Creating themes</a><br />
-<a href="cli.html">PocoCMS command line options</a><br />
-<a href="glossary.html">PocoCMS glossary</a><br />
-<a href="highlighting.html">Code highlighting</a><br />
-<a href="front-matter.html">Front matter</a><br />
-<a href="resources.html">Resources</a><br />
-<a href="markdown-extensions.html">Markdown extensions</a><br />
-<a href="css-tips.html">CSS tips</a><br />
-<a href="yaml-usage.html">YAML usage</a><br />
-<a href="seo.html">SEO</a>
-<a href="internal-affairs.html">Internal affairs</a></p>
-<h2 id="html-references">HTML references</h2>
+<h1 id="building-a-project-in-another-directory">Building a project in another directory</h1>
+<p>You normally invoke PocoCMS from the command line something like this:</p>
 <ul>
-<li><a href="https://jigsaw.w3.org/css-validator/#validate_by_input">CSS validator</a></li>
-<li><a href="https://htmlcolorcodes.com/color-names">HTML Color Names</a> for people who like a simplified color chart with actual names for colors</li>
+<li>Create a new site, change to its directory, and run
+the built-in webserver:</li>
 </ul>
-<h2 id="utilities">Utilities</h2>
+<pre><code>poco -new /path/to/your/site
+cd  /path/to/your/site
+poco -serve
+</code></pre>
+<p>Or if the project already exists:</p>
 <ul>
-<li>Amazing <a href="https://realfavicongenerator.net">Favicon generator</a> took a PNG image, then turned it into
-a wide variety of <a href="https://en.wikipedia.org/wiki/Favicon">favicons</a>.</li>
+<li>Build site from inside its directory</li>
 </ul>
-<h2 id="web-page-performance">Web page performance</h2>
+<pre><code>cd  /path/to/your/site
+poco 
+</code></pre>
+<h2 id="building-poco-in-a-remote-directory">Building poco in a remote directory</h2>
+<p>But you can actually build and run from any directory (you have
+permission to be in), to another directory. Examples:</p>
+<h3 id="example-1-generate-site-in-remote-directory">Example 1: Generate site in remote directory</h3>
 <ul>
-<li>Google's <a href="https://web.dev/measure/">web.dev</a> page quality measurement tool</li>
-<li>Google's <a href="https://pagespeed.web.dev">PageSpeed Insights</a> is worth running not just on pages you create but those on other sites, to see what they do well or how they need improvement</li>
-<li>The <a href="https://tools.pingdom.com/">Pingdom Website Speed Test</a> produces the clearest results</li>
+<li>Generate existing site remotely</li>
 </ul>
-<h2 id="diagnostics">Diagnostics</h2>
+<pre><code>poco /path/to/your/site
+</code></pre>
+<p>This deposites the generated files at <a href="glossary.html#webroot">webroot</a> in the
+remote directory at <code>/path/to/your/site/WWW</code></p>
+<h3 id="example-1-generate-site-in-remote-directory-and-run-webserver-there">Example 1: Generate site in remote directory and run webserver there</h3>
 <ul>
-<li><a href="demo/mdemo.html">mdemo.html</a> Shows most Markup capabilities</li>
+<li>Create a new site in remote directory, then run
+the built-in webserver in that directory:</li>
 </ul>
-<p><a href="faq.html">Frequently Asked Questions</a></p>
-<h2 id="markdown-and-the-commonmark-specification">Markdown and the Commonmark specification</h2>
-<p><a href="https://daringfireball.net/projects/markdown/">Markdown</a> was originally created by John Gruber of <a href="https://daringfireball.net">Daring Fireball</a>.  It was a fairly informal specification so a group of Markdown enthusiasts created a more comprehensive spec at <a href="https://commonmark.org">Commonmark.org</a>.</p>
+<pre><code>poco -new /path/to/your/site
+poco -serve /path/to/your/site
+</code></pre>
 
 </article>
 

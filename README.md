@@ -8,8 +8,8 @@ stylesheets:
 
 # Welcome to PocoCMS
 
-1. [Install](#)
-2. [Create](docs/getting-started.html)
-3. [Improve](docs/next-steps.html)
+1. [Install](/docs/install.html)
+2. [Create](/docs/getting-started.html)
+3. [Improve](/docs/next-steps.html)
 
 
