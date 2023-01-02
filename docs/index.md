@@ -3,22 +3,21 @@
 #asideleft: "docs/indexaside.md"
 aside: SUPPRESS
 ---
-# PocoCMS
-
-## Running PocoCMS
-* [Command-line operation](cli.html)
+# PocoCMS documentation hub
 
 ## Creating static websites with PocoCMS
 * [Tutorial: getting started](getting-started.html)
 * [Front matter](front-matter.html)
 * [Using themes](themes-using.html)
-* [The PocoCMS theme framework](theme-framework.html)
 
-# PocoCMS building and internals
+## Running PocoCMS
+* [Command-line operation](cli.html)
+
+## PocoCMS internals
 * [Technical overview](technical-overview.html)
-* [Building from source](build-from-source.html)
 
-# Reference
+## Reference
+* [The PocoCMS theme framework](theme-framework.html)
 * [Glossary](glossary.html)
 
 

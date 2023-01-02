@@ -1,5 +1,5 @@
 ---
-theme: ".poco/themes/probot"
+aside: SUPPRESS
 ---
 # PocoCMS command-line options
 
@@ -14,7 +14,8 @@ directory is a [PocoCMS project](glossary.html#project).
 It will assume the current directory contains a
 tree of Markdown files and other assets required to build a site,
 and it will generate the HTML output in the [webroot](glossary.html#webroot)
-directory, called `WWW` by default.
+directory, called `WWW` by default. If the current directory
+isn't a PocoCMS project, it will ask if you want to make it one.
 
 If you are in a Poco directory, the output of `poco` all by itself
 looks something like this:
@@ -85,7 +86,7 @@ name second.
 poco -timestamp ~/mydir/mysite
 ```
 
-**BAD: Command-line options seccond**
+**BAD: Command-line options second**
 
 If you don't follow the command-line options first rule, unpredictable
 things will happen. Your friends won't like you, your lottery tickets

@@ -1,3 +1,6 @@
+---
+aside: SUPPRESS
+---
 # Next Steps
 
 {{- /* TODO: Write the whole Next Steps section! */ -}}

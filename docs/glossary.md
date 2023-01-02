@@ -1,3 +1,6 @@
+---
+aside: SUPPRESS
+---
 # Glossary
 
 
@@ -29,12 +32,12 @@ in a monospace font. It's good for distinguishing blocks
 of code in an article. Here's an example.
 
 ```
-    // Return the current time as a string
-    func theTime() string {
-      t := time.Now()
-      s := fmt.Sprintf("%s", t.Format("02 Jan 2006 15:04:05"))
-      return s
-    }
+// Return the current time as a string
+func theTime() string {
+  t := time.Now()
+  s := fmt.Sprintf("%s", t.Format("02 Jan 2006 15:04:05"))
+  return s
+}
 ```
 
 ## CommmonMark
@@ -201,7 +204,7 @@ Take this example of Markdown you might use in a document:
 
 The above would be converted in HTML that looks like this.
 
-```html
+```
 <h1>Introduction</h1>
 <p<em>hello</em>, world.</p>
 ```
@@ -239,9 +242,23 @@ theme you have available:
 ## .poco directory
 
 Each site you create with PocoCMS has a directory named `.poco`
-in the same directory as your site's [home page](#home-page).
+in your site's [root directory](#root-directory).
 It's automatically created when you use `poco -new` to create
-a site. The `.poco` directory contains things like 
+a site. 
+```
+.
+├── index.md
+│   
+├── WWW
+│   └── index.html
+│   
+└─── .poco
+```
+
+The contents of the `.poco` directory are ilustrated in
+[.poco directory structure](technical-overview.html#poco-directory-structure)
+
+The `.poco` directory contains things like 
 
 * All PocoCMS themes you have available
 * All CSS files required by your project
@@ -260,12 +277,13 @@ directories in projects you created prior to those changes.
 A PocoCMS *project* is a directory tree with the
 source Markdown files and other assets required to 
 create a website. The name of that directory 
-is also known as the name of your project. 
+is used as the name of your project.  It is
+also called the [root directory](#root-directory).
 
 ### Parts of a project
 At a minimum, a project consists of:
 
-* its containing directory,
+* its containing or [root](#root-directoroy) directory,
 * a [home page](#home-page), which is a Markdown file named
 either `index.md` or `README.md`, and
 * a webroot subdirectory, by default named `WWW`. 
@@ -276,6 +294,38 @@ such as themes and stylesheets.
 Sometimes we use the words `site` when we're talking about your
 project, even though technically your site is what's generated  by
 PocoCMS and copied into your [webroot](#webroot)
+
+## root directory
+
+The root directory is the starting point of your
+PocoCMS [project](#project), and because it also
+holds the [.poco directory)(#poco-directory) it's
+important to know what root directory means. 
+When you do something like
+
+```
+poco -new mysite
+cd mysite
+```
+
+Then the root directory is `mysite`. If at some point you create a new directory
+and change to it you are no longer in the root directory:
+
+```
+poco -new mysite
+cd mysite
+mkdir reference
+cd reference
+```
+
+At this point you're in `mysite/reference` and you are no longer in 
+the root directory. The reason to understand this distinction is that
+you will sometimes need to do something like edit a theme,
+and you do so via the [poco directory](#poco-directory). You'd
+do that by making sure you're in the root directory, then load
+  up a the file by giving an address of something like
+`.poco/themes/base/README.md` for the Base theme or 
+`.poco/themes/electro/README.md` for the Electro theme.
 
 ## semantic meaning
 
@@ -318,6 +368,36 @@ For example, most directories have a source filenamed `index.html`, which
 is the default location web servers look when users navigate to a 
 website
 
+## SUPPRESS
+
+You'll often see [front matter](#front-matter) that looks like this
+to [hide parts of a page](gs-parts-of-theme.html#hiding-header-nav-aside-or-footer-on-a-per-page-basis) such as the [header](#header),[nav](#nav),[aside](#aside), or [footer](#footer):
+
+```
+---
+aside: SUPPRESS
+---
+```
+
+This notation is specifically in uppercase. Why?
+
+Because another feature of PocoCMS is that you can replace these 
+page elements with the contents of a file, like this:
+
+```
+---
+aside: newaside.md 
+---
+```
+
+Keeping the word `SUPPRESS` in uppercase helps reduce the possibility that
+the user somehow had a file by the name of `suppress`.
+
+This is probably a dumb constraint and will probably be removed in a future version.
+
+
+
+
 ## theme
 
 A PocoCMS theme is a collection of stylesheets and Markdown files 
@@ -344,7 +424,7 @@ to use the theme named `wide` you would add this to your Markdown page:
 To find out what themes are installed on your machine, just run
 this at the command line:
 
-```bash
+```
 poco -themes
 ```
 ## title

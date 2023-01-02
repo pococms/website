@@ -46,10 +46,126 @@ Keep these two things in mind about layout elements.
 * PocoCMS themes made using the PocoCMS theme framework give you full control over layout elements.
 You can hide them on a per-page basis, affect the text on all pages of the site at once,
 or change their contents on a per-page basis
-* They have [semantic meaning](glossary.html#semantic meaning)
+* They have [semantic meaning](glossary.html#semantic-meaning)
 
 
 For a slightly more technical perspective see [HTML layout elements in more detail](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure#html_layout_elements_in_more_detail).
 
+## Hiding header, nav, aside, or footer on a per-page basis
 
-###### [Previous: Changing the theme](gs-change-theme.html) [Next: TODO:](gs-TODO)
+Themes made with the PocoCMS theme framework let you decide on a 
+page-by-page basis whether you want to display these layout elements.
+
+### Hide the header
+
+Let's go back to the brief example file we've been using. Make sure
+`index.md` looks like this:
+
+```
+---
+title: "Powered with &hearts; by PocoCMS"
+theme: informer
+header: SUPPRESS
+---
+# Welcome to mysite
+
+Hello from https://example.com. Our site is changing quickly.
+```
+
+* Build the site: 
+
+```
+poco 
+```
+* Then refresh the page in your browser.
+
+![Screen shot of Informer theme with header suppressed](img/home-page-informer-header-suppressed.png)
+
+### Hide the nav
+
+Let's go back to the brief example file we've been using. Make sure
+`index.md` looks like this:
+
+```
+---
+title: "Powered with &hearts; by PocoCMS"
+theme: informer
+header: SUPPRESS
+nav: SUPPRESS
+---
+# Welcome to mysite
+
+Hello from https://example.com. Our site is changing quickly.
+```
+
+* Build the site: 
+
+```
+poco 
+```
+* Refresh the page in your browser:
+
+![Screen shot of Informer theme with header and nav suppressed](img/home-page-informer-footer-suppressed.png)
+
+### Hide the rest
+
+You see where this is going:
+
+```
+---
+title: "Powered with &hearts; by PocoCMS"
+theme: informer
+header: SUPPRESS
+nav: SUPPRESS
+aside: SUPPRESS
+footer: SUPPRESS
+---
+# Welcome to mysite
+
+Hello from https://example.com. Our site is changing quickly.
+```
+
+* Build the site: 
+
+```
+poco 
+```
+* Refresh the page in your browser:
+
+![Screen shot of Informer theme with header, nav, aside, and footer suppressed](img/home-page-informer-most-suppressed.png)
+
+A lot of themes look good this way, just the bare naked article.
+It definitely focuses the reader's attention.
+
+### Wait, so...?
+
+You nut. Yes, you can suppress the article too. It's sometimes helpful
+when working on problems with the look of a theme you're creating.
+
+```
+---
+title: "Powered with &hearts; by PocoCMS"
+theme: informer
+header: SUPPRESS
+nav: SUPPRESS
+aside: SUPPRESS
+footer: SUPPRESS
+article: SUPPRESS
+---
+# Welcome to mysite
+
+Hello from https://example.com. Our site is changing quickly.
+```
+
+* Build the site: 
+
+```
+poco 
+```
+* Refresh the page in your browser, but no screenshot here. Because,
+you know... it's blank. Ah, what the heck.
+
+![Screen shot of Informer theme with EVERYTHING suppressed](img/home-page-informer-blank-all-suppressed.png)
+
+
+###### [Previous: Changing the theme](gs-change-theme.html) [Next: Hiding parts of a PocoCMS theme globally](gs-hide-theme-parts-globally.html)

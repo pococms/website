@@ -8,6 +8,9 @@
 * [The parts of a PocoCMS theme](gs-parts-of-theme.html)  
   - [Header, nav, article, aside, and footer](gs-parts-of-theme.html#header-nav-article-aside-and-footer)
   - [Layout elements](gs-parts-of-theme.html#layout-elements)
-
-
-
+  - [Hiding header, nav, aside, or footer on a per-page basis](#hiding-header-nav-aside-or-footer-on-a-per-page-basis)
+    + [Hide the header](#hide-the-header)
+    + [Hide the nav](#hide-the-nav)
+    + [Hide the rest](#hide-the-rest)
+* [Hiding parts of a PocoCMS theme globally](gs-hide-theme-parts-globally.html)  
+  - [Remove header, nav, aside, or footer from a theme](gs-hide-theme-parts-globally.html#remove-header-nav-aside-or-footer-from-a-theme)

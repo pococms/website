@@ -1,3 +1,6 @@
+---
+aside: SUPPRESS
+---
 # Front Matter
 
 {{- /* # TODO:
@@ -12,6 +15,16 @@ for example, choosing a theme, inserting Javascript
 or new style tags into your document, and ensuring
 each page can have a unique `<title>` tag.
 
+Here's an example of a page with a [title](#title) defined in the front matter.
+
+```
+---
+title: Who doesn't love static site generators?
+---
+# My life is now perfect
+
+Thanks to exercise, diet, and mostly, PocoCMS.
+```
 This page gives you a somewhat technical overview
 of front matter, then explains all the 
 front matter options PocoCMS provides.
@@ -23,7 +36,7 @@ front matter options PocoCMS provides.
 ## Alphabetical list of front matter options
 
 
-[aside](#aside) 
+[aside](#aside)   
 [author](#author)  
 [description](#description)  
 [footer](#footer)  
@@ -222,7 +235,7 @@ aside: new-aside.md
 ```
 Announcement soon. Check the [news](news.html) page tomorrow!
 ```
-
+See also [header](#header), [nav](#nav), and [footer](#footer) 
 
 ## author 
 
@@ -285,6 +298,7 @@ footer: new-footer.md
 ```
 Powered by PocoCMS!
 ```
+See also [header](#header), [nav](#nav), and [aside](#aside) 
 
 
 ## header
@@ -310,6 +324,7 @@ header: new-header.md
 ```
 **Powered by PocoCMS!**
 ```
+See also [nav](#nav), [aside](#aside), and [footer](#footer) 
 
 ## lang
 
@@ -342,7 +357,7 @@ Controls behavior of the navbar, shown in [Anatomy](gs-parts-of-theme.html#anato
 nav: SUPPRESS
 ---
 ```
-3. When given a filename, uses the contents of that file instead of the
+2. When given a filename, uses the contents of that file instead of the
 value supplied by the theme. 
 ```
 ---
@@ -355,6 +370,7 @@ nav: new-navbar.md
 ```
 Announcement soon. Check the [news](news.html) page tomorrow!
 ```
+See also [header](#header), [aside](#aside), and [footer](#footer) 
 
 ## pagetheme 
 

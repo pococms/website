@@ -24,10 +24,10 @@ in the front matter. It can only be used on your
 To apply a global theme named "pocodocs" to
 all pages on your site by default:
 
-```yaml
-    ---
-    theme: "pocodocs"
-    ---
+```
+---
+theme: "pocodocs"
+---
 ```
 
 
@@ -42,12 +42,13 @@ The global theme is set on the [home page](glossary.html#home-page)
 So what happens if you use both `theme` and `pagetheme` on
 the same page? In the case of the home page, the rule is clear.
 
-```yaml
-    ---
-    # Imagine this is the home page
-    theme: pocodocs
-    pagetheme: pocodocs/homepage
-    ---
+##### Filename: **index.md**
+
+```
+---
+theme: pocodocs
+pagetheme: pocodocs/homepage
+---
 ```
 
 Although `theme` sets the default theme, it's overriden
@@ -62,10 +63,10 @@ It's specified using `pagetheme` in the front matter for that page.
 
 To apply a theme named `informer` to the current page:
 
-```yaml
-    ---
-    pagetheme: "informer"
-    ---
+```
+ ---
+ pagetheme: "informer"
+ ---
 ```
 
 

@@ -38,7 +38,7 @@ Hello from https://example.com. Our site is changing quickly.
 poco
 ```
 
-* Refresh the page. On mobile it would look like this:
+* Refresh the page. 
 
 ![Screen shot of edited home page](img/home-page-first-edit-1366x768.png)
 

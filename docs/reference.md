@@ -1,7 +1,14 @@
 # Poco CMS Reference
 
+## NOTE
+
+Most of these documents works in progress. 
+Please feel free to [file an issue](https://github.com/pococms/poco/issues/new)
+with suggestions.
+
 [Technical overview](technical-overview.html)  
 [Using themes](themes-using.html)  
+[Workflow](workflow.html)  
 [Theme framework](theme-framework.html)  
 [Themes technical overview](themes-overview.html)  
 [Creating themes](themes-creating.html)  

@@ -120,16 +120,16 @@ a directory is created with the following contents:
   - A populated directory called `.poco`, to be explained in a moment.
 
 ```
-├── .poco
+├── index.md
 ├── WWW
 │   └── index.html
-└── index.md
+└── .poco
 
 ```
 
 This is a simplified view of the directory structure. 
 For a more accurate one, see
-[Complete tree listing of a new project](#complete-tree-listing-of-a-new-project)
+[Complete tree listing of a new project](#complete-tree-listing-of-a-new-project).
 
 
 ## Building a site
