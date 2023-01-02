@@ -407,51 +407,12 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </ul>
 </aside>
 <article id="article-poco">
-<h1 id="pococms-release-checklist">PocoCMS release checklist</h1>
-<ul>
-<li>Change to the poco directory</li>
-<li>go build</li>
-<li>go test</li>
-<li>Check quickly through the source code</li>
-<li>go fmt</li>
-<li>Run all stylesheets through <code>vnu</code> via my <code>v</code> utility</li>
-<li><code>du -h</code> on the source directory</li>
-<li><code>tree</code> on the source directory</li>
-<li>Check document Markdown source code for ocurrences of TODO:,
-including as comments in Go template format</li>
-<li>Run poco in the poco directory</li>
-<li>Run the test scripts <code>/.ts1</code> <code>/.ts2</code> in the poco directory</li>
-<li>Follow directions in the test scripts, notably looking for
-<ul>
-<li>Sidebars in both short and log documents</li>
-<li>Themes in nested directories</li>
-</ul>
-</li>
-<li>cd ~/pococms/website and run <code>poco-dir-update</code></li>
-</ul>
-<h2 id="check-for-assets">Check for assets</h2>
-<ul>
-<li>
-<p>Am I still using</p>
-<ul>
-<li>website/docs/img-sample-gordon-house-224x168.jpg</li>
-</ul>
-</li>
-<li>
-<p>Probably want to eliminate or replace these files, especially if I figure out how to get CSS working smoothly with SVG</p>
-<ul>
-<li>.poco/img/facebook-14px-clear.svg</li>
-<li>.poco/img/facebook-24px-blue.svg</li>
-<li>.poco/img/twitter-14px-blue.svg</li>
-<li>.poco/img/twitter-14px-clear.svg</li>
-<li>.poco/img/youtube-14px-red.svg</li>
-</ul>
-</li>
-</ul>
-<h2 id="interactive-theme-tests">Interactive theme tests</h2>
-<ul>
-<li>For each theme click all links in all page layout elements</li>
-</ul>
+<h4 id="search-recipes-on-reddit">Search recipes on Reddit</h4>
+<form action="https://www.google.com/search" class="searchform" method="get" name="searchform" target="_blank">
+<input name="sitesearch" type="hidden" value="reddit.com/r/recipes">
+<input autocomplete="on" name="q" placeholder="hummus" required="required"  type="text">
+<button class="button" type="submit">Search</button>
+</form>
 
 </article>
 

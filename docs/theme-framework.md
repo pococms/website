@@ -25,8 +25,8 @@ HTML) on either side of the page
 
 When a [Markdown](glossary.html#markdown) file gets converted to
 HTML, PocoCMS inserts stylesheets and, if the theme supports
-these features, [page layout elements](glossary.html#layout-elements) 
-into the HTML
+these features, [page layout elements](glossary.html#layout-element) 
+into the HTML:
 
 * header styles, recurring text and images, and formatting
 * nav styles, recurring text and images, and formatting
@@ -34,7 +34,8 @@ into the HTML
 * header styles, recurring text and images, and formatting
 * footer styles, recurring text and images, and formatting
 
-Everything listed is optional.
+Everything listed is optional. A theme isn't required to
+support any layout elements.
 
 ### What poco does when it runs
 
@@ -114,7 +115,7 @@ news item of current interest</p>
 
 ```
 
-These elements are supplied by the theme's [README.md](#theme-readme-md-file) file.
+These elements are supplied by the theme's [README.md](#theme-readmemd-file) file.
 More about that later.
 
 ### Refresher: the top part between `---` lines is a YAML document that controls page appearance

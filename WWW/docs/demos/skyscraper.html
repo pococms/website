@@ -19,6 +19,7 @@
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:gray;               /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
@@ -46,6 +47,7 @@
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:gray;               /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
@@ -76,6 +78,7 @@
   --fg:white;                 /* Default text color */
   --bg:MidnightBlue;          /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:Lavender;           /* Default h2 text color */
   --h3-fg:SkyBlue;            /* Default h3 text color */
@@ -211,7 +214,18 @@ article h4{font-weight:bold;}
 
 
 
-/* colors.css*/
+/* skinny.css*/
+html{background-color:var(--html-bg);margin-left:auto;margin-right:auto;width:100%;}
+body{width:60%;margin:5% 20% 5% 20%;}
+aside{width:30%;}
+article{width:70%;}
+footer{width:100%;}
+header,nav,footer{margin-left:auto;margin-right:auto;}
+
+
+
+
+/* mediacolors.css*/
 html{background-color:var(--html-bg);}
 article,nav,header,footer,aside{color:var(--fg);background-color:var(--bg);}
 a{color:var(--a);}
@@ -232,28 +246,14 @@ h3{color:var(--h3-fg);}
 h4{color:var(--h4-fg);}
 
 
-
-
-/* skinny.css*/
-html{background-color:var(--html-bg);margin-left:auto;margin-right:auto;width:100%;}
-body{width:60%;margin:5% 20% 5% 20%;}
-aside{width:30%;}
-article{width:70%;}
-footer{width:100%;}
-header,nav,footer{margin-left:auto;margin-right:auto;}
-
-
-
-
-/* media.css*/
 @media (max-width:1080px){
-  html{font-size:20px;}
+  html{font-size:1.25rem;}
   body{width:100%;margin:0}
   aside{display:none}
   article{margin:0;float:left;clear:left;width:100%}
 }
 @media (max-width:720px){
-  html{font-size:20px;}
+  html{font-size:1.25rem;}
   header,nav,aside,footer{display:none}
   article{padding:1em;}
   article{float:left;clear:left;width:100%}
@@ -339,44 +339,13 @@ news item of current interest</p>
 <h4 id="theme-demos">Theme demos</h4>
 <h1 id="skyscraper-theme">Skyscraper theme</h1>
 <h2 id="supported-features">Supported features</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>✅</td>
-<td>Header on/off</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>Nav on/off</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>Aside left on/off</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>Aside right on/off</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>Footer on/off</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>Responsive</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>Mobile support</td>
-</tr>
-</tbody>
-</table>
+<p>✅ Header on/off<br />
+✅ Nav on/off<br />
+✅ Aside left on/off<br />
+✅ Aside right on/off<br />
+✅ Footer on/off<br />
+✅ Responsive<br />
+✅ Mobile support</p>
 
 </article>
 

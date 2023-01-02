@@ -19,6 +19,7 @@
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:gray;               /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
@@ -46,6 +47,7 @@
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:gray;               /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
@@ -76,6 +78,7 @@
   --fg:white;                 /* Default text color */
   --bg:MidnightBlue;          /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:Lavender;           /* Default h2 text color */
   --h3-fg:SkyBlue;            /* Default h3 text color */
@@ -148,29 +151,6 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, pre, section {
 	display: block;
 }
-
-
-
-
-/* colors.css*/
-html{background-color:var(--html-bg);}
-article,nav,header,footer,aside{color:var(--fg);background-color:var(--bg);}
-a{color:var(--a);}
-code{
-  color:var(--code-fg);
-  background-color:var(--code-bg);
-}
-pre{
-  color:var(--pre-fg);
-  background-color:var(--pre-bg);
-}
-td, th{
-  border: 1px solid gray;
-}
-
-h2{color:var(--h2-fg);}
-h3{color:var(--h3-fg);}
-h4{color:var(--h4-fg);}
 
 
 
@@ -741,14 +721,6 @@ header,nav,footer{margin-left:auto;margin-right:auto;}
 
 /* pasteboard.css*/
 
-article>h1{padding-bottom:2em;}
-article>h2{font-size:1.75em;padding-top:2.5em;padding-bottom:.75em}
-aside>p{margin-top:0;padding-top:.5em;}
-aside>h3{padding:0;line-height:1.2em;}
-aside>h2{font-size:1.75em;color:DimGray;font-weight:bold;line-height:1.2em;padding-bottom:.75em;}
-article>h3{font-size:1.5em;padding-top:1.5em;padding-bottom:.5em;font-weight:bold;}
-article>h4{color:gray;font-weight:bold;}
-
 /*
  * --------------------------------------------------
  * If you have more than one item, use an unordered list. 
@@ -779,16 +751,57 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 
 nav{margin-bottom:0;}
 
+/* OVERRIDE FRAMEWORK SIZES */
 
-/* media.css*/
+/* OVERRIDE FRAMEWORK LAYOUT */
+
+/* OVERRIDE FRAMEWORK TYPOGRAPHY AND FONTS */
+
+/* OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT & DARK THEMES */
+@media (prefers-color-scheme:light) {
+:root {
+  --html-bg:gray
+}
+}
+
+@media (prefers-color-scheme:dark) {
+:root {
+  --html-bg:gray
+}
+}
+
+
+
+
+/* mediacolors.css*/
+html{background-color:var(--html-bg);}
+article,nav,header,footer,aside{color:var(--fg);background-color:var(--bg);}
+a{color:var(--a);}
+code{
+  color:var(--code-fg);
+  background-color:var(--code-bg);
+}
+pre{
+  color:var(--pre-fg);
+  background-color:var(--pre-bg);
+}
+td, th{
+  border: 1px solid gray;
+}
+
+h2{color:var(--h2-fg);}
+h3{color:var(--h3-fg);}
+h4{color:var(--h4-fg);}
+
+
 @media (max-width:1080px){
-  html{font-size:20px;}
+  html{font-size:1.25rem;}
   body{width:100%;margin:0}
   aside{display:none}
   article{margin:0;float:left;clear:left;width:100%}
 }
 @media (max-width:720px){
-  html{font-size:20px;}
+  html{font-size:1.25rem;}
   header,nav,aside,footer{display:none}
   article{padding:1em;}
   article{float:left;clear:left;width:100%}
@@ -856,44 +869,13 @@ article th:first-child{width:1rem;}
 <p>Paperboard is appears on the page against a gray background.
 It's based on <a href="https://www.andybrewer.com">Andy Brewer's</a> <a href="https://andybrewer.github.io/mvp/">MVP.css</a></p>
 <h2 id="supported-features">Supported features</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>✅</td>
-<td>Header on/off</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>Nav on/off</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>Aside left on/off</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>Aside right on/off</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>Footer on/off</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>Responsive</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>Mobile support</td>
-</tr>
-</tbody>
-</table>
+<p>✅ Header on/off<br />
+✅ Nav on/off<br />
+✅ Aside left on/off<br />
+✅ Aside right on/off<br />
+✅ Footer on/off<br />
+✅ Responsive<br />
+✅ Mobile support</p>
 
 </article>
 

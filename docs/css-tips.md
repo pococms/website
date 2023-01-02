@@ -49,6 +49,8 @@ you can drop right into your own themes.
 [2 colors in your logo text](#2-colors-in-your-logo-text)   
 [How to do headers using list syntax](#how-to-do-headers-using-list-syntax)  
 [Unordered lists with no bullet characters or indentation]()
+
+```
 /* --------------------------------------------------
  * Aside unordered lists are used for table of 
  * contents, so disable indentation and bullet 
@@ -75,7 +77,7 @@ aside ul ul li a {color:red;border:none;text-decoration:none;}
 /* 3rd level of list */
 aside ul ul ul li a 
  {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}
-
+```
 
 [Links with modern cursor and custom underline](#links-with-modern-cursor-and-custom-underline)  
 [How to show links with separate underline color](#how-to-show-links-with-separate-underline-color)  

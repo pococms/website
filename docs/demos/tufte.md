@@ -23,14 +23,15 @@ added a minimal layout file to support layout elements:
 header, nav, and aside (right only). They tend
 to distract so they are suppressed in this demo.
 
+## Supported features
 
-|     |                      |
-| --- | -------------------- |
-| ✅  | Header on/off        |
-| ✅  | Nav on/off           |
-| ❌  | Aside left on/off    |
-| ✅  | Aside right on/off   |
-| ❌  | Footer on/off        |
+✅ Header on/off\
+✅ Nav on/off\
+❌ Aside left on/off\
+✅ Aside right on/off\
+❌ Footer on/off\
+✅ Responsive\
+✅ Mobile support
 
 
 

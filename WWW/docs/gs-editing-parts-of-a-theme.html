@@ -399,59 +399,102 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/technical-overview.html">Technical overiew</a></p>
 </nav>
 	
-<aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
+<aside id="aside-poco"><ul>
+<li><a href="getting-started.html">Getting started</a>
 <ul>
-<li>Item 1 in the aside</li>
-<li>Item 2 in the aside</li>
-<li>Pocodocs theme!</li>
+<li><a href="getting-started.html#create-a-site">Create a site</a></li>
+<li><a href="getting-started.html#view-the-files-pococms-created">View the files PocoCMS created</a></li>
+</ul>
+</li>
+<li><a href="gs-edit-page.html">Editing the page</a></li>
+<li><a href="gs-change-theme.html">Changing themes</a>
+<ul>
+<li><a href="gs-change-theme.html#front-matter">Front matter</a></li>
+<li><a href="gs-change-theme.html#trying-a-few-more-themes">Trying a few more themes</a></li>
+</ul>
+</li>
+<li><a href="gs-parts-of-theme.html">The parts of a PocoCMS theme</a>
+<ul>
+<li><a href="gs-parts-of-theme.html#header-nav-article-aside-and-footer">Header, nav, article, aside, and footer</a></li>
+<li><a href="gs-parts-of-theme.html#layout-elements">Layout elements</a></li>
+<li><a href="#hiding-header-nav-aside-or-footer-on-a-per-page-basis">Hiding header, nav, aside, or footer on a per-page basis</a>
+<ul>
+<li><a href="gs-parts-of-theme.html#hide-the-header">Hide the header</a></li>
+<li><a href="gs-parts-of-theme.html#hide-the-nav">Hide the nav</a></li>
+<li><a href="gs-parts-of-theme.html#hide-the-rest">Hide the rest</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="gs-hide-theme-parts-globally.html">Hiding parts of a PocoCMS theme globally</a>
+<ul>
+<li><a href="gs-hide-theme-parts-globally.html#remove-header-nav-aside-or-footer-from-a-theme">Remove header, nav, aside, or footer from a theme</a>
+<ul>
+<li><a href="gs-hide-theme-parts-globally.html#find-your-theme-file-in-the-poco-directory">Find your theme file in the .poco directory</a></li>
+<li><a href="gs-hide-theme-parts-globally.html#comment-out-the-aside-or-any-other-page-layout-element">Comment out the aside (or any other) page layout element</a></li>
+<li><a href="gs-hide-theme-parts-globally.html#comments-in-the-yaml-front-matter">Comments in the YAML front matter</a></li>
+<li><a href="gs-hide-theme-parts-globally.html#find-your-theme-file-in-the-poco-directory">Find your theme file in the .poco directory</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="gs-editing-parts-of-a-theme.html">Editing parts of a theme</a>
+<ul>
+<li><a href="gs-editing-parts-of-a-theme.html#"></a></li>
+<li><a href="gs-editing-parts-of-a-theme.html#"></a></li>
+<li><a href="gs-editing-parts-of-a-theme.html#"></a></li>
+</ul>
+</li>
 </ul>
 </aside>
 <article id="article-poco">
-<h1 id="pococms-release-checklist">PocoCMS release checklist</h1>
-<ul>
-<li>Change to the poco directory</li>
-<li>go build</li>
-<li>go test</li>
-<li>Check quickly through the source code</li>
-<li>go fmt</li>
-<li>Run all stylesheets through <code>vnu</code> via my <code>v</code> utility</li>
-<li><code>du -h</code> on the source directory</li>
-<li><code>tree</code> on the source directory</li>
-<li>Check document Markdown source code for ocurrences of TODO:,
-including as comments in Go template format</li>
-<li>Run poco in the poco directory</li>
-<li>Run the test scripts <code>/.ts1</code> <code>/.ts2</code> in the poco directory</li>
-<li>Follow directions in the test scripts, notably looking for
-<ul>
-<li>Sidebars in both short and log documents</li>
-<li>Themes in nested directories</li>
-</ul>
-</li>
-<li>cd ~/pococms/website and run <code>poco-dir-update</code></li>
-</ul>
-<h2 id="check-for-assets">Check for assets</h2>
+<h1 id="editing-parts-of-a-theme">Editing parts of a theme</h1>
+<p>You'll always want to change the contents of a theme's header, nav bar, aside,
+and footer. You edit the theme directly to do this, and themes
+are designed to make it simple.</p>
 <ul>
 <li>
-<p>Am I still using</p>
-<ul>
-<li>website/docs/img-sample-gordon-house-224x168.jpg</li>
-</ul>
+<p>If you're reading this tutorial in sequence you're already in the
+root directory, but if not it's easy to find, so
+make sure you get to the <a href="glossary.html#root-directory">root directory</a>.</p>
 </li>
 <li>
-<p>Probably want to eliminate or replace these files, especially if I figure out how to get CSS working smoothly with SVG</p>
-<ul>
-<li>.poco/img/facebook-14px-clear.svg</li>
-<li>.poco/img/facebook-24px-blue.svg</li>
-<li>.poco/img/twitter-14px-blue.svg</li>
-<li>.poco/img/twitter-14px-clear.svg</li>
-<li>.poco/img/youtube-14px-red.svg</li>
-</ul>
+<p>Load the theme's <code>README.md</code> file from your project's by editing the file <code>.poco/themes/mytheme/README.md</code>. Obviously
+you will replace <code>mysite</code> with whatever theme name you created.</p>
 </li>
 </ul>
-<h2 id="interactive-theme-tests">Interactive theme tests</h2>
+<h2 id="replacing-the-header">Replacing the header</h2>
+<h2 id="replacing-the-nav">Replacing the nav</h2>
+<p>Let's replace the nav and give it the ability to search
+<a href="reddit.com/r/recipes">Reddit</a> for recipes.</p>
+<p>The theme's <code>README.md</code> will have a line something like this:</p>
+<pre><code>nav: nav.md
+</code></pre>
+<p>In <code>nav.md</code>, or whatever file was used to create the nav,
+you'll see the file used to generate the contents of the nav.
+Themes have different asides but let's say it looks like this:</p>
+<h5 id="filename-navmd">filename: <strong>nav.md</strong></h5>
+<pre><code>* [Base theme nav](#)
+* [Subscribe](#)
+* [Technical overview](#)
+* [Free trial](#)
+</code></pre>
 <ul>
-<li>For each theme click all links in all page layout elements</li>
+<li>Replace it with this:</li>
 </ul>
+<pre><code>#### Search recipes on Reddit 
+&lt;form action=&quot;https://www.google.com/search&quot; class=&quot;searchform&quot; method=&quot;get&quot; name=&quot;searchform&quot; target=&quot;_blank&quot;&gt;
+&lt;input name=&quot;sitesearch&quot; type=&quot;hidden&quot; value=&quot;reddit.com/r/recipes&quot;&gt;
+&lt;input autocomplete=&quot;on&quot; name=&quot;q&quot; placeholder=&quot;hummus&quot; required=&quot;required&quot;  type=&quot;text&quot;&gt;
+&lt;button class=&quot;button&quot; type=&quot;submit&quot;&gt;Search&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<ul>
+<li>Build your site and you'll see something like this (depends on the theme you
+chose, in this case, Base):</li>
+</ul>
+<p><img src="img/base-theme-reddit-search-nav.png" alt="Screenshot of Base theme with nav replaced by Reddit Search" /></p>
+<h6 id="previous-hiding-parts-of-a-pococms-theme-globallygs-hide-theme-parts-globallyhtml-next-tod"><a href="gs-hide-theme-parts-globally.html">Previous: Hiding parts of a PocoCMS theme globally</a> <a href="#">Next: Tod</a></h6>
 
 </article>
 

@@ -137,6 +137,10 @@ Each layout element directly corresponds
 to an HTML tag. Most of them can be disabled on a per-page
 basis, overriding the theme definition.
 
+#### Layout elements illustrated
+
+![Illustration showing header, nav, article, aside, and footer](img/theme-parts.png)
+
 ### header
 
 The `<header>` element, normally referred to simply as the *header*,
@@ -478,6 +482,11 @@ for your website. By default it's a subdirectory under the directory
 used for your project named `WWW`. You can 
 designate a different directory using the `webroot`
 [command line option](cli.html#webroot)
+
+To make your website visible to the world, all you have
+to do is copy those files into a publicly available directory
+at a web host.
+
 
 ## YAML
 

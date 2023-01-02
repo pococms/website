@@ -19,6 +19,7 @@
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:gray;               /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
@@ -46,6 +47,7 @@
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:gray;               /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
@@ -76,6 +78,7 @@
   --fg:white;                 /* Default text color */
   --bg:MidnightBlue;          /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:Lavender;           /* Default h2 text color */
   --h3-fg:SkyBlue;            /* Default h3 text color */
@@ -211,7 +214,7 @@ article h4{font-weight:bold;}
 
 
 
-/* colors.css*/
+/* mediacolors.css*/
 html{background-color:var(--html-bg);}
 article,nav,header,footer,aside{color:var(--fg);background-color:var(--bg);}
 a{color:var(--a);}
@@ -232,17 +235,14 @@ h3{color:var(--h3-fg);}
 h4{color:var(--h4-fg);}
 
 
-
-
-/* media.css*/
 @media (max-width:1080px){
-  html{font-size:20px;}
+  html{font-size:1.25rem;}
   body{width:100%;margin:0}
   aside{display:none}
   article{margin:0;float:left;clear:left;width:100%}
 }
 @media (max-width:720px){
-  html{font-size:20px;}
+  html{font-size:1.25rem;}
   header,nav,aside,footer{display:none}
   article{padding:1em;}
   article{float:left;clear:left;width:100%}
@@ -444,32 +444,34 @@ you can drop right into your own themes.</p>
 <h2 id="contents">Contents</h2>
 <p><a href="#2-colors-in-your-logo-text">2 colors in your logo text</a><br />
 <a href="#how-to-do-headers-using-list-syntax">How to do headers using list syntax</a><br />
-<a href="">Unordered lists with no bullet characters or indentation</a>
-/* --------------------------------------------------</p>
-<ul>
-<li>Aside unordered lists are used for table of</li>
-<li>contents, so disable indentation and bullet</li>
-<li>character. Use size, color, and underline</li>
-<li>to indicate level.</li>
-<li>
-<hr />
-</li>
-</ul>
-<p>*/</p>
-<p>/* Disable list indentation and bullet characters. */
+<a href="">Unordered lists with no bullet characters or indentation</a></p>
+<pre><code>/* --------------------------------------------------
+ * Aside unordered lists are used for table of 
+ * contents, so disable indentation and bullet 
+ * character. Use size, color, and underline
+ * to indicate level.
+ * --------------------------------------------------
+ */   
+
+/* Disable list indentation and bullet characters. */
 aside &gt; ul li {list-style-type: none; }
-aside &gt; ul li  {margin-left:0em;}</p>
-<p>/* Line-spacing for whole unordered list */
-aside ul {line-height:1.4rem;}</p>
-<p>/* 1st level of list */
+aside &gt; ul li  {margin-left:0em;}
+
+/* Line-spacing for whole unordered list */
+aside ul {line-height:1.4rem;}
+
+/* 1st level of list */
 aside ul li a {font-size:1.2rem;}
 aside ul li a {color:cyan;}
-aside ul li a {text-decoration:underline}</p>
-<p>/* 2nd level of list */
-aside ul ul li a {color:red;border:none;text-decoration:none;}</p>
-<p>/* 3rd level of list */
-aside ul ul ul li a
-{font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}</p>
+aside ul li a {text-decoration:underline}
+
+/* 2nd level of list */
+aside ul ul li a {color:red;border:none;text-decoration:none;}
+
+/* 3rd level of list */
+aside ul ul ul li a 
+ {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}
+</code></pre>
 <p><a href="#links-with-modern-cursor-and-custom-underline">Links with modern cursor and custom underline</a><br />
 <a href="#how-to-show-links-with-separate-underline-color">How to show links with separate underline color</a><br />
 <a href="#centering">Centering old-school</a><br />

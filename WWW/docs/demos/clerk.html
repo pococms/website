@@ -5,7 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Powered with &hearts; by PocoCMS</title>
 
-<style></style>
+<style>
+	@import url('https://fonts.googleapis.com/css?family=Nova+Mono&display=swap');
+
+	@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap');
+</style>
 <style>
 
 /* root.css*/
@@ -214,6 +218,17 @@ article h4{font-weight:bold;}
 
 
 
+/* skinny.css*/
+html{background-color:var(--html-bg);margin-left:auto;margin-right:auto;width:100%;}
+body{width:60%;margin:5% 20% 5% 20%;}
+aside{width:30%;}
+article{width:70%;}
+footer{width:100%;}
+header,nav,footer{margin-left:auto;margin-right:auto;}
+
+
+
+
 /* mediacolors.css*/
 html{background-color:var(--html-bg);}
 article,nav,header,footer,aside{color:var(--fg);background-color:var(--bg);}
@@ -251,211 +266,75 @@ h4{color:var(--h4-fg);}
 
 
 
-/* pocodocs.css*/
-/* Article on the right, aside on the left */
-article{float:right;clear:right;}    
-aside{float:left;}  
-aside{padding-top:8em;}
+/* newhack.css*/
 
-/* --------------------------------------------------
- * Aside unordered lists are used for table of 
- * contents, so disable indentation and bullet 
- * character. Use size, color, and underline
- * to indicate level.
- * --------------------------------------------------
- */   
-
-/* Disable list indentation and bullet characters. */
-aside > ul li {list-style-type: none; }
-aside > ul li  {margin-left:0em;}
-
-/* Line-spacing for whole unordered list */
-aside ul {line-height:1.4rem;}
-
-/* 1st level of list */
-aside ul li a {font-size:1.2rem;}
-aside ul li a {text-decoration:underline}
-
-/* 2nd level of list */
-aside ul ul li a {border:none;text-decoration:none;}
-
-
-/* 3rd level of list */
-aside ul ul ul li a 
- {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}
-
-/* --------------------------------------------------
- * Images: full width, light drop shadow 
- * --------------------------------------------------
- */   
-article > img, article > p > img {
-  width:100%;                                        
-  box-shadow: /* rgb(128,128,128) */ gray 1px 1px 3px 0px;
-  display:block;                                     
-  margin-top:1em;margin-bottom:2em;
+/* OVERRIDE FRAMEWORK SIZES */
+:root {
+  --padding-left:15%;
+  --article-width:60%
 }
-/* OVERRIDE FRAMEWORK PADDING, MARGIN, HEIGHTS */
-header{line-height:4em;padding-top:2em;}
-header>ul>li:first-child>a{padding-right:1rem;padding-left:0}
 
-nav>ul{line-height:2em;}
-nav>p>a{padding-right:1em;}
-/*
- * --------------------------------------------------
- * Special feature: First item in list has biggest
- * branding
- * --------------------------------------------------
- */
-header>ul>li:first-child>a{font-size:3rem;}
+header {margin-top:4em;}
+footer{padding-top:2em;margin-bottom:2em;}
 
 /* OVERRIDE FRAMEWORK LAYOUT */
 
 /* OVERRIDE FRAMEWORK TYPOGRAPHY AND FONTS */
-html{
-  font-size:18px;
-  font-family:
-    'system-ui',                           
-    '-apple-system',                  
-    'LucidaGrandeUI',                         
-    'HelveticaNeueDeskInterface-Regular',     
-    'HelveticaNeueDeskInterface-Light',        
-    'DroidSans',                           
-    'Ubuntu Light',
-    'Arial',  
-    'Roboto-Light',                            
-    'Segoe UI Light',                                   
-    'Tahoma',                             
-    'sans-serif';
+
+/* OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT & DARK THEMES */
+
+:root {
+  --html-font:courier;
 }
 
-header>ul>li:first-child>a{font-weight:900;letter-spacing:-.1rem;}
-article>h5>strong{text-decoration:underline;}
+html * {font-family:var(--html-font);}
+body {border: .1rem solid black;}
+body {box-shadow: .25em .25em .25em gray;}
 
-/* The article may be wider than you want text and
- * code listings to be. This narrows the text and
- * code listings without affecting the article width. 
- */
-article>p,article>ul,article>ul>li,article>pre{
-  width:var(--article-width);
-}
-article>h1{padding-bottom:.8em;}
-article>h5{padding-top:1em;}
-/* h6 links become buttons (for Prev/Next usge)
- */
-article>h6>a{line-height:6em;padding:1em;background-color:var(--bg);border:1px solid black;}
-
-/* OVERRIDE FRAMEWORK COLORS */
-article>h2{color:var(--article-h2-fg);}
-article>h5>strong{color:var(--fg);}
-
-/* --------------------------------------------------
- * Special feature: Surround letters in first item 
- * with ~~ characters to get change of color
- * --------------------------------------------------
- */
-header>ul>li:first-child>a>del{text-decoration:none;color:red;}
-
-/* OVERRIDE MEDIA QUERIES. LIGHT AND DARK THEMES */
-
+ol li, ul li  {margin-left:3em;}
+h1,h2,h3,h4,h5,h6 {font-size:1rem;}
+h1 {text-decoration:underline;}
 @media (prefers-color-scheme:light) {
 :root {
-  --article-h2-fg:red;        /* Article h2 text color */
-  --aside-h2-fg:gray;         /* Aside h2 text color */
 }
-  article>h6>a{background-color:var(--bg);border:1px solid black;}
-
-
-  /* 1st level of list */
-  aside ul li a {color:blue;}
-  /* 2nd level of list */
-  aside ul ul li a {color:var(--aside-h2-fg);}
-
 }
 
 @media (prefers-color-scheme:dark) {
 :root {
-  --article-h2-fg:cyan;       /* Article h2 text color */
-  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
 }
-  article>h6>a{background-color:var(--bg);border:1px solid white;}
-
-  /* 1st level of list */
-  aside ul li a {color:cyan;}
-
 }
+
+
 
 </style>
 </head>
 <body>	
 <header id="header-poco"><ul>
-<li><a href="https://pococms.com">poco<del>CMS</del></a></li>
-<li><a href="https://github.com/pococms/downloads/tree/main/dist">Download</a></li>
-<li><a href="/docs/index.html">Documentation</a></li>
-<li><a href="https://github.com/pococms/poco/issues">Report an issue</a></li>
-<li><a href="https://github.com/pococms/poco">GitHub</a></li>
+<li><strong><a href="#">Clerk theme</a></strong></li>
+<li><a href="#">Github</a></li>
+<li><a href="#">Profile</a></li>
+<li><a href="#">About</a></li>
 </ul>
 </header>
 	
-<nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/technical-overview.html">Technical overiew</a></p>
-</nav>
 	
-<aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
-<ul>
-<li>Item 1 in the aside</li>
-<li>Item 2 in the aside</li>
-<li>Pocodocs theme!</li>
-</ul>
-</aside>
 <article id="article-poco">
-<h1 id="pococms-release-checklist">PocoCMS release checklist</h1>
-<ul>
-<li>Change to the poco directory</li>
-<li>go build</li>
-<li>go test</li>
-<li>Check quickly through the source code</li>
-<li>go fmt</li>
-<li>Run all stylesheets through <code>vnu</code> via my <code>v</code> utility</li>
-<li><code>du -h</code> on the source directory</li>
-<li><code>tree</code> on the source directory</li>
-<li>Check document Markdown source code for ocurrences of TODO:,
-including as comments in Go template format</li>
-<li>Run poco in the poco directory</li>
-<li>Run the test scripts <code>/.ts1</code> <code>/.ts2</code> in the poco directory</li>
-<li>Follow directions in the test scripts, notably looking for
-<ul>
-<li>Sidebars in both short and log documents</li>
-<li>Themes in nested directories</li>
-</ul>
-</li>
-<li>cd ~/pococms/website and run <code>poco-dir-update</code></li>
-</ul>
-<h2 id="check-for-assets">Check for assets</h2>
-<ul>
-<li>
-<p>Am I still using</p>
-<ul>
-<li>website/docs/img-sample-gordon-house-224x168.jpg</li>
-</ul>
-</li>
-<li>
-<p>Probably want to eliminate or replace these files, especially if I figure out how to get CSS working smoothly with SVG</p>
-<ul>
-<li>.poco/img/facebook-14px-clear.svg</li>
-<li>.poco/img/facebook-24px-blue.svg</li>
-<li>.poco/img/twitter-14px-blue.svg</li>
-<li>.poco/img/twitter-14px-clear.svg</li>
-<li>.poco/img/youtube-14px-red.svg</li>
-</ul>
-</li>
-</ul>
-<h2 id="interactive-theme-tests">Interactive theme tests</h2>
-<ul>
-<li>For each theme click all links in all page layout elements</li>
-</ul>
+<h4 id="theme-demos">Theme demos</h4>
+<h1 id="clerk-theme">Clerk theme</h1>
+<p>Clerk is a fun, throwback theme reminiscent of
+old-school typewriters.</p>
+<h2 id="supported-features">Supported features</h2>
+<p>✅ Header on/off<br />
+✅ Nav on/off<br />
+✅ Aside left on/off<br />
+✅ Aside right on/off<br />
+✅ Footer on/off<br />
+✅ Responsive<br />
+✅ Mobile support</p>
 
 </article>
 
-<footer id="footer-poco"><p><em>Powered by <a href="https://pococms.com">PocoCMS</a></em> · Copyright 2022 by Tom Campbell</p>
+<footer id="footer-poco"><p><a href="#">Contact</a> <a href="#">Privacy policy</a> <a href="#">Terms of service</a></p>
 </footer>
 <script> {
   // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.

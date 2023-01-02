@@ -1,8 +1,11 @@
+---
+aside: SUPPRESS
+---
 # PocoCMS Theme demos
 
 * [Base](demos/base.html)
+* [Clerk](demos/clerk.html)
 * [Electro](demos/electro.html)
-* [Hack](demos/hack.html)
 * [Informer](demos/informer.html)
 * [Newman](demos/newman.html)
 * [Paper](demos/paper.html)

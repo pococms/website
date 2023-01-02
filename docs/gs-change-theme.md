@@ -84,4 +84,4 @@ theme: base
 
 
 
-###### [Previous: Editing the page](gs-editing-page.html) [Next: Parts of a theme](gs-parts-of-theme.html)
+###### [Previous: Editing the page](gs-edit-page.html) [Next: Parts of a theme](gs-parts-of-theme.html)

@@ -18,6 +18,10 @@
      + [Comment out the aside (or any other) page layout element](gs-hide-theme-parts-globally.html#comment-out-the-aside-or-any-other-page-layout-element)
      + [Comments in the YAML front matter](gs-hide-theme-parts-globally.html#comments-in-the-yaml-front-matter)
      + [Find your theme file in the .poco directory](gs-hide-theme-parts-globally.html#find-your-theme-file-in-the-poco-directory)
+* [Editing parts of a theme](gs-editing-parts-of-a-theme.html)
+  - [](gs-editing-parts-of-a-theme.html#)
+  - [](gs-editing-parts-of-a-theme.html#)
+  - [](gs-editing-parts-of-a-theme.html#)
 
 
 

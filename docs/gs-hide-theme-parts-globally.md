@@ -23,7 +23,7 @@ It's a very simple edit and you don't lose anything. You can easily add it back 
 root directory, but if not it's easy to find, so 
 make sure you get to the [root directory](glossary.html#root-directory).
  
-* Load the theme's `README.md` file from your project's [root directory](#glossary.html#root-directory) by editing the file `.poco/themes/mytheme/README.md`. Obviously
+* Load the theme's `README.md` file from your project's by editing the file `.poco/themes/mytheme/README.md`. Obviously
 you will replace `mysite` with whatever theme name you created.
 For example, load the Informer them from the root directory
 this way: `.poco/themes/informer/README.md` 
@@ -68,12 +68,22 @@ And insert a `#` character at the beginning of the line, like this:
 
 Normally the `aside` is generated from a file. In the above example
 that file is named `aside.md`, but that file could be named anything.
-The `#` is called a comment. Everything after it is ignored.
+The `#` is called a comment. Everything after it is ignored. So
+now that line in the theme's `README.md` just never happens.
+
+* Rebuild your site and you'll see the aside is gone, without you
+having to [suppress it manually](gs-parts-of-theme.html#hide-the-header).
+
+![Screenshot of Informer them with aside suppressed](img/informer-theme-aside-suppressed.png)
+
 
 ### Comments in the YAML front matter
 
+It's worth taking a look at comments here, because they're 
+useful when you're creating a theme.
+
 The [front matter](glossary.html#front-matter) is in [YAML](yaml-usage.html)
-format. Comments in YAML will work on anhy line of the front matter. 
+format. Comments in YAML will work on any line of the front matter. 
 Here are a few examples of how it might be used.
 
 ```
@@ -103,6 +113,5 @@ stylesheets:
 
 
 
-
-###### [Previous: The parts of a PocoCMS theme](gs-parts-of-theme.html) [Next: TODO](.html)
+###### [Previous: The parts of a PocoCMS theme](gs-parts-of-theme.html) [Next: Editing parts of a themel](gs-editing-parts-of-a-theme.html)
 

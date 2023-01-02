@@ -1,5 +1,8 @@
 # Todo
 
+## Write
+* steal markdown tutorial from vuepress & link to it from tutorial 
+
 ## Distribution
 * Create formulas for choco, brew tap, apt get, etc.
 

@@ -1,5 +1,45 @@
 # Creating PocoCMS themes
 
+## Setting font globally
+
+```
+/* OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT & DARK THEMES */
+:root {
+  --html-font:monospace;
+}
+
+html * {font-family:var(--html-font);}
+
+```
+
+## Downloading fonts
+
+Add to theme `README.md`
+
+```
+importrules:
+- url('https://fonts.googleapis.com/css?family=Nova+Mono&display=swap');
+- url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap');    
+```
+
+
+## Showing backgroud behind skinny theme
+
+```
+@media (prefers-color-scheme:light) {
+:root {
+  --html-bg:gray
+}
+}
+
+@media (prefers-color-scheme:dark) {
+:root {
+  --html-bg:gray
+}
+}
+```
+
+
 
 ## TODO: themename.css
 

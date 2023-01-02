@@ -19,6 +19,7 @@
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:gray;               /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
@@ -46,6 +47,7 @@
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:gray;               /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
@@ -76,6 +78,7 @@
   --fg:white;                 /* Default text color */
   --bg:MidnightBlue;          /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:Lavender;           /* Default h2 text color */
   --h3-fg:SkyBlue;            /* Default h3 text color */
@@ -120,15 +123,35 @@ aside{float:right;}
 
 
 
-/* media.css*/
+/* mediacolors.css*/
+html{background-color:var(--html-bg);}
+article,nav,header,footer,aside{color:var(--fg);background-color:var(--bg);}
+a{color:var(--a);}
+code{
+  color:var(--code-fg);
+  background-color:var(--code-bg);
+}
+pre{
+  color:var(--pre-fg);
+  background-color:var(--pre-bg);
+}
+td, th{
+  border: 1px solid gray;
+}
+
+h2{color:var(--h2-fg);}
+h3{color:var(--h3-fg);}
+h4{color:var(--h4-fg);}
+
+
 @media (max-width:1080px){
-  html{font-size:20px;}
+  html{font-size:1.25rem;}
   body{width:100%;margin:0}
   aside{display:none}
   article{margin:0;float:left;clear:left;width:100%}
 }
 @media (max-width:720px){
-  html{font-size:20px;}
+  html{font-size:1.25rem;}
   header,nav,aside,footer{display:none}
   article{padding:1em;}
   article{float:left;clear:left;width:100%}
@@ -190,36 +213,14 @@ donated his substantial work to the Tufte ecosystem.</p>
 added a minimal layout file to support layout elements:
 header, nav, and aside (right only). They tend
 to distract so they are suppressed in this demo.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>✅</td>
-<td>Header on/off</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>Nav on/off</td>
-</tr>
-<tr>
-<td>❌</td>
-<td>Aside left on/off</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>Aside right on/off</td>
-</tr>
-<tr>
-<td>❌</td>
-<td>Footer on/off</td>
-</tr>
-</tbody>
-</table>
+<h2 id="supported-features">Supported features</h2>
+<p>✅ Header on/off<br />
+✅ Nav on/off<br />
+❌ Aside left on/off<br />
+✅ Aside right on/off<br />
+❌ Footer on/off<br />
+✅ Responsive<br />
+✅ Mobile support</p>
 
 </article>
 

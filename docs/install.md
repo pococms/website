@@ -5,15 +5,16 @@ aside: SUPPRESS
 # Installing PocoCMS
 
 **This part is a bit rough. Will improve it ASAP. Plan is to work up versions for**
-* Homebrew
-* Chocolately
+* Homebrew tap
+* scoop
 * Apt/get?
 
-## Installing the latest binary
+## Grab the latest binary
 
 * The easiest way to get PocoCMS is to find the latest version at
 the [Downloads](https://github.com/pococms/downloads/tree/main/dist) page.
-* Obviously it's best to copy that to your system path.
+
+  Obviously it's best to copy that to your system path.
 
 ## Installing from source
 

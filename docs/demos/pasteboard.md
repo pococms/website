@@ -17,13 +17,11 @@ It's based on [Andy Brewer's](https://www.andybrewer.com) [MVP.css](https://andy
 
 ## Supported features
 
-|     |                      |
-| --- | -------------------- |
-| ✅  | Header on/off        |
-| ✅  | Nav on/off           |
-| ✅  | Aside left on/off    |
-| ✅  | Aside right on/off   |
-| ✅  | Footer on/off        |
-| ✅  | Responsive           |
-| ✅  | Mobile support       |
+✅ Header on/off\
+✅ Nav on/off\
+✅ Aside left on/off\
+✅ Aside right on/off\
+✅ Footer on/off\
+✅ Responsive\
+✅ Mobile support
 

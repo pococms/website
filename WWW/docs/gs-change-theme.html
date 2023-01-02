@@ -19,6 +19,7 @@
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:gray;               /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
@@ -46,6 +47,7 @@
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:gray;               /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
@@ -76,6 +78,7 @@
   --fg:white;                 /* Default text color */
   --bg:MidnightBlue;          /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:Lavender;           /* Default h2 text color */
   --h3-fg:SkyBlue;            /* Default h3 text color */
@@ -211,7 +214,7 @@ article h4{font-weight:bold;}
 
 
 
-/* colors.css*/
+/* mediacolors.css*/
 html{background-color:var(--html-bg);}
 article,nav,header,footer,aside{color:var(--fg);background-color:var(--bg);}
 a{color:var(--a);}
@@ -232,17 +235,14 @@ h3{color:var(--h3-fg);}
 h4{color:var(--h4-fg);}
 
 
-
-
-/* media.css*/
 @media (max-width:1080px){
-  html{font-size:20px;}
+  html{font-size:1.25rem;}
   body{width:100%;margin:0}
   aside{display:none}
   article{margin:0;float:left;clear:left;width:100%}
 }
 @media (max-width:720px){
-  html{font-size:20px;}
+  html{font-size:1.25rem;}
   header,nav,aside,footer{display:none}
   article{padding:1em;}
   article{float:left;clear:left;width:100%}
@@ -431,11 +431,18 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <li><a href="gs-hide-theme-parts-globally.html#remove-header-nav-aside-or-footer-from-a-theme">Remove header, nav, aside, or footer from a theme</a>
 <ul>
 <li><a href="gs-hide-theme-parts-globally.html#find-your-theme-file-in-the-poco-directory">Find your theme file in the .poco directory</a></li>
-<li><a href="gs-hide-theme-parts-globally.html#comments-in-the-yaml-front-matter">Comments in the YAML front matter</a></li>
 <li><a href="gs-hide-theme-parts-globally.html#comment-out-the-aside-or-any-other-page-layout-element">Comment out the aside (or any other) page layout element</a></li>
+<li><a href="gs-hide-theme-parts-globally.html#comments-in-the-yaml-front-matter">Comments in the YAML front matter</a></li>
 <li><a href="gs-hide-theme-parts-globally.html#find-your-theme-file-in-the-poco-directory">Find your theme file in the .poco directory</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="gs-editing-parts-of-a-theme.html">Editing parts of a theme</a>
+<ul>
+<li><a href="gs-editing-parts-of-a-theme.html#"></a></li>
+<li><a href="gs-editing-parts-of-a-theme.html#"></a></li>
+<li><a href="gs-editing-parts-of-a-theme.html#"></a></li>
 </ul>
 </li>
 </ul>
@@ -502,7 +509,7 @@ theme: base
 ---
 </code></pre>
 <p><img src="img/home-page-theme-base-1366x768.png" alt="Screenshot of PocoCMS Base theme" /></p>
-<h6 id="previous-editing-the-pagegs-editing-pagehtml-next-parts-of-a-themegs-parts-of-themehtml"><a href="gs-editing-page.html">Previous: Editing the page</a> <a href="gs-parts-of-theme.html">Next: Parts of a theme</a></h6>
+<h6 id="previous-editing-the-pagegs-edit-pagehtml-next-parts-of-a-themegs-parts-of-themehtml"><a href="gs-edit-page.html">Previous: Editing the page</a> <a href="gs-parts-of-theme.html">Next: Parts of a theme</a></h6>
 
 </article>
 

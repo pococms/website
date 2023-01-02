@@ -19,6 +19,7 @@
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:gray;               /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
@@ -46,6 +47,7 @@
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:gray;               /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
@@ -76,6 +78,7 @@
   --fg:white;                 /* Default text color */
   --bg:MidnightBlue;          /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:Lavender;           /* Default h2 text color */
   --h3-fg:SkyBlue;            /* Default h3 text color */
@@ -211,7 +214,7 @@ article h4{font-weight:bold;}
 
 
 
-/* colors.css*/
+/* mediacolors.css*/
 html{background-color:var(--html-bg);}
 article,nav,header,footer,aside{color:var(--fg);background-color:var(--bg);}
 a{color:var(--a);}
@@ -232,17 +235,14 @@ h3{color:var(--h3-fg);}
 h4{color:var(--h4-fg);}
 
 
-
-
-/* media.css*/
 @media (max-width:1080px){
-  html{font-size:20px;}
+  html{font-size:1.25rem;}
   body{width:100%;margin:0}
   aside{display:none}
   article{margin:0;float:left;clear:left;width:100%}
 }
 @media (max-width:720px){
-  html{font-size:20px;}
+  html{font-size:1.25rem;}
   header,nav,aside,footer{display:none}
   article{padding:1em;}
   article{float:left;clear:left;width:100%}
@@ -432,8 +432,8 @@ HTML) on either side of the page</li>
 <h2 id="pococms-theme-framework-overview">PocoCMS theme framework overview</h2>
 <p>When a <a href="glossary.html#markdown">Markdown</a> file gets converted to
 HTML, PocoCMS inserts stylesheets and, if the theme supports
-these features, <a href="glossary.html#layout-elements">page layout elements</a>
-into the HTML</p>
+these features, <a href="glossary.html#layout-element">page layout elements</a>
+into the HTML:</p>
 <ul>
 <li>header styles, recurring text and images, and formatting</li>
 <li>nav styles, recurring text and images, and formatting</li>
@@ -441,7 +441,8 @@ into the HTML</p>
 <li>header styles, recurring text and images, and formatting</li>
 <li>footer styles, recurring text and images, and formatting</li>
 </ul>
-<p>Everything listed is optional.</p>
+<p>Everything listed is optional. A theme isn't required to
+support any layout elements.</p>
 <h3 id="what-poco-does-when-it-runs">What poco does when it runs</h3>
 <p>If you're in a directory created as a Poco <a href="glossary.html#site">site</a>,
 you run poco like this:</p>
@@ -504,7 +505,7 @@ news item of current interest&lt;/p&gt;
 &lt;/aside&gt;
 
 </code></pre>
-<p>These elements are supplied by the theme's <a href="#theme-readme-md-file">README.md</a> file.
+<p>These elements are supplied by the theme's <a href="#theme-readmemd-file">README.md</a> file.
 More about that later.</p>
 <h3 id="refresher-the-top-part-between-----lines-is-a-yaml-document-that-controls-page-appearance">Refresher: the top part between <code>---</code> lines is a YAML document that controls page appearance</h3>
 <p>So adding the <code>theme</code> designation doesn't change what text

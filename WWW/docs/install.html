@@ -19,6 +19,7 @@
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:gray;               /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
@@ -46,6 +47,7 @@
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:gray;               /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
@@ -76,6 +78,7 @@
   --fg:white;                 /* Default text color */
   --bg:MidnightBlue;          /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:Lavender;           /* Default h2 text color */
   --h3-fg:SkyBlue;            /* Default h3 text color */
@@ -211,7 +214,7 @@ article h4{font-weight:bold;}
 
 
 
-/* colors.css*/
+/* mediacolors.css*/
 html{background-color:var(--html-bg);}
 article,nav,header,footer,aside{color:var(--fg);background-color:var(--bg);}
 a{color:var(--a);}
@@ -232,17 +235,14 @@ h3{color:var(--h3-fg);}
 h4{color:var(--h4-fg);}
 
 
-
-
-/* media.css*/
 @media (max-width:1080px){
-  html{font-size:20px;}
+  html{font-size:1.25rem;}
   body{width:100%;margin:0}
   aside{display:none}
   article{margin:0;float:left;clear:left;width:100%}
 }
 @media (max-width:720px){
-  html{font-size:20px;}
+  html{font-size:1.25rem;}
   header,nav,aside,footer{display:none}
   article{padding:1em;}
   article{float:left;clear:left;width:100%}
@@ -403,15 +403,17 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <h1 id="installing-pococms">Installing PocoCMS</h1>
 <p><strong>This part is a bit rough. Will improve it ASAP. Plan is to work up versions for</strong></p>
 <ul>
-<li>Homebrew</li>
-<li>Chocolately</li>
+<li>Homebrew tap</li>
+<li>scoop</li>
 <li>Apt/get?</li>
 </ul>
-<h2 id="installing-the-latest-binary">Installing the latest binary</h2>
+<h2 id="grab-the-latest-binary">Grab the latest binary</h2>
 <ul>
-<li>The easiest way to get PocoCMS is to find the latest version at
-the <a href="https://github.com/pococms/downloads/tree/main/dist">Downloads</a> page.</li>
-<li>Obviously it's best to copy that to your system path.</li>
+<li>
+<p>The easiest way to get PocoCMS is to find the latest version at
+the <a href="https://github.com/pococms/downloads/tree/main/dist">Downloads</a> page.</p>
+<p>Obviously it's best to copy that to your system path.</p>
+</li>
 </ul>
 <h2 id="installing-from-source">Installing from source</h2>
 <ul>

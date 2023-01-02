@@ -1,12 +1,13 @@
 ---
-pagetheme: "skyscraper"
-stylesheets:
-- "../../css/featuretable.css"
+pagetheme: "clerk"
 ---
+
 #### Theme demos
 
-# Skyscraper theme
+# Clerk theme
 
+Clerk is a fun, throwback theme reminiscent of
+old-school typewriters. 
 
 ## Supported features
 
@@ -17,5 +18,8 @@ stylesheets:
 ✅ Footer on/off\
 ✅ Responsive\
 ✅ Mobile support
+
+
+
 
 

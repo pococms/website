@@ -19,6 +19,7 @@
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:gray;               /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
@@ -46,6 +47,7 @@
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:gray;               /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
@@ -76,6 +78,7 @@
   --fg:white;                 /* Default text color */
   --bg:MidnightBlue;          /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:Lavender;           /* Default h2 text color */
   --h3-fg:SkyBlue;            /* Default h3 text color */
@@ -211,7 +214,7 @@ article h4{font-weight:bold;}
 
 
 
-/* colors.css*/
+/* mediacolors.css*/
 html{background-color:var(--html-bg);}
 article,nav,header,footer,aside{color:var(--fg);background-color:var(--bg);}
 a{color:var(--a);}
@@ -232,17 +235,14 @@ h3{color:var(--h3-fg);}
 h4{color:var(--h4-fg);}
 
 
-
-
-/* media.css*/
 @media (max-width:1080px){
-  html{font-size:20px;}
+  html{font-size:1.25rem;}
   body{width:100%;margin:0}
   aside{display:none}
   article{margin:0;float:left;clear:left;width:100%}
 }
 @media (max-width:720px){
-  html{font-size:20px;}
+  html{font-size:1.25rem;}
   header,nav,aside,footer{display:none}
   article{padding:1em;}
   article{float:left;clear:left;width:100%}
@@ -431,11 +431,18 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <li><a href="gs-hide-theme-parts-globally.html#remove-header-nav-aside-or-footer-from-a-theme">Remove header, nav, aside, or footer from a theme</a>
 <ul>
 <li><a href="gs-hide-theme-parts-globally.html#find-your-theme-file-in-the-poco-directory">Find your theme file in the .poco directory</a></li>
-<li><a href="gs-hide-theme-parts-globally.html#comments-in-the-yaml-front-matter">Comments in the YAML front matter</a></li>
 <li><a href="gs-hide-theme-parts-globally.html#comment-out-the-aside-or-any-other-page-layout-element">Comment out the aside (or any other) page layout element</a></li>
+<li><a href="gs-hide-theme-parts-globally.html#comments-in-the-yaml-front-matter">Comments in the YAML front matter</a></li>
 <li><a href="gs-hide-theme-parts-globally.html#find-your-theme-file-in-the-poco-directory">Find your theme file in the .poco directory</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="gs-editing-parts-of-a-theme.html">Editing parts of a theme</a>
+<ul>
+<li><a href="gs-editing-parts-of-a-theme.html#"></a></li>
+<li><a href="gs-editing-parts-of-a-theme.html#"></a></li>
+<li><a href="gs-editing-parts-of-a-theme.html#"></a></li>
 </ul>
 </li>
 </ul>
@@ -459,7 +466,7 @@ root directory, but if not it's easy to find, so
 make sure you get to the <a href="glossary.html#root-directory">root directory</a>.</p>
 </li>
 <li>
-<p>Load the theme's <code>README.md</code> file from your project's <a href="#glossary.html#root-directory">root directory</a> by editing the file <code>.poco/themes/mytheme/README.md</code>. Obviously
+<p>Load the theme's <code>README.md</code> file from your project's by editing the file <code>.poco/themes/mytheme/README.md</code>. Obviously
 you will replace <code>mysite</code> with whatever theme name you created.
 For example, load the Informer them from the root directory
 this way: <code>.poco/themes/informer/README.md</code></p>
@@ -498,10 +505,18 @@ in theme's <code>README.md</code>:</p>
 </code></pre>
 <p>Normally the <code>aside</code> is generated from a file. In the above example
 that file is named <code>aside.md</code>, but that file could be named anything.
-The <code>#</code> is called a comment. Everything after it is ignored.</p>
+The <code>#</code> is called a comment. Everything after it is ignored. So
+now that line in the theme's <code>README.md</code> just never happens.</p>
+<ul>
+<li>Rebuild your site and you'll see the aside is gone, without you
+having to <a href="gs-parts-of-theme.html#hide-the-header">suppress it manually</a>.</li>
+</ul>
+<p><img src="img/informer-theme-aside-suppressed.png" alt="Screenshot of Informer them with aside suppressed" /></p>
 <h3 id="comments-in-the-yaml-front-matter">Comments in the YAML front matter</h3>
+<p>It's worth taking a look at comments here, because they're
+useful when you're creating a theme.</p>
 <p>The <a href="glossary.html#front-matter">front matter</a> is in <a href="yaml-usage.html">YAML</a>
-format. Comments in YAML will work on anhy line of the front matter.
+format. Comments in YAML will work on any line of the front matter.
 Here are a few examples of how it might be used.</p>
 <pre><code>---
 # Need something better than just &quot;Informer&quot;
@@ -526,7 +541,7 @@ stylesheets:
 - &quot;informer.css&quot;
 ---
 </code></pre>
-<h6 id="previous-the-parts-of-a-pococms-themegs-parts-of-themehtml-next-todohtml"><a href="gs-parts-of-theme.html">Previous: The parts of a PocoCMS theme</a> <a href=".html">Next: TODO</a></h6>
+<h6 id="previous-the-parts-of-a-pococms-themegs-parts-of-themehtml-next-editing-parts-of-a-themelgs-editing-parts-of-a-themehtml"><a href="gs-parts-of-theme.html">Previous: The parts of a PocoCMS theme</a> <a href="gs-editing-parts-of-a-theme.html">Next: Editing parts of a themel</a></h6>
 
 </article>
 

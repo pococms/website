@@ -19,12 +19,11 @@ choice of font on a nav bar.
 
 ## Supported features
 
-|     |                      |
-| --- | -------------------- |
-| ✅  | Header on/off        |
-| ✅  | Nav on/off           |
-| ✅  | Aside left on/off    |
-| ✅  | Aside right on/off   |
-| ✅  | Footer on/off        |
-| ✅  | Responsive           |
-| ✅  | Mobile support       |
+✅ Header on/off\
+✅ Nav on/off\
+✅ Aside left on/off\
+✅ Aside right on/off\
+✅ Footer on/off\
+✅ Responsive\
+✅ Mobile support
+
