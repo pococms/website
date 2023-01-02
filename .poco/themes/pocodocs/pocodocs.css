@@ -1,6 +1,3 @@
-article{width:75%}  
-aside{width:25%;}  
-
 /* Article on the right, aside on the left */
 article{float:right;clear:right;}    
 aside{float:left;}  

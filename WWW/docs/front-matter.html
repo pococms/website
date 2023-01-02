@@ -167,8 +167,8 @@ article>dl>dt {padding-top:1em;}
 article>dl>dd {margin-left:0;padding-bottom:0;}
 
 h1{ font-size:2.5em;padding-top:2em;font-weight:bold; }
-h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:0;}
-h3{ font-size:1.5em;padding-top:1.25em;font-weight:bold;padding-bottom:1.25em;}
+h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:.35em;}
+h3{ font-size:1.5em;padding-top:.5em;font-weight:bold;padding-bottom:.1em;}
 h4{ font-size:.9em;padding-top:1em;}
 h5{ font-size:.8em; }
 h6{ font-size:0.9em; }
@@ -252,9 +252,6 @@ h4{color:var(--h4-fg);}
 
 
 /* pocodocs.css*/
-article{width:75%}  
-aside{width:25%;}  
-
 /* Article on the right, aside on the left */
 article{float:right;clear:right;}    
 aside{float:left;}  
@@ -402,13 +399,6 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/technical-overview.html">Technical overiew</a></p>
 </nav>
 	
-<aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
-<ul>
-<li>Item 1 in the aside</li>
-<li>Item 2 in the aside</li>
-<li>Pocodocs theme!</li>
-</ul>
-</aside>
 <article id="article-poco">
 <h1 id="front-matter">Front Matter</h1>
 <p></p>
@@ -417,13 +407,21 @@ instructions for things Markdown can't do for you,
 for example, choosing a theme, inserting Javascript
 or new style tags into your document, and ensuring
 each page can have a unique <code>&lt;title&gt;</code> tag.</p>
+<p>Here's an example of a page with a <a href="#title">title</a> defined in the front matter.</p>
+<pre><code>---
+title: Who doesn't love static site generators?
+---
+# My life is now perfect
+
+Thanks to exercise, diet, and mostly, PocoCMS.
+</code></pre>
 <p>This page gives you a somewhat technical overview
 of front matter, then explains all the
 front matter options PocoCMS provides.</p>
 <p><a href="#formatting-rules">Formatting rules</a><br />
 <a href="#front-matter-basics">Front matter basics</a></p>
 <h2 id="alphabetical-list-of-front-matter-options">Alphabetical list of front matter options</h2>
-<p><a href="#aside">aside</a>
+<p><a href="#aside">aside</a><br />
 <a href="#author">author</a><br />
 <a href="#description">description</a><br />
 <a href="#footer">footer</a><br />
@@ -579,6 +577,7 @@ aside: new-aside.md
 <h5 id="filename-new-asidemd">Filename: <strong>new-aside.md</strong></h5>
 <pre><code>Announcement soon. Check the [news](news.html) page tomorrow!
 </code></pre>
+<p>See also <a href="#header">header</a>, <a href="#nav">nav</a>, and <a href="#footer">footer</a></p>
 <h2 id="author">author</h2>
 <p>Causes an <code>author</code> metatag to be inserted into the file.</p>
 <h3 id="example">Example</h3>
@@ -619,6 +618,7 @@ footer: new-footer.md
 <h5 id="filename-new-footermd">Filename: <strong>new-footer.md</strong></h5>
 <pre><code>Powered by PocoCMS!
 </code></pre>
+<p>See also <a href="#header">header</a>, <a href="#nav">nav</a>, and <a href="#aside">aside</a></p>
 <h2 id="header">header</h2>
 <p>Controls behavior of the footer, shown in <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
 <ol>
@@ -639,6 +639,7 @@ header: new-header.md
 <h5 id="filename-new-headermd">Filename: <strong>new-header.md</strong></h5>
 <pre><code>**Powered by PocoCMS!**
 </code></pre>
+<p>See also <a href="#nav">nav</a>, <a href="#aside">aside</a>, and <a href="#footer">footer</a></p>
 <h2 id="lang">lang</h2>
 <p>Sets the code HTML uses for its <code>html lang=</code> tag.
 Defaults to <code>en</code> for English.</p>
@@ -664,7 +665,7 @@ front matter, which changes the language to Icelandic:</li>
 nav: SUPPRESS
 ---
 </code></pre>
-<ol start="3">
+<ol start="2">
 <li>When given a filename, uses the contents of that file instead of the
 value supplied by the theme.</li>
 </ol>
@@ -675,6 +676,7 @@ nav: new-navbar.md
 <h5 id="filename-new-navbarmd">Filename: <strong>new-navbar.md</strong></h5>
 <pre><code>Announcement soon. Check the [news](news.html) page tomorrow!
 </code></pre>
+<p>See also <a href="#header">header</a>, <a href="#aside">aside</a>, and <a href="#footer">footer</a></p>
 <h2 id="pagetheme">pagetheme</h2>
 <p>Defines a <a href="glossary.html#page-theme">page theme</a> to
 replace the global <a href="#theme">theme</a> if any,

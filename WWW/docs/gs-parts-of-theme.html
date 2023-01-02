@@ -167,8 +167,8 @@ article>dl>dt {padding-top:1em;}
 article>dl>dd {margin-left:0;padding-bottom:0;}
 
 h1{ font-size:2.5em;padding-top:2em;font-weight:bold; }
-h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:0;}
-h3{ font-size:1.5em;padding-top:1.25em;font-weight:bold;padding-bottom:1.25em;}
+h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:.35em;}
+h3{ font-size:1.5em;padding-top:.5em;font-weight:bold;padding-bottom:.1em;}
 h4{ font-size:.9em;padding-top:1em;}
 h5{ font-size:.8em; }
 h6{ font-size:0.9em; }
@@ -252,9 +252,6 @@ h4{color:var(--h4-fg);}
 
 
 /* pocodocs.css*/
-article{width:75%}  
-aside{width:25%;}  
-
 /* Article on the right, aside on the left */
 article{float:right;clear:right;}    
 aside{float:left;}  
@@ -420,6 +417,18 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <ul>
 <li><a href="gs-parts-of-theme.html#header-nav-article-aside-and-footer">Header, nav, article, aside, and footer</a></li>
 <li><a href="gs-parts-of-theme.html#layout-elements">Layout elements</a></li>
+<li><a href="#hiding-header-nav-aside-or-footer-on-a-per-page-basis">Hiding header, nav, aside, or footer on a per-page basis</a>
+<ul>
+<li><a href="#hide-the-header">Hide the header</a></li>
+<li><a href="#hide-the-nav">Hide the nav</a></li>
+<li><a href="#hide-the-rest">Hide the rest</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="gs-hide-theme-parts-globally.html">Hiding parts of a PocoCMS theme globally</a>
+<ul>
+<li><a href="gs-hide-theme-parts-globally.html#remove-header-nav-aside-or-footer-from-a-theme">Remove header, nav, aside, or footer from a theme</a></li>
 </ul>
 </li>
 </ul>
@@ -456,10 +465,107 @@ Keep these two things in mind about layout elements.</p>
 <li>PocoCMS themes made using the PocoCMS theme framework give you full control over layout elements.
 You can hide them on a per-page basis, affect the text on all pages of the site at once,
 or change their contents on a per-page basis</li>
-<li>They have [semantic meaning](glossary.html#semantic meaning)</li>
+<li>They have <a href="glossary.html#semantic-meaning">semantic meaning</a></li>
 </ul>
 <p>For a slightly more technical perspective see <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure#html_layout_elements_in_more_detail">HTML layout elements in more detail</a>.</p>
-<h6 id="previous-changing-the-themegs-change-themehtml-next-todogs-todo"><a href="gs-change-theme.html">Previous: Changing the theme</a> <a href="gs-TODO">Next: TODO:</a></h6>
+<h2 id="hiding-header-nav-aside-or-footer-on-a-per-page-basis">Hiding header, nav, aside, or footer on a per-page basis</h2>
+<p>Themes made with the PocoCMS theme framework let you decide on a
+page-by-page basis whether you want to display these layout elements.</p>
+<h3 id="hide-the-header">Hide the header</h3>
+<p>Let's go back to the brief example file we've been using. Make sure
+<code>index.md</code> looks like this:</p>
+<pre><code>---
+title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
+theme: informer
+header: SUPPRESS
+---
+# Welcome to mysite
+
+Hello from https://example.com. Our site is changing quickly.
+</code></pre>
+<ul>
+<li>Build the site:</li>
+</ul>
+<pre><code>poco 
+</code></pre>
+<ul>
+<li>Then refresh the page in your browser.</li>
+</ul>
+<p><img src="img/home-page-informer-header-suppressed.png" alt="Screen shot of Informer theme with header suppressed" /></p>
+<h3 id="hide-the-nav">Hide the nav</h3>
+<p>Let's go back to the brief example file we've been using. Make sure
+<code>index.md</code> looks like this:</p>
+<pre><code>---
+title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
+theme: informer
+header: SUPPRESS
+nav: SUPPRESS
+---
+# Welcome to mysite
+
+Hello from https://example.com. Our site is changing quickly.
+</code></pre>
+<ul>
+<li>Build the site:</li>
+</ul>
+<pre><code>poco 
+</code></pre>
+<ul>
+<li>Refresh the page in your browser:</li>
+</ul>
+<p><img src="img/home-page-informer-footer-suppressed.png" alt="Screen shot of Informer theme with header and nav suppressed" /></p>
+<h3 id="hide-the-rest">Hide the rest</h3>
+<p>You see where this is going:</p>
+<pre><code>---
+title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
+theme: informer
+header: SUPPRESS
+nav: SUPPRESS
+aside: SUPPRESS
+footer: SUPPRESS
+---
+# Welcome to mysite
+
+Hello from https://example.com. Our site is changing quickly.
+</code></pre>
+<ul>
+<li>Build the site:</li>
+</ul>
+<pre><code>poco 
+</code></pre>
+<ul>
+<li>Refresh the page in your browser:</li>
+</ul>
+<p><img src="img/home-page-informer-most-suppressed.png" alt="Screen shot of Informer theme with header, nav, aside, and footer suppressed" /></p>
+<p>A lot of themes look good this way, just the bare naked article.
+It definitely focuses the reader's attention.</p>
+<h3 id="wait-so">Wait, so...?</h3>
+<p>You nut. Yes, you can suppress the article too. It's sometimes helpful
+when working on problems with the look of a theme you're creating.</p>
+<pre><code>---
+title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
+theme: informer
+header: SUPPRESS
+nav: SUPPRESS
+aside: SUPPRESS
+footer: SUPPRESS
+article: SUPPRESS
+---
+# Welcome to mysite
+
+Hello from https://example.com. Our site is changing quickly.
+</code></pre>
+<ul>
+<li>Build the site:</li>
+</ul>
+<pre><code>poco 
+</code></pre>
+<ul>
+<li>Refresh the page in your browser, but no screenshot here. Because,
+you know... it's blank. Ah, what the heck.</li>
+</ul>
+<p><img src="img/home-page-informer-blank-all-suppressed.png" alt="Screen shot of Informer theme with EVERYTHING suppressed" /></p>
+<h6 id="previous-changing-the-themegs-change-themehtml-next-hiding-parts-of-a-pococms-theme-globallygs-hide-theme-parts-globallyhtml"><a href="gs-change-theme.html">Previous: Changing the theme</a> <a href="gs-hide-theme-parts-globally.html">Next: Hiding parts of a PocoCMS theme globally</a></h6>
 
 </article>
 

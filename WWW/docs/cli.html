@@ -167,8 +167,8 @@ article>dl>dt {padding-top:1em;}
 article>dl>dd {margin-left:0;padding-bottom:0;}
 
 h1{ font-size:2.5em;padding-top:2em;font-weight:bold; }
-h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:0;}
-h3{ font-size:1.5em;padding-top:1.25em;font-weight:bold;padding-bottom:1.25em;}
+h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:.35em;}
+h3{ font-size:1.5em;padding-top:.5em;font-weight:bold;padding-bottom:.1em;}
 h4{ font-size:.9em;padding-top:1em;}
 h5{ font-size:.8em; }
 h6{ font-size:0.9em; }
@@ -252,9 +252,6 @@ h4{color:var(--h4-fg);}
 
 
 /* pocodocs.css*/
-article{width:75%}  
-aside{width:25%;}  
-
 /* Article on the right, aside on the left */
 article{float:right;clear:right;}    
 aside{float:left;}  
@@ -402,13 +399,6 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/technical-overview.html">Technical overiew</a></p>
 </nav>
 	
-<aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
-<ul>
-<li>Item 1 in the aside</li>
-<li>Item 2 in the aside</li>
-<li>Pocodocs theme!</li>
-</ul>
-</aside>
 <article id="article-poco">
 <h1 id="pococms-command-line-options">PocoCMS command-line options</h1>
 <p>You run <code>poco</code> from the command line with this format:</p>
@@ -419,7 +409,8 @@ directory is a <a href="glossary.html#project">PocoCMS project</a>.
 It will assume the current directory contains a
 tree of Markdown files and other assets required to build a site,
 and it will generate the HTML output in the <a href="glossary.html#webroot">webroot</a>
-directory, called <code>WWW</code> by default.</p>
+directory, called <code>WWW</code> by default. If the current directory
+isn't a PocoCMS project, it will ask if you want to make it one.</p>
 <p>If you are in a Poco directory, the output of <code>poco</code> all by itself
 looks something like this:</p>
 <pre><code>poco
@@ -472,7 +463,7 @@ name second.</p>
 <p><strong>GOOD: Command-line options first</strong></p>
 <pre><code>poco -timestamp ~/mydir/mysite
 </code></pre>
-<p><strong>BAD: Command-line options seccond</strong></p>
+<p><strong>BAD: Command-line options second</strong></p>
 <p>If you don't follow the command-line options first rule, unpredictable
 things will happen. Your friends won't like you, your lottery tickets
 will lose, and, most important, you'll get unexpected results:j</p>

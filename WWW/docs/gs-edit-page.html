@@ -167,8 +167,8 @@ article>dl>dt {padding-top:1em;}
 article>dl>dd {margin-left:0;padding-bottom:0;}
 
 h1{ font-size:2.5em;padding-top:2em;font-weight:bold; }
-h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:0;}
-h3{ font-size:1.5em;padding-top:1.25em;font-weight:bold;padding-bottom:1.25em;}
+h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:.35em;}
+h3{ font-size:1.5em;padding-top:.5em;font-weight:bold;padding-bottom:.1em;}
 h4{ font-size:.9em;padding-top:1em;}
 h5{ font-size:.8em; }
 h6{ font-size:0.9em; }
@@ -252,9 +252,6 @@ h4{color:var(--h4-fg);}
 
 
 /* pocodocs.css*/
-article{width:75%}  
-aside{width:25%;}  
-
 /* Article on the right, aside on the left */
 article{float:right;clear:right;}    
 aside{float:left;}  
@@ -420,6 +417,18 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <ul>
 <li><a href="gs-parts-of-theme.html#header-nav-article-aside-and-footer">Header, nav, article, aside, and footer</a></li>
 <li><a href="gs-parts-of-theme.html#layout-elements">Layout elements</a></li>
+<li><a href="#hiding-header-nav-aside-or-footer-on-a-per-page-basis">Hiding header, nav, aside, or footer on a per-page basis</a>
+<ul>
+<li><a href="#hide-the-header">Hide the header</a></li>
+<li><a href="#hide-the-nav">Hide the nav</a></li>
+<li><a href="#hide-the-rest">Hide the rest</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="gs-hide-theme-parts-globally.html">Hiding parts of a PocoCMS theme globally</a>
+<ul>
+<li><a href="gs-hide-theme-parts-globally.html#remove-header-nav-aside-or-footer-from-a-theme">Remove header, nav, aside, or footer from a theme</a></li>
 </ul>
 </li>
 </ul>
@@ -458,7 +467,7 @@ Hello from https://example.com. Our site is changing quickly.
 <pre><code>poco
 </code></pre>
 <ul>
-<li>Refresh the page. On mobile it would look like this:</li>
+<li>Refresh the page.</li>
 </ul>
 <p><img src="img/home-page-first-edit-1366x768.png" alt="Screen shot of edited home page" /></p>
 <p>Note that web links in the article get turned into into clickable links automatically.</p>

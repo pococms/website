@@ -167,8 +167,8 @@ article>dl>dt {padding-top:1em;}
 article>dl>dd {margin-left:0;padding-bottom:0;}
 
 h1{ font-size:2.5em;padding-top:2em;font-weight:bold; }
-h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:0;}
-h3{ font-size:1.5em;padding-top:1.25em;font-weight:bold;padding-bottom:1.25em;}
+h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:.35em;}
+h3{ font-size:1.5em;padding-top:.5em;font-weight:bold;padding-bottom:.1em;}
 h4{ font-size:.9em;padding-top:1em;}
 h5{ font-size:.8em; }
 h6{ font-size:0.9em; }
@@ -252,9 +252,6 @@ h4{color:var(--h4-fg);}
 
 
 /* pocodocs.css*/
-article{width:75%}  
-aside{width:25%;}  
-
 /* Article on the right, aside on the left */
 article{float:right;clear:right;}    
 aside{float:left;}  
@@ -387,6 +384,65 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 
 }
 
+
+
+/* .poco/themes/pocodocs/big-circles.css */
+/* Does an oversized numbered list. Special effect seldom needed. */
+/* https://jsfiddle.net/yum3e2t6/ */
+
+
+ol {
+  list-style: circle outside;
+  counter-reset: poco-counter;
+}
+
+ol li {
+    display:block;
+    line-height:var(--size);
+    line-height:3em;
+    padding-left: 3em; /* Distance from bullet to text */
+    list-style: none;
+    overflow: hidden;
+    counter-increment:poco-counter;
+    width: 100%;
+    display: block;
+    float: left;
+    position: relative
+}
+
+ol li:before {
+    content: counter(poco-counter);
+    float: left;
+
+    position: absolute;
+    left: 0em; /* Increase to move bullet to right  */
+    text-align: center;
+    color: #fff;
+    /* line-height: 3em; */
+
+    /* Keep width and height the same size for a circle */
+    width: 3em; height: 3em;
+    background:blue;
+    -moz-border-radius: 999px;
+    -webkit-border-radius: 999px;
+    border-radius: 999px
+}
+
+/* To keep text centered, ol li line-height must match 
+ * ol li:before width and height */
+ol li {
+  font-size:1.5em; /* Scales up everything */
+  margin-bottom:.5em;
+  line-height:2em;
+}
+
+ol li:before {
+  width: 2em;
+  height: 2em;
+}
+
+
+
 </style>
 </head>
 <body>	
@@ -404,7 +460,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 	
 <article id="article-poco">
 
-<p>31 Dec 2022 23:59:36</p>
+<p>01 Jan 2023 17:56:39</p>
 <h1 id="welcome-to-pococms">Welcome to PocoCMS</h1>
 <ol>
 <li><a href="docs/install.html">Install</a></li>

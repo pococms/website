@@ -167,8 +167,8 @@ article>dl>dt {padding-top:1em;}
 article>dl>dd {margin-left:0;padding-bottom:0;}
 
 h1{ font-size:2.5em;padding-top:2em;font-weight:bold; }
-h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:0;}
-h3{ font-size:1.5em;padding-top:1.25em;font-weight:bold;padding-bottom:1.25em;}
+h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:.35em;}
+h3{ font-size:1.5em;padding-top:.5em;font-weight:bold;padding-bottom:.1em;}
 h4{ font-size:.9em;padding-top:1em;}
 h5{ font-size:.8em; }
 h6{ font-size:0.9em; }
@@ -252,9 +252,6 @@ h4{color:var(--h4-fg);}
 
 
 /* pocodocs.css*/
-article{width:75%}  
-aside{width:25%;}  
-
 /* Article on the right, aside on the left */
 article{float:right;clear:right;}    
 aside{float:left;}  
@@ -429,21 +426,23 @@ in the front matter. It can only be used on your
 <a href="glossary.html#home-page">home page</a>.</p>
 <p>To apply a global theme named &quot;pocodocs&quot; to
 all pages on your site by default:</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#bbb">    </span>---<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#1e90ff;font-weight:bold">theme</span>:<span style="color:#bbb"> </span><span style="color:#a50">&#34;pocodocs&#34;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>---<span style="color:#bbb">
-</span></span></span></code></pre><p>See also <a href="#page-theme">page theme</a></p>
+<pre><code>---
+theme: &quot;pocodocs&quot;
+---
+</code></pre>
+<p>See also <a href="#page-theme">page theme</a></p>
 <h2 id="special-rule">Special rule</h2>
 <p>A page theme overrides the global theme.
 The global theme is set on the <a href="glossary.html#home-page">home page</a></p>
 <p>So what happens if you use both <code>theme</code> and <code>pagetheme</code> on
 the same page? In the case of the home page, the rule is clear.</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#bbb">    </span>---<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic"># Imagine this is the home page</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#1e90ff;font-weight:bold">theme</span>:<span style="color:#bbb"> </span>pocodocs<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#1e90ff;font-weight:bold">pagetheme</span>:<span style="color:#bbb"> </span>pocodocs/homepage<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>---<span style="color:#bbb">
-</span></span></span></code></pre><p>Although <code>theme</code> sets the default theme, it's overriden
+<h5 id="filename-indexmd">Filename: <strong>index.md</strong></h5>
+<pre><code>---
+theme: pocodocs
+pagetheme: pocodocs/homepage
+---
+</code></pre>
+<p>Although <code>theme</code> sets the default theme, it's overriden
 by <code>theme</code> in the above special case. This special rule only applies to the home page,
 because only the home page lets you set the global theme.</p>
 <h2 id="page-theme">page theme</h2>
@@ -451,10 +450,11 @@ because only the home page lets you set the global theme.</p>
 theme styling on a per-page basis. It overrides any <a href="#theme">global theme</a>
 It's specified using <code>pagetheme</code> in the front matter for that page.</p>
 <p>To apply a theme named <code>informer</code> to the current page:</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#bbb">    </span>---<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#1e90ff;font-weight:bold">pagetheme</span>:<span style="color:#bbb"> </span><span style="color:#a50">&#34;informer&#34;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>---<span style="color:#bbb">
-</span></span></span></code></pre>
+<pre><code> ---
+ pagetheme: &quot;informer&quot;
+ ---
+</code></pre>
+
 </article>
 
 <footer id="footer-poco"><p><em>Powered by <a href="https://pococms.com">PocoCMS</a></em> · Copyright 2022 by Tom Campbell</p>
