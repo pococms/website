@@ -108,9 +108,7 @@ Published result:
 print("hello, world.")
 ```
 
-### Languages with keyword highlighting support in VuePress
-
-VuePress gets its keyword highlighting support through the [Prism](https://prismjs.com) Javascript library.
+### Languages supported
 
 There are too many languages to make an exhaustive list here, but you can find them
 in the PrismJS source file [components.json](https://github.com/PrismJS/prism/blob/master/components.json)
@@ -148,5 +146,5 @@ Here are the most common ones.
 Complete list can be found in the "languages" node of 
 the PrismJS source file [components.json](https://github.com/PrismJS/prism/blob/master/components.json).
 
-###### [Previous:  Tables in Markdown](gs-tables-in-markdown.html) [Next:](gs-displaying-code-in-markdown.html)
+###### [Previous:  Tables in Markdown](gs-tables-in-markdown.html) 
 
