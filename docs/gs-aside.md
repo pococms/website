@@ -31,6 +31,21 @@
   - [Creating links](gs-creating-and-linking-pages.html#creating-links)
   - [Markdown link format](gs-creating-and-linking-pages.html#markdown-link-format)
 * [Formatting characters in Markdown](gs-formatting-characters-in-markdown.html)
-
-
+  - [Bold](gs-formatting-characters-in-markdown.html#bold-text-in-markdown)
+  - [Italic](gs-formatting-characters-in-markdown.html#italic-text-in-markdown)
+  - [Monospaced](gs-formatting-characters-in-markdown.html#monospaced-text-in-markdown)
+  - [Strikethough](gs-formatting-characters-in-markdown.html#strikethrough-text-in-markdown)
+* [Lines, lists, and blocks of text in Markdown](gs-lines-lists-blocks.html)
+  - [Markdown usually treats multiple blank lines as one](gs-lines-lists-blocks.html#markdown-usually-treats-multiple-blank-lines-as-one)
+  - [Markdown: two adjacent lines of text](gs-lines-lists-blocks.html#markdown-two-adjacent-lines-of-text)
+    + [Forcing two consecutive lines to appear that way](gs-lines-lists-blocks.html#forcing-two-consecutive-lines-to-appear-that-way)
+  - [Markdown Lists](gs-lines-lists-blocks.html#markdown-lists)
+    + [Markdown unordered list syntax](gs-lines-lists-blocks.html#markdown-unordered-list-syntax)
+    + [Alternate unordered list syntax](gs-lines-lists-blocks.html#alternate-unordered-list-syntax)
+    + [Markdown ordered list syntax](gs-lines-lists-blocks.html#markdown-ordered-list-syntax)
+    + [Markdown indented list syntax: nested lists](gs-lines-lists-blocks.html#markdown-indented-list-syntax-nested-lists)
+    + [Markdown indented list syntax: indenting text](gs-lines-lists-blocks.html#)
+  - [Block quotes](gs-lines-lists-blocks.html#markdown-indented-list-syntax-indenting-text)
+  - [Horizontal lines (aka horizontal rules)](gs-lines-lists-blocks.html#horizontal-lines-aka-horizontal-rules)
+* [Tables in Markdown](gs-tables-in-markdown.html)
 
