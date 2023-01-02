@@ -12,10 +12,12 @@ This section describes how PocoCMS uses slighly uconventional YAML conventions.
 For example, here's the complete text of a page that gets displayed
 without a header:
 
-      ---
-      header: "SUPPRESS"
-      ---
-      Look ma, the header disappeared!
+```
+---
+header: "SUPPRESS"
+---
+Look ma, the header disappeared!
+```
 
 The `YAML` portion of the document is a single rule called `header`.
 It consists of a key/value pair separated with a colon. 
@@ -41,10 +43,12 @@ files contain a list of stylesheets required for the theme:
 
 Here a rule showing why all rule values are double-quoted in PocoCMS.
 
-      ---
-      styles:
-      - "p {font-family:'Hoefler Text', 'Nimbus Roman No9 L Regular', serif;}"
-      ---
+```
+---
+styles:
+- "p {font-family:'Hoefler Text', 'Nimbus Roman No9 L Regular', serif;}"
+---
+```
 
 This causes the body text to choose fonts from the list given, in
 decreasing priority order. Your browser
@@ -66,6 +70,45 @@ Because of that we suggest double-quoting everything so there's less to
 remember. It eliminates a whole class of problems that can be otherwise
 hard to track down.
 
+## Comments
+
+YAML files let you add notes or temporary strike out lines
+using comments. A comment is anything starting with the `#`
+character. It causes YAML to ignore the rest of the line.
+Here are a few examples of how it might be used.
+
+
+**Comments in a Markdown page**  
+
+```
+---
+styles:
+# Old version:
+# "p {font-family:sans-serif;}"
+# New version:
+- "p {font-family:'Hoefler Text', 'Nimbus Roman No9 L Regular', serif;}"
+---
+```
+
+**Comments in a theme READ.me file**  
+
+```
+---
+# Need something better than just "Informer"
+branding: Informer 
+
+# Original theme file is header.md
+header: newheader.md
+
+# Disable aside in the theme
+#aside: aside.md
+
+stylesheets:
+# Consider making it a narrow theme
+#- ../../css/skinny.css
+- "informer.css"
+---
+```
 
 
 

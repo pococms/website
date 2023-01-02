@@ -19,5 +19,86 @@ It's a very simple edit and you don't lose anything. You can easily add it back 
 root directory, but if not it's easy to find, so 
 make sure you get to the [root directory](glossary.html#root-directory).
  
+* Load the theme's `README.md` file from your project's [root directory](#glossary.html#root-directory) by editing the file `.poco/themes/mytheme/README.md`. Obviously
+you will replace `mysite` with whatever theme name you created.
+For example, load the Informer them from the root directory
+this way: `.poco/themes/informer/README.md` 
+* It will look something like this, in the example where your
+theme was copied from the Pasteboard theme:
+
+```
+---
+author: Tom Campbell
+branding: Informer
+header: header.md
+aside: aside.md
+nav: nav.md
+footer: footer.md
+
+stylesheets:
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+- ../../css/type.css
+- ../../css/colors.css
+- ../../css/media.css
+- "informer.css"
+---
+```
+
+### Comment out the aside (or any other) page layout element  
+
+Let's say you don't want the aside. Locate this line 
+in theme's `README.md`:
+
+```
+aside: aside.md
+```
+
+And insert a `#` character at the beginning of the line, like this:
+
+```
+# aside: aside.md
+```
+
+Normally the `aside` is generated from a file. In the above example
+that file is named `aside.md`, but that file could be named anything.
+The `#` is called a comment. Everything after it is ignored.
+
+### Comments in the YAML front matter
+
+The [front matter](glossary.html#front-matter) is in [YAML](yaml-usage.html)
+format. Comments in YAML will work on anhy line of the front matter. 
+Here are a few examples of how it might be used.
+
+```
+---
+# Need something better than just "Informer"
+branding: Informer 
+
+# Original theme file is header.md
+header: newheader.md
+
+# Disable aside in the theme
+#aside: aside.md
+
+stylesheets:
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+# Consider making it a narrow theme
+#- ../../css/skinny.css
+- ../../css/type.css
+- ../../css/colors.css
+- ../../css/media.css
+- "informer.css"
+---
+```
+
+
+
+
 ###### [Previous: The parts of a PocoCMS theme](gs-parts-of-theme.html) [Next: TODO](.html)
 
