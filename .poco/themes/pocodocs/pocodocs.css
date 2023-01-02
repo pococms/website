@@ -82,7 +82,7 @@ article>h5>strong{text-decoration:underline;}
  * code listings without affecting the article width. 
  */
 article>p,article>ul,article>ul>li,article>pre{
-  width:80%;
+  width:var(--article-width);
 }
 article>h1{padding-bottom:.8em;}
 article>h5{padding-top:1em;}

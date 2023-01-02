@@ -156,7 +156,7 @@ footer, header, hgroup, menu, nav, pre, section {
 ol li, ul li  {margin-left:1em;}
 p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
 td,th{padding: 0.5em;}
-pre{font-size: smaller;overflow: auto;padding:1em;margin:.5rem 0 0 0;}
+pre{font-size: smaller;overflow: auto;padding:1em;margin:1rem 0 1rem 0;}
 header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
 header>ul>li,nav>ul>li{padding-right:.5em;}
 article{width:var(--article-width);height:auto;}  
@@ -336,7 +336,7 @@ article>h5>strong{text-decoration:underline;}
  * code listings without affecting the article width. 
  */
 article>p,article>ul,article>ul>li,article>pre{
-  width:80%;
+  width:var(--article-width);
 }
 article>h1{padding-bottom:.8em;}
 article>h5{padding-top:1em;}
@@ -419,10 +419,79 @@ keep <a href="gs-parts-of-theme.html#hiding-header-nav-aside-or-footer-on-a-per-
 <p>It's a very simple edit and you don't lose anything. You can easily add it back later.</p>
 <h3 id="find-your-theme-file-in-the-poco-directory">Find your theme file in the .poco directory</h3>
 <ul>
-<li>If you're reading this tutorial in sequence you're already in the
+<li>
+<p>If you're reading this tutorial in sequence you're already in the
 root directory, but if not it's easy to find, so
-make sure you get to the <a href="glossary.html#root-directory">root directory</a>.</li>
+make sure you get to the <a href="glossary.html#root-directory">root directory</a>.</p>
+</li>
+<li>
+<p>Load the theme's <code>README.md</code> file from your project's <a href="#glossary.html#root-directory">root directory</a> by editing the file <code>.poco/themes/mytheme/README.md</code>. Obviously
+you will replace <code>mysite</code> with whatever theme name you created.
+For example, load the Informer them from the root directory
+this way: <code>.poco/themes/informer/README.md</code></p>
+</li>
+<li>
+<p>It will look something like this, in the example where your
+theme was copied from the Pasteboard theme:</p>
+</li>
 </ul>
+<pre><code>---
+author: Tom Campbell
+branding: Informer
+header: header.md
+aside: aside.md
+nav: nav.md
+footer: footer.md
+
+stylesheets:
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+- ../../css/type.css
+- ../../css/colors.css
+- ../../css/media.css
+- &quot;informer.css&quot;
+---
+</code></pre>
+<h3 id="comment-out-the-aside-or-any-other-page-layout-element">Comment out the aside (or any other) page layout element</h3>
+<p>Let's say you don't want the aside. Locate this line
+in theme's <code>README.md</code>:</p>
+<pre><code>aside: aside.md
+</code></pre>
+<p>And insert a <code>#</code> character at the beginning of the line, like this:</p>
+<pre><code># aside: aside.md
+</code></pre>
+<p>Normally the <code>aside</code> is generated from a file. In the above example
+that file is named <code>aside.md</code>, but that file could be named anything.
+The <code>#</code> is called a comment. Everything after it is ignored.</p>
+<h3 id="comments-in-the-yaml-front-matter">Comments in the YAML front matter</h3>
+<p>The <a href="glossary.html#front-matter">front matter</a> is in <a href="yaml-usage.html">YAML</a>
+format. Comments in YAML will work on anhy line of the front matter.
+Here are a few examples of how it might be used.</p>
+<pre><code>---
+# Need something better than just &quot;Informer&quot;
+branding: Informer 
+
+# Original theme file is header.md
+header: newheader.md
+
+# Disable aside in the theme
+#aside: aside.md
+
+stylesheets:
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+# Consider making it a narrow theme
+#- ../../css/skinny.css
+- ../../css/type.css
+- ../../css/colors.css
+- ../../css/media.css
+- &quot;informer.css&quot;
+---
+</code></pre>
 <h6 id="previous-the-parts-of-a-pococms-themegs-parts-of-themehtml-next-todohtml"><a href="gs-parts-of-theme.html">Previous: The parts of a PocoCMS theme</a> <a href=".html">Next: TODO</a></h6>
 
 </article>

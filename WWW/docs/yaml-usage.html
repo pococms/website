@@ -156,7 +156,7 @@ footer, header, hgroup, menu, nav, pre, section {
 ol li, ul li  {margin-left:1em;}
 p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
 td,th{padding: 0.5em;}
-pre{font-size: smaller;overflow: auto;padding:1em;margin:.5rem 0 0 0;}
+pre{font-size: smaller;overflow: auto;padding:1em;margin:1rem 0 1rem 0;}
 header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
 header>ul>li,nav>ul>li{padding-right:.5em;}
 article{width:var(--article-width);height:auto;}  
@@ -336,7 +336,7 @@ article>h5>strong{text-decoration:underline;}
  * code listings without affecting the article width. 
  */
 article>p,article>ul,article>ul>li,article>pre{
-  width:80%;
+  width:var(--article-width);
 }
 article>h1{padding-bottom:.8em;}
 article>h5{padding-top:1em;}
@@ -417,10 +417,10 @@ It determines how the document gets displayed and rendered into HTML.</p>
 <p>This section describes how PocoCMS uses slighly uconventional YAML conventions.</p>
 <p>For example, here's the complete text of a page that gets displayed
 without a header:</p>
-<pre><code>  ---
-  header: &quot;SUPPRESS&quot;
-  ---
-  Look ma, the header disappeared!
+<pre><code>---
+header: &quot;SUPPRESS&quot;
+---
+Look ma, the header disappeared!
 </code></pre>
 <p>The <code>YAML</code> portion of the document is a single rule called <code>header</code>.
 It consists of a key/value pair separated with a colon.</p>
@@ -441,10 +441,10 @@ files contain a list of stylesheets required for the theme:</p>
 </code></pre>
 <h2 id="double-quotes-everywere">Double quotes everywere!</h2>
 <p>Here a rule showing why all rule values are double-quoted in PocoCMS.</p>
-<pre><code>  ---
-  styles:
-  - &quot;p {font-family:'Hoefler Text', 'Nimbus Roman No9 L Regular', serif;}&quot;
-  ---
+<pre><code>---
+styles:
+- &quot;p {font-family:'Hoefler Text', 'Nimbus Roman No9 L Regular', serif;}&quot;
+---
 </code></pre>
 <p>This causes the body text to choose fonts from the list given, in
 decreasing priority order. Your browser
@@ -462,6 +462,37 @@ curly brace characters <code>{</code> and <code>}</code>.</p>
 <p>Because of that we suggest double-quoting everything so there's less to
 remember. It eliminates a whole class of problems that can be otherwise
 hard to track down.</p>
+<h2 id="comments">Comments</h2>
+<p>YAML files let you add notes or temporary strike out lines
+using comments. A comment is anything starting with the <code>#</code>
+character. It causes YAML to ignore the rest of the line.
+Here are a few examples of how it might be used.</p>
+<p><strong>Comments in a Markdown page</strong></p>
+<pre><code>---
+styles:
+# Old version:
+# &quot;p {font-family:sans-serif;}&quot;
+# New version:
+- &quot;p {font-family:'Hoefler Text', 'Nimbus Roman No9 L Regular', serif;}&quot;
+---
+</code></pre>
+<p><strong>Comments in a theme READ.me file</strong></p>
+<pre><code>---
+# Need something better than just &quot;Informer&quot;
+branding: Informer 
+
+# Original theme file is header.md
+header: newheader.md
+
+# Disable aside in the theme
+#aside: aside.md
+
+stylesheets:
+# Consider making it a narrow theme
+#- ../../css/skinny.css
+- &quot;informer.css&quot;
+---
+</code></pre>
 
 </article>
 
