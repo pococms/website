@@ -496,138 +496,184 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </ul>
 </aside>
 <article id="article-poco">
-<h1 id="the-parts-of-a-pococms-theme">The parts of a PocoCMS theme</h1>
-<p>You've learned that you can change themes easily, and that they
-can have dramatically different appearances:</p>
-<h5 id="theme-informer">Theme: <strong>Informer</strong></h5>
-<p><img src="img/home-page-theme-informer-1366x768.png" alt="Screenshot of PocoCMS Informer theme" /></p>
-<h5 id="theme-electro">Theme: <strong>Electro</strong></h5>
-<p><img src="img/home-page-theme-electro-1366x768.png" alt="Screenshot of PocoCMS Electro theme" /></p>
-<h5 id="theme-base">Theme: <strong>Base</strong></h5>
-<p><img src="img/home-page-theme-base-1366x768.png" alt="Screenshot of PocoCMS Base theme" /></p>
-<h2 id="header-nav-article-aside-and-footer">Header, nav, article, aside, and footer</h2>
-<p>As the MDN web docs observe in <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure">Document and website structure</a> these are the main parts of
-an HTML document:</p>
-<ul>
-<li><a href="glossary.html#header">Header</a> (the HTML <code>&lt;header&gt;</code> tag)</li>
-<li><a href="glossary.html#nav">Nav bar</a> (The HTML <code>&lt;nav&gt;</code> tag)</li>
-<li>Main area (PocoCMS calls it the <a href="glossary.html#article">article</a>) and
-it uses the <code>&lt;article&gt;</code> tag</li>
-<li>Sidebars (PocoCMS calls it the <a href="glossary.html#aside">aside</a> because in HTML
-it's <code>&lt;aside&gt;</code> tag</li>
-<li><a href="glossary.html#footer">Footer</a> (the HTML <code>&lt;footer&gt;</code> tag</li>
-</ul>
-<h4 id="anatomy">Anatomy</h4>
-<p>This illustration shows these parts of the document using a typical PocoCMS theme:</p>
-<p><img src="img/theme-parts.png" alt="Illustration showing header, nav, article, aside, and footer" /></p>
-<h2 id="layout-elements">Layout elements</h2>
-<p>You will see these parts of the page referred to as <a href="glossary.html#layout-element">layout elements</a>.
-Keep these two things in mind about layout elements.</p>
-<ul>
-<li>PocoCMS themes made using the PocoCMS theme framework give you full control over layout elements.
-You can hide them on a per-page basis, affect the text on all pages of the site at once,
-or change their contents on a per-page basis</li>
-<li>They have <a href="glossary.html#semantic-meaning">semantic meaning</a></li>
-</ul>
-<p>For a slightly more technical perspective see <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure#html_layout_elements_in_more_detail">HTML layout elements in more detail</a>.</p>
-<h2 id="hiding-header-nav-aside-or-footer-on-a-per-page-basis">Hiding header, nav, aside, or footer on a per-page basis</h2>
-<p>Themes made with the PocoCMS theme framework let you decide on a
-page-by-page basis whether you want to display these layout elements.</p>
-<h3 id="hide-the-header">Hide the header</h3>
-<p>Let's go back to the brief example file we've been using. Make sure
-<code>index.md</code> looks like this:</p>
-<pre><code>---
-title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
-theme: informer
-header: SUPPRESS
----
-# Welcome to mysite
-
-Hello from https://example.com. Our site is changing quickly.
+<h1 id="displaying-code-in-markdown">Displaying code in Markdown</h1>
+<p>If you're writing technical documentation you may want a way to delineate blocks of
+code, sometimes known as a <em>code fence</em>. The result is also known as a <em>code block</em>.</p>
+<h3 id="creating-a-code-block-aka-code-fence">Creating a code block, aka code fence</h3>
+<p>The simplest way to show code is to wrap it between two lines consisting of 3 backticks in a row:</p>
+<pre><code>```
+title: Welcome to Example.com
+```
 </code></pre>
-<ul>
-<li>Build the site:</li>
-</ul>
-<pre><code>poco 
+<p>And the result would be:</p>
+<pre><code> title: Welcome to Example.com
 </code></pre>
-<ul>
-<li>Then refresh the page in your browser.</li>
-</ul>
-<p><img src="img/home-page-informer-header-suppressed.png" alt="Screen shot of Informer theme with header suppressed" /></p>
-<h3 id="hide-the-nav">Hide the nav</h3>
-<p>Let's go back to the brief example file we've been using. Make sure
-<code>index.md</code> looks like this:</p>
-<pre><code>---
-title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
-theme: informer
-header: SUPPRESS
-nav: SUPPRESS
----
-# Welcome to mysite
-
-Hello from https://example.com. Our site is changing quickly.
+<p>You can get exactly the same effect by preceding each line of code with exactly 4 spaces.</p>
+<h3 id="keyword-highlighting-for-computer-languages">Keyword highlighting for computer languages</h3>
+<p>Suppose you're documenting YAML. You could follow the 3 backticks with the word <code>yaml</code>
+to show it with keyword highlighting:</p>
+<pre><code>```yaml
+title: Welcome to Example.com
+```
 </code></pre>
-<ul>
-<li>Build the site:</li>
-</ul>
-<pre><code>poco 
+<p>The published result would show like this:</p>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#bbb"> </span><span style="color:#1e90ff;font-weight:bold">title</span>:<span style="color:#bbb"> </span>Welcome to Example.com<span style="color:#bbb">
+</span></span></span></code></pre><p>Many, many languages are supported. Here are a few examples:</p>
+<h4 id="bash">bash</h4>
+<p>Markdown source:</p>
+<pre><code>```bash
+echo hello, world.
+```
 </code></pre>
-<ul>
-<li>Refresh the page in your browser:</li>
-</ul>
-<p><img src="img/home-page-informer-footer-suppressed.png" alt="Screen shot of Informer theme with header and nav suppressed" /></p>
-<h3 id="hide-the-rest">Hide the rest</h3>
-<p>You see where this is going:</p>
-<pre><code>---
-title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
-theme: informer
-header: SUPPRESS
-nav: SUPPRESS
-aside: SUPPRESS
-footer: SUPPRESS
----
-# Welcome to mysite
-
-Hello from https://example.com. Our site is changing quickly.
+<p>Published result:</p>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span> <span style="color:#0aa">echo</span> hello, world.
+</span></span></code></pre><h4 id="javascript">Javascript</h4>
+<p>Markdown source:</p>
+<pre><code>```js
+document.write('hello, world.')
+```
 </code></pre>
-<ul>
-<li>Build the site:</li>
-</ul>
-<pre><code>poco 
+<p>Published result:</p>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#0aa">document</span>.write(<span style="color:#f00;background-color:#faa">&#39;</span>hello, world.)
+</span></span></code></pre><h4 id="markdown">Markdown</h4>
+<p>Markdown source:</p>
+<pre><code> ```markdown
+  ### hello, world.
+ ```
 </code></pre>
-<ul>
-<li>Refresh the page in your browser:</li>
-</ul>
-<p><img src="img/home-page-informer-most-suppressed.png" alt="Screen shot of Informer theme with header, nav, aside, and footer suppressed" /></p>
-<p>A lot of themes look good this way, just the bare naked article.
-It definitely focuses the reader's attention.</p>
-<h3 id="wait-so">Wait, so...?</h3>
-<p>You nut. Yes, you can suppress the article too. It's sometimes helpful
-when working on problems with the look of a theme you're creating.</p>
-<pre><code>---
-title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
-theme: informer
-header: SUPPRESS
-nav: SUPPRESS
-aside: SUPPRESS
-footer: SUPPRESS
-article: SUPPRESS
----
-# Welcome to mysite
-
-Hello from https://example.com. Our site is changing quickly.
+<p>Published result:</p>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#800080;font-weight:bold">### hello, world.
+</span></span></span></code></pre><h4 id="markdown-alternative">Markdown (alternative)</h4>
+<p>Markdown source:</p>
+<pre><code> ```md
+  ### hello, world.
+ ```
 </code></pre>
-<ul>
-<li>Build the site:</li>
-</ul>
-<pre><code>poco 
+<p>Published result:</p>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#800080;font-weight:bold">### hello, world.
+</span></span></span></code></pre><h4 id="python">Python</h4>
+<p>Markdown source:</p>
+<pre><code>```python
+print(&quot;hello, world.&quot;)
+```
 </code></pre>
-<ul>
-<li>Refresh the page in your browser, but no screenshot here. Because,
-you know... it's blank. Ah, what the heck.</li>
-</ul>
-<p><img src="img/home-page-informer-blank-all-suppressed.png" alt="Screen shot of Informer theme with EVERYTHING suppressed" /></p>
-<h6 id="previous-changing-the-themegs-change-themehtml-next-hiding-parts-of-a-pococms-theme-globallygs-hide-theme-parts-globallyhtml"><a href="gs-change-theme.html">Previous: Changing the theme</a> <a href="gs-hide-theme-parts-globally.html">Next: Hiding parts of a PocoCMS theme globally</a></h6>
+<p>Published result:</p>
+<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#0aa">print</span>(<span style="color:#a50">&#34;hello, world.&#34;</span>)
+</span></span></code></pre><h3 id="languages-with-keyword-highlighting-support-in-vuepress">Languages with keyword highlighting support in VuePress</h3>
+<p>VuePress gets its keyword highlighting support through the <a href="prismjs.com">Prism</a> Javascript library.</p>
+<p>There are too many languages to make an exhaustive list here, but you can find them
+in the PrismJS source file <a href="https://github.com/PrismJS/prism/blob/master/components.json">components.json</a>
+under <code>languages</code>.</p>
+<p>Here are the most common ones.</p>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th align="left">Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Applecript</td>
+<td align="left">applescript</td>
+</tr>
+<tr>
+<td>Asciidoc</td>
+<td align="left">asciidoc</td>
+</tr>
+<tr>
+<td>ASP.NET</td>
+<td align="left">aspnet</td>
+</tr>
+<tr>
+<td>batch files</td>
+<td align="left">batch</td>
+</tr>
+<tr>
+<td>CSS</td>
+<td align="left">css</td>
+</tr>
+<tr>
+<td>Go</td>
+<td align="left">go</td>
+</tr>
+<tr>
+<td>HTTP</td>
+<td align="left">http</td>
+</tr>
+<tr>
+<td>Java</td>
+<td align="left">java</td>
+</tr>
+<tr>
+<td>Javascript</td>
+<td align="left">js</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td align="left">json</td>
+</tr>
+<tr>
+<td>Markup</td>
+<td align="left">markup</td>
+</tr>
+<tr>
+<td>Markdown</td>
+<td align="left">markdown</td>
+</tr>
+<tr>
+<td>Markdown</td>
+<td align="left">md</td>
+</tr>
+<tr>
+<td>Objective-C</td>
+<td align="left">objectivec</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td align="left">php</td>
+</tr>
+<tr>
+<td>Powershell</td>
+<td align="left">powershell</td>
+</tr>
+<tr>
+<td>Python</td>
+<td align="left">py</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td align="left">ruby</td>
+</tr>
+<tr>
+<td>SASS</td>
+<td align="left">sass</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td align="left">sql</td>
+</tr>
+<tr>
+<td>Swift</td>
+<td align="left">swift</td>
+</tr>
+<tr>
+<td>VB.NET</td>
+<td align="left">vbnet</td>
+</tr>
+<tr>
+<td>Vim</td>
+<td align="left">vim</td>
+</tr>
+<tr>
+<td>Wiki</td>
+<td align="left">yaml</td>
+</tr>
+</tbody>
+</table>
+<p>Complete list can be found in the &quot;languages&quot; node of
+the PrismJS source file <a href="https://github.com/PrismJS/prism/blob/master/components.json">components.json</a>.</p>
+<h6 id="previous--tables-in-markdowngs-tables-in-markdownhtml-nextgs-displaying-code-in-markdownhtml"><a href="gs-tables-in-markdown.html">Previous:  Tables in Markdown</a> <a href="gs-displaying-code-in-markdown.html">Next:</a></h6>
 
 </article>
 

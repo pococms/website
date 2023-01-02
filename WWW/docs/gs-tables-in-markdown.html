@@ -496,138 +496,201 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </ul>
 </aside>
 <article id="article-poco">
-<h1 id="the-parts-of-a-pococms-theme">The parts of a PocoCMS theme</h1>
-<p>You've learned that you can change themes easily, and that they
-can have dramatically different appearances:</p>
-<h5 id="theme-informer">Theme: <strong>Informer</strong></h5>
-<p><img src="img/home-page-theme-informer-1366x768.png" alt="Screenshot of PocoCMS Informer theme" /></p>
-<h5 id="theme-electro">Theme: <strong>Electro</strong></h5>
-<p><img src="img/home-page-theme-electro-1366x768.png" alt="Screenshot of PocoCMS Electro theme" /></p>
-<h5 id="theme-base">Theme: <strong>Base</strong></h5>
-<p><img src="img/home-page-theme-base-1366x768.png" alt="Screenshot of PocoCMS Base theme" /></p>
-<h2 id="header-nav-article-aside-and-footer">Header, nav, article, aside, and footer</h2>
-<p>As the MDN web docs observe in <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure">Document and website structure</a> these are the main parts of
-an HTML document:</p>
+<h1 id="tables-in-markdown">Tables in Markdown</h1>
+<p>PocoCMS uses <a href="https://help.github.com/articles/organizing-information-with-tables">GitHub-style table markdown</a>, a widely accepted
+extension to Markdownj:. Here are the highlights.</p>
+<h3 id="table-syntax-simplified">Table syntax simplified</h3>
+<p>Tables consist of a two-line required header, then zero or more rows.</p>
 <ul>
-<li><a href="glossary.html#header">Header</a> (the HTML <code>&lt;header&gt;</code> tag)</li>
-<li><a href="glossary.html#nav">Nav bar</a> (The HTML <code>&lt;nav&gt;</code> tag)</li>
-<li>Main area (PocoCMS calls it the <a href="glossary.html#article">article</a>) and
-it uses the <code>&lt;article&gt;</code> tag</li>
-<li>Sidebars (PocoCMS calls it the <a href="glossary.html#aside">aside</a> because in HTML
-it's <code>&lt;aside&gt;</code> tag</li>
-<li><a href="glossary.html#footer">Footer</a> (the HTML <code>&lt;footer&gt;</code> tag</li>
+<li>At least one header consisting of a line surrounded by pipe characters: <code>| Header |</code></li>
+<li>A line of dashes surrounded by pipe characters: <code>| ------ |</code></li>
+<li>Zero or more rows text surrounded by pipe characters, like this: <code>| Row 1 |</code></li>
 </ul>
-<h4 id="anatomy">Anatomy</h4>
-<p>This illustration shows these parts of the document using a typical PocoCMS theme:</p>
-<p><img src="img/theme-parts.png" alt="Illustration showing header, nav, article, aside, and footer" /></p>
-<h2 id="layout-elements">Layout elements</h2>
-<p>You will see these parts of the page referred to as <a href="glossary.html#layout-element">layout elements</a>.
-Keep these two things in mind about layout elements.</p>
-<ul>
-<li>PocoCMS themes made using the PocoCMS theme framework give you full control over layout elements.
-You can hide them on a per-page basis, affect the text on all pages of the site at once,
-or change their contents on a per-page basis</li>
-<li>They have <a href="glossary.html#semantic-meaning">semantic meaning</a></li>
-</ul>
-<p>For a slightly more technical perspective see <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure#html_layout_elements_in_more_detail">HTML layout elements in more detail</a>.</p>
-<h2 id="hiding-header-nav-aside-or-footer-on-a-per-page-basis">Hiding header, nav, aside, or footer on a per-page basis</h2>
-<p>Themes made with the PocoCMS theme framework let you decide on a
-page-by-page basis whether you want to display these layout elements.</p>
-<h3 id="hide-the-header">Hide the header</h3>
-<p>Let's go back to the brief example file we've been using. Make sure
-<code>index.md</code> looks like this:</p>
-<pre><code>---
-title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
-theme: informer
-header: SUPPRESS
----
-# Welcome to mysite
-
-Hello from https://example.com. Our site is changing quickly.
+<p>Let's put it all together.</p>
+<h3 id="simple-table-example">Simple table example</h3>
+<p>To get a table that looks like this:</p>
+<h5 id="result">Result:</h5>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Row 1, Column 1</td>
+<td>Row 1, Column 2</td>
+</tr>
+</tbody>
+</table>
+<p>You'd use the following markdown:</p>
+<h5 id="markdown">Markdown:</h5>
+<pre><code>| Header                |                            |
+| --------------------- | -------------------------- |
+| Row 1, Column 1       | Row 1, Column 2            |
 </code></pre>
-<ul>
-<li>Build the site:</li>
-</ul>
-<pre><code>poco 
+<h3 id="minimum-table-a-header-only">Minimum table: a header only</h3>
+<p>The absolute minimum table would consist of a single header with no rows:</p>
+<h5 id="markdown-1">Markdown:</h5>
+<pre><code>| Header                |           
+| --------------------- | 
 </code></pre>
-<ul>
-<li>Then refresh the page in your browser.</li>
-</ul>
-<p><img src="img/home-page-informer-header-suppressed.png" alt="Screen shot of Informer theme with header suppressed" /></p>
-<h3 id="hide-the-nav">Hide the nav</h3>
-<p>Let's go back to the brief example file we've been using. Make sure
-<code>index.md</code> looks like this:</p>
-<pre><code>---
-title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
-theme: informer
-header: SUPPRESS
-nav: SUPPRESS
----
-# Welcome to mysite
-
-Hello from https://example.com. Our site is changing quickly.
+<h5 id="result-1">Result:</h5>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+</tr>
+</thead>
+</table>
+<h3 id="table-with-one-header-and-one-row">Table with one header and one row:</h3>
+<p>Let's extend the previous example with one row:</p>
+<h5 id="markdown-2">Markdown:</h5>
+<pre><code>| Header                |                            
+| --------------------- | 
+| Single cell           |
 </code></pre>
-<ul>
-<li>Build the site:</li>
-</ul>
-<pre><code>poco 
+<h5 id="result-2">Result:</h5>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single cell</td>
+</tr>
+</tbody>
+</table>
+<h3 id="typical-table-with-several-rows">Typical table with several rows</h3>
+<p>Most tables have multiple columns and rows, for example:</p>
+<table>
+<thead>
+<tr>
+<th>Column 1</th>
+<th>Column 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Row 1, Column 1</td>
+<td>Row 1, Column 2</td>
+</tr>
+<tr>
+<td>Row 2, Column 1</td>
+<td>Row 2, Column 2</td>
+</tr>
+<tr>
+<td>Row 3, Column 1</td>
+<td>Row 3, Column 2</td>
+</tr>
+<tr>
+<td>Row 4, Column 1</td>
+<td>Row 4, Column 2</td>
+</tr>
+</tbody>
+</table>
+<h5 id="markdown-3">Markdown:</h5>
+<pre><code>| Column 1        | Column 2         |
+| --------------- | ---------------- |
+| Row 1, Column 1 | Row 1, Column 2  |
+| Row 2, Column 1 | Row 2, Column 2  |
+| Row 3, Column 1 | Row 3, Column 2  |
+| Row 4, Column 1 | Row 4, Column 2  |
 </code></pre>
-<ul>
-<li>Refresh the page in your browser:</li>
-</ul>
-<p><img src="img/home-page-informer-footer-suppressed.png" alt="Screen shot of Informer theme with header and nav suppressed" /></p>
-<h3 id="hide-the-rest">Hide the rest</h3>
-<p>You see where this is going:</p>
-<pre><code>---
-title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
-theme: informer
-header: SUPPRESS
-nav: SUPPRESS
-aside: SUPPRESS
-footer: SUPPRESS
----
-# Welcome to mysite
-
-Hello from https://example.com. Our site is changing quickly.
+<h3 id="dash-and-space-count-dont-matter">Dash and space count don't matter</h3>
+<p>The number of dashes used to specify the header and the number of spaces surrounding
+the pipe characters don't matter. Take the following table:</p>
+<table>
+<thead>
+<tr>
+<th>Column 1</th>
+<th>Column 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row 1</td>
+<td>2nd column</td>
+</tr>
+<tr>
+<td>row 2</td>
+<td>2nd column</td>
+</tr>
+</tbody>
+</table>
+<p>You could use this crazy-ass markdown for it:</p>
+<pre><code>| Column 1| Column 2         |
+| ------------ | --- |
+| row 1 | 2nd column  |
+| row 2    | 2nd column    |
 </code></pre>
-<ul>
-<li>Build the site:</li>
-</ul>
-<pre><code>poco 
+<p>Or you could use this markup:</p>
+<pre><code>| Column 1     | Column 2         |
+| ------------ | ---------------- |
+| row 1        | 2nd column       |
+| row 2        | 2nd column       |
 </code></pre>
+<p>And they would both produce the same output.</p>
+<h3 id="aligning-text-within-columns">Aligning text within columns</h3>
+<p>Normally table text is left-aligned. You can change alignment by using colon characters
+(<code>:</code>) in the second header row, which contains the dash characters (<code>-</code>).</p>
 <ul>
-<li>Refresh the page in your browser:</li>
+<li><strong>To left-align the column</strong>, replace the leftmost dash with a colon</li>
+<li><strong>To right-align the column</strong>, replace the rightmost dash with a colon</li>
+<li><strong>To center-align the column</strong>, both the leftmost and rightmost dashes with a colon</li>
 </ul>
-<p><img src="img/home-page-informer-most-suppressed.png" alt="Screen shot of Informer theme with header, nav, aside, and footer suppressed" /></p>
-<p>A lot of themes look good this way, just the bare naked article.
-It definitely focuses the reader's attention.</p>
-<h3 id="wait-so">Wait, so...?</h3>
-<p>You nut. Yes, you can suppress the article too. It's sometimes helpful
-when working on problems with the look of a theme you're creating.</p>
-<pre><code>---
-title: &quot;Powered with &amp;hearts; by PocoCMS&quot;
-theme: informer
-header: SUPPRESS
-nav: SUPPRESS
-aside: SUPPRESS
-footer: SUPPRESS
-article: SUPPRESS
----
-# Welcome to mysite
-
-Hello from https://example.com. Our site is changing quickly.
+<p>Here's a table showing alignment:</p>
+<table>
+<thead>
+<tr>
+<th>Alignment</th>
+<th align="center">Column 2</th>
+<th align="right">Column 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Center align column 2</td>
+<td align="center">*</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>Right align column 3</td>
+<td align="center"></td>
+<td align="right">Boo</td>
+</tr>
+<tr>
+<td>Right align numbers</td>
+<td align="center"></td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td></td>
+<td align="center"></td>
+<td align="right">123</td>
+</tr>
+<tr>
+<td></td>
+<td align="center"></td>
+<td align="right">$456.67</td>
+</tr>
+</tbody>
+</table>
+<p>Markdown:</p>
+<pre><code>| Alignment             | Column 2       | Column 3      |
+| --------------------- |:--------------:| -------------:|
+| Center align column 2 | *              |               |
+| Right align column 3  |                | Boo           |
+| Right align numbers:  |                |   1           |
+|                       |                | 123           |
+|                       |                |     $456.67   |
 </code></pre>
-<ul>
-<li>Build the site:</li>
-</ul>
-<pre><code>poco 
-</code></pre>
-<ul>
-<li>Refresh the page in your browser, but no screenshot here. Because,
-you know... it's blank. Ah, what the heck.</li>
-</ul>
-<p><img src="img/home-page-informer-blank-all-suppressed.png" alt="Screen shot of Informer theme with EVERYTHING suppressed" /></p>
-<h6 id="previous-changing-the-themegs-change-themehtml-next-hiding-parts-of-a-pococms-theme-globallygs-hide-theme-parts-globallyhtml"><a href="gs-change-theme.html">Previous: Changing the theme</a> <a href="gs-hide-theme-parts-globally.html">Next: Hiding parts of a PocoCMS theme globally</a></h6>
+<p>For more details, see the
+<a href="https://help.github.com/articles/organizing-information-with-tables/">GitHub style documentation</a>.</p>
+<h6 id="previous-lines-lists-and-blocks-of-textgs-lines-lists-blockshtml-next-displaying-code-in-markdowngs-displaying-code-in-markdownhtml"><a href="gs-lines-lists-blocks.html">Previous: Lines, lists, and blocks of text</a> <a href="gs-displaying-code-in-markdown.html">Next: Displaying code in Markdown</a></h6>
 
 </article>
 
