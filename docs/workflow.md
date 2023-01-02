@@ -33,6 +33,34 @@ poco -new ~/code/html/mysite
 cd ~/code/html/mysite
 ````
 
+### List themes
+
+To see what themes are available, enter this at the command line:
+
+```
+poco -themes
+```
+
+You'll get a list something like this:
+
+```
+base
+clerk
+electro
+informer
+mytheme
+newman
+paper
+pasteboard
+pocodocs
+rawdog
+skyscraper
+tufte
+```
+
+* And of course you can see the factory-installed themes live at
+[PocoCMS theme demos](https://pococms.com/docs/theme-demos.html)
+
 ### Copy a theme you like
 
 It's best to copy a theme you like instead working with it directly,

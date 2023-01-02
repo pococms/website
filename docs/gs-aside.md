@@ -19,13 +19,18 @@
      + [Comments in the YAML front matter](gs-hide-theme-parts-globally.html#comments-in-the-yaml-front-matter)
      + [Find your theme file in the .poco directory](gs-hide-theme-parts-globally.html#find-your-theme-file-in-the-poco-directory)
 * [Editing parts of a theme](gs-editing-parts-of-a-theme.html)
-  - [](gs-editing-parts-of-a-theme.html#)
-  - [](gs-editing-parts-of-a-theme.html#)
-  - [](gs-editing-parts-of-a-theme.html#)
-
-
-
-
+  - [Editing the header](gs-editing-parts-of-a-theme.html#editing-the-header)
+  - [Replacing the nav](gs-editing-parts-of-a-theme.html#replacing-the-nav)
+    + [Editing other page layout elements](gs-editing-parts-of-a-theme.html#editing-other-page-layout-elements)
+* [Creating and linking to pages](gs-creating-and-linking-pages.html)
+  - [Why Markdown?](gs-creating-and-linking-pages.html#why-markdown)
+   + [A few quick Markdown samples](gs-creating-and-linking-pages.html#a-few-quick-markdown-samples)
+   + [Why Markdown?](gs-creating-and-linking-pages.html#why-markdown.html)
+   + [Markdown has semantic importance](gs-creating-and-linking-pages.html#markdown-has-semantic-importance)
+  - [Creating a new page](gs-creating-and-linking-pages.html#creating-a-new-page)
+  - [Creating links](gs-creating-and-linking-pages.html#creating-links)
+  - [Markdown link format](gs-creating-and-linking-pages.html#markdown-link-format)
+* [Formatting characters in Markdown](gs-formatting-characters-in-markdown.html)
 
 
 

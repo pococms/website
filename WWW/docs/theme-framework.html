@@ -557,9 +557,8 @@ view of the file structure is shown below:</p>
 └─── .poco
     │
     ├── css
-    │   ├── colors.css
     │   ├── layout.css
-    │   ├── media.css
+    │   ├── mediacolors.css
     │   ├── medium-skinny.css
     │   ├── reset.css
     │   ├── root.css
@@ -602,8 +601,7 @@ stylesheets:
 - ../../css/sizes.css
 - ../../css/layout.css
 - ../../css/type.css
-- ../../css/colors.css
-- ../../css/media.css
+- ../../css/mediacolors.css
 header: header.md
 nav: nav.md
 aside: aside.md
@@ -622,8 +620,7 @@ when you <a href="themes-creating.html">create a theme</a>.</p>
 <li><a href="#sizescss">sizes.css</a></li>
 <li><a href="#layoutcss">layout.css</a></li>
 <li><a href="#typecss">type.css</a></li>
-<li><a href="#colorscss">colors.css</a></li>
-<li><a href="#mediacss">media.css</a></li>
+<li><a href="#mediacolorscss">mediacolors.css</a></li>
 </ul>
 <p>And optionally:</p>
 <ul>
@@ -646,7 +643,7 @@ fastest way to search for the color of only the elements I want changed?&quot;.<
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
  }
 </code></pre>
-<p>A later CSS file such as <a href="#colorscss">colors.css</a> uses them like this,
+<p>A later CSS file such as <a href="#mediacolorscss">mediacolors.css</a> uses them like this,
 which declares that the navbar, header, and footer should
 all share the default text and background colors:</p>
 <pre><code>nav,header,footer{color:var(--fg);background-color:var(--bg);}
@@ -677,13 +674,9 @@ it defines the relationship between article and aside so that both right and
 left orientation work.</p>
 <h3 id="typecss">type.css</h3>
 <p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/type.css">type.css</a> file sets a few font values for common use.</p>
-<h3 id="colorscss">colors.css</h3>
-<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/colors.css">color.css</a> file is a central location for site color values. Probably
-to be subsumed by <a href="#mediacss">media.css</a></p>
-<h3 id="mediacss">media.css</h3>
-<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/media.css">media.css</a> file defines color sets for both dark and light themes.
-It also lets you change behavior of pages based on screen size, or any other
-media queries you wish to use.</p>
+<h3 id="mediacolorscss">mediacolors.css</h3>
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/mediacolors.css">mediacolors.css</a> file is a central location for site color values. It manages both light and dark thems.  It also handles <code>@media</code> queries
+to change behavior and appearance of your site at different screen sizes.</p>
 <h3 id="skinnycss">skinny.css</h3>
 <p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/skinny.css">skinny.css</a> file changes a theme like <a href="https://pococms.com/docs/demos/base.html">Base</a>
 into, which fills the screen, to a theme like <a href="https://pococms.com/docs/demos/skyscraper.html">Skyscraper</a>, which shows the theme in the center of the screen with unused space
@@ -736,7 +729,7 @@ appear:</p>
 └─── .poco
     │
     ├── css
-    │   ├── colors.css
+    │   ├── mediacolors.css
     │   ├── .. etc
     │   └── type.css
     │

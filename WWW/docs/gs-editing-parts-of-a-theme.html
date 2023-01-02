@@ -440,11 +440,30 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </li>
 <li><a href="gs-editing-parts-of-a-theme.html">Editing parts of a theme</a>
 <ul>
-<li><a href="gs-editing-parts-of-a-theme.html#"></a></li>
-<li><a href="gs-editing-parts-of-a-theme.html#"></a></li>
-<li><a href="gs-editing-parts-of-a-theme.html#"></a></li>
+<li><a href="gs-editing-parts-of-a-theme.html#editing-the-header">Editing the header</a></li>
+<li><a href="gs-editing-parts-of-a-theme.html#replacing-the-nav">Replacing the nav</a>
+<ul>
+<li><a href="gs-editing-parts-of-a-theme.html#editing-other-page-layout-elements">Editing other page layout elements</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="gs-creating-and-linking-pages.html">Creating and linking to pages</a>
+<ul>
+<li><a href="gs-creating-and-linking-pages.html#why-markdown">Why Markdown?</a></li>
+</ul>
+<ul>
+<li><a href="gs-creating-and-linking-pages.html#a-few-quick-markdown-samples">A few quick Markdown samples</a></li>
+<li><a href="gs-creating-and-linking-pages.html#why-markdown.html">Why Markdown?</a></li>
+<li><a href="gs-creating-and-linking-pages.html#markdown-has-semantic-importance">Markdown has semantic importance</a></li>
+</ul>
+<ul>
+<li><a href="gs-creating-and-linking-pages.html#creating-a-new-page">Creating a new page</a></li>
+<li><a href="gs-creating-and-linking-pages.html#creating-links">Creating links</a></li>
+<li><a href="gs-creating-and-linking-pages.html#markdown-link-format">Markdown link format</a></li>
+</ul>
+</li>
+<li><a href="gs-formatting-characters-in-markdown.html">Formatting characters in Markdown</a></li>
 </ul>
 </aside>
 <article id="article-poco">
@@ -463,10 +482,76 @@ make sure you get to the <a href="glossary.html#root-directory">root directory</
 you will replace <code>mysite</code> with whatever theme name you created.</p>
 </li>
 </ul>
-<h2 id="replacing-the-header">Replacing the header</h2>
+<p>It looks something like this:</p>
+<h5 id="file-readmemd-for-a-theme">File: <strong>README.md</strong> for a theme</h5>
+<pre><code>---
+stylesheets:
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+- ../../css/type.css
+- ../../css/mediacolors.css
+header: header.md
+nav: nav.md
+aside: aside.md
+footer: footer.md
+---
+
+Description of theme...
+
+</code></pre>
+<p>For this section we're interested in the files next to
+<code>header:</code>, <code>nav:</code>, <code>aside:</code>, and <code>footer:</code>. These are
+where PocoCMS gets the contents of those layout elements
+when it renders a page into HTML.</p>
+<p>To edit them, just add them to the end of the
+theme directory. If your theme is called <code>mytheme</code>
+and you want to edit the header, you would load
+<code>.poco/themes/mytheme/header.md</code> into your editor.
+And we're going to do just that.</p>
+<h2 id="editing-the-header">Editing the header</h2>
+<ul>
+<li>Load the file <code>.poco/themes/mytheme/header.md</code> into your
+text editor, replacing <code>mytheme</code> with whatever theme
+you wish to edit.</li>
+</ul>
+<p>It may look something like this:</p>
+<pre><code>* **[base theme header](#)**
+* [Reviews](#)
+* [Github](#)
+* [Profile](#)
+* [About](#)
+</code></pre>
+<p>We will look at this mess later, but there's nothing wrong
+with simply replacing the name of your site and its
+URL in this part:</p>
+<pre><code>* **[base theme header](#)**
+
+</code></pre>
+<p>Suppose your company is called Example
+and its URL is <code>example.com</code>. Here's what you'd do.</p>
+<ul>
+<li>Replace what's between the <code>[</code> and <code>]</code> brackets with <code>Example</code>.</li>
+</ul>
+<pre><code>* **[Example](#)**
+</code></pre>
+<ul>
+<li>Replace what's between then <code>(</code> and <code>)</code> parentheses with
+your company's full URL:</li>
+</ul>
+<pre><code>* **[Example](https://example.com)**
+</code></pre>
+<p>Here's the result:</p>
+<p><img src="img/header-edited-to-example.png" alt="Closeup screen shot of editor now saying &quot;Example&quot;" /></p>
 <h2 id="replacing-the-nav">Replacing the nav</h2>
 <p>Let's replace the nav and give it the ability to search
 <a href="reddit.com/r/recipes">Reddit</a> for recipes.</p>
+<ul>
+<li>Load the file <code>.poco/themes/mytheme/nav.md</code> into your
+text editor, replacing <code>mytheme</code> with whatever theme
+you wish to edit.</li>
+</ul>
 <p>The theme's <code>README.md</code> will have a line something like this:</p>
 <pre><code>nav: nav.md
 </code></pre>
@@ -480,7 +565,7 @@ Themes have different asides but let's say it looks like this:</p>
 * [Free trial](#)
 </code></pre>
 <ul>
-<li>Replace it with this:</li>
+<li>Replace it with this (just copy and paste):</li>
 </ul>
 <pre><code>#### Search recipes on Reddit 
 &lt;form action=&quot;https://www.google.com/search&quot; class=&quot;searchform&quot; method=&quot;get&quot; name=&quot;searchform&quot; target=&quot;_blank&quot;&gt;
@@ -494,7 +579,9 @@ Themes have different asides but let's say it looks like this:</p>
 chose, in this case, Base):</li>
 </ul>
 <p><img src="img/base-theme-reddit-search-nav.png" alt="Screenshot of Base theme with nav replaced by Reddit Search" /></p>
-<h6 id="previous-hiding-parts-of-a-pococms-theme-globallygs-hide-theme-parts-globallyhtml-next-tod"><a href="gs-hide-theme-parts-globally.html">Previous: Hiding parts of a PocoCMS theme globally</a> <a href="#">Next: Tod</a></h6>
+<h3 id="editing-other-page-layout-elements">Editing other page layout elements</h3>
+<p>Use the principles you've learned on this page to edit your <a href="glossary.html#nav">nav</a> and  <a href="glossary.html#footer">footer</a></p>
+<h6 id="previous-hiding-parts-of-a-pococms-theme-globallygs-hide-theme-parts-globallyhtml-next-creating-and-linking-to-pagesgs-creating-and-linking-pageshtml"><a href="gs-hide-theme-parts-globally.html">Previous: Hiding parts of a PocoCMS theme globally</a> <a href="gs-creating-and-linking-pages.html">Next: Creating and linking to pages</a></h6>
 
 </article>
 

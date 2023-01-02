@@ -752,11 +752,9 @@ the default for all pages in the site. It's also
 called the <em>global theme</em> informally.
 It is optional.  The global theme can be overridden
 on a per-page basis using <a href="#pagetheme">pagetheme</a>.</p>
-<pre><code>```
----
+<pre><code>---
 theme: pocodocs
 ---
-```
 </code></pre>
 <h2 id="title">title</h2>
 <p>The <code>Title</code> key lets you set a title for your HTML page.
@@ -783,20 +781,17 @@ read as shown beloe in a web browser:</p>
 <pre><code>Here's your Static generator overview
 </code></pre>
 <h2 id="stylesheets">stylesheets</h2>
-<p>Causes a <code>&lt;style&gt;</code> to be inserted into the file
+<p>Causes a stylesheet link to be inserted into the file
 for each file in the list.</p>
 <h3 id="example-5">Example</h3>
-<p>Using these <code>Stylesheets</code> in the front matter:</p>
+<p>Using these <code>stylesheets</code> in the front matter:</p>
 <pre><code>---
 stylesheets: 
-- &quot;poquito.css&quot;
-- &quot;https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/pocodocs.css&quot;
+- &quot;../../css/layout.css&quot;
+- &quot;https://cdn.jsdelivr.net/npm/@ajusa/lit@latest/src/lit.css&quot;
 ---
 </code></pre>
-<p>Causes this HTML to be generated:</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>&lt;<span style="color:#1e90ff;font-weight:bold">link</span> <span style="color:#1e90ff">rel</span>=<span style="color:#a50">&#34;stylesheet&#34;</span> <span style="color:#1e90ff">href</span>=<span style="color:#a50">&#34;poquito.css&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#1e90ff;font-weight:bold">link</span> <span style="color:#1e90ff">rel</span>=<span style="color:#a50">&#34;stylesheet&#34;</span> <span style="color:#1e90ff">href</span>=<span style="color:#a50">&#34;https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/pocodocs.css&#34;</span>&gt;
-</span></span></code></pre><h1 id="styles">styles</h1>
+<h1 id="styles">styles</h1>
 <p>Causes a <code>&lt;style&gt;</code> tag to be inserted into the file
 for each line in the list. Because they
 are inserted after <a href="#stylesheets">Stylesheets</a> they

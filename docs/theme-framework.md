@@ -184,9 +184,8 @@ view of the file structure is shown below:
 └─── .poco
     │
     ├── css
-    │   ├── colors.css
     │   ├── layout.css
-    │   ├── media.css
+    │   ├── mediacolors.css
     │   ├── medium-skinny.css
     │   ├── reset.css
     │   ├── root.css
@@ -235,8 +234,7 @@ stylesheets:
 - ../../css/sizes.css
 - ../../css/layout.css
 - ../../css/type.css
-- ../../css/colors.css
-- ../../css/media.css
+- ../../css/mediacolors.css
 header: header.md
 nav: nav.md
 aside: aside.md
@@ -257,8 +255,7 @@ when you [create a theme](themes-creating.html).
 * [sizes.css](#sizescss)
 * [layout.css](#layoutcss)
 * [type.css](#typecss)
-* [colors.css](#colorscss)
-* [media.css](#mediacss)
+* [mediacolors.css](#mediacolorscss)
 
 And optionally:
 
@@ -287,7 +284,7 @@ CSS variables allow you to define values this way:
  }
 ```
 
-A later CSS file such as [colors.css](#colorscss) uses them like this,
+A later CSS file such as [mediacolors.css](#mediacolorscss) uses them like this,
 which declares that the navbar, header, and footer should
 all share the default text and background colors: 
 
@@ -333,16 +330,10 @@ left orientation work.
 
 The PocoCMS theme framework's [type.css](https://github.com/pococms/poco/blob/main/.poco/css/type.css) file sets a few font values for common use.
 
-### colors.css
+### mediacolors.css
 
-The PocoCMS theme framework's [color.css](https://github.com/pococms/poco/blob/main/.poco/css/colors.css) file is a central location for site color values. Probably
-to be subsumed by [media.css](#mediacss)
-
-### media.css
-
-The PocoCMS theme framework's [media.css](https://github.com/pococms/poco/blob/main/.poco/css/media.css) file defines color sets for both dark and light themes.
-It also lets you change behavior of pages based on screen size, or any other
-media queries you wish to use.
+The PocoCMS theme framework's [mediacolors.css](https://github.com/pococms/poco/blob/main/.poco/css/mediacolors.css) file is a central location for site color values. It manages both light and dark thems.  It also handles `@media` queries
+to change behavior and appearance of your site at different screen sizes.
 
 ### skinny.css
 
@@ -424,7 +415,7 @@ appear:
 └─── .poco
     │
     ├── css
-    │   ├── colors.css
+    │   ├── mediacolors.css
     │   ├── .. etc
     │   └── type.css
     │

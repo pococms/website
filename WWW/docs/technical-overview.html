@@ -424,19 +424,64 @@ easy to learn, and extremely easy to get
 started with. You don't
 have to create weird special files get started,
 or download a theme from some obscure
-location on the web. Just type some Markdown, making
-sure the root of your site has a file named <code>index.md</code>
-or <code>README.md</code>, and you can get started immediately.</p>
+location on the web. Just type some Markdown
+and you can get started immediately.</p>
 <h2 id="a-pococms-site-is-in-a-single-directory">A PocoCMS site is in a single directory</h2>
 <p>A PocoCMS site must occupy its own directory. All files
 are expected to be in that directory, including theme
 files, graphic assets, style sheets, and so on.</p>
+<p>The root of the directory requires a file named
+either <code>index.md</code> or <code>README.md</code>. That file
+will be converted to HTML and will be named
+<code>index.html</code>. If you have both <code>README.md</code>
+and <code>index.md</code>, <code>README.md</code> takes priority
+and <code>index.md</code> will be sadly ignored.</p>
+<p>You create your site at the command line this way:</p>
+<pre><code>poco -new mysite
+Site published to /Users/tom/pococms/poco/mysite/WWW/index.html
+</code></pre>
+<p>The directory in <code>mysite</code> looks like this:</p>
+<pre><code>.
+├── index.md
+├── WWW
+│   └── index.html
+└─── .poco
+</code></pre>
+<p>The <code>WWW</code> directory is called the <a href="glossary.html#webroot">webroot</a>
+and it is where all output goes. To publish your site, you just
+need to get its directory tree onto a public web server.</p>
+<p>The <code>.poco</code> directory contains all assets needed to build your site:
+themes, graphic assets, and so forth.</p>
 <h2 id="the-pococms-theme-framework">The PocoCMS theme framework</h2>
 <p>Most PocoCMS themes use the PocoCMS <a href="theme-framework.html">theme framework</a>,
 which lets you publish complete-looking sites within a few
 seconds of choosing your theme. It's touched on here, but
 the <a href="theme-framework.html">theme framework</a> page goes into
 more detail.</p>
+<p>Each theme is in its own directory under
+<code>.poco/themes</code>. So if you want to edit the Electro
+theme, you'd go to your site's <a href="glossary.html#root-directory">root directory</a>
+by loading <code>.poco/themes/electro/README.md</code>.</p>
+<p>PocoCMS themes are built up stylesheets and from files for the header, nav,
+aside, and footer. They're listed in a required file in the theme
+<code>README.md</code> file.
+That <code>README.md</code> lists what stylesheets and Markdown files are
+required to assemble the finished page.</p>
+<p>If a theme specifies, for example, that the
+header is generated using <code>header.md</code>, then that file gets
+rendered in to HTML and placed between <code>&lt;header&gt;</code> tags. Same
+idea goes for the nav, aside, and footer.</p>
+<p>The PocoCMS theme framework expects stylesheets to scope
+styles specifically to each layout element,
+for example:</p>
+<h5 id="file-pococsslayoutcss">File: <strong>.poco/css/layout.css</strong></h5>
+<pre><code>header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
+header&gt;ul&gt;li,nav&gt;ul&gt;li{padding-right:.5em;}
+article{width:var(--article-width);height:auto;}  
+aside{width:var(--aside-width);padding:0 2em 0 2em;}  
+</code></pre>
+<p>This specificity is required because Markdown by definition
+produces pure HTML with no classes or Ids allow.</p>
 <p>The framework is optimized for quick development, and you
 can learn more at <a href="themes-creating.html">Creating themes</a>.</p>
 <h2 id="global-vs-page-themes">Global vs. page themes</h2>

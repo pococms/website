@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Powered by PocoCMS</title>
+	<title>Powered with &hearts; by PocoCMS</title>
 
 <style></style>
 <style>
@@ -384,65 +384,6 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 
 }
 
-
-
-/* .poco/themes/pocodocs/big-circles.css */
-/* Does an oversized numbered list. Special effect seldom needed. */
-/* https://jsfiddle.net/yum3e2t6/ */
-
-
-ol {
-  list-style: circle outside;
-  counter-reset: poco-counter;
-}
-
-ol li {
-    display:block;
-    line-height:var(--size);
-    line-height:3em;
-    padding-left: 3em; /* Distance from bullet to text */
-    list-style: none;
-    overflow: hidden;
-    counter-increment:poco-counter;
-    width: 100%;
-    display: block;
-    float: left;
-    position: relative
-}
-
-ol li:before {
-    content: counter(poco-counter);
-    float: left;
-
-    position: absolute;
-    left: 0em; /* Increase to move bullet to right  */
-    text-align: center;
-    color: #fff;
-    /* line-height: 3em; */
-
-    /* Keep width and height the same size for a circle */
-    width: 3em; height: 3em;
-    background:blue;
-    -moz-border-radius: 999px;
-    -webkit-border-radius: 999px;
-    border-radius: 999px
-}
-
-/* To keep text centered, ol li line-height must match 
- * ol li:before width and height */
-ol li {
-  font-size:1.5em; /* Scales up everything */
-  margin-bottom:.5em;
-  line-height:2em;
-}
-
-ol li:before {
-  width: 2em;
-  height: 2em;
-}
-
-
-
 </style>
 </head>
 <body>	
@@ -458,15 +399,210 @@ ol li:before {
 <nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/technical-overview.html">Technical overiew</a></p>
 </nav>
 	
+<aside id="aside-poco"><ul>
+<li><a href="getting-started.html">Getting started</a>
+<ul>
+<li><a href="getting-started.html#create-a-site">Create a site</a></li>
+<li><a href="getting-started.html#view-the-files-pococms-created">View the files PocoCMS created</a></li>
+</ul>
+</li>
+<li><a href="gs-edit-page.html">Editing the page</a></li>
+<li><a href="gs-change-theme.html">Changing themes</a>
+<ul>
+<li><a href="gs-change-theme.html#front-matter">Front matter</a></li>
+<li><a href="gs-change-theme.html#trying-a-few-more-themes">Trying a few more themes</a></li>
+</ul>
+</li>
+<li><a href="gs-parts-of-theme.html">The parts of a PocoCMS theme</a>
+<ul>
+<li><a href="gs-parts-of-theme.html#header-nav-article-aside-and-footer">Header, nav, article, aside, and footer</a></li>
+<li><a href="gs-parts-of-theme.html#layout-elements">Layout elements</a></li>
+<li><a href="#hiding-header-nav-aside-or-footer-on-a-per-page-basis">Hiding header, nav, aside, or footer on a per-page basis</a>
+<ul>
+<li><a href="gs-parts-of-theme.html#hide-the-header">Hide the header</a></li>
+<li><a href="gs-parts-of-theme.html#hide-the-nav">Hide the nav</a></li>
+<li><a href="gs-parts-of-theme.html#hide-the-rest">Hide the rest</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="gs-hide-theme-parts-globally.html">Hiding parts of a PocoCMS theme globally</a>
+<ul>
+<li><a href="gs-hide-theme-parts-globally.html#remove-header-nav-aside-or-footer-from-a-theme">Remove header, nav, aside, or footer from a theme</a>
+<ul>
+<li><a href="gs-hide-theme-parts-globally.html#find-your-theme-file-in-the-poco-directory">Find your theme file in the .poco directory</a></li>
+<li><a href="gs-hide-theme-parts-globally.html#comment-out-the-aside-or-any-other-page-layout-element">Comment out the aside (or any other) page layout element</a></li>
+<li><a href="gs-hide-theme-parts-globally.html#comments-in-the-yaml-front-matter">Comments in the YAML front matter</a></li>
+<li><a href="gs-hide-theme-parts-globally.html#find-your-theme-file-in-the-poco-directory">Find your theme file in the .poco directory</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="gs-editing-parts-of-a-theme.html">Editing parts of a theme</a>
+<ul>
+<li><a href="gs-editing-parts-of-a-theme.html#editing-the-header">Editing the header</a></li>
+<li><a href="gs-editing-parts-of-a-theme.html#replacing-the-nav">Replacing the nav</a>
+<ul>
+<li><a href="gs-editing-parts-of-a-theme.html#editing-other-page-layout-elements">Editing other page layout elements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="gs-creating-and-linking-pages.html">Creating and linking to pages</a>
+<ul>
+<li><a href="gs-creating-and-linking-pages.html#why-markdown">Why Markdown?</a></li>
+</ul>
+<ul>
+<li><a href="gs-creating-and-linking-pages.html#a-few-quick-markdown-samples">A few quick Markdown samples</a></li>
+<li><a href="gs-creating-and-linking-pages.html#why-markdown.html">Why Markdown?</a></li>
+<li><a href="gs-creating-and-linking-pages.html#markdown-has-semantic-importance">Markdown has semantic importance</a></li>
+</ul>
+<ul>
+<li><a href="gs-creating-and-linking-pages.html#creating-a-new-page">Creating a new page</a></li>
+<li><a href="gs-creating-and-linking-pages.html#creating-links">Creating links</a></li>
+<li><a href="gs-creating-and-linking-pages.html#markdown-link-format">Markdown link format</a></li>
+</ul>
+</li>
+<li><a href="gs-formatting-characters-in-markdown.html">Formatting characters in Markdown</a></li>
+</ul>
+</aside>
 <article id="article-poco">
+<h1 id="creating-and-linking-to-pages">Creating and linking to pages</h1>
+<p>So. It's time to start creating the pages for your site. Let's
+first learn how <a href="glossary.html#markdown">Markdown</a> works.
+If you're accustomed to Markdown feel free to skip this section.</p>
+<h2 id="why-markdown">Why Markdown?</h2>
+<p>If you load up the <code>index.md</code> file in a site you've
+<a href="/docs/getting-started.html#create-a-site">created</a>, you'll
+see something along these lines:</p>
+<pre><code># Welcome to mysite
 
-<p>02 Jan 2023 03:51:55</p>
-<h1 id="welcome-to-pococms">Welcome to PocoCMS</h1>
-<ol>
-<li><a href="docs/install.html">Install</a></li>
-<li><a href="docs/getting-started.html">Create</a></li>
-<li><a href="docs/next-steps.html">Improve</a></li>
-</ol>
+hello, world.
+
+Learn more at [PocoCMS tutorials](https://pococms.com/docs/tutorials.html)
+</code></pre>
+<h3 id="a-few-quick-markdown-samples">A few quick Markdown samples</h3>
+<p>It's sort of easy to figure out
+roughly how this document will render as HTML
+(but if not, don't worry because all this
+and more will be explained in this tutorial).</p>
+<pre><code># This is most important
+
+Wait for it..
+
+## This is less important...
+
+Oh, theres' more.
+
+###### And this is way not important
+
+Can you guess that *this* will be *italics*,
+and that **this** will be **bold**?
+</code></pre>
+<p>Depending on the theme, it renders with the decorated text
+showing different formats:</p>
+<p><img src="img/markdown-samples.png" alt="Screenshot showing the previous Markdown sample rendered as HTML" /></p>
+<h3 id="markdown-has-semantic-importance">Markdown has semantic importance</h3>
+<p>HTML is designed to structure your documents so that readers
+(including screen readers for visually compromised people)
+can get a feel for how important the parts of a document
+are by their formatting. Browsers use HTML to determine
+page formatting, along with stylesheets, many of
+which are provided by the <a href="theme-framework.html">PocoCMS theme framework</a>
+to get you started.</p>
+<p>The heading at the top of this page looks like this in its
+original Markdown file:</p>
+<pre><code># Creating and linking to pages
+
+</code></pre>
+<p>The <code># </code> part translates to an HTML <code>&lt;h1&gt;</code> tag.
+The tags from <code>&lt;h1&gt;</code> to<code>&lt;h6&gt;</code> are called headings.
+<code>&lt;h1&gt;</code> is given the greatest weight, an <code>&lt;h6&gt;</code> the least.
+Most search engines don't even bother with
+<code>&lt;h4&gt;</code> through <code>&lt;h6&gt;</code>.</p>
+<p>At any rate the title above appears in the finished document
+as <code>&lt;h1&gt;Creating and linking to pages&lt;/h1&gt;</code>.</p>
+<p>As you can imagine, the subtitle
+<code>### A few quick Markdown samples</code> on this page gets rendered
+as a level 3 heading: <code>&lt;h3&gt;A few quick Markdown samples&lt;/h3&gt;</code></p>
+<p>Now let's start creating pages and writing some Markdown.</p>
+<h2 id="creating-a-new-page">Creating a new page</h2>
+<ul>
+<li>From your site's <a href="glossary.html#root-directory">root directory</a>,
+drop into your command shell and create a subdirectory
+called <code>docs</code>:</li>
+</ul>
+<pre><code>mkdir docs
+</code></pre>
+<ul>
+<li>Create the file <code>docs/index.md</code> with these contents:</li>
+</ul>
+<pre><code># Documentation hub
+
+Welcome here. Now go back [home](/).
+</code></pre>
+<p>So we have a new page one subdirectory down. Let's link to
+it from the home page.</p>
+<h2 id="creating-links">Creating Links</h2>
+<ul>
+<li>Edit the <code>index.md</code> in your root directory to
+include this line:</li>
+</ul>
+<pre><code>Check out our [Documentation](docs/index.html)
+</code></pre>
+<ul>
+<li>Run poco again to rebuild the site:</li>
+</ul>
+<pre><code>poco
+</code></pre>
+<p>The home page should link to the new subdirectory:</p>
+<p><img src="img/added-link-to-subdir.png" alt="Screen shot of revised home page" /></p>
+<ul>
+<li>Click the link you just added, and you should connect
+to the new page:</li>
+</ul>
+<p><img src="img/go-back-home.png" alt="Screen shot of the new docs/index.html page" /></p>
+<h2 id="markdown-link-format">Markdown link format</h2>
+<p>Based on these observations, let's expand our definition of link formatting
+in Markdown:</p>
+<ul>
+<li>a link is in the format <code>[Anchor text](url)</code>, where
+<code>[Anchor text]</code> is anything you want to put there, surrounded by
+<code>[</code> and <code>]</code>, also called <em>square brackets</em>. It's the visible
+part of the link, formally known as <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">anchor text</a> in the HTML world.</li>
+<li>The second part of the link immediately follows the square brackets.
+No space is allowed or it won't be interpreted as a link. It's the
+part in <code>(</code> and <code>)</code> <em>parentheses</em>. That's the target of the link.
+It could be another website, such as <code>[Google](https://google.com)</code></li>
+<li>You can easily indicate a subdirectory below the current one
+by giving its name, followed by a slash:
+<code>[Documentation](docs/index.html)</code></li>
+<li>If you want to indicate the home page, just use a slash by itself:
+<code>[home](/)</code></li>
+<li>If you're in a subdirectory you can actually open a file in the
+directory above it like this:</li>
+</ul>
+<pre><code>[home](../index.html)
+
+</code></pre>
+<p>Also there's a shortcut. If the file in the subdirectory above
+is index.html, you can omit the filename:</p>
+<pre><code>[home](..)
+</code></pre>
+<ul>
+<li>You can even link to a named place inside a document if it's been marked
+in the original HTML. To look to the word <code>Markdown</code> in the PocoCMS
+glossary you'd write a link this way:</li>
+</ul>
+<pre><code>[Markdown defined](https://pococms.com/docs/glossary.html#markdown)`
+</code></pre>
+<ul>
+<li>To link to a place inside the same document, just us the <code>#</code>. For
+example, this will link the <code>Why Markdown</code> heading in this page:
+<code>[Why Markdown](#why-markdown)</code> would therefore link to
+<a href="#why-markdown">Why Markdown</a>.</li>
+</ul>
+<h6 id="previous-editing-parts-of-a-themegs-editing-parts-of-a-themehtml-next-formatting-characters-in-markdowngs-formatting-characters-in-markdownhtml"><a href="gs-editing-parts-of-a-theme.html">Previous: Editing parts of a theme</a> <a href="gs-formatting-characters-in-markdown.html">Next: Formatting characters in Markdown</a></h6>
 
 </article>
 

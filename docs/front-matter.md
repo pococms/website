@@ -473,11 +473,11 @@ called the *global theme* informally.
 It is optional.  The global theme can be overridden 
 on a per-page basis using [pagetheme](#pagetheme).
 
-    ```
-    ---
-    theme: pocodocs
-    ---
-    ```
+```
+---
+theme: pocodocs
+---
+```
 
 ## title
 The `Title` key lets you set a title for your HTML page.
@@ -512,25 +512,18 @@ Here's your Static generator overview
 
 ## stylesheets 
 
-Causes a `<style>` to be inserted into the file
+Causes a stylesheet link to be inserted into the file
 for each file in the list.
 
 ### Example
 
-Using these `Stylesheets` in the front matter:
+Using these `stylesheets` in the front matter:
 ```
 ---
 stylesheets: 
-- "poquito.css"
-- "https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/pocodocs.css"
+- "../../css/layout.css"
+- "https://cdn.jsdelivr.net/npm/@ajusa/lit@latest/src/lit.css"
 ---
-```
-
-Causes this HTML to be generated:
-
-```html
-<link rel="stylesheet" href="poquito.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/pocodocs.css">
 ```
 
 # styles
