@@ -329,7 +329,6 @@ html{
 }
 
 header>ul>li:first-child>a{font-weight:900;letter-spacing:-.1rem;}
-article>h5>strong{text-decoration:underline;}
 
 /* The article may be wider than you want text and
  * code listings to be. This narrows the text and
@@ -449,7 +448,7 @@ Site published to /Users/tom/pococms/poco/mysite/WWW/index.html
 </code></pre>
 <p>The <code>WWW</code> directory is called the <a href="glossary.html#webroot">webroot</a>
 and it is where all output goes. To publish your site, you just
-need to get its directory tree onto a public web server.</p>
+need to copy the webroot directory tree onto a public web server.</p>
 <p>The <code>.poco</code> directory contains all assets needed to build your site:
 themes, graphic assets, and so forth.</p>
 <h2 id="the-pococms-theme-framework">The PocoCMS theme framework</h2>
@@ -461,7 +460,9 @@ more detail.</p>
 <p>Each theme is in its own directory under
 <code>.poco/themes</code>. So if you want to edit the Electro
 theme, you'd go to your site's <a href="glossary.html#root-directory">root directory</a>
-by loading <code>.poco/themes/electro/README.md</code>.</p>
+by loading <code>.poco/themes/electro/README.md</code>. Because these directories
+are completely self-contained they can be copied from other
+sources or deleted at will.</p>
 <p>PocoCMS themes are built up stylesheets and from files for the header, nav,
 aside, and footer. They're listed in a required file in the theme
 <code>README.md</code> file.
@@ -592,7 +593,7 @@ stylesheets:
 ---
 </code></pre>
 <h2 id="theme-structure">Theme structure</h2>
-<p>A theme is nameed by its subdirectory. The <code>README.me</code>
+<p>A theme's name is its directory name. The <code>README.me</code>
 file in that subdirectory has a special use. It
 determines what files are used to produce the theme.</p>
 <h3 id="stylesheets-in-the-themes-readmemd-file">Stylesheets in the theme's README.md file</h3>
@@ -685,7 +686,8 @@ on the header:</p>
 * [Report an issue](https://github.com/pococms/poco/issues)
 * [GitHub](https://github.com/pococms/poco)
 </code></pre>
-<p>This is also likely for the nav and footer.</p>
+<p>This is also likely for the nav and footer. In no case is it required
+for technical reasons. It's just how most site menus work these days.</p>
 <h3 id="files-can-be-markdown-or-html">Files can be Markdown or HTML</h3>
 <p>If a file ends in <code>.md</code> it's treated as Markdown. If it ends in
 <code>.html</code> it's an HTML file and is inserted directly into the
@@ -708,8 +710,9 @@ nav: SUPPRESS
 What happened to the navbar on this page?
 </code></pre>
 <h3 id="or-replace-a-page-layout-element-with-a-local-file">...OR replace a page layout element with a local file</h3>
-<p>You can also replace any single page layout element by
-creating a file for it in the same directory. Suppose you
+<p>You can also replace any single page layout element
+<a href="gs-parts-of-theme.html#hiding-header-nav-aside-or-footer-on-a-per-page-basis">on a per-page basis</a>
+by creating a file for it in the same directory. Suppose you
 want to remind users to check for an important update. You'd
 do this. Your article would include an <code>nav</code> declaration like this one
 in the front matter:</p>
@@ -767,17 +770,18 @@ no <a href="glossary.html#home-page">home page</a>, PocoCMS
 generates a simple <code>index.md</code> file. If you view its contents,
 you'll see this:</li>
 </ul>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span>Stylesheets:
-</span></span><span style="display:flex;"><span>    <span style="color:#00a">-</span> &#34;https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/poquito.css&#34;
-</span></span><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span><span style="color:#000080;font-weight:bold"># Welcome to mysite
-</span></span></span><span style="display:flex;"><span><span style="color:#000080;font-weight:bold"></span>
-</span></span><span style="display:flex;"><span>hello, world.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Learn more at [<span style="color:#1e90ff;font-weight:bold">PocoCMS tutorials</span>](<span style="color:#1e90ff">https://pococms.com/docs/tutorials.html</span>) 
-</span></span><span style="display:flex;"><span>
-</span></span></code></pre><p></p>
+<pre><code>---
+Stylesheets:
+    - &quot;https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/poquito.css&quot;
+---
+# Welcome to mysite
+
+hello, world.
+
+Learn more at [PocoCMS tutorials](https://pococms.com/docs/tutorials.html) 
+
+</code></pre>
+<p></p>
 <p>When you load the web page you'll see it has minimal styling
 and that the first part of the file doesn't get displayed.
 That first part between the <code>---</code> lines

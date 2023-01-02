@@ -57,7 +57,7 @@ The directory in `mysite` looks like this:
 
 The `WWW` directory is called the [webroot](glossary.html#webroot)
 and it is where all output goes. To publish your site, you just
-need to get its directory tree onto a public web server.
+need to copy the webroot directory tree onto a public web server.
 
 The `.poco` directory contains all assets needed to build your site:
 themes, graphic assets, and so forth.
@@ -74,7 +74,9 @@ more detail.
 Each theme is in its own directory under
 `.poco/themes`. So if you want to edit the Electro
 theme, you'd go to your site's [root directory](glossary.html#root-directory)
-by loading `.poco/themes/electro/README.md`.
+by loading `.poco/themes/electro/README.md`. Because these directories
+are completely self-contained they can be copied from other
+sources or deleted at will. 
 
 PocoCMS themes are built up stylesheets and from files for the header, nav,
 aside, and footer. They're listed in a required file in the theme
@@ -240,7 +242,7 @@ stylesheets:
 ```
 ## Theme structure
 
-A theme is nameed by its subdirectory. The `README.me`
+A theme's name is its directory name. The `README.me`
 file in that subdirectory has a special use. It
 determines what files are used to produce the theme.
 
@@ -375,7 +377,8 @@ on the header:
 * [GitHub](https://github.com/pococms/poco)
 ```
 
-This is also likely for the nav and footer.
+This is also likely for the nav and footer. In no case is it required
+for technical reasons. It's just how most site menus work these days.
 
 ### Files can be Markdown or HTML
 
@@ -406,8 +409,9 @@ What happened to the navbar on this page?
 
 ### ...OR replace a page layout element with a local file
 
-You can also replace any single page layout element by
-creating a file for it in the same directory. Suppose you
+You can also replace any single page layout element 
+[on a per-page basis](gs-parts-of-theme.html#hiding-header-nav-aside-or-footer-on-a-per-page-basis)
+by creating a file for it in the same directory. Suppose you
 want to remind users to check for an important update. You'd
 do this. Your article would include an `nav` declaration like this one
   in the front matter:
@@ -429,7 +433,6 @@ overridden by the file called `news-update.md` (use any filename you want).
 ```
 If you used beta version 10.0.9, please **[upgrade now](beta-10-0-0.html)**
 ```
-
 
 ## Installation
 
@@ -483,7 +486,7 @@ no [home page](glossary.html#home-page), PocoCMS
 generates a simple `index.md` file. If you view its contents,
 you'll see this:
 
-```markdown {hl_lines=["1,2]"}
+```
 ---
 Stylesheets:
     - "https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/poquito.css"

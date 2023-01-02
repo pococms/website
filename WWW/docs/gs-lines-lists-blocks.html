@@ -329,7 +329,6 @@ html{
 }
 
 header>ul>li:first-child>a{font-weight:900;letter-spacing:-.1rem;}
-article>h5>strong{text-decoration:underline;}
 
 /* The article may be wider than you want text and
  * code listings to be. This narrows the text and
@@ -417,7 +416,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <ul>
 <li><a href="gs-parts-of-theme.html#header-nav-article-aside-and-footer">Header, nav, article, aside, and footer</a></li>
 <li><a href="gs-parts-of-theme.html#layout-elements">Layout elements</a></li>
-<li><a href="#hiding-header-nav-aside-or-footer-on-a-per-page-basis">Hiding header, nav, aside, or footer on a per-page basis</a>
+<li><a href="gs-parts-of-theme.html#hiding-header-nav-aside-or-footer-on-a-per-page-basis">Hiding header, nav, aside, or footer on a per-page basis</a>
 <ul>
 <li><a href="gs-parts-of-theme.html#hide-the-header">Hide the header</a></li>
 <li><a href="gs-parts-of-theme.html#hide-the-nav">Hide the nav</a></li>
@@ -441,7 +440,8 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <li><a href="gs-editing-parts-of-a-theme.html">Editing parts of a theme</a>
 <ul>
 <li><a href="gs-editing-parts-of-a-theme.html#editing-the-header">Editing the header</a></li>
-<li><a href="gs-editing-parts-of-a-theme.html#replacing-the-nav">Replacing the nav</a>
+<li><a href="gs-editing-parts-of-a-theme.html#replacing-the-nav">Replacing the nav</a></li>
+<li><a href="gs-editing-parts-of-a-theme.html#replacing-the-contents-of-the-article-with-a-file">Replacing the contents of the article with a file</a>
 <ul>
 <li><a href="gs-editing-parts-of-a-theme.html#editing-other-page-layout-elements">Editing other page layout elements</a></li>
 </ul>
@@ -551,13 +551,20 @@ that adjust according to the size of your screen.</p>
 <p>Now, suppose you're a <a href="https://www.poetryfoundation.org/poems/47304/little-tree">brilliant poet</a> and
 want your lines to be split a particular way? The key is to end each line with two spaces or a backslash (<code>\</code>).
 Here the spaces are represented by dots.</p>
-<h5 id="markdown-2">Markdown:</h5>
+<h5 id="markdown-using-a-backslash">Markdown using a backslash:</h5>
+<pre><code>who found you in the green forest\
+and were you very sorry to come away?
+</code></pre>
+<h5 id="result-2">Result:</h5>
+<p>who found you in the green forest<br />
+and were you very sorry to come away?</p>
+<h5 id="markdown-using-spaces">Markdown using spaces:</h5>
 <pre><code>NOTE: In this example the ⋅ dot represents the space character
 
 who found you in the green forest⋅⋅
 and were you very sorry to come away?
 </code></pre>
-<h5 id="result-2">Result:</h5>
+<h5 id="result-3">Result:</h5>
 <p>who found you in the green forest<br />
 and were you very sorry to come away?</p>
 <h2 id="markdown-lists">Markdown Lists</h2>
@@ -565,11 +572,11 @@ and were you very sorry to come away?</p>
 and ordered (numbered lists).</p>
 <h3 id="markdown-unordered-list-syntax">Markdown unordered list syntax</h3>
 <p>Unordered list items start the line with an asterisk and a space (<code>* </code>):</p>
-<h5 id="markdown-3">Markdown:</h5>
+<h5 id="markdown-2">Markdown:</h5>
 <pre><code>* Try rebooting.
 * In the likely event that doesn't work, smash it with a hammer.
 </code></pre>
-<h5 id="result-3">Result:</h5>
+<h5 id="result-4">Result:</h5>
 <ul>
 <li>Try rebooting.</li>
 <li>In the likely event that doesn't work, smash it with a hammer.</li>
@@ -581,7 +588,7 @@ and ordered (numbered lists).</p>
 + The plus sign
 - The minus sign
 </code></pre>
-<h5 id="result-4">Result:</h5>
+<h5 id="result-5">Result:</h5>
 <ul>
 <li>The asterisk</li>
 </ul>
@@ -592,19 +599,23 @@ and ordered (numbered lists).</p>
 <li>The minus sign</li>
 </ul>
 <h3 id="markdown-ordered-list-syntax">Markdown ordered list syntax</h3>
-<p>Ordered list items start the line with a number, a period and a space (<code>1. </code>):</p>
-<h5 id="markdown-4">Markdown:</h5>
+<p>Ordered list items start the line with a number, a period and a space (<code>1. </code>):
+The number you use doesn't matter. As with HTML, it will start with 1
+and increment by 1s after that.</p>
+<h5 id="markdown-3">Markdown:</h5>
 <pre><code>1. Eddie Van Halen
 1. John Mayer
+1. The Edge
 </code></pre>
-<h5 id="result-5">Result:</h5>
+<h5 id="result-6">Result:</h5>
 <ol>
 <li>Eddie Van Halen</li>
 <li>John Mayer</li>
+<li>The Edge</li>
 </ol>
 <h3 id="markdown-indented-list-syntax-nested-lists">Markdown indented list syntax: nested lists</h3>
 <p>You can nest lists by indenting with two spaces per level.</p>
-<h5 id="markdown-5">Markdown:</h5>
+<h5 id="markdown-4">Markdown:</h5>
 <pre><code>NOTE: In this example the ⋅ dot represents the space character
 
 * First level of identation
@@ -620,7 +631,7 @@ and ordered (numbered lists).</p>
 ⋅⋅⋅⋅⋅⋅* Not sure how deep lists can be nested
 * A return to the first-level list 
 </code></pre>
-<h5 id="result-6">Result:</h5>
+<h5 id="result-7">Result:</h5>
 <ul>
 <li>
 <p>First level of identation</p>
@@ -659,13 +670,13 @@ Line 2</p>
 Line 2</p>
 <h3 id="markdown-indented-list-syntax-indenting-text">Markdown indented list syntax: indenting text</h3>
 <p>You can indent text under a list item by preceding it with 3 spaces, like this:</p>
-<h5 id="markdown-6">Markdown:</h5>
+<h5 id="markdown-5">Markdown:</h5>
 <pre><code>1. Eddie Van Halen
 
   Some would say he's not the best. But they're defective people.
 1. John Mayer
 </code></pre>
-<h5 id="result-7">Result:</h5>
+<h5 id="result-8">Result:</h5>
 <ol>
 <li>
 <p>Eddie Van Halen</p>
@@ -678,25 +689,25 @@ Line 2</p>
 <h2 id="block-quotes">Block quotes</h2>
 <p>To set off a reasonably large passage of text you may prefer to use <em>block quote</em> syntax,
 which is simply starting a line with the greater than symbol (<code>&gt;</code>):</p>
-<h5 id="markdown-7">Markdown:</h5>
+<h5 id="markdown-6">Markdown:</h5>
 <pre><code>
 As the great Tony Stark once said:
 
 &gt; I'm a huge fan of the way you lose control and turn into an enormous green rage monster.
 </code></pre>
-<h5 id="result-8">Result:</h5>
+<h5 id="result-9">Result:</h5>
 <p>As the great Tony Stark once said:</p>
 <blockquote>
 <p>I'm a huge fan of the way you lose control and turn into an enormous green rage monster.</p>
 </blockquote>
 <p>Multiple <code>&gt;</code> symbols on successive lines work together as one:</p>
-<h5 id="markdown-8">Markdown:</h5>
+<h5 id="markdown-7">Markdown:</h5>
 <pre><code>As the great Tony Stark once said:
 
 &gt; I'm a huge fan of the way you lose control 
 &gt; hand turn into an enormous green rage monster.
 </code></pre>
-<h5 id="result-9">Result:</h5>
+<h5 id="result-10">Result:</h5>
 <p>As the great Tony Stark once said:</p>
 <blockquote>
 <p>I'm a huge fan of the way you lose control
@@ -715,7 +726,7 @@ Underscores:
 
 ***
 </code></pre>
-<h5 id="result-10">Result:</h5>
+<h5 id="result-11">Result:</h5>
 <p>Asterisks:</p>
 <hr />
 <p>Hyphens:</p>

@@ -64,7 +64,20 @@ Now, suppose you're a [brilliant poet](https://www.poetryfoundation.org/poems/47
 want your lines to be split a particular way? The key is to end each line with two spaces or a backslash (`\`).
 Here the spaces are represented by dots.
 
-##### Markdown:
+##### Markdown using a backslash:
+
+```
+who found you in the green forest\
+and were you very sorry to come away?
+```
+
+##### Result:
+
+who found you in the green forest\
+and were you very sorry to come away?
+
+
+##### Markdown using spaces:
 
 ```
 NOTE: In this example the ⋅ dot represents the space character
@@ -123,18 +136,22 @@ Markdown alternatives for unordered lists:
 ### Markdown ordered list syntax
 
 Ordered list items start the line with a number, a period and a space (`1. `):
+The number you use doesn't matter. As with HTML, it will start with 1
+and increment by 1s after that.
 
 ##### Markdown:
 
 ```
 1. Eddie Van Halen
 1. John Mayer
+1. The Edge
 ```
 
 ##### Result:
 
 1. Eddie Van Halen
 1. John Mayer
+1. The Edge
 
 ### Markdown indented list syntax: nested lists
 

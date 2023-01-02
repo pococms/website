@@ -25,28 +25,29 @@ download the source from GitHub.
 * Optional but highly recommended: PocoCMS is hosted on [GitHub](https://github.com/pococms/poco),
 so you should probably [get an account on GitHub](https://github.com/signup).
 * Then you install it as you would any other GitHub repo. Drop into the
-terminal, then
-  1. Change to the directory you want Git to be installed in. It will be generated in a subdirectory of that directory. For example, on Unix or Mac, it might
+terminal, then:
+
+1. Change to the directory you want Git to be installed in. It will be generated in a subdirectory of that directory. For example, on Unix or Mac, it might
   be something like:
 ```
 cd ~/code
 ```
-  2. Download the repo as you would any other repo:
+2. Download the repo as you would any other repo:
 
 ```
 git clone https://github.com/pococms/poco
 ```
-  3. Compile!
+3. Compile!
 
 ```
 go build
 ```
-  4. This will give you a `poco` in the current directory. Start you first project like this:
+4. This will give you a `poco` in the current directory. Start your first project like this:
 
 ```
 ./poco ~/mysite
 ./poco -server ~/mysite
 ```
-  But you should put `poco` on the system path as soon as possible.
+   But you should put `poco` on the system path as soon as possible.
 
 

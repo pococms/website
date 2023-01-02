@@ -142,7 +142,28 @@ chose, in this case, Base):
 
 ### Editing other page layout elements
 
-Use the principles you've learned on this page to edit your [nav](glossary.html#nav) and  [footer](glossary.html#footer)
+You can use the principles you've learned on this page to edit your [nav](glossary.html#nav) and  [footer](glossary.html#footer).
+
+### Replacing the contents of the article with a file
+
+You can even replace the on-page text, aka the article.
+
+* Add the following to your root directory's `index.md` file:
+
+```
+---
+article: ".poco/demo/mdemo.md"
+---
+```
+
+* Here's what the page looks like now:
+
+![Same page but with mdemo.md demo document replacing article](img/mdemo-added.png)
+
+The `article: .poco/demo/mdemo.md` line means "take the contents
+of the file given after `article: ` and replace the existing 
+article with it." It works for any Markdown document, but this
+one is useful for demonstrating themes.
 
 
 

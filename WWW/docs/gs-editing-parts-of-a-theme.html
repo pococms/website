@@ -329,7 +329,6 @@ html{
 }
 
 header>ul>li:first-child>a{font-weight:900;letter-spacing:-.1rem;}
-article>h5>strong{text-decoration:underline;}
 
 /* The article may be wider than you want text and
  * code listings to be. This narrows the text and
@@ -417,7 +416,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <ul>
 <li><a href="gs-parts-of-theme.html#header-nav-article-aside-and-footer">Header, nav, article, aside, and footer</a></li>
 <li><a href="gs-parts-of-theme.html#layout-elements">Layout elements</a></li>
-<li><a href="#hiding-header-nav-aside-or-footer-on-a-per-page-basis">Hiding header, nav, aside, or footer on a per-page basis</a>
+<li><a href="gs-parts-of-theme.html#hiding-header-nav-aside-or-footer-on-a-per-page-basis">Hiding header, nav, aside, or footer on a per-page basis</a>
 <ul>
 <li><a href="gs-parts-of-theme.html#hide-the-header">Hide the header</a></li>
 <li><a href="gs-parts-of-theme.html#hide-the-nav">Hide the nav</a></li>
@@ -441,7 +440,8 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <li><a href="gs-editing-parts-of-a-theme.html">Editing parts of a theme</a>
 <ul>
 <li><a href="gs-editing-parts-of-a-theme.html#editing-the-header">Editing the header</a></li>
-<li><a href="gs-editing-parts-of-a-theme.html#replacing-the-nav">Replacing the nav</a>
+<li><a href="gs-editing-parts-of-a-theme.html#replacing-the-nav">Replacing the nav</a></li>
+<li><a href="gs-editing-parts-of-a-theme.html#replacing-the-contents-of-the-article-with-a-file">Replacing the contents of the article with a file</a>
 <ul>
 <li><a href="gs-editing-parts-of-a-theme.html#editing-other-page-layout-elements">Editing other page layout elements</a></li>
 </ul>
@@ -626,7 +626,24 @@ chose, in this case, Base):</li>
 </ul>
 <p><img src="img/base-theme-reddit-search-nav.png" alt="Screenshot of Base theme with nav replaced by Reddit Search" /></p>
 <h3 id="editing-other-page-layout-elements">Editing other page layout elements</h3>
-<p>Use the principles you've learned on this page to edit your <a href="glossary.html#nav">nav</a> and  <a href="glossary.html#footer">footer</a></p>
+<p>You can use the principles you've learned on this page to edit your <a href="glossary.html#nav">nav</a> and  <a href="glossary.html#footer">footer</a>.</p>
+<h3 id="replacing-the-contents-of-the-article-with-a-file">Replacing the contents of the article with a file</h3>
+<p>You can even replace the on-page text, aka the article.</p>
+<ul>
+<li>Add the following to your root directory's <code>index.md</code> file:</li>
+</ul>
+<pre><code>---
+article: &quot;.poco/demo/mdemo.md&quot;
+---
+</code></pre>
+<ul>
+<li>Here's what the page looks like now:</li>
+</ul>
+<p><img src="img/mdemo-added.png" alt="Same page but with mdemo.md demo document replacing article" /></p>
+<p>The <code>article: .poco/demo/mdemo.md</code> line means &quot;take the contents
+of the file given after <code>article: </code> and replace the existing
+article with it.&quot; It works for any Markdown document, but this
+one is useful for demonstrating themes.</p>
 <h6 id="previous-hiding-parts-of-a-pococms-theme-globallygs-hide-theme-parts-globallyhtml-next-creating-and-linking-to-pagesgs-creating-and-linking-pageshtml"><a href="gs-hide-theme-parts-globally.html">Previous: Hiding parts of a PocoCMS theme globally</a> <a href="gs-creating-and-linking-pages.html">Next: Creating and linking to pages</a></h6>
 
 </article>

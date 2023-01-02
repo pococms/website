@@ -19,16 +19,16 @@ stylesheets:
 
 ## Feature enhancements
 
-* ts2: Make trashing the factory settings an option
+* ts2 needs a test that shows background of all page layout elemetns, like ts1 has 
+* ts2: create a theme
+* ts2: Make trashing the factory settings an option:
 ```
 echo "Stress test: Removing factory themes"
 rm -rf /Users/tom/Library/Application\ Support/pococms/
 ```
 
-* Allow `poco -settings` to run in the Poco directory
 * Need to get functions working if I want to support toc,
 among other things
-* If you create a theme outside the Poco directory, `poco-theme-test` gets confused
 * Fill out [Paperboard theme demo](docs/demos/paperboard.html), 
 source at docs/demos/paperboard.md and docs/demos/paperboard-aside.md
 
@@ -39,6 +39,6 @@ source at docs/demos/paperboard.md and docs/demos/paperboard-aside.md
 
 ## Documentation
 
-* Write [workflow.md](docs/workflow.html), [Next Steps](docs/next-steps.html)
+* Write [Next Steps](docs/next-steps.html)
 * Figure out how to standardize theme documentation
 

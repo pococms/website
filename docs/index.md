@@ -8,7 +8,7 @@ aside: SUPPRESS
 ## Creating static websites with PocoCMS
 * [Tutorial: getting started](getting-started.html)
 * [Front matter](front-matter.html)
-* [Using themes](themes-using.html)
+* [Creating themes](themes-creating.html)
 
 ## Running PocoCMS
 * [Command-line operation](cli.html)
