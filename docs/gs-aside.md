@@ -12,5 +12,16 @@
     + [Hide the header](gs-parts-of-theme.html#hide-the-header)
     + [Hide the nav](gs-parts-of-theme.html#hide-the-nav)
     + [Hide the rest](gs-parts-of-theme.html#hide-the-rest)
-* [Hiding parts of a PocoCMS theme globally](gs-hide-theme-parts-globally.html)  
-  - [Remove header, nav, aside, or footer from a theme](gs-hide-theme-parts-globally.html#remove-header-nav-aside-or-footer-from-a-theme)
+* [Hiding parts of a PocoCMS theme globally](gs-hide-theme-parts-globally.html)
+   - [Remove header, nav, aside, or footer from a theme](gs-hide-theme-parts-globally.html#remove-header-nav-aside-or-footer-from-a-theme)
+     + [Find your theme file in the .poco directory](gs-hide-theme-parts-globally.html#find-your-theme-file-in-the-poco-directory)
+     + [Comment out the aside (or any other) page layout element](gs-hide-theme-parts-globally.html#comment-out-the-aside-or-any-other-page-layout-element)
+     + [Comments in the YAML front matter](gs-hide-theme-parts-globally.html#comments-in-the-yaml-front-matter)
+     + [Find your theme file in the .poco directory](gs-hide-theme-parts-globally.html#find-your-theme-file-in-the-poco-directory)
+
+
+
+
+
+
+

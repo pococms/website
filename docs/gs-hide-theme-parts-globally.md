@@ -1,3 +1,7 @@
+---
+aside: "docs/gs-aside.md"
+---
+
 # Hiding parts of a PocoCMS theme globally
 
 In [The parts of a PocoCMS theme](gs-parts-of-theme.html) you learned how
