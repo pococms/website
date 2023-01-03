@@ -426,9 +426,9 @@ launchpad for all PocoCMS framework themes, from <a href="demos/electro.html">El
 contained within the <code>.poco/themes</code> subdirectory.
 It's easy to copy a theme elsewhere when you're finished
 but righ now the safest thing to do is to start
-with a test project. We'll call it <code>t2</code>.</p>
-<pre><code>poco -new t2
-cd t2
+with a test project. We'll call it <code>gossip</code>.</p>
+<pre><code>poco -new gossip
+cd gossip
 </code></pre>
 <h2 id="copy-a-theme-you-like">Copy a theme you like</h2>
 <p>The first thing is to copy a theme you like.</p>
@@ -456,18 +456,18 @@ be <code>tattle</code> because it's an industry gossip site.</p>
 just specify it in the front matter as you would any other:</li>
 </ul>
 <pre><code>---
-theme: gossip
+theme: tattle
 ---
 </code></pre>
 <ul>
 <li>Build the project. It should look like this,
 calling itself the Base theme when we know it's your Gossip theme.</li>
 </ul>
-<p><img src="img/home-page-default-1366x768.png" alt="Screenshot of what looks liek th" /></p>
+<p><img src="img/home-page-default-1366x768.png" alt="Screenshot of what looks like the Base theme" /></p>
 <h3 id="append-themenamecss-to-end-of-the-themes-stylesheets-rule">Append themename.css to end of the theme's stylesheets rule</h3>
 <ul>
-<li>Load the theme's <code>README.md</code> file from your project's <a href="#glossary.html#root-directory">root directory</a> by editing the file <code>.poco/themes/t2/README.md</code>. Obviously
-you will replace <code>t2</code> with whatever theme name you created.</li>
+<li>Load the theme's <code>README.md</code> file from your project's <a href="#glossary.html#root-directory">root directory</a> by editing the file <code>.poco/themes/gossip/README.md</code>. Obviously
+you will replace <code>gossip</code> with whatever theme name you created.</li>
 <li>It will look something like this, in the example where your
 theme was copied from the Base theme:</li>
 </ul>
@@ -492,11 +492,11 @@ to the <em>end</em> of the <code>stylesheets</code> list:</li>
 - ../../css/layout.css
 - ../../css/type.css
 - ../../css/mediacolors.css
-# ADD THE LINE BELOW. Replace t2 with your theme name:
-- t2.css
+# ADD THE LINE BELOW. Replace gossip with your theme name:
+- gossip.css
 
 </code></pre>
-<p>The contents of <code>t2.css</code> are pretty much blank and
+<p>The contents of <code>gossip.css</code> are pretty much blank and
 will have no affect on the theme so far:</p>
 <pre><code>/* OVERRIDE FRAMEWORK SIZES */
 
@@ -507,16 +507,17 @@ will have no affect on the theme so far:</p>
 /* OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT &amp; DARK THEMES */
 @media (prefers-color-scheme:light) {
 :root {
-  --fg:blue;
 }
 }
 
 @media (prefers-color-scheme:dark) {
 :root {
-  --fg:lightgray;
 }
 }
 </code></pre>
+<p>Right now we're just at parity with the Base theme. Next
+we'll learn about turning Base into something better
+for current news.</p>
 <h6 id="previous-add-a-classless-stylesheet-to-your-themeth-add-classless-csshtml"><a href="th-add-classless-css.html">Previous: Add a classless stylesheet to your theme</a></h6>
 
 </article>

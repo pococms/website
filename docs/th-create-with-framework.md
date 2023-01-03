@@ -20,11 +20,11 @@ Each Poco project is self-contained, with all theme data
 contained within the `.poco/themes` subdirectory.
 It's easy to copy a theme elsewhere when you're finished
 but righ now the safest thing to do is to start
-with a test project. We'll call it `t2`.
+with a test project. We'll call it `gossip`.
 
 ```
-poco -new t2
-cd t2
+poco -new gossip
+cd gossip
 ```
 
 ## Copy a theme you like
@@ -54,19 +54,19 @@ just specify it in the front matter as you would any other:
 
 ```
 ---
-theme: gossip
+theme: tattle
 ---
 ```
 
 * Build the project. It should look like this, 
 calling itself the Base theme when we know it's your Gossip theme.
 
-![Screenshot of what looks liek th](img/home-page-default-1366x768.png)
+![Screenshot of what looks like the Base theme](img/home-page-default-1366x768.png)
 
 ###  Append themename.css to end of the theme's stylesheets rule
 
-* Load the theme's `README.md` file from your project's [root directory](#glossary.html#root-directory) by editing the file `.poco/themes/t2/README.md`. Obviously
-you will replace `t2` with whatever theme name you created.
+* Load the theme's `README.md` file from your project's [root directory](#glossary.html#root-directory) by editing the file `.poco/themes/gossip/README.md`. Obviously
+you will replace `gossip` with whatever theme name you created.
 * It will look something like this, in the example where your
 theme was copied from the Base theme:
 
@@ -92,12 +92,12 @@ stylesheets:
 - ../../css/layout.css
 - ../../css/type.css
 - ../../css/mediacolors.css
-# ADD THE LINE BELOW. Replace t2 with your theme name:
-- t2.css
+# ADD THE LINE BELOW. Replace gossip with your theme name:
+- gossip.css
 
 ```
 
-The contents of `t2.css` are pretty much blank and
+The contents of `gossip.css` are pretty much blank and
 will have no affect on the theme so far:
 
 
@@ -111,16 +111,32 @@ will have no affect on the theme so far:
 /* OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT & DARK THEMES */
 @media (prefers-color-scheme:light) {
 :root {
-  --fg:blue;
 }
 }
 
 @media (prefers-color-scheme:dark) {
 :root {
-  --fg:lightgray;
 }
 }
 ```
+
+Right now we're just at parity with the Base theme. Next
+we'll learn about turning Base into something better
+for current news.
+
+{{- /* TODO: BREAK THESE SECTIONS UP WHEN THEIR ORDER IS CLEAR */ -}}
+
+### Add downloadable font for headlines
+
+
+##### File: **.poco/themes/gossip/README.md**
+```
+importrules:
+- url('https://fonts.googleapis.com/css?family=Oswald:wght@500&display=swap');
+```
+
+
+
 
 
 ###### [Previous: Add a classless stylesheet to your theme](th-add-classless-css.html)
