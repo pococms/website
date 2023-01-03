@@ -36,6 +36,7 @@ cd ~/code
 
 ```
 git clone https://github.com/pococms/poco
+cd poco
 ```
 3. Compile!
 
@@ -48,6 +49,8 @@ go build
 ./poco ~/mysite
 ./poco -server ~/mysite
 ```
-   But you should put `poco` on the system path as soon as possible.
+5. Paste the URL `http://localhost:54321` into your browser to see your first PocoCMS site.
+
+6. When you get a moment, put `poco` on the system path as soon as possible.
 
 

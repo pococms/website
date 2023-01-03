@@ -1,3 +1,7 @@
+---
+aside: docs/th-aside.md
+---
+
 # Creating a PocoCMS theme from scratch
 
 ## Creating the simplest possible theme
@@ -26,7 +30,7 @@ site and create a directory at `.poco/themes/t1`:
 mkdir .poco/themes/t1
 ```
 
-Note: the directory name is also the theme name.
+Note: the directory name will also be the theme name.
 
 * Create a file named `.poco/themes/t1/README.md`. That's right,
 it's going to be empty at first.

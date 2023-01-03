@@ -1,3 +1,7 @@
+---
+aside: docs/th-aside.md
+---
+
 # Adding a classless stylesheet to your theme
 
 There's a genre of stylesheets called "classless" that
@@ -99,10 +103,12 @@ of the [framework](theme-framework.html) theme called
 You could build a whole site based on these simple themes,
 but you'd lose features like headers, footer, navs, and asides.
 You'd probably also lose dark mode support and media queries.
+Next let's take a look at building a theme with 
+the PocoCMS theme framework.
 
-###### [Previous: Creating a PocoCMS theme from scratch](img/th-create-from-scratch.html)
+###### [Previous: Creating a PocoCMS theme from scratch](th-create-from-scratch.html)
+[Next: Creating a PocoCMS theme with the framework](th-create-with-framework.html)
 
-{{- /* [Adding a classless stylesheet to your theme](th-add-classless-css.html) */ -}}
 
 
 
