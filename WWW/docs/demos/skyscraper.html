@@ -20,8 +20,17 @@
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
+  --header-fg:var(--fg);      /* Text color of header */
+  --header-bg:var(--bg);      /* Background color of header */
+  --header-height:auto;       /* Height of header */
+  --nav-fg:var(--fg);         /* Text color of nav */
+  --nav-bg:var(--bg);         /* Background color of nav */
+  --aside-fg:var(--fg);       /* Text color of aside */
+  --aside-bg:var(--bg);       /* Background color of aside */
+  --footer-fg:var(--fg);      /* Text color of footer */
+  --footer-bg:var(--bg);      /* Background color of footer */
   --h1-fg:var(--fg);          /* Default h1 text color */
-  --h2-fg:gray;               /* Default h2 text color */
+  --h2-fg:var(--fg);          /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
   --h4-fg:gray;               /* Default h4 text color */
   --h5-fg:var(--fg);          /* Default h5 text color */
@@ -34,7 +43,7 @@
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
   --pre-bg:var(--code-bg);    /* Background color for fenced code */
-  --padding-left:25%;         /* Where the header, nav, and footer usually start */
+  --padding-left:5%;          /* Where the header, nav, and footer usually start */
 }
 
 /* ************************************/
@@ -48,15 +57,23 @@
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
+  --header-fg:var(--fg);      /* Text color of header */
+  --header-bg:var(--bg);      /* Background color of header */
+  --nav-fg:var(--fg);         /* Text color of nav */
+  --nav-bg:var(--bg);         /* Background color of nav */
+  --aside-fg:var(--fg);       /* Text color of aside */
+  --aside-bg:var(--bg);       /* Background color of aside */
+  --footer-fg:var(--fg);      /* Text color of footer */
+  --footer-bg:var(--bg);      /* Background color of footer */
   --h1-fg:var(--fg);          /* Default h1 text color */
-  --h2-fg:gray;               /* Default h2 text color */
+  --h2-fg:var(--fg);          /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
-  --h4-fg:gray;               /* Default h4 text color */
+  --h4-fg:var(--fg);          /* Default h4 text color */
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
   --article-width:80%;        /* Should add up to 100% with --aside-width */
-  --aside-width:20%;        /* Should add up to 100% with --aside-width */
+  --aside-width:20%;          /* Should add up to 100% with --aside-width */
   --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
@@ -79,6 +96,15 @@
   --bg:MidnightBlue;          /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
+  --header-fg:var(--fg);      /* Text color of header */
+  --header-bg:var(--bg);      /* Background color of header */
+  --header-height:auto;       /* Height of header */
+  --nav-fg:var(--fg);         /* Text color of nav */
+  --nav-bg:var(--bg);         /* Background color of nav */
+  --aside-fg:var(--fg);       /* Text color of aside */
+  --aside-bg:var(--bg);       /* Background color of aside */
+  --footer-fg:var(--fg);      /* Text color of footer */
+  --footer-bg:var(--bg);      /* Background color of footer */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:Lavender;           /* Default h2 text color */
   --h3-fg:SkyBlue;            /* Default h3 text color */
@@ -87,7 +113,7 @@
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
   --article-width:80%;        /* Should add up to 100% with --aside-width */
-  --aside-width:20%;        /* Should add up to 100% with --aside-width */
+  --aside-width:20%;          /* Should add up to 100% with --aside-width */
   --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:black;            /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
@@ -165,7 +191,7 @@ header>ul>li,nav>ul>li{padding-right:.5em;}
 article{width:var(--article-width);height:auto;}  
 aside{width:var(--aside-width);padding:0 2em 0 2em;}  
 footer {padding-top:2em;}
-article,nav,header,aside,footer{padding-left:var(--padding-left);}
+article,nav,header,footer{padding-left:var(--padding-left);}
 article>dl>dt {padding-top:1em;}
 article>dl>dd {margin-left:0;padding-bottom:0;}
 
@@ -215,7 +241,7 @@ article h4{font-weight:bold;}
 
 
 /* skinny.css*/
-html{background-color:var(--html-bg);margin-left:auto;margin-right:auto;width:100%;}
+html{/* background-color:var(--html-bg);*/margin-left:auto;margin-right:auto;width:100%;}
 body{width:60%;margin:5% 20% 5% 20%;}
 aside{width:30%;}
 article{width:70%;}
@@ -227,7 +253,11 @@ header,nav,footer{margin-left:auto;margin-right:auto;}
 
 /* mediacolors.css*/
 html{background-color:var(--html-bg);}
-article,nav,header,footer,aside{color:var(--fg);background-color:var(--bg);}
+header{color:var(--header-fg);background-color:var(--header-bg);}
+nav{color:var(--nav-fg);background-color:var(--nav-bg);}
+p,article{color:var(--fg);background-color:var(--bg);}
+aside{color:var(--aside-fg);background-color:var(--aside-bg);}
+footer{color:var(--footer-fg);background-color:var(--footer-bg);}
 a{color:var(--a);}
 code{
   color:var(--code-fg);
@@ -265,47 +295,16 @@ h4{color:var(--h4-fg);}
 /* skyscraper.css*/
 @media (prefers-color-scheme:light) {
 :root {
-  --html-bg:black;
+  --html-bg:gray
 }
 }
 
 @media (prefers-color-scheme:dark) {
 :root {
   --html-bg:SteelBlue;
-  --html-bg:red;
 }
 }
 
-
-
-
-/* ../../css/featuretable.css */
-/* Very specific stylesheet: used for feature tables in the theme demo area */
-
-
-/* Remove lines in all rows except header */
-article>table>tbody>tr>td{text-align:left}
-
-/* Remove lines from all rows of table except header */
-article>table>tbody>tr>td{border:none;}
-
-/* Remove lines from table header. */
-article>table>thead>tr>th{border:none;} 
-
-/* Force text to stay in one row of the same height */
-article>table{white-space:nowrap;}
-
-/* Keep the table narrow. It spaces columns closer. */
-article>table{table-layout:fixed;width:35%;}
-
-/* Make rows shorter */
-article>table>tbody>tr{line-height:.5rem;}
-
-/* Make columns 12 rem wide */
-article th{width:12rem;}
-
-/* First column is just wide enough for checkbox character */
-article th:first-child{width:1rem;}
 
 </style>
 </head>
@@ -338,6 +337,8 @@ news item of current interest</p>
 <article id="article-poco">
 <h4 id="theme-demos">Theme demos</h4>
 <h1 id="skyscraper-theme">Skyscraper theme</h1>
+<p>Skyscraper is pretty much just Base with the addition  of <code>skinny.css</code>,
+causing the article to narrow vertically so the background peaks out behind it.</p>
 <h2 id="supported-features">Supported features</h2>
 <p>✅ Header on/off<br />
 ✅ Nav on/off<br />

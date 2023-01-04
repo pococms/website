@@ -46,6 +46,16 @@ Thanks, [jsDelivr](https://www.jsdelivr.com/) people!
 ## Stock images
 * Image by [Michael Pewny](https://pixabay.com/users/mpewny-777390/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=668616) from [Pixabay](https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=668616)
 
+* https://pixabay.com/photos/woman-fashion-model-hippie-1853939/
+Image by <a href="https://pixabay.com/users/pexels-2286921/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1853939">Pexels</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1853939">Pixabay</a>
+
+* https://pixabay.com/photos/minister-government-man-politician-7362415/
+Image by <a href="https://pixabay.com/users/saarnews-12553488/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=7362415">Claus Kuhn</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=7362415">Pixabay</a>
+
+* [Mugshot](https://www.pexels.com/photo/man-person-people-sign-8382616/) 
+By https://www.pexels.com/@cottonbro/
+
+
 ## References
 
 * Font selector fallbacks: https://www.cssfontstack.com 

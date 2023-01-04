@@ -1,11 +1,13 @@
 ---
 pagetheme: "skyscraper"
 stylesheets:
-- "../../css/featuretable.css"
 ---
 #### Theme demos
 
 # Skyscraper theme
+
+Skyscraper is pretty much just Base with the addition  of `skinny.css`,
+causing the article to narrow vertically so the background peaks out behind it.
 
 
 ## Supported features

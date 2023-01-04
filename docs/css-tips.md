@@ -1,6 +1,22 @@
 # CSS tips
 
+## Format for commenting special features that should be added to a theme's public documentation
 
+```
+/* --------------------------------------------------
+ * SPECIAL FEATURE FOR HEADER: 
+ * First item in header gets special treatment:
+ * - Larger font size
+ * - Deeper text shadow
+ * --------------------------------------------------
+ */   
+
+header>ul>li:first-child>a,header>p:first-child>a,{
+  font-size:3.25rem;
+  text-shadow: 3px 3px 0 black;
+}
+
+```
 
 
 ## rem vs em

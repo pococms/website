@@ -20,8 +20,17 @@
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
+  --header-fg:var(--fg);      /* Text color of header */
+  --header-bg:var(--bg);      /* Background color of header */
+  --header-height:auto;       /* Height of header */
+  --nav-fg:var(--fg);         /* Text color of nav */
+  --nav-bg:var(--bg);         /* Background color of nav */
+  --aside-fg:var(--fg);       /* Text color of aside */
+  --aside-bg:var(--bg);       /* Background color of aside */
+  --footer-fg:var(--fg);      /* Text color of footer */
+  --footer-bg:var(--bg);      /* Background color of footer */
   --h1-fg:var(--fg);          /* Default h1 text color */
-  --h2-fg:gray;               /* Default h2 text color */
+  --h2-fg:var(--fg);          /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
   --h4-fg:gray;               /* Default h4 text color */
   --h5-fg:var(--fg);          /* Default h5 text color */
@@ -34,7 +43,7 @@
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
   --pre-fg:var(--code-fg);    /* Text color for fenced code */
   --pre-bg:var(--code-bg);    /* Background color for fenced code */
-  --padding-left:25%;         /* Where the header, nav, and footer usually start */
+  --padding-left:5%;          /* Where the header, nav, and footer usually start */
 }
 
 /* ************************************/
@@ -48,15 +57,23 @@
   --bg:white;                 /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
+  --header-fg:var(--fg);      /* Text color of header */
+  --header-bg:var(--bg);      /* Background color of header */
+  --nav-fg:var(--fg);         /* Text color of nav */
+  --nav-bg:var(--bg);         /* Background color of nav */
+  --aside-fg:var(--fg);       /* Text color of aside */
+  --aside-bg:var(--bg);       /* Background color of aside */
+  --footer-fg:var(--fg);      /* Text color of footer */
+  --footer-bg:var(--bg);      /* Background color of footer */
   --h1-fg:var(--fg);          /* Default h1 text color */
-  --h2-fg:gray;               /* Default h2 text color */
+  --h2-fg:var(--fg);          /* Default h2 text color */
   --h3-fg:var(--fg);          /* Default h3 text color */
-  --h4-fg:gray;               /* Default h4 text color */
+  --h4-fg:var(--fg);          /* Default h4 text color */
   --h5-fg:var(--fg);          /* Default h5 text color */
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
   --article-width:80%;        /* Should add up to 100% with --aside-width */
-  --aside-width:20%;        /* Should add up to 100% with --aside-width */
+  --aside-width:20%;          /* Should add up to 100% with --aside-width */
   --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
@@ -79,6 +96,15 @@
   --bg:MidnightBlue;          /* Default background color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
+  --header-fg:var(--fg);      /* Text color of header */
+  --header-bg:var(--bg);      /* Background color of header */
+  --header-height:auto;       /* Height of header */
+  --nav-fg:var(--fg);         /* Text color of nav */
+  --nav-bg:var(--bg);         /* Background color of nav */
+  --aside-fg:var(--fg);       /* Text color of aside */
+  --aside-bg:var(--bg);       /* Background color of aside */
+  --footer-fg:var(--fg);      /* Text color of footer */
+  --footer-bg:var(--bg);      /* Background color of footer */
   --h1-fg:var(--fg);          /* Default h1 text color */
   --h2-fg:Lavender;           /* Default h2 text color */
   --h3-fg:SkyBlue;            /* Default h3 text color */
@@ -87,7 +113,7 @@
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
   --article-width:80%;        /* Should add up to 100% with --aside-width */
-  --aside-width:20%;        /* Should add up to 100% with --aside-width */
+  --aside-width:20%;          /* Should add up to 100% with --aside-width */
   --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:black;            /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
@@ -165,7 +191,7 @@ header>ul>li,nav>ul>li{padding-right:.5em;}
 article{width:var(--article-width);height:auto;}  
 aside{width:var(--aside-width);padding:0 2em 0 2em;}  
 footer {padding-top:2em;}
-article,nav,header,aside,footer{padding-left:var(--padding-left);}
+article,nav,header,footer{padding-left:var(--padding-left);}
 article>dl>dt {padding-top:1em;}
 article>dl>dd {margin-left:0;padding-bottom:0;}
 
@@ -216,7 +242,11 @@ article h4{font-weight:bold;}
 
 /* mediacolors.css*/
 html{background-color:var(--html-bg);}
-article,nav,header,footer,aside{color:var(--fg);background-color:var(--bg);}
+header{color:var(--header-fg);background-color:var(--header-bg);}
+nav{color:var(--nav-fg);background-color:var(--nav-bg);}
+p,article{color:var(--fg);background-color:var(--bg);}
+aside{color:var(--aside-fg);background-color:var(--aside-bg);}
+footer{color:var(--footer-fg);background-color:var(--footer-bg);}
 a{color:var(--a);}
 code{
   color:var(--code-fg);
@@ -442,7 +472,21 @@ wonderfully convenient <a href="https://www.jsdelivr.com/github">Migrating from 
 </ul>
 <h2 id="stock-images">Stock images</h2>
 <ul>
-<li>Image by <a href="https://pixabay.com/users/mpewny-777390/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=668616">Michael Pewny</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=668616">Pixabay</a></li>
+<li>
+<p>Image by <a href="https://pixabay.com/users/mpewny-777390/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=668616">Michael Pewny</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=668616">Pixabay</a></p>
+</li>
+<li>
+<p><a href="https://pixabay.com/photos/woman-fashion-model-hippie-1853939/">https://pixabay.com/photos/woman-fashion-model-hippie-1853939/</a>
+Image by <a href="https://pixabay.com/users/pexels-2286921/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1853939">Pexels</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1853939">Pixabay</a></p>
+</li>
+<li>
+<p><a href="https://pixabay.com/photos/minister-government-man-politician-7362415/">https://pixabay.com/photos/minister-government-man-politician-7362415/</a>
+Image by <a href="https://pixabay.com/users/saarnews-12553488/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=7362415">Claus Kuhn</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=7362415">Pixabay</a></p>
+</li>
+<li>
+<p><a href="https://www.pexels.com/photo/man-person-people-sign-8382616/">Mugshot</a>
+By <a href="https://www.pexels.com/@cottonbro/">https://www.pexels.com/@cottonbro/</a></p>
+</li>
 </ul>
 <h2 id="references">References</h2>
 <ul>

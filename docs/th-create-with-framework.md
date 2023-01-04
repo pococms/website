@@ -1,5 +1,5 @@
 # Creating a PocoCMS theme with the framework
-
+GG
 The best way to create a highly versatile theme
 is to use the PocoCMS [theme framework](theme-framework.html).
 It's contained entirely in the Base theme and is the

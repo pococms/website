@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Powered with &hearts; by PocoCMS</title>
+
+<style>
+	@import url('https://fonts.googleapis.com/css?family=Oswald:wght@700&display=swap');
+</style>
+<style>
+
+/* root.css*/
+
+/* ************************************/
+/*  LIGHT COLOR SCHEME (FALLBACK)     */
+/* ************************************/
+
+:root {
+  --a:blue;                   /* Default link color */
+  --fg:black;                 /* Default text color. */
+  --bg:white;                 /* Default background color */
+  --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
+  --header-fg:var(--fg);      /* Text color of header */
+  --header-bg:var(--bg);      /* Background color of header */
+  --header-height:auto;       /* Height of header */
+  --nav-fg:var(--fg);         /* Text color of nav */
+  --nav-bg:var(--bg);         /* Background color of nav */
+  --aside-fg:var(--fg);       /* Text color of aside */
+  --aside-bg:var(--bg);       /* Background color of aside */
+  --footer-fg:var(--fg);      /* Text color of footer */
+  --footer-bg:var(--bg);      /* Background color of footer */
+  --h1-fg:var(--fg);          /* Default h1 text color */
+  --h2-fg:var(--fg);          /* Default h2 text color */
+  --h3-fg:var(--fg);          /* Default h3 text color */
+  --h4-fg:gray;               /* Default h4 text color */
+  --h5-fg:var(--fg);          /* Default h5 text color */
+  --h6-fg:var(--fg);          /* Default h6 text color */
+  --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --article-width:80%;        /* Should add up to 100% with --aside-width */
+  --aside-width:20%;          /* Should add up to 100% with --aside-width */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
+  --code-fg:var(--fg);        /* Text color for code inside a paragraph */
+  --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
+  --pre-fg:var(--code-fg);    /* Text color for fenced code */
+  --pre-bg:var(--code-bg);    /* Background color for fenced code */
+  --padding-left:5%;          /* Where the header, nav, and footer usually start */
+}
+
+/* ************************************/
+/*  LIGHT COLOR SCHEME                */
+/* ************************************/
+
+@media (prefers-color-scheme:light) {
+:root {
+  --a:blue;                   /* Default link color */
+  --fg:black;                 /* Default text color. */
+  --bg:white;                 /* Default background color */
+  --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
+  --header-fg:var(--fg);      /* Text color of header */
+  --header-bg:var(--bg);      /* Background color of header */
+  --nav-fg:var(--fg);         /* Text color of nav */
+  --nav-bg:var(--bg);         /* Background color of nav */
+  --aside-fg:var(--fg);       /* Text color of aside */
+  --aside-bg:var(--bg);       /* Background color of aside */
+  --footer-fg:var(--fg);      /* Text color of footer */
+  --footer-bg:var(--bg);      /* Background color of footer */
+  --h1-fg:var(--fg);          /* Default h1 text color */
+  --h2-fg:var(--fg);          /* Default h2 text color */
+  --h3-fg:var(--fg);          /* Default h3 text color */
+  --h4-fg:var(--fg);          /* Default h4 text color */
+  --h5-fg:var(--fg);          /* Default h5 text color */
+  --h6-fg:var(--fg);          /* Default h6 text color */
+  --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --article-width:80%;        /* Should add up to 100% with --aside-width */
+  --aside-width:20%;          /* Should add up to 100% with --aside-width */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
+  --code-fg:var(--fg);        /* Text color for code inside a paragraph */
+  --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
+  --pre-fg:var(--code-fg);    /* Text color for fenced code */
+  --pre-bg:var(--code-bg);    /* Background color for fenced code */
+  --padding-left:5%;          /* Where the header, nav, and footer usually start */
+}
+
+
+
+/* ************************************/
+/*  DARK COLOR SCHEME                 */
+/* ************************************/
+
+}
+@media (prefers-color-scheme: dark) {
+:root {
+  --a:cyan;                   /* Default link color */
+  --fg:white;                 /* Default text color */
+  --bg:MidnightBlue;          /* Default background color */
+  --html-bg:var(--bg);        /* Color enclosing skinny themes */
+  --html-font:sans-serif;     /* Set font everywhere */
+  --header-fg:var(--fg);      /* Text color of header */
+  --header-bg:var(--bg);      /* Background color of header */
+  --header-height:auto;       /* Height of header */
+  --nav-fg:var(--fg);         /* Text color of nav */
+  --nav-bg:var(--bg);         /* Background color of nav */
+  --aside-fg:var(--fg);       /* Text color of aside */
+  --aside-bg:var(--bg);       /* Background color of aside */
+  --footer-fg:var(--fg);      /* Text color of footer */
+  --footer-bg:var(--bg);      /* Background color of footer */
+  --h1-fg:var(--fg);          /* Default h1 text color */
+  --h2-fg:Lavender;           /* Default h2 text color */
+  --h3-fg:SkyBlue;            /* Default h3 text color */
+  --h4-fg:Silver;             /* Default h4 text color */
+  --h5-fg:var(--fg);          /* Default h5 text color */
+  --h6-fg:var(--fg);          /* Default h6 text color */
+  --article-h2-fg:var(--fg);  /* Article h2 text color */
+  --article-width:80%;        /* Should add up to 100% with --aside-width */
+  --aside-width:20%;          /* Should add up to 100% with --aside-width */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
+  --code-fg:black;            /* Text color for code inside a paragraph */
+  --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
+  --pre-fg:var(--code-fg);    /* Text color for fenced code */
+  --pre-bg:var(--code-bg);    /* Background color for fenced code */
+  --padding-left:5%;          /* Where the header, nav, and footer usually start */
+}
+}
+
+
+
+
+
+/* reset.css*/
+html,body,nav,header,article,footer{width:100%;height:auto;max-width:100%;display:block;float:left;clear:both;overflow:auto;}
+html {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: inherit;}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, 
+a, abbr, acronym, address, big, cite, 
+del, dfn,img, ins, kbd, q, s, 
+small, strike, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, 
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family:
+    "system-ui",                           
+      "-apple-system",                  
+      "LucidaGrandeUI",                         
+      "HelveticaNeueDeskInterface-Regular",     
+      "HelveticaNeueDeskInterface-Light",        
+      "DroidSans",                           
+      "Ubuntu Light",
+      "Arial",  
+      "Roboto-Light",                            
+      "Segoe UI Light",                                   
+      "Tahoma",                             
+      "sans-serif";
+}
+
+/* Make touch interaction faster */
+a,area,button,[role="button"],input:not([type=range]),label,select,summary,textarea { -ms-touch-action: manipulation;touch-action: manipulation;}
+
+/* Largely undocumented and fails nvu validation. But removing it causes subtle problems, for example, adding extra left padding in header. */
+p,ol,ul,li,header {margin-block-start:0;margin-block-end:0;padding-inline-start:0;}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, pre, section {
+	display: block;
+}
+
+
+
+
+/* sizes.css*/
+ol li, ul li  {margin-left:1em;}
+p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
+td,th{padding: 0.5em;}
+pre{font-size: smaller;overflow: auto;padding:1em;margin:1rem 0 1rem 0;}
+header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
+header>ul>li,nav>ul>li{padding-right:.5em;}
+article{width:var(--article-width);height:auto;}  
+aside{width:var(--aside-width);padding:0 2em 0 2em;}  
+footer {padding-top:2em;}
+article,nav,header,footer{padding-left:var(--padding-left);}
+article>dl>dt {padding-top:1em;}
+article>dl>dd {margin-left:0;padding-bottom:0;}
+
+h1{ font-size:2.5em;padding-top:2em;font-weight:bold; }
+h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:.35em;}
+h3{ font-size:1.5em;padding-top:.5em;font-weight:bold;padding-bottom:.1em;}
+h4{ font-size:.9em;padding-top:1em;}
+h5{ font-size:.8em; }
+h6{ font-size:0.9em; }
+
+
+
+
+/* layout.css*/
+
+/* Table cells share borders */
+table{border-collapse:collapse;}
+
+/* No one wants unordered lists in header, nav, footer to be vertical */
+header>ul,nav>ul,footer>ul{list-style-type:none;}
+header>ul>li,nav>ul>li,footer>ul>li{display:inline;}
+
+/* Article on the right, aside on the left */
+article{float:right;clear:right;}    
+aside{float:left;}  
+
+/* Article on the left, aside on the right */
+article{float:left;clear:left;}
+aside{float:right;}
+
+
+
+/* type.css*/
+/* Links show same if visited, underlined when hovered */
+a{text-decoration:none;}
+a:visited{text-decoration:none;}
+a:hover,a:active{color:inherit;text-decoration:underline;cursor:pointer}
+
+code,kbd,pre{
+  font-family: ui-monospace, SFMono-Regular, Monaco, monospace;
+}
+
+article>dl>dt{font-weight:bold;}
+article h4{font-weight:bold;}
+
+
+
+
+/* mediacolors.css*/
+html{background-color:var(--html-bg);}
+header{color:var(--header-fg);background-color:var(--header-bg);}
+nav{color:var(--nav-fg);background-color:var(--nav-bg);}
+p,article{color:var(--fg);background-color:var(--bg);}
+aside{color:var(--aside-fg);background-color:var(--aside-bg);}
+footer{color:var(--footer-fg);background-color:var(--footer-bg);}
+a{color:var(--a);}
+code{
+  color:var(--code-fg);
+  background-color:var(--code-bg);
+}
+pre{
+  color:var(--pre-fg);
+  background-color:var(--pre-bg);
+}
+td, th{
+  border: 1px solid gray;
+}
+
+h2{color:var(--h2-fg);}
+h3{color:var(--h3-fg);}
+h4{color:var(--h4-fg);}
+
+
+@media (max-width:1080px){
+  html{font-size:1.25rem;}
+  body{width:100%;margin:0}
+  aside{display:none}
+  article{margin:0;float:left;clear:left;width:100%}
+}
+@media (max-width:720px){
+  html{font-size:1.25rem;}
+  header,nav,aside,footer{display:none}
+  article{padding:1em;}
+  article{float:left;clear:left;width:100%}
+}
+
+
+
+
+/* gossip.css*/
+/*
+ * --------------------------------------------------
+ * Special feature: "Featured Posts" section showing
+ * 3 images in a row with captions underneath.
+ * Start with an h3 ("Featured Posts, for example)
+ * then a ul with 3 items consisting of an image
+ * and text for it.
+ * --------------------------------------------------
+ */
+
+article > h3 + ul:nth-child(1) {
+  display:block;
+}
+article > h3 + ul {
+	padding:0;
+	margin:0;
+	list-style-type:none;
+}
+
+article > h3 + ul li {
+	width:30%;
+	padding-top:.5em;
+	float:left;
+	line-height:1em;
+}
+
+article > h3 + ul li > p {
+}
+
+article > h3 + ul li > p > img {
+  width:100%;
+}
+
+article > h3 + ul li:nth-child(3) > p {
+}
+
+article > h3::before {
+  content: '\a';
+}
+
+
+
+article>h1{padding-top:0;font-size:6rem;font-weight:bold;text-align:center;color:var(--header-bg);}
+article>p>img{width:100%;text-align:center}
+/* OVERRIDE FRAMEWORK SIZES */
+article>h2{padding-top:.5em;}
+
+/* --------------------------------------------------
+ * HEADER: 
+ * - First item is bigger and formatted differently
+ * - Last item looks like a button (easy to suppress)
+ *   and appears to the far left of the page 
+ *   (on new browsers, still looks good on older ones)
+ * - Header is vertically centered
+ * --------------------------------------------------
+ */   
+
+
+/* Centers it vertically. Old-school, I know. */
+header{padding-top:3em;padding-bottom:3em}
+header{
+}
+/* Requires newer browser but degrades gracefully */
+/* Necessary to get last item on header menu to the right side */
+header ul{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+}
+
+/* Necessary to pull last item on header menu to the right side */
+header li {display:inline-block;}
+
+/* Format all menu items but the last */
+header>p,header>p>a,
+header ul li,header ul li>a {
+  text-shadow: 1px 1px 0 black;
+  font-size:2.25rem;
+}
+
+
+/* --------------------------------------------------
+ * SPECIAL FEATURE FOR HEADER: 
+ * First item in header gets special treatment:
+ * - Larger font size
+ * - Deeper text shadow
+ * --------------------------------------------------
+ */   
+
+header>ul>li:first-child>a,header>p:first-child>a{
+  font-size:3.25rem;
+  text-shadow: 5px 5px 0 black;
+  font-weight:bold;
+}
+
+/* --------------------------------------------------
+ * SPECIAL FEATURE FOR HEADER: 
+ * Pull last item in header to the right side
+ * --------------------------------------------------
+ */   
+
+header li:last-of-type {
+  margin-left: auto;
+  margin-right:2em;
+}
+
+
+/*
+ * --------------------------------------------------
+ * SPECIAL FEATURE FOR HEADER: 
+ * Last item in ul list is styled like 
+ * a button. Just omit text after the
+ * bullet character (asterisk) in your Markdown 
+ * if you don't want the effect. (Or remove
+ * these lines of from the theme CSS.)
+ * --------------------------------------------------
+ */
+/* Make the last item look and act like a button */
+header > ul > li:last-child > a {border: .125em solid var(--header-fg);border-radius:.5em;padding: .25em;color: var(--header-bg);background-color:var(--header-fg);padding: .25em;text-decoration: none;text-transform:uppercase;font-weight:bold;text-shadow:none;text-align:right}
+header > ul > li:last-child > a:hover {color: var(--header-bg);background-color: var(--header-fg);cursor: pointer;}
+
+
+/* OVERRIDE FRAMEWORK LAYOUT */
+aside{margin-top:6rem;}
+/* OVERRIDE FRAMEWORK TYPOGRAPHY AND FONTS */
+h1,h2,h3,
+header>h1,header>h2,header>h3,
+header>p,header>p>a,
+header ul li,header ul li>a,
+nav>h1,nav>h2,nav>h3,
+nav ul li,nav ul li>a,
+aside>h1,aside>h2,aside>h3,aside>h4{
+  font-family:'Oswald',sans-serif;
+}
+
+article>h1{text-shadow: 2px 2px 0 black;}
+
+/* --------------------------------------------------
+ * SPECIAL FEATURE FOR ASIDE:
+ * - h4, img, p in that order create a card effect
+ * - img is givena black background
+ * - h4 is forced to uppercase
+ * --------------------------------------------------
+ */   
+
+aside>h4{
+  font-size:1rem;
+  text-align:center;
+  font-weight:bold;
+  text-transform: uppercase;
+  background-color:yellow;
+  color:black;
+  padding-top:.2em;
+  border:1px solid black;
+}
+aside>p>img{
+  border:1px solid black;
+  display:block;
+}
+aside>p{
+  background-color:black;
+  color:white;
+  font-size:1rem;
+  border:1px solid black;
+  margin-bottom:1em;
+  padding:.5em;
+}
+:root {
+  --aside-width:25%;
+  --article-width:75%;
+}
+
+/* OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT & DARK THEMES */
+@media (prefers-color-scheme:light) {
+:root {
+  --header-fg:white;          /* Text color of header */
+  --header-bg:red;            /* Background color of header */
+  --h2-fg:var(--header-bg);   /* Background coloro of h2 */
+}
+  header a, nav a{color:var(--header-fg);}
+  nav{background-color:black;}
+}
+
+@media (prefers-color-scheme:dark) {
+:root {
+}
+}
+
+
+
+</style>
+</head>
+<body>	
+<header id="header-poco"><ul>
+<li><a href="/">GOSSIP</a></li>
+<li><a href="#">Sports</a></li>
+<li><a href="#">TV</a></li>
+<li><a href="#">Vids</a></li>
+<li><a href="#">Log in</a></li>
+</ul>
+</header>
+	
+<nav id="nav-poco"><ul>
+<li><a href="#">Base theme nav</a></li>
+<li><a href="#">Subscribe</a></li>
+<li><a href="#">Technical overview</a></li>
+<li><a href="#">Free trial</a></li>
+</ul>
+</nav>
+	
+<aside id="aside-poco"><h4 id="back-in-the-game">Back in the game</h4>
+<p><img src="img-sample-trent-200x134.jpg" alt="" />
+Wait'll you get a load of this</p>
+<h4 id="40-lbs-in-60-days">40 lbs. in 60 days?</h4>
+<p><img src="woman-vw-beach.jpg" alt="" />
+She can't wait for summer!</p>
+<h4 id="yes-it-was-about-the-money">Yes, it was about the money</h4>
+<p><img src="politician.jpg" alt="" />
+Of course he says otherwise! But was a mistress involved?</p>
+</aside>
+<article id="article-poco"><h1 id="busted">BUSTED!</h1>
+<p><img src="pexels-cottonbro-studio-8382610.jpg" alt="" /></p>
+<h4 id="pictured-at-booking-time-just-yesterday-january-16">Pictured at booking time just yesterday <strong>January 16</strong></h4>
+<h2 id="but-can-he-stay-out-of-prison-this-time">But can he stay out of prison this time?</h2>
+<p><em>(New York City, Jan 25)</em> Everyone's least favorite rapper has gone on yet
+another alcohol-fueled rampage, causing authorities to second-guess
+his early release from state prison last year.</p>
+<h3 id="in-the-news">IN THE NEWS</h3>
+<ul>
+<li>
+<p><img src="img-sample-trent-200x134.jpg" alt="" />
+1 Let's talk a little and see where this tedxt goes</p>
+</li>
+<li>
+<p><img src="img-sample-trent-200x134.jpg" alt="" />
+2 Let's talk</p>
+</li>
+<li>
+<p><img src="img-sample-trent-200x134.jpg" alt="" />
+3 Let's talk</p>
+</li>
+</ul>
+<h2 id="heres-what-i-had-to-say">Here's what I had to say</h2>
+<p><img src="img-sample-trent-200x134.jpg" alt="" /></p>
+<h3 id="meanwhile-in-hollywood">MEANWHILE IN HOLLYWOOD</h3>
+<ul>
+<li>
+<p><img src="img-sample-trent-200x134.jpg" alt="" />
+1 Let's talk a little and see where this tedxt goes</p>
+</li>
+<li>
+<p><img src="img-sample-trent-200x134.jpg" alt="" />
+2 Let's talk</p>
+</li>
+<li>
+<p><img src="img-sample-trent-200x134.jpg" alt="" />
+3 Let's talk</p>
+</li>
+</ul>
+</article>
+
+
+<footer id="footer-poco"><ul>
+<li><a href="#">Contact</a></li>
+<li><a href="#">Privacy policy</a></li>
+<li><a href="#">Terms of service</a></li>
+</ul>
+</footer>
+<script> {
+  // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
+  // Document.ready working back to IE 8.
+  // From https://stackoverflow.com/questions/2304941/what-is-the-non-jquery-equivalent-of-document-ready
+  function ready(fn) {
+    if (typeof fn !== 'function') {
+      throw new Error('Argument passed to ready should be a function');
+    }
+
+    if (document.readyState != 'loading') {
+      fn();
+    } else if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', fn, {
+        once: true // A boolean value indicating that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked.
+      });
+    } else {
+      document.attachEvent('onreadystatechange', function() {
+        if (document.readyState != 'loading')
+          fn();
+      });
+    }
+  }
+
+  // Demonstrate error checking 
+  //try {
+  //  window.ready(5);
+  //} catch (ex) {
+  //  console.log(ex.message);
+  //}
+
+
+  // HTML Document has been loaded. This is where it's safe 
+  // for you to execute code. For modularity's sake this 
+  // version calls an arbitrary function.
+  window.ready(function() {
+  // startHere() is just an arbitrary name. Can be anything.
+  startHere();
+  })
+
+  // --- START USER JAVASCRIPT CODE
+  function startHere() {
+  }
+  // --- END USER JAVASCRIPT CODE
+;
+
+
+var scrollTimer = -1;
+function bodyScroll()
+{
+  if(scrollTimer != -1){
+    clearTimeout(scrollTimer);
+  }
+  scrollTimer = window.setTimeout(sidebarHeight, 100);
+}
+function sidebarHeight() {
+    console.log("sidebarHeight()")
+  s=document.getElementById('aside-poco');
+  a=document.getElementById('article-poco'); 
+  if (s != null && a != null) {
+    // If there's a sidebar,
+    ha=a.offsetHeight;
+    hs=s.offsetHeight;
+    // If the article is longer, make
+    // the sidebar as long as the article.
+    if (ha>hs) {
+      h=a.offsetHeight+'px';s.style.height=h;
+    }
+    // If the sidebar is longer than the
+    // article, make the article as long
+    // as the sidebar.
+    else{
+      h=s.offsetHeight+'px';a.style.height=h;
+    }
+  }
+
+} 
+document.onreadystatechange = function () {
+  if (document.readyState == "interactive") {
+    // Init or start code here
+    bodyScroll();
+  }
+} 
+window.onresize=sidebarHeight;
+/* ES5 works fine */
+document.getElementsByTagName('body')[0].onscroll=bodyScroll();
+
+
+}
+</script>
+</body>
+</html>
