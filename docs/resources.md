@@ -107,4 +107,5 @@ are 1920x1080 (10%), 1366x768 (6%), and 360x640 (6%).
 
 ## Other graphic assets
 
+* [TinyPNG](https://tinypng.com/) does miracles compressing PNG files. Smaller graphics files means better SEO.
 * [CSS Gradient](https://cssgradient.io/) generator goes into more depth than you'd think It has a handy generator on the home page, but then gets into things like [CSS Gradient Text](https://cssgradient.io/blog/css-gradient-text/),  [Gradient Backgrounds](https://cssgradient.io/blog/how-to-create-a-gradient-background/), [Patterns with CSS Gradients](https://cssgradient.io/blog/gradient-patterns/), done-for-you [CSS Gradient Swatches](https://cssgradient.io/swatches/), and  much more.

@@ -1,6 +1,6 @@
 ---
 pagetheme: "hero"
-nav: "docs/demos/nav-hero.md"
+nav: "docs/demos/hero-nav.md"
 aside: SUPPRESS
 ---
 
