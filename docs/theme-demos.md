@@ -7,6 +7,7 @@ aside: SUPPRESS
 * [Clerk](demos/clerk.html)
 * [Electro](demos/electro.html)
 * [Gossip](demos/gossip.html)
+* [Hero](demos/hero.html)
 * [Informer](demos/informer.html)
 * [Newman](demos/newman.html)
 * [Paper](demos/paper.html)

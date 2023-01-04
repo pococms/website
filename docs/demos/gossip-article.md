@@ -10,31 +10,21 @@
 another alcohol-fueled rampage, causing authorities to second-guess
 his early release from state prison last year.
 
+## Moments before the accident!
+
+![Dramatic picture of downhill skier](man-498473_640.jpg)
+
+No one expected anything like this to happen.
+
 ### IN THE NEWS
 
-* ![](img-sample-trent-200x134.jpg)
-   1 Let's talk a little and see where this tedxt goes
+* ![](gangster-4625609_640.jpg)
+   Soccer player or beard oil mogul?
 
-* ![](img-sample-trent-200x134.jpg)
-   2 Let's talk
+* ![](creep.png)
+   Let's play Olde-Time Mississippi prisoner... or fashion icon? 
 
-* ![](img-sample-trent-200x134.jpg)
-   3 Let's talk
-
-## Here's what I had to say
-
-![](img-sample-trent-200x134.jpg)
-
-
-### MEANWHILE IN HOLLYWOOD 
-
-* ![](img-sample-trent-200x134.jpg)
-   1 Let's talk a little and see where this tedxt goes
-
-* ![](img-sample-trent-200x134.jpg)
-   2 Let's talk
-
-* ![](img-sample-trent-200x134.jpg)
-   3 Let's talk
+* ![](politician.jpg)
+   **Indictment in the works?** Experts say yes.
 
 

@@ -19,6 +19,10 @@ stylesheets:
 
 ## Feature enhancements
 
+* Gossip is unfinished. Current version is the front page of the
+site. Do another that's for interior pages. Then make all images
+on the front page clickable, and they'd go to a page using
+the interior theme.
 * ts2 needs a test that shows background of all page layout elemetns, like ts1 has 
 * ts2: create a theme
 * ts2: Make trashing the factory settings an option:

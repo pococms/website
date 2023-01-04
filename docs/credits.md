@@ -55,6 +55,8 @@ Image by <a href="https://pixabay.com/users/saarnews-12553488/?utm_source=link-a
 * [Mugshot](https://www.pexels.com/photo/man-person-people-sign-8382616/) 
 By https://www.pexels.com/@cottonbro/
 
+* [Pixagay Skier](https://pixabay.com/photos/man-skier-ski-skiing-snow-slopes-498473/)
+Image by <a href="https://pixabay.com/users/up-free-427519/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=498473">Oleksandr Pyrohov</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=498473">Pixabay</a>
 
 ## References
 
