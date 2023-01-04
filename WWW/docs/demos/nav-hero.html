@@ -281,168 +281,167 @@ h4{color:var(--h4-fg);}
 
 
 
-/* css2?family=Secular+One:wght@400&display=swap*/
-@font-face {
-  font-family: 'Secular One';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/secularone/v11/8QINdiTajsj_87rMuMdKypDl.ttf) format('truetype');
+/* pocodocs.css*/
+/* Article on the right, aside on the left */
+article{float:right;clear:right;}    
+aside{float:left;}  
+aside{padding-top:8em;}
+
+/* --------------------------------------------------
+ * Aside unordered lists are used for table of 
+ * contents, so disable indentation and bullet 
+ * character. Use size, color, and underline
+ * to indicate level.
+ * --------------------------------------------------
+ */   
+
+/* Disable list indentation and bullet characters. */
+aside > ul li {list-style-type: none; }
+aside > ul li  {margin-left:0em;}
+
+/* Line-spacing for whole unordered list */
+aside ul {line-height:1.4rem;}
+
+/* 1st level of list */
+aside ul li a {font-size:1.2rem;}
+aside ul li a {text-decoration:underline}
+
+/* 2nd level of list */
+aside ul ul li a {border:none;text-decoration:none;}
+
+
+/* 3rd level of list */
+aside ul ul ul li a 
+ {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}
+
+/* --------------------------------------------------
+ * Images: full width, light drop shadow 
+ * --------------------------------------------------
+ */   
+article > img, article > p > img {
+  width:100%;                                        
+  box-shadow: /* rgb(128,128,128) */ gray 1px 1px 3px 0px;
+  display:block;                                     
+  margin-top:1em;margin-bottom:2em;
 }
+/* OVERRIDE FRAMEWORK PADDING, MARGIN, HEIGHTS */
+header{line-height:4em;padding-top:2em;}
+header>ul>li:first-child>a{padding-right:1rem;padding-left:0}
 
-
-/* hero.css*/
-/* LESSON NOTES
- * - Disabled aside
+nav>ul{line-height:2em;}
+nav>p>a{padding-right:1em;}
+/*
+ * --------------------------------------------------
+ * Special feature: First item in list has biggest
+ * branding
+ * --------------------------------------------------
  */
-
-
-/* --------------------------------------------------
- * HEADER: 
- * - First item is bigger and formatted differently
- * - Last item looks like a button (easy to suppress)
- *   and appears to the far left of the page 
- *   (on new browsers, still looks good on older ones)
- * - Header is vertically centered
- * --------------------------------------------------
- */   
-
-
-/* Centers it vertically. Old-school, I know. */
-header{padding-top:1em;padding-bottom:1em;border-bottom:1px solid gray;}
-/* Requires newer browser but degrades gracefully */
-/* Necessary to get last item on header menu to the right side */
-header ul{
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-}
-
-/* Necessary to pull last item on header menu to the right side */
-header li {display:inline-block;}
-
-/* Format all menu items but the first */
-header>p,header>p>a,
-header ul li,header ul li>a {
-  color:var(--fg);
-}
-
-
-/* --------------------------------------------------
- * SPECIAL FEATURE FOR HEADER: 
- * First item in header gets special treatment:
- * - Larger font size
- * - Deeper text shadow
- * --------------------------------------------------
- */   
-
-header>ul>li:first-child>a,header>p:first-child>a{
-  color:red;
-  font-size:2rem;
-  font-weight:900;
-}
-
-/* --------------------------------------------------
- * SPECIAL FEATURE FOR HEADER: 
- * Pull last item in header to the right side
- * --------------------------------------------------
- */   
-
-header li:last-of-type {
-  font-weight:bold;
-  font-size:1em;
-  margin-left: auto;
-  margin-right:2em;
-}
-
-
-
-/* OVERRIDE FRAMEWORK SIZES */
+header>ul>li:first-child>a{font-size:3rem;}
 
 /* OVERRIDE FRAMEWORK LAYOUT */
 
 /* OVERRIDE FRAMEWORK TYPOGRAPHY AND FONTS */
-html{font-size:22px;}
-article>h1{
-  font-weight:900;
+html{
+  font-size:18px;
+  font-family:
+    'system-ui',                           
+    '-apple-system',                  
+    'LucidaGrandeUI',                         
+    'HelveticaNeueDeskInterface-Regular',     
+    'HelveticaNeueDeskInterface-Light',        
+    'DroidSans',                           
+    'Ubuntu Light',
+    'Arial',  
+    'Roboto-Light',                            
+    'Segoe UI Light',                                   
+    'Tahoma',                             
+    'sans-serif';
 }
 
+header>ul>li:first-child>a{font-weight:900;letter-spacing:-.1rem;}
 
-
-/* OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT & DARK THEMES */
-
-/* https://stackoverflow.com/questions/37976431/image-floating-right-that-is-further-in-html-structure-than-text-in-paragraphs#comment63405979_37976742 */
-nav{
-  height:auto;
-  margin:0 auto;
-  position:relative;
+/* The article may be wider than you want text and
+ * code listings to be. This narrows the text and
+ * code listings without affecting the article width. 
+ */
+article>p,article>ul,article>ul>li,article>pre{
+  width:var(--article-width);
 }
+article>h1{padding-bottom:.8em;}
+article>h5{padding-top:1em;}
+/* h6 links become buttons (for Prev/Next usge)
+ */
+article>h6>a{line-height:6em;padding:1em;background-color:var(--bg);border:1px solid black;}
 
-nav p{
-  float:left;
-  padding-right:1em;
-  width:50%;
-  font-size:2.5rem;
-  font-weight:900;
-  line-height:1em;
-}
+/* OVERRIDE FRAMEWORK COLORS */
+article>h2{color:var(--article-h2-fg);}
+article>h5>strong{color:var(--fg);}
 
-nav p>img{
-  float:right;
-  width:50%;
-  position:absolute;
-  right:0;
-  top:0;
-}
+/* --------------------------------------------------
+ * Special feature: Surround letters in first item 
+ * with ~~ characters to get change of color
+ * --------------------------------------------------
+ */
+header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 
-nav pre{
-  float:right;
-  width:50%;
-  position:absolute;
-  right:0;
-  top:0;
-}
+/* OVERRIDE MEDIA QUERIES. LIGHT AND DARK THEMES */
 
 @media (prefers-color-scheme:light) {
 :root {
-  nav-fg:var(--fg);
-  nav-bg:var(--bg);
+  --article-h2-fg:red;        /* Article h2 text color */
+  --aside-h2-fg:gray;         /* Aside h2 text color */
 }
+  article>h6>a{background-color:var(--bg);border:1px solid black;}
+
+
+  /* 1st level of list */
+  aside ul li a {color:blue;}
+  /* 2nd level of list */
+  aside ul ul li a {color:var(--aside-h2-fg);}
+
 }
 
 @media (prefers-color-scheme:dark) {
 :root {
+  --article-h2-fg:cyan;       /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
 }
+  article>h6>a{background-color:var(--bg);border:1px solid white;}
+
+  /* 1st level of list */
+  aside ul li a {color:cyan;}
+
 }
-
-
 
 </style>
 </head>
 <body>	
 <header id="header-poco"><ul>
-<li><a href="/">Hero</a></li>
-<li><a href="#">Give us a call</a></li>
+<li><a href="https://pococms.com">poco<del>CMS</del></a></li>
+<li><a href="https://github.com/pococms/downloads/tree/main/dist">Download</a></li>
+<li><a href="/docs/index.html">Documentation</a></li>
+<li><a href="https://github.com/pococms/poco/issues">Report an issue</a></li>
+<li><a href="https://github.com/pococms/poco">GitHub</a></li>
 </ul>
 </header>
 	
-<nav id="nav-poco"><p>PocoCMS knows that you have better things to do than... fiddling with websites.
-<img src="man-498473_640.jpg" alt="" /></p>
+<nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/technical-overview.html">Technical overiew</a></p>
 </nav>
 	
+<aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
+<ul>
+<li>Item 1 in the aside</li>
+<li>Item 2 in the aside</li>
+<li>Pocodocs theme!</li>
+</ul>
+</aside>
 <article id="article-poco">
-<h4 id="theme-demos">Theme demos</h4>
-<h1 id="hero">Hero</h1>
-<p>A landing page for the ages. Or maybe the rages.</p>
-<h2 id="ease-of-use-like-youve-never-seen-before">Ease of use like you've never seen before.</h2>
+<p>PocoCMS knows that you have better things to do than... fiddling with websites.
+<img src="man-498473_640.jpg" alt="" /></p>
 
 </article>
 
-<footer id="footer-poco"><ul>
-<li><a href="#">Contact</a></li>
-<li><a href="#">Privacy policy</a></li>
-<li><a href="#">Terms of service</a></li>
-</ul>
+<footer id="footer-poco"><p><em>Powered by <a href="https://pococms.com">PocoCMS</a></em> · Copyright 2022 by Tom Campbell</p>
 </footer>
 <script> {
   // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.

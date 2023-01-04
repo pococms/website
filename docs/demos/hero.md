@@ -1,13 +1,14 @@
 ---
 pagetheme: "hero"
+nav: "docs/demos/nav-hero.md"
+aside: SUPPRESS
 ---
 
 #### Theme demos
 
-# Hero--These theme is in progress
+# Hero
 
-
-We can be heros!
+A landing page for the ages. Or maybe the rages.
 
 ## Ease of use like you've never seen before.
 
