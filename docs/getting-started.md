@@ -97,17 +97,9 @@ hello, world.
 Learn more at [PocoCMS tutorials](https://pococms.com/docs/tutorials.html) 
 ```
 
-Notice there's a directory called `WWW`. Examine its contents.
+Notice there's a directory called `WWW`. Examine its contents. 
 
 ##### **Directory:** WWW
-
-```
-index.html
-```
-
-##### **file:** WWW/index.html
-
-You'll see the file `WWW/index.html`:
 
 ```
 .
@@ -117,7 +109,10 @@ You'll see the file `WWW/index.html`:
 └── index.md
 ```
 
-That is what the browser renders when you view the site.
+It generated the file `index.html` from the contents of
+`index.md`. Later when you add a theme the output
+will also include CSS files and other assets required
+when the browser renders your site.
 
 ###### [Previous: Getting started](getting-started.html) [Next: Edit the page](gs-edit-page.html)
 

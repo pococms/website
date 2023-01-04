@@ -125,6 +125,7 @@
 
 
 
+		article>p{color:green;}
 
 
 /* reset.css*/
@@ -179,6 +180,7 @@ footer, header, hgroup, menu, nav, pre, section {
 }
 
 
+		article>p{color:green;}
 
 
 /* sizes.css*/
@@ -203,6 +205,7 @@ h5{ font-size:.8em; }
 h6{ font-size:0.9em; }
 
 
+		article>p{color:green;}
 
 
 /* layout.css*/
@@ -222,6 +225,7 @@ aside{float:left;}
 article{float:left;clear:left;}
 aside{float:right;}
 
+		article>p{color:green;}
 
 
 /* type.css*/
@@ -238,6 +242,7 @@ article>dl>dt{font-weight:bold;}
 article h4{font-weight:bold;}
 
 
+		article>p{color:green;}
 
 
 /* mediacolors.css*/
@@ -279,13 +284,10 @@ h4{color:var(--h4-fg);}
 }
 
 
+		article>p{color:green;}
 
 
 /* pocodocs.css*/
-/* Article on the right, aside on the left */
-article{float:right;clear:right;}    
-aside{float:left;}  
-aside{padding-top:8em;}
 
 /* --------------------------------------------------
  * Aside unordered lists are used for table of 
@@ -295,6 +297,7 @@ aside{padding-top:8em;}
  * --------------------------------------------------
  */   
 
+aside{padding-top:8em;}
 /* Disable list indentation and bullet characters. */
 aside > ul li {list-style-type: none; }
 aside > ul li  {margin-left:0em;}
@@ -325,7 +328,7 @@ article > img, article > p > img {
   margin-top:1em;margin-bottom:2em;
 }
 /* OVERRIDE FRAMEWORK PADDING, MARGIN, HEIGHTS */
-header{line-height:4em;padding-top:2em;}
+header{/*line-height:2em;*/ padding-top:2em;}
 header>ul>li:first-child>a{padding-right:1rem;padding-left:0}
 
 nav>ul{line-height:2em;}
@@ -336,7 +339,7 @@ nav>p>a{padding-right:1em;}
  * branding
  * --------------------------------------------------
  */
-header>ul>li:first-child>a{font-size:3rem;}
+header>ul>li:first-child>a{font-size:1.5rem;}
 
 /* OVERRIDE FRAMEWORK LAYOUT */
 
@@ -359,7 +362,7 @@ html{
 }
 
 header>ul>li:first-child>a{font-weight:900;letter-spacing:-.1rem;}
-
+header>ul>li>a{font-weight:700;}
 /* The article may be wider than you want text and
  * code listings to be. This narrows the text and
  * code listings without affecting the article width. 
@@ -412,6 +415,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
   aside ul li a {color:cyan;}
 
 }
+		article>p{color:green;}
 
 
 
@@ -477,9 +481,9 @@ ol li:before {
 <body>	
 <header id="header-poco"><ul>
 <li><a href="https://pococms.com">poco<del>CMS</del></a></li>
+<li><a href="/docs/theme-demos.html">Theme demos</a></li>
 <li><a href="https://github.com/pococms/downloads/tree/main/dist">Download</a></li>
-<li><a href="/docs/index.html">Documentation</a></li>
-<li><a href="https://github.com/pococms/poco/issues">Report an issue</a></li>
+<li><a href="/docs/index.html">Docs</a></li>
 <li><a href="https://github.com/pococms/poco">GitHub</a></li>
 </ul>
 </header>
@@ -489,7 +493,7 @@ ol li:before {
 	
 <article id="article-poco">
 
-<p>04 Jan 2023 01:09:47</p>
+<p>04 Jan 2023 03:32:05</p>
 <h1 id="welcome-to-pococms">Welcome to PocoCMS</h1>
 <ol>
 <li><a href="docs/install.html">Install</a></li>

@@ -238,9 +238,9 @@ To set a theme for a single page, use `pagetheme` in the
 front matter like this, where you'd replace `pocodocs` with any
 theme you have available:
 
-    ---
-    pagetheme: "pocodocs"
-    ---
+---
+pagetheme: "pocodocs"
+---
 
 
 ## .poco directory

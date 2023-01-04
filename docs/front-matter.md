@@ -1,5 +1,7 @@
 ---
 aside: SUPPRESS
+styles:
+- "article>h3{font-weight:normal;}"
 ---
 # Front Matter
 
@@ -378,13 +380,11 @@ Defines a [page theme](glossary.html#page-theme) to
 replace the global [theme](#theme) if any,
 on a per-page pgases. 
 
-    ```
-    ---
-    pagetheme: hero
-    ---
-    ```
-
-
+```
+---
+pagetheme: hero
+---
+```
 
 ## robots 
 
