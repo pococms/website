@@ -480,6 +480,8 @@ instructions for things Markdown can't do for you,
 for example, choosing a theme, inserting Javascript
 or new style tags into your document, and ensuring
 each page can have a unique <code>&lt;title&gt;</code> tag.</p>
+<p>It is technically a different document from your Markdown
+article, and it's in a format called <a href="yaml-usage.html">YAML</a>.</p>
 <p>Here's an example of a page with a <a href="#title">title</a> defined in the front matter.</p>
 <pre><code>---
 title: Who doesn't love static site generators?
@@ -500,12 +502,12 @@ front matter options PocoCMS provides.</p>
 <a href="#footer">footer</a><br />
 <a href="#header">header</a><br />
 <a href="#keywords">keywords</a><br />
-<a href="#keyvalue-pairs">key/value pairs</a><br />
 <a href="#lang">lang</a><br />
 <a href="#nav">nav</a><br />
 <a href="#pagetheme">pagetheme</a><br />
 <a href="#robots">robots</a>
 <a href="#script-after">script-after</a><br />
+<a href="#sidebar">sidebar</a><br />
 <a href="#skip">skip</a><br />
 <a href="#styles">styles</a><br />
 <a href="#stylesheets">stylesheets</a><br />
@@ -625,25 +627,16 @@ with empty front matter like this:</li>
 ---
 </code></pre>
 <h2 id="aside">aside</h2>
-<p>Controls behavior of the sidebar, shown in <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
+<p>Asides appear next to the article content: <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
+<p>``</p>
 <ol>
-<li>When given the value &quot;right&quot; or &quot;left&quot;, determines whether an <a href="glossary.html#aside">aside</a> appears to the
-left or right of the article. Some themes may not support it
-but all <a href="theme-framework.html">theme framework-based themes</a>
-allow it by defaut. For example:</li>
-</ol>
-<pre><code>---
-aside: left
----
-</code></pre>
-<ol start="2">
 <li>When given the value as SUPPRESS, hides the sidebar for this page only.</li>
 </ol>
 <pre><code>---
 aside: SUPPRESS
 ---
 </code></pre>
-<ol start="3">
+<ol start="2">
 <li>When given a filename, uses the contents of that file instead of the
 value supplied by the theme.</li>
 </ol>
@@ -704,41 +697,60 @@ footer: SUPPRESS
 <li>When given a filename, uses the contents of that file instead of the
 value supplied by the theme.</li>
 </ol>
+<h5 id="filename-new-footermd">Filename: <strong>new-footer.md</strong></h5>
 <pre><code>---
 footer: new-footer.md
 ---
+Powered by PocoCMS!
 </code></pre>
-<h5 id="filename-new-footermd">Filename: <strong>new-footer.md</strong></h5>
+<h2 id="header">header</h2>
+<p>Controls behavior of the header, shown in <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
+<ol>
+<li>When given the value as SUPPRESS, hides the header for this page only.</li>
+</ol>
+<pre><code>---
+header: SUPPRESS
+---
+</code></pre>
+<ol start="2">
+<li>When given a filename, uses the contents of that file instead of the
+value supplied by the theme.</li>
+</ol>
+<pre><code>---
+header: new-header.md
+---
+</code></pre>
+<h5 id="filename-new-headermd">Filename: <strong>new-header.md</strong></h5>
 <pre><code>Powered by PocoCMS!
 </code></pre>
-<hr />
-<h2 id="header-suppress">header: SUPPRESS</h2>
-<pre><code>2. When given a filename, uses the contents of that file instead of the
-value supplied by the theme. 
+<h2 id="keywords">keywords</h2>
+<p>Takes a list of keywords to be used in
+the <code>keywords</code> metatag.</p>
+<h3 id="example-2">Example</h3>
+<pre><code>---
+keywords: static site generator, jamstack, cms
+---
 </code></pre>
-<hr />
-<h2 id="header-new-headermd">header: new-header.md</h2>
-<pre><code>
-##### Filename: **new-header.md**
-
+<p>Generates this <code>keywords</code> metatag to be inserted into the file:</p>
+<pre><code>&lt;meta name=&quot;keywords&quot; content=&quot;static site generator, jamstack, cms&quot;&gt;
 </code></pre>
-<p>See also <a href="#nav">nav</a>, <a href="#aside">aside</a>, and <a href="#footer">footer</a></p>
 <h2 id="lang">lang</h2>
 <p>Sets the code HTML uses for its <code>html lang=</code> tag.
 Defaults to <code>en</code> for English.</p>
-<h3 id="example-2">Example</h3>
+<h3 id="example-3">Example</h3>
 <ul>
 <li>Create a simple file with no Markdown at all, just this
 front matter, which changes the language to Icelandic:</li>
 </ul>
-<pre><code>    ---
-    lang: &quot;is&quot;
-    ---
+<pre><code>---
+lang: &quot;is&quot;
+---
 </code></pre>
 <ul>
 <li>Run poco and then view source. You'll see this:</li>
 </ul>
-<html lang="en">
+<pre><code>&lt;html lang=&quot;en&quot;&gt;
+</code></pre>
 <h2 id="nav">nav</h2>
 <p>Controls behavior of the navbar, shown in <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
 <ol>
@@ -770,7 +782,7 @@ pagetheme: hero
 </code></pre>
 <h2 id="robots">robots</h2>
 <p>Causes a [<code>robots</code> metatag](<a href="https://moz.com/learn/seo/robots-meta-directives#:~:text=Robots%20meta%20directives%20(sometimes%20called,or%20index%20web%20page%20content.)">https://moz.com/learn/seo/robots-meta-directives#:~:text=Robots%20meta%20directives%20(sometimes%20called,or%20index%20web%20page%20content.)</a> to be inserted into the file.</p>
-<h3 id="example-3">Example</h3>
+<h3 id="example-4">Example</h3>
 <p>Using this <code>Robots</code> entry in the front matter:</p>
 <pre><code>---
 robots: &quot;NoIndex&quot;
@@ -783,6 +795,18 @@ robots: &quot;NoIndex&quot;
 <p>Be careful following this example! It tells
 search engines <em>not</em> to index your page, which is
 the opposite of what you normally want.</p>
+<h2 id="sidebar">sidebar</h2>
+<p>An <a href="#aside">aside</a> can often be on either the left or
+the right side of the page. That capability is built into
+the PocoCMS <a href="theme-framework.html">theme framework</a>.</p>
+<p><code>sidebar</code> lets you choose which side it's on in the
+obvious way:</p>
+<pre><code>---
+sidebar: left
+---
+</code></pre>
+<p>The options are <code>right</code> or <code>left</code>. The theme will fail silently<br />
+if it doesn't support <code>sidebar</code>.</p>
 <h2 id="skip">skip</h2>
 <p><code>skip</code> lists files and directories you don't want to be published.</p>
 <p>Remember that if a directory contains the files <code>index.md</code>, <code>installation.md</code>,
@@ -804,7 +828,7 @@ doesn't publish them.</li>
 <li>The answer to these problems is to list what you don't want published in <code>skip</code>
 as shown below.</li>
 </ul>
-<h3 id="example-4">Example</h3>
+<h3 id="example-5">Example</h3>
 <pre><code>---
 skip:
 - 401k-info.xls
@@ -831,7 +855,7 @@ skip-publish:
 <h2 id="stylesheets">stylesheets</h2>
 <p>Causes a stylesheet link to be inserted into the file
 for each file in the list.</p>
-<h3 id="example-5">Example</h3>
+<h3 id="example-6">Example</h3>
 <p>Using these <code>stylesheets</code> in the front matter:</p>
 <pre><code>---
 stylesheets: 
@@ -848,11 +872,11 @@ the current page.
 It's a good way to develop stylesheets slowly, or
 to override colors for a light them to make it
 dark, and vice versa.</p>
-<h3 id="example-6">Example</h3>
+<h3 id="example-7">Example</h3>
 <p>Using this <code>styles</code> entry in the front matter to color all
 your article text blue:</p>
 <pre><code>---
-style: 
+styles: 
 - &quot;article&gt;p{color:blue;}&quot;
 ---
 </code></pre>
@@ -865,18 +889,35 @@ style:
 <p>Defines a <a href="glossary.html#theme">theme</a> to be used as
 the default for all pages in the site. It's also
 called the <em>global theme</em> informally.
-It is optional.  The global theme can be overridden
+It is optional but can only appear on
+the <a href="#home-page">home page</a>.  The global theme can be overridden
 on a per-page basis using <a href="#pagetheme">pagetheme</a>.</p>
 <pre><code>---
 theme: pocodocs
 ---
 </code></pre>
+<h3 id="global-theme-on-every-page-but-the-home-page">Global theme on every page but the home page</h3>
+<p>Suppose you want to use the same theme on every page
+but the home page. Take advantage of the way the home</p>
+<h5 id="filename-indexmd">Filename: <strong>index.md</strong></h5>
+<pre><code>---
+theme: pocodocs
+pagetheme: hero
+---
+</code></pre>
+<p>Putting both of these on the home page is perfectly logical.
+The <code>theme</code> rule causes that theme to be used on every page
+in the site without your specifying it. The <code>pagetheme</code>
+rule causes the theme to be overridden for the selected page...
+which in this case is the home page.</p>
+<p>This works only on the
+home page.</p>
 <h2 id="title">title</h2>
 <p>The <code>Title</code> key lets you set a title for your HTML page.
 This has a number of important benefits.</p>
 <ul>
 <li>It will be used for browser tabs open to that page</li>
-<li>It may influece search results</li>
+<li>It may influence search results</li>
 <li>It assists screen readers for visually impaired users</li>
 <li>It allows you to create a unique title for each page, which
 is considered table stakes for government accessibility requirements
@@ -892,7 +933,7 @@ Here's your .
 </code></pre>
 <p>This page would have its <code>keywords</code> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name">metatag</a> set to
 <code>Static generator overview</code> and the page generated would
-read as shown beloe in a web browser:</p>
+read as shown below in a web browser:</p>
 <pre><code>Here's your Static generator overview
 </code></pre>
 
