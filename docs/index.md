@@ -1,7 +1,6 @@
 ---
-#asideright: "docs/indexaside.md"
-#asideleft: "docs/indexaside.md"
 aside: SUPPRESS
+nav: "docs/docs-nav.md"
 ---
 # PocoCMS documentation hub
 
@@ -15,9 +14,9 @@ aside: SUPPRESS
 
 ## PocoCMS internals
 * [Technical overview](technical-overview.html)
+* [The PocoCMS theme framework](theme-framework.html)
 
 ## Reference
-* [The PocoCMS theme framework](theme-framework.html)
 * [Glossary](glossary.html)
 
 

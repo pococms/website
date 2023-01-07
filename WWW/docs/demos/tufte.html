@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Powered with &hearts; by PocoCMS</title>
+	<title>&#129502; Powered by PocoCMS</title>
 
 <style></style>
 <style>
@@ -23,6 +23,11 @@
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
   --header-height:auto;       /* Height of header */
+  --burger-menu-fg:var(--fg); /* Color of the burger menu */
+  --burger-menu-bg:var(--bg); /* Background color of the burger menu */
+  --burger-menu-font-border:none; /* Border around burger menu text/character */
+  --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
+  --burger-menu-separator-color: var(--burger-menu-fg); /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
   --nav-bg:var(--bg);         /* Background color of nav */
   --aside-fg:var(--fg);       /* Text color of aside */
@@ -59,6 +64,12 @@
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
+  --header-height:auto;       /* Height of header */
+  --burger-menu-fg: white;    /* Color of the burger menu */
+  --burger-menu-bg: black;    /* Background color of the burger menu */
+  --burger-menu-font-border:none; /* Border around burger menu text/character */
+  --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
+  --burger-menu-separator-color: white; /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
   --nav-bg:var(--bg);         /* Background color of nav */
   --aside-fg:var(--fg);       /* Text color of aside */
@@ -81,14 +92,13 @@
   --pre-bg:var(--code-bg);    /* Background color for fenced code */
   --padding-left:5%;          /* Where the header, nav, and footer usually start */
 }
-
+}
 
 
 /* ************************************/
 /*  DARK COLOR SCHEME                 */
 /* ************************************/
 
-}
 @media (prefers-color-scheme: dark) {
 :root {
   --a:cyan;                   /* Default link color */
@@ -99,6 +109,11 @@
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
   --header-height:auto;       /* Height of header */
+  --burger-menu-fg: white;    /* Color of the burger menu */
+  --burger-menu-bg: black;    /* Background color of the burger menu */
+  --burger-menu-font-border:none; /* Border around burger menu text/character */
+  --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
+  --burger-menu-separator-color: white; /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
   --nav-bg:var(--bg);         /* Background color of nav */
   --aside-fg:var(--fg);       /* Text color of aside */
@@ -180,11 +195,39 @@ h4{color:var(--h4-fg);}
   aside{display:none}
   article{margin:0;float:left;clear:left;width:100%}
 }
-@media (max-width:720px){
+@media (max-width:1000px){
   html{font-size:1.25rem;}
-  header,nav,aside,footer{display:none}
+  nav,aside,footer{display:none}
   article{padding:1em;}
   article{float:left;clear:left;width:100%}
+  header{display:block;}
+
+  /* Format of hamburger menu items */
+  /*
+  header ul li a {
+    color: var(--menu-a-fg);
+    color:black;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border-top: 1px solid var(--burger-menu-separator-color);
+  }
+  
+  /* Actual burger icon 
+  header label {
+    color: var(--burger-menu-fg);
+    color: black;
+    display: inline-block;
+    background-color: var(--burger-menu-bg);
+    font-style: normal;
+    font-size: 1.5em;
+    padding: .5em;
+  }
+  header > ul { display:none;}
+  header > input:checked + ul   { display: block; }
+  */
+
+
 }
 
 
@@ -230,7 +273,7 @@ article th:first-child{width:1rem;}
 <style>		th:first-child,td:first-child{width:.5rem;}
 </style>
 </head>
-<body>	
+<body>
 	
 	
 <article id="article-poco">

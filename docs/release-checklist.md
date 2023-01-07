@@ -1,10 +1,11 @@
 # PocoCMS release checklist
 
+* Eventually start releasing w/out debug info. Add correct ldflags to gorelease? https://itnext.io/shrinking-go-executable-9e9c17b47a41
 * Change to the poco directory
+* go fmt
 * go build
 * go test
 * Check quickly through the source code
-* go fmt
 * Run all stylesheets through `vnu` via my `v` utility
 * `du -h` on the source directory
 * `tree` on the source directory
@@ -16,7 +17,8 @@ including as comments in Go template format
   - Sidebars in both short and log documents
   - Themes in nested directories
 * cd ~/pococms/website and run `poco-dir-update`
-
+* Ahead of goreleaser, run `rm -rf ../downloads/dist`
+* Get all cruft out of poco directory and run `goreleaser`
 ## Check for assets
 * Am I still using
   - website/docs/img-sample-gordon-house-224x168.jpg

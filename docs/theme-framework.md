@@ -28,6 +28,8 @@ HTML, PocoCMS inserts stylesheets and, if the theme supports
 these features, [page layout elements](glossary.html#layout-element) 
 into the HTML:
 
+![Screenshot with page layout elements labeled](/docs/img/theme-parts.png)
+
 * header styles, recurring text and images, and formatting
 * nav styles, recurring text and images, and formatting
 * aside styles, recurring text and images, and formatting
@@ -536,5 +538,38 @@ overridden by the file called `news-update.md` (use any filename you want).
 If you used beta version 10.0.9, please **[upgrade now](beta-10-0-0.html)**
 ```
 
+## Code generation
 
+PocoCMS tries hard to avoid magic. For example, you normally know
+exactly what stylesheets are used by a theme simply by looking at the
+theme's [README.md](glossary.html#theme-readme) file.
+
+One exception to this is whether your [aside](glossary.html#aside) is
+on the right or the left. to make this magic happen means
+that  if the aside is on the left, this has to be
+added to the CSS:
+
+```
+/* Aside on left, article on right */
+article{float:right;clear:right;}\naside{float:left;}"
+```
+
+And the opposite for aside on the right:
+
+```
+/* Aside on right, article on on left: */
+article{float:left;clear:left;}\naside{float:right;}o
+```
+
+
+
+	if aside == "left" {
+		//if t.asideType == asideLeft
+		t = t + "article{float:right;clear:right;}\naside{float:left;}"
+	}
+
+	if aside == "right" {
+		//if t.asideType == asideRight
+		t = t + "article{float:left;clear:left;}\naside{float:right;}"
+```
 

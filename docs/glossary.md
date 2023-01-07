@@ -1,5 +1,6 @@
 ---
 aside: SUPPRESS
+nav: docs/docs-nav.md
 ---
 # Glossary
 
@@ -11,7 +12,7 @@ example below, the article consists of the worlds `hello, world.`:
 
 ```
 ---
-theme: ".poco/themes/pocodocs"
+theme: "informer"
 ---
 hello, world.
 ```
@@ -19,6 +20,14 @@ hello, world.
 When rendered as an HTML page using the PocoDocs theme, you'll also
 see a header, nav, aside, and footer. Those are *not* part of
 the article. They're known as page [layout elements](#layout-element).
+
+## burger menu
+
+The navigation menu that appears only on small format screens, such
+as phones. It is a simple list of links that replaces 
+the [header](#header), which often has too
+many links or bulky brand identification to fit comfortably 
+on the small screen.
 
 ## code block
 
@@ -367,10 +376,21 @@ See [project](#project)
 
 
 ## source file
+
 A *source file* is the Markdown file used to create a matching HTML file for output.
 For example, most directories have a source filenamed `index.html`, which
 is the default location web servers look when users navigate to a 
 website
+
+## style tag
+
+You can override a page's stylesheet with *style tags*. These are the
+enclosed in `<style>`/`</style>` tags on the page. They are loaded 
+after stylesheets, so you're guaranteed that they have the final say
+on that page.
+
+See [front matter](front-matter.html#styles) for a complete example.
+
 
 ## SUPPRESS
 
@@ -431,6 +451,56 @@ this at the command line:
 ```
 poco -themes
 ```
+
+## theme README
+
+A PocoCMS [theme](#theme) is a collection of stylesheets, 
+Markdown files, and other assets 
+listed in the file `README.md` file for that theme's directory.
+Suppose you choose the Electro theme for your document:
+
+
+```
+---
+pagetheme: electro 
+---
+
+# Electro theme test
+
+hello, world.
+```
+
+The Electro theme's file in `.poco/themes/electro/README.md`
+looks something like this:
+
+```
+---
+header: header.md
+nav: nav.md
+aside: aside.md
+footer: footer.md
+
+importrules:
+- url('https://fonts.googleapis.com/css?family=Nova+Mono&display=swap');
+- url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap');    
+
+stylesheets:
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+- ../../css/type.css
+- ../../css/skinny.css
+- ../../css/mediacolors.css
+- electro.css
+---
+.. etc
+```
+
+It derives the fundamental visual appearance from the stylesheets. 
+Page layout elements get their definitions from files named `header.md` and so forth.
+
+
 ## title
 
 Each HTML document should have a [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title) tag. Often the title tag determines what

@@ -51,7 +51,7 @@ front matter options PocoCMS provides.
 [robots](#robots) 
 [script-after](#script-after)  
 [skip](#skip)  
-[styles](#styletags)  
+[styles](#styles)  
 [stylesheets](#stylesheets)  
 [theme](#theme)  
 [title](#title)  
@@ -67,7 +67,7 @@ like this:
 
 It generates the following HTML document:
 
-```html
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,7 +106,7 @@ output of the HTML files PocoCMS produces.
 Here's what happens when PocoCMS generates HTML for the
 previous example:
 
-```html
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -128,7 +128,7 @@ previous example:
 In the first example PocoCMS inserted this shamelessly 
 self-promoting `<title>` tag:
 
-```html
+```
 <title>Powered by PocoCMS</title>
 ```
 
@@ -157,7 +157,7 @@ keywords: static site generator, jamstack, cms
 
 Caused a `keywords` metatag to be inserted into the file:
 
-```html
+```
 <meta name="keywords" content="static site generator, jamstack, cms">
 ```
 
@@ -255,8 +255,29 @@ author: "Tom Campbell"
 
 Causes this metatag to be generated:
 
-```html
+```
 <meta name="author" content="Tom Campbell">
+```
+
+## burger
+
+Defines the list of links used for the [burger menu](glossary.html#burger-menu), 
+a fallback menu meant to appears only in small screen formats.
+It's an alternate to the [header](glossary.html#header), which
+is often too large for a phone.
+
+It generates a list of HTML links with the first part
+as the anchor (visible) text, and the second part as the
+destination URL.
+
+{{- /* # TODO: Pic or it didn't happen */ -}} 
+
+
+```
+burger:
+- Home: pococms.com
+- Docs: pococoms.com/docs
+- Tutorial: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 ```
 
 ## description
@@ -274,7 +295,7 @@ description: "PocoCMS is the easiest static site generator available"
 
 Causes this metatag to be generated:
 
-```html
+```
 <meta name="description" content="PocoCMS is the easiest static site generator available">
 ```
 ## footer 
@@ -300,15 +321,6 @@ footer: new-footer.md
 ```
 Powered by PocoCMS!
 ```
-See also [header](#header), [nav](#nav), and [aside](#aside) 
-
-
-## header
-
-Controls behavior of the footer, shown in [Anatomy](gs-parts-of-theme.html#anatomy).
-
-1. When given the value as SUPPRESS, hides the header for this page only.
-```
 ---
 header: SUPPRESS
 ---
@@ -323,8 +335,6 @@ header: new-header.md
 
 ##### Filename: **new-header.md**
 
-```
-**Powered by PocoCMS!**
 ```
 See also [nav](#nav), [aside](#aside), and [footer](#footer) 
 
@@ -402,7 +412,7 @@ robots: "NoIndex"
 
 Causes this metatag to be generated:
 
-```html
+```
 <meta name="robots" content="noindex">
 ```
 
@@ -465,6 +475,53 @@ skip-publish:
 ---
 ```
 
+## stylesheets 
+
+Causes a stylesheet link to be inserted into the file
+for each file in the list.
+
+### Example
+
+Using these `stylesheets` in the front matter:
+```
+---
+stylesheets: 
+- "../../css/layout.css"
+- "https://cdn.jsdelivr.net/npm/@ajusa/lit@latest/src/lit.css"
+---
+```
+
+## styles
+
+Causes a `<style>` tag to be inserted into the file
+for each line in the list. Because they
+are inserted after [Stylesheets](#stylesheets) they
+override whatever appears in the stylesheets for
+the current page.
+It's a good way to develop stylesheets slowly, or
+to override colors for a light them to make it 
+dark, and vice versa.
+
+### Example
+
+Using this `styles` entry in the front matter to color all
+your article text blue:
+
+```
+---
+style: 
+- "article>p{color:blue;}"
+---
+```
+
+### HTML generated:
+
+```
+<style>
+  article>p{color:blue;}
+</style>
+```
+
 ## theme
 
 Defines a [theme](glossary.html#theme) to be used as 
@@ -508,53 +565,6 @@ read as shown beloe in a web browser:
 
 ```
 Here's your Static generator overview
-```
-
-## stylesheets 
-
-Causes a stylesheet link to be inserted into the file
-for each file in the list.
-
-### Example
-
-Using these `stylesheets` in the front matter:
-```
----
-stylesheets: 
-- "../../css/layout.css"
-- "https://cdn.jsdelivr.net/npm/@ajusa/lit@latest/src/lit.css"
----
-```
-
-# styles
-
-Causes a `<style>` tag to be inserted into the file
-for each line in the list. Because they
-are inserted after [Stylesheets](#stylesheets) they
-override whatever appears in the stylesheets for
-the current page.
-It's a good way to develop stylesheets slowly, or
-to override colors for a light them to make it 
-dark, and vice versa.
-
-### Example
-
-Using this `styles` entry in the front matter to color all
-your article text blue:
-
-```
----
-style: 
-- "article>p{color:blue;}"
----
-```
-
-Will cause the text on this page to be blue.
-
-Causes this HTML to be generated:
-
-```html
-<style>article>p{color:blue;}</style>
 ```
 
 

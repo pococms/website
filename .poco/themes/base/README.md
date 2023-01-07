@@ -4,6 +4,11 @@ nav: nav.md
 aside: aside.md
 footer: footer.md
 
+hicon: "&#9776;"
+#hicon: "MENU"
+
+burger: burger.md
+
 stylesheets:
 - ../../css/root.css
 - ../../css/reset.css

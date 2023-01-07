@@ -486,6 +486,8 @@ no [home page](glossary.html#home-page), PocoCMS
 generates a simple `index.md` file. If you view its contents,
 you'll see this:
 
+{{- /* TODO: Confirm and replace with better example */ -}}
+
 ```
 ---
 Stylesheets:

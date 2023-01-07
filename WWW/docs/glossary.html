@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Powered with &hearts; by PocoCMS</title>
+	<title>&#129502; Powered by PocoCMS</title>
 
 <style></style>
 <style>
@@ -23,6 +23,11 @@
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
   --header-height:auto;       /* Height of header */
+  --burger-menu-fg:var(--fg); /* Color of the burger menu */
+  --burger-menu-bg:var(--bg); /* Background color of the burger menu */
+  --burger-menu-font-border:none; /* Border around burger menu text/character */
+  --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
+  --burger-menu-separator-color: var(--burger-menu-fg); /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
   --nav-bg:var(--bg);         /* Background color of nav */
   --aside-fg:var(--fg);       /* Text color of aside */
@@ -59,6 +64,12 @@
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
+  --header-height:auto;       /* Height of header */
+  --burger-menu-fg: white;    /* Color of the burger menu */
+  --burger-menu-bg: black;    /* Background color of the burger menu */
+  --burger-menu-font-border:none; /* Border around burger menu text/character */
+  --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
+  --burger-menu-separator-color: white; /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
   --nav-bg:var(--bg);         /* Background color of nav */
   --aside-fg:var(--fg);       /* Text color of aside */
@@ -81,14 +92,13 @@
   --pre-bg:var(--code-bg);    /* Background color for fenced code */
   --padding-left:5%;          /* Where the header, nav, and footer usually start */
 }
-
+}
 
 
 /* ************************************/
 /*  DARK COLOR SCHEME                 */
 /* ************************************/
 
-}
 @media (prefers-color-scheme: dark) {
 :root {
   --a:cyan;                   /* Default link color */
@@ -99,6 +109,11 @@
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
   --header-height:auto;       /* Height of header */
+  --burger-menu-fg: white;    /* Color of the burger menu */
+  --burger-menu-bg: black;    /* Background color of the burger menu */
+  --burger-menu-font-border:none; /* Border around burger menu text/character */
+  --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
+  --burger-menu-separator-color: white; /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
   --nav-bg:var(--bg);         /* Background color of nav */
   --aside-fg:var(--fg);       /* Text color of aside */
@@ -182,14 +197,15 @@ footer, header, hgroup, menu, nav, pre, section {
 
 
 /* sizes.css*/
+article{width:var(--article-width);height:auto;}  
+aside{width:var(--aside-width);padding:0 2em 0 2em;}  
 ol li, ul li  {margin-left:1em;}
 p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
 td,th{padding: 0.5em;}
 pre{font-size: smaller;overflow: auto;padding:1em;margin:1rem 0 1rem 0;}
 header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
-header>ul>li,nav>ul>li{padding-right:.5em;}
-article{width:var(--article-width);height:auto;}  
-aside{width:var(--aside-width);padding:0 2em 0 2em;}  
+header>ul>li{padding-right:.5em;}
+nav a {margin-right:.5em;}
 footer {padding-top:2em;}
 article,nav,header,footer{padding-left:var(--padding-left);}
 article>dl>dt {padding-top:1em;}
@@ -271,11 +287,39 @@ h4{color:var(--h4-fg);}
   aside{display:none}
   article{margin:0;float:left;clear:left;width:100%}
 }
-@media (max-width:720px){
+@media (max-width:1000px){
   html{font-size:1.25rem;}
-  header,nav,aside,footer{display:none}
+  nav,aside,footer{display:none}
   article{padding:1em;}
   article{float:left;clear:left;width:100%}
+  header{display:block;}
+
+  /* Format of hamburger menu items */
+  /*
+  header ul li a {
+    color: var(--menu-a-fg);
+    color:black;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border-top: 1px solid var(--burger-menu-separator-color);
+  }
+  
+  /* Actual burger icon 
+  header label {
+    color: var(--burger-menu-fg);
+    color: black;
+    display: inline-block;
+    background-color: var(--burger-menu-bg);
+    font-style: normal;
+    font-size: 1.5em;
+    padding: .5em;
+  }
+  header > ul { display:none;}
+  header > input:checked + ul   { display: block; }
+  */
+
+
 }
 
 
@@ -326,7 +370,7 @@ header{/*line-height:2em;*/ padding-top:2em;}
 header>ul>li:first-child>a{padding-right:1rem;padding-left:0}
 
 nav>ul{line-height:2em;}
-nav>p>a{padding-right:1em;}
+nav>p>a{padding-right:1.25em;}
 /*
  * --------------------------------------------------
  * Special feature: First item in list has biggest
@@ -412,7 +456,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 
 </style>
 </head>
-<body>	
+<body>
 <header id="header-poco"><ul>
 <li><a href="https://pococms.com">poco<del>CMS</del></a></li>
 <li><a href="/docs/theme-demos.html">Theme demos</a></li>
@@ -422,7 +466,9 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </ul>
 </header>
 	
-<nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/technical-overview.html">Technical overiew</a></p>
+<nav id="nav-poco"><ul>
+<li><a href="/docs/tutorials.html">Tutorials</a> <a href="/docs/glossary.html">Glossary</a> <a href="/docs/theme-framework.html">Theme framework</a></li>
+</ul>
 </nav>
 	
 <article id="article-poco">
@@ -431,13 +477,19 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <p>The <em>article</em> is the main body text of a web page. In the
 example below, the article consists of the worlds <code>hello, world.</code>:</p>
 <pre><code>---
-theme: &quot;.poco/themes/pocodocs&quot;
+theme: &quot;informer&quot;
 ---
 hello, world.
 </code></pre>
 <p>When rendered as an HTML page using the PocoDocs theme, you'll also
 see a header, nav, aside, and footer. Those are <em>not</em> part of
 the article. They're known as page <a href="#layout-element">layout elements</a>.</p>
+<h2 id="burger-menu">burger menu</h2>
+<p>The navigation menu that appears only on small format screens, such
+as phones. It is a simple list of links that replaces
+the <a href="#header">header</a>, which often has too
+many links or bulky brand identification to fit comfortably
+on the small screen.</p>
 <h2 id="code-block">code block</h2>
 <p>Synonomous with <a href="#code-fence">code fence</a></p>
 <h2 id="code-fence">code fence</h2>
@@ -697,6 +749,12 @@ For example, making sure each page of your site has a different
 For example, most directories have a source filenamed <code>index.html</code>, which
 is the default location web servers look when users navigate to a
 website</p>
+<h2 id="style-tag">style tag</h2>
+<p>You can override a page's stylesheet with <em>style tags</em>. These are the
+enclosed in <code>&lt;style&gt;</code>/<code>&lt;/style&gt;</code> tags on the page. They are loaded
+after stylesheets, so you're guaranteed that they have the final say
+on that page.</p>
+<p>See <a href="front-matter.html#styles">front matter</a> for a complete example.</p>
 <h2 id="suppress">SUPPRESS</h2>
 <p>You'll often see <a href="#front-matter">front matter</a> that looks like this
 to <a href="gs-parts-of-theme.html#hiding-header-nav-aside-or-footer-on-a-per-page-basis">hide parts of a page</a> such as the <a href="#header">header</a>,<a href="#nav">nav</a>,<a href="#aside">aside</a>, or <a href="#footer">footer</a>:</p>
@@ -736,6 +794,45 @@ theme: .poco/themes/wide
 this at the command line:</p>
 <pre><code>poco -themes
 </code></pre>
+<h2 id="theme-readme">theme README</h2>
+<p>A PocoCMS <a href="#theme">theme</a> is a collection of stylesheets,
+Markdown files, and other assets
+listed in the file <code>README.md</code> file for that theme's directory.
+Suppose you choose the Electro theme for your document:</p>
+<pre><code>---
+pagetheme: electro 
+---
+
+# Electro theme test
+
+hello, world.
+</code></pre>
+<p>The Electro theme's file in <code>.poco/themes/electro/README.md</code>
+looks something like this:</p>
+<pre><code>---
+header: header.md
+nav: nav.md
+aside: aside.md
+footer: footer.md
+
+importrules:
+- url('https://fonts.googleapis.com/css?family=Nova+Mono&amp;display=swap');
+- url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;display=swap');    
+
+stylesheets:
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+- ../../css/type.css
+- ../../css/skinny.css
+- ../../css/mediacolors.css
+- electro.css
+---
+.. etc
+</code></pre>
+<p>It derives the fundamental visual appearance from the stylesheets.
+Page layout elements get their definitions from files named <code>header.md</code> and so forth.</p>
 <h2 id="title">title</h2>
 <p>Each HTML document should have a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title">title</a> tag. Often the title tag determines what
 text appears to people <a href="https://developers.google.com/search/docs/appearance/title-link">searching on the web</a>, and it's normally

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Powered with &hearts; by PocoCMS</title>
+	<title>&#129502; Powered by PocoCMS</title>
 
 <style></style>
 <style>
@@ -23,6 +23,11 @@
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
   --header-height:auto;       /* Height of header */
+  --burger-menu-fg:var(--fg); /* Color of the burger menu */
+  --burger-menu-bg:var(--bg); /* Background color of the burger menu */
+  --burger-menu-font-border:none; /* Border around burger menu text/character */
+  --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
+  --burger-menu-separator-color: var(--burger-menu-fg); /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
   --nav-bg:var(--bg);         /* Background color of nav */
   --aside-fg:var(--fg);       /* Text color of aside */
@@ -59,6 +64,12 @@
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
+  --header-height:auto;       /* Height of header */
+  --burger-menu-fg: white;    /* Color of the burger menu */
+  --burger-menu-bg: black;    /* Background color of the burger menu */
+  --burger-menu-font-border:none; /* Border around burger menu text/character */
+  --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
+  --burger-menu-separator-color: white; /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
   --nav-bg:var(--bg);         /* Background color of nav */
   --aside-fg:var(--fg);       /* Text color of aside */
@@ -81,14 +92,13 @@
   --pre-bg:var(--code-bg);    /* Background color for fenced code */
   --padding-left:5%;          /* Where the header, nav, and footer usually start */
 }
-
+}
 
 
 /* ************************************/
 /*  DARK COLOR SCHEME                 */
 /* ************************************/
 
-}
 @media (prefers-color-scheme: dark) {
 :root {
   --a:cyan;                   /* Default link color */
@@ -99,6 +109,11 @@
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
   --header-height:auto;       /* Height of header */
+  --burger-menu-fg: white;    /* Color of the burger menu */
+  --burger-menu-bg: black;    /* Background color of the burger menu */
+  --burger-menu-font-border:none; /* Border around burger menu text/character */
+  --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
+  --burger-menu-separator-color: white; /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
   --nav-bg:var(--bg);         /* Background color of nav */
   --aside-fg:var(--fg);       /* Text color of aside */
@@ -182,14 +197,15 @@ footer, header, hgroup, menu, nav, pre, section {
 
 
 /* sizes.css*/
+article{width:var(--article-width);height:auto;}  
+aside{width:var(--aside-width);padding:0 2em 0 2em;}  
 ol li, ul li  {margin-left:1em;}
 p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
 td,th{padding: 0.5em;}
 pre{font-size: smaller;overflow: auto;padding:1em;margin:1rem 0 1rem 0;}
 header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
-header>ul>li,nav>ul>li{padding-right:.5em;}
-article{width:var(--article-width);height:auto;}  
-aside{width:var(--aside-width);padding:0 2em 0 2em;}  
+header>ul>li{padding-right:.5em;}
+nav a {margin-right:.5em;}
 footer {padding-top:2em;}
 article,nav,header,footer{padding-left:var(--padding-left);}
 article>dl>dt {padding-top:1em;}
@@ -271,11 +287,39 @@ h4{color:var(--h4-fg);}
   aside{display:none}
   article{margin:0;float:left;clear:left;width:100%}
 }
-@media (max-width:720px){
+@media (max-width:1000px){
   html{font-size:1.25rem;}
-  header,nav,aside,footer{display:none}
+  nav,aside,footer{display:none}
   article{padding:1em;}
   article{float:left;clear:left;width:100%}
+  header{display:block;}
+
+  /* Format of hamburger menu items */
+  /*
+  header ul li a {
+    color: var(--menu-a-fg);
+    color:black;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border-top: 1px solid var(--burger-menu-separator-color);
+  }
+  
+  /* Actual burger icon 
+  header label {
+    color: var(--burger-menu-fg);
+    color: black;
+    display: inline-block;
+    background-color: var(--burger-menu-bg);
+    font-style: normal;
+    font-size: 1.5em;
+    padding: .5em;
+  }
+  header > ul { display:none;}
+  header > input:checked + ul   { display: block; }
+  */
+
+
 }
 
 
@@ -326,7 +370,7 @@ header{/*line-height:2em;*/ padding-top:2em;}
 header>ul>li:first-child>a{padding-right:1rem;padding-left:0}
 
 nav>ul{line-height:2em;}
-nav>p>a{padding-right:1em;}
+nav>p>a{padding-right:1.25em;}
 /*
  * --------------------------------------------------
  * Special feature: First item in list has biggest
@@ -412,7 +456,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 
 </style>
 </head>
-<body>	
+<body>
 <header id="header-poco"><ul>
 <li><a href="https://pococms.com">poco<del>CMS</del></a></li>
 <li><a href="/docs/theme-demos.html">Theme demos</a></li>
@@ -797,6 +841,7 @@ no <a href="glossary.html#home-page">home page</a>, PocoCMS
 generates a simple <code>index.md</code> file. If you view its contents,
 you'll see this:</li>
 </ul>
+<p></p>
 <pre><code>---
 Stylesheets:
     - &quot;https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/poquito.css&quot;
