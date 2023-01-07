@@ -24,6 +24,8 @@ choice of font on a nav bar.
 ✅ Aside left on/off\
 ✅ Aside right on/off\
 ✅ Footer on/off\
+❌ Hamburger menu\
 ✅ Responsive\
 ✅ Mobile support
+
 

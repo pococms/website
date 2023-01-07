@@ -42,6 +42,7 @@ The Rawdog theme css in `rawdoc.css` is the simplest of all PocoCMS themes:
 ❌ Aside left on/off\
 ❌ Aside right on/off\
 ❌ Footer on/off\
+❌ Hamburger menu\
 ✅ Responsive\
 ✅ Mobile support
 

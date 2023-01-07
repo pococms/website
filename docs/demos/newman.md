@@ -22,6 +22,7 @@ It is designed to be used with the [Inter](https://rsms.me/inter/) font.
 ❌ Aside left on/off\
 ❌ Aside right on/off\
 ✅ Footer on/off\
+❌ Hamburger menu\
 ✅ Responsive\
 ✅ Mobile support
 

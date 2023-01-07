@@ -22,6 +22,7 @@ It's based on [Andy Brewer's](https://www.andybrewer.com) [MVP.css](https://andy
 ✅ Aside left on/off\
 ✅ Aside right on/off\
 ✅ Footer on/off\
+✅ Hamburger menu\
 ✅ Responsive\
 ✅ Mobile support
 

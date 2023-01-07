@@ -23,6 +23,7 @@ It's easy to customize with minimal additions to CSS.
 ✅ Aside left on/off\
 ✅ Aside right on/off\
 ✅ Footer on/off\
+✅ Hamburger menu\
 ✅ Responsive\
 ✅ Mobile support
 

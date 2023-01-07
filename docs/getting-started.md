@@ -73,7 +73,7 @@ You'll see what you've created:
 
 ## View the files PocoCMS created
 
-Let's take a look at what `poco -new` just did. Get a directory
+Let's take a look at what `poco -new` just generated. Get a directory
 listing. It will appear something like this:
 
 ```

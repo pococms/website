@@ -63,7 +63,7 @@ Markdown source:
 Published result:
 
 ```js
-document.write('hello, world.)
+document.write('hello, world.')
 ```
   
 #### Markdown 

@@ -18,6 +18,7 @@ consuming complex information as painless as possible.
 ✅ Aside left on/off\
 ✅ Aside right on/off\
 ✅ Footer on/off\
+✅ Hamburger menu\
 ✅ Responsive\
 ✅ Mobile support
 

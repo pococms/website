@@ -5,7 +5,7 @@ aside: docs/gs-aside.md
 # Tables in Markdown 
 
 PocoCMS uses [GitHub-style table markdown](https://help.github.com/articles/organizing-information-with-tables), a widely accepted
-extension to Markdownj:. Here are the highlights.
+extension to [Markdown](glossary.html#markdown). Here are the highlights.
 
 ### Table syntax simplified
 

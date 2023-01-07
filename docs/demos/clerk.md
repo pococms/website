@@ -16,6 +16,7 @@ old-school typewriters.
 ✅ Aside left on/off\
 ✅ Aside right on/off\
 ✅ Footer on/off\
+✅ Hamburger menu\
 ✅ Responsive\
 ✅ Mobile support
 

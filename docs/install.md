@@ -4,6 +4,9 @@ aside: SUPPRESS
 
 # Installing PocoCMS
 
+PocoCMS is just one file, so if you have a little experience
+copying files and adding them to the path there's nothing to it.
+
 **This part is a bit rough. Will improve it ASAP. Plan is to work up versions for**
 * Homebrew tap
 * scoop

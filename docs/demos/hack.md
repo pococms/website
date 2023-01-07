@@ -17,13 +17,12 @@ And why not? It's suppoed to be retro.
 
 ## Supported features
 
-|     |                      |
-| --- | -------------------- |
-| ✅  | Header on/off        |
-| ✅  | Nav on/off           |
-| ✅  | Aside left on/off    |
-| ✅  | Aside right on/off   |
-| ✅  | Footer on/off        |
-| ✅  | Responsive           |
-| ✅  | Mobile support       |
+✅ Header on/off\
+✅ Nav on/off\  
+✅ Aside left on/off\
+✅ Aside right on/off\
+✅ Footer on/off\
+✅ Responsive\
+✅ Hamburger menu\
+✅ Mobile support\
 

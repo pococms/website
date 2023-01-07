@@ -17,6 +17,9 @@ for example, choosing a theme, inserting Javascript
 or new style tags into your document, and ensuring
 each page can have a unique `<title>` tag.
 
+It is technically a different document from your Markdown
+article, and it's in a format called [YAML](yaml-usage.html).
+
 Here's an example of a page with a [title](#title) defined in the front matter.
 
 ```
@@ -44,12 +47,11 @@ front matter options PocoCMS provides.
 [footer](#footer)  
 [header](#header)  
 [keywords](#keywords)   
-[key/value pairs](#keyvalue-pairs)  
 [lang](#lang)  
 [nav](#nav)  
 [pagetheme](#pagetheme)  
 [robots](#robots) 
-[script-after](#script-after)  
+[sidebar](#sidebar)  
 [skip](#skip)  
 [styles](#styles)  
 [stylesheets](#stylesheets)  
@@ -206,25 +208,18 @@ with empty front matter like this:
 
 ## aside
 
-Controls behavior of the sidebar, shown in [Anatomy](gs-parts-of-theme.html#anatomy).
 
-1. When given the value "right" or "left", determines whether an [aside](glossary.html#aside) appears to the
-left or right of the article. Some themes may not support it
-but all [theme framework-based themes](theme-framework.html) 
-allow it by defaut. For example:
 
-```
----
-aside: left
----
-```
-2. When given the value as SUPPRESS, hides the sidebar for this page only.
+Asides appear next to the article content: [Anatomy](gs-parts-of-theme.html#anatomy).
+
+``
+1. When given the value as SUPPRESS, hides the sidebar for this page only.
 ```
 ---
 aside: SUPPRESS
 ---
 ```
-3. When given a filename, uses the contents of that file instead of the
+2. When given a filename, uses the contents of that file instead of the
 value supplied by the theme. 
 ```
 ---
@@ -303,6 +298,7 @@ Causes this metatag to be generated:
 Controls behavior of the footer, shown in [Anatomy](gs-parts-of-theme.html#anatomy).
 
 1. When given the value as SUPPRESS, hides the footer for this page only.
+
 ```
 ---
 footer: SUPPRESS
@@ -310,16 +306,21 @@ footer: SUPPRESS
 ```
 2. When given a filename, uses the contents of that file instead of the
 value supplied by the theme. 
-```
----
-footer: new-footer.md
----
-```
 
 ##### Filename: **new-footer.md**
 
 ```
+---
+footer: new-footer.md
+---
 Powered by PocoCMS!
+```
+
+## header 
+
+Controls behavior of the header, shown in [Anatomy](gs-parts-of-theme.html#anatomy).
+
+1. When given the value as SUPPRESS, hides the header for this page only.
 ```
 ---
 header: SUPPRESS
@@ -327,6 +328,7 @@ header: SUPPRESS
 ```
 2. When given a filename, uses the contents of that file instead of the
 value supplied by the theme. 
+
 ```
 ---
 header: new-header.md
@@ -336,7 +338,28 @@ header: new-header.md
 ##### Filename: **new-header.md**
 
 ```
-See also [nav](#nav), [aside](#aside), and [footer](#footer) 
+Powered by PocoCMS!
+```
+
+## keywords
+
+Takes a list of keywords to be used in 
+the `keywords` metatag.
+
+### Example
+
+```
+---
+keywords: static site generator, jamstack, cms
+---
+```
+
+Generates this `keywords` metatag to be inserted into the file:
+
+```
+<meta name="keywords" content="static site generator, jamstack, cms">
+```
+
 
 ## lang
 
@@ -349,15 +372,17 @@ Defaults to `en` for English.
 front matter, which changes the language to Icelandic:
 
 ```
-    ---
-    lang: "is"
-    ---
+---
+lang: "is"
+---
 ```
 
 * Run poco and then view source. You'll see this:
 
 
+```
 <html lang="en">
+```
 
 ## nav 
 
@@ -423,7 +448,26 @@ search engines *not* to index your page, which is
 the opposite of what you normally want.
 
 
+## sidebar
+
+An [aside](#aside) can often be on either the left or
+the right side of the page. That capability is built into
+the PocoCMS [theme framework](theme-framework.html).
+
+`sidebar` lets you choose which side it's on in the 
+obvious way:
+
+```
+---
+sidebar: left
+---
+```
+
+The options are `right` or `left`. The theme will fail silently  
+if it doesn't support `sidebar`.
+
 ## skip
+
 `skip` lists files and directories you don't want to be published.
 
 Remember that if a directory contains the files `index.md`, `installation.md`,
@@ -509,7 +553,7 @@ your article text blue:
 
 ```
 ---
-style: 
+styles: 
 - "article>p{color:blue;}"
 ---
 ```
@@ -527,7 +571,8 @@ style:
 Defines a [theme](glossary.html#theme) to be used as 
 the default for all pages in the site. It's also
 called the *global theme* informally.
-It is optional.  The global theme can be overridden 
+It is optional but can only appear on 
+the [home page](#home-page).  The global theme can be overridden 
 on a per-page basis using [pagetheme](#pagetheme).
 
 ```
@@ -536,12 +581,37 @@ theme: pocodocs
 ---
 ```
 
+### Global theme on every page but the home page
+
+Suppose you want to use the same theme on every page
+but the home page. Take advantage of the way the home
+
+##### Filename: **index.md**
+
+```
+---
+theme: pocodocs
+pagetheme: hero
+---
+```
+
+Putting both of these on the home page is perfectly logical.
+The `theme` rule causes that theme to be used on every page
+in the site without your specifying it. The `pagetheme`
+rule causes the theme to be overridden for the selected page...
+which in this case is the home page.
+
+
+This works only on the
+home page.
+
+
 ## title
 The `Title` key lets you set a title for your HTML page.
 This has a number of important benefits.
 
 * It will be used for browser tabs open to that page
-* It may influece search results
+* It may influence search results
 * It assists screen readers for visually impaired users
 * It allows you to create a unique title for each page, which
 is considered table stakes for government accessibility requirements
@@ -560,7 +630,7 @@ Here's your {{ .title }}.
 
 This page would have its `keywords` [metatag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name) set to 
 `Static generator overview` and the page generated would
-read as shown beloe in a web browser:
+read as shown below in a web browser:
 
 
 ```
