@@ -6,8 +6,8 @@ nav: "docs/docs-nav.md"
 
 ## Creating static websites with PocoCMS
 * [Tutorial: getting started](getting-started.html)
-* [Front matter](front-matter.html)
 * [Creating themes](themes-creating.html)
+* [PocoCMS SEO](seo.html)
 
 ## Running PocoCMS
 * [Command-line operation](cli.html)
@@ -17,7 +17,9 @@ nav: "docs/docs-nav.md"
 * [The PocoCMS theme framework](theme-framework.html)
 
 ## Reference
+* [Front matter](front-matter.html)
 * [Glossary](glossary.html)
+* [Resources](resources.html)
 
 
 

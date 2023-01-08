@@ -30,6 +30,7 @@ title: Who doesn't love static site generators?
 
 Thanks to exercise, diet, and mostly, PocoCMS.
 ```
+
 This page gives you a somewhat technical overview
 of front matter, then explains all the 
 front matter options PocoCMS provides.
@@ -41,24 +42,25 @@ front matter options PocoCMS provides.
 ## Alphabetical list of front matter options
 
 
-[aside](#aside)   
-[author](#author)  
-[description](#description)  
-[footer](#footer)  
-[header](#header)  
-[keywords](#keywords)   
-[lang](#lang)  
-[nav](#nav)  
-[pagetheme](#pagetheme)  
-[robots](#robots) 
-[sidebar](#sidebar)  
-[skip](#skip)  
-[styles](#styles)  
-[stylesheets](#stylesheets)  
-[theme](#theme)  
-[title](#title)  
+[aside](#aside)\
+[author](#author)\
+[burger](#burger)\
+[description](#description)\
+[footer](#footer)\
+[header](#header)\
+[keywords](#keywords)\
+[lang](#lang)\
+[nav](#nav)\
+[pagetheme](#pagetheme)\
+[robots](#robots)\
+[sidebar](#sidebar)\
+[skip](#skip)\
+[styles](#styles)\
+[stylesheets](#stylesheets)\
+[theme](#theme)\
+[title](#title)
 
-Return to [top](#front-matter)
+Return to [top](#alphabetical-list-of-front-matter-options)
 
 ## Front Matter basics
 
@@ -163,7 +165,7 @@ Caused a `keywords` metatag to be inserted into the file:
 <meta name="keywords" content="static site generator, jamstack, cms">
 ```
 
-Return to [top](#front-matter)
+Return to [top](#alphabetical-list-of-front-matter-options)
 
 ## Formatting rules
 
@@ -209,11 +211,10 @@ with empty front matter like this:
 ## aside
 
 
-
 Asides appear next to the article content: [Anatomy](gs-parts-of-theme.html#anatomy).
 
-``
 1. When given the value as SUPPRESS, hides the sidebar for this page only.
+
 ```
 ---
 aside: SUPPRESS
@@ -233,6 +234,8 @@ aside: new-aside.md
 Announcement soon. Check the [news](news.html) page tomorrow!
 ```
 See also [header](#header), [nav](#nav), and [footer](#footer) 
+
+Return to [top](#alphabetical-list-of-front-matter-options)
 
 ## author 
 
@@ -254,6 +257,8 @@ Causes this metatag to be generated:
 <meta name="author" content="Tom Campbell">
 ```
 
+Return to [top](#alphabetical-list-of-front-matter-options)
+
 ## burger
 
 Defines the list of links used for the [burger menu](glossary.html#burger-menu), 
@@ -261,19 +266,18 @@ a fallback menu meant to appears only in small screen formats.
 It's an alternate to the [header](glossary.html#header), which
 is often too large for a phone.
 
-It generates a list of HTML links with the first part
-as the anchor (visible) text, and the second part as the
-destination URL.
-
 {{- /* # TODO: Pic or it didn't happen */ -}} 
 
+Its contents should only be in the form of a Markdown unordered list, 
+like so:
 
 ```
-burger:
-- Home: pococms.com
-- Docs: pococoms.com/docs
-- Tutorial: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+- [Home](https://pococms.com)
+- [Github](https://github.com/pococms/poco)
+- [Demos](https://pococms.com/docs/theme-demos.html)
 ```
+
+Return to [top](#alphabetical-list-of-front-matter-options)
 
 ## description
 
@@ -293,6 +297,9 @@ Causes this metatag to be generated:
 ```
 <meta name="description" content="PocoCMS is the easiest static site generator available">
 ```
+
+Return to [top](#alphabetical-list-of-front-matter-options)
+
 ## footer 
 
 Controls behavior of the footer, shown in [Anatomy](gs-parts-of-theme.html#anatomy).
@@ -315,6 +322,9 @@ footer: new-footer.md
 ---
 Powered by PocoCMS!
 ```
+
+
+Return to [top](#alphabetical-list-of-front-matter-options)
 
 ## header 
 
@@ -341,6 +351,9 @@ header: new-header.md
 Powered by PocoCMS!
 ```
 
+
+Return to [top](#alphabetical-list-of-front-matter-options)
+
 ## keywords
 
 Takes a list of keywords to be used in 
@@ -360,6 +373,9 @@ Generates this `keywords` metatag to be inserted into the file:
 <meta name="keywords" content="static site generator, jamstack, cms">
 ```
 
+
+
+Return to [top](#alphabetical-list-of-front-matter-options)
 
 ## lang
 
@@ -383,6 +399,9 @@ lang: "is"
 ```
 <html lang="en">
 ```
+
+
+Return to [top](#alphabetical-list-of-front-matter-options)
 
 ## nav 
 
@@ -409,6 +428,9 @@ Announcement soon. Check the [news](news.html) page tomorrow!
 ```
 See also [header](#header), [aside](#aside), and [footer](#footer) 
 
+
+Return to [top](#alphabetical-list-of-front-matter-options)
+
 ## pagetheme 
 
 Defines a [page theme](glossary.html#page-theme) to 
@@ -421,9 +443,12 @@ pagetheme: hero
 ---
 ```
 
+
+Return to [top](#alphabetical-list-of-front-matter-options)
+
 ## robots 
 
-Causes a [`robots` metatag](https://moz.com/learn/seo/robots-meta-directives#:~:text=Robots%20meta%20directives%20(sometimes%20called,or%20index%20web%20page%20content.) to be inserted into the file.
+Causes a [robots metatag](https://moz.com/learn/seo/robots-meta-directives) to be inserted into the file.
 
 ### Example
 
@@ -447,6 +472,9 @@ Be careful following this example! It tells
 search engines *not* to index your page, which is
 the opposite of what you normally want.
 
+
+
+Return to [top](#alphabetical-list-of-front-matter-options)
 
 ## sidebar
 
@@ -519,6 +547,9 @@ skip-publish:
 ---
 ```
 
+
+Return to [top](#alphabetical-list-of-front-matter-options)
+
 ## stylesheets 
 
 Causes a stylesheet link to be inserted into the file
@@ -534,6 +565,9 @@ stylesheets:
 - "https://cdn.jsdelivr.net/npm/@ajusa/lit@latest/src/lit.css"
 ---
 ```
+
+
+Return to [top](#alphabetical-list-of-front-matter-options)
 
 ## styles
 
@@ -565,6 +599,9 @@ styles:
   article>p{color:blue;}
 </style>
 ```
+
+
+Return to [top](#alphabetical-list-of-front-matter-options)
 
 ## theme
 
@@ -606,6 +643,9 @@ This works only on the
 home page.
 
 
+
+Return to [top](#alphabetical-list-of-front-matter-options)
+
 ## title
 The `Title` key lets you set a title for your HTML page.
 This has a number of important benefits.
@@ -636,5 +676,7 @@ read as shown below in a web browser:
 ```
 Here's your Static generator overview
 ```
+
+Return to [top](#alphabetical-list-of-front-matter-options)
 
 

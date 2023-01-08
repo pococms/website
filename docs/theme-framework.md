@@ -18,8 +18,8 @@ HTML) on either side of the page
 * Support optional header, navbars, asides, and footers
 * Hide header, navbars, asides, or footers on a per-page basis
 * Replace header, navbars, asides, or footers on a per-page basis
-* Have good [SEO](#glossary.html#seo) right out of the box, making it easier for your sites
-* Work entirely without CSS [classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors) or [ids](https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors).
+* Are [SEO-optimized](seo.html) right out of the box, making it easier for your sites
+* Use few or no CSS [classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors) or [ids](https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors).
 
 ## PocoCMS theme framework overview
 

@@ -1,49 +1,29 @@
 ---
-pagetheme: informer
+title: Helpful and free resources to improve your site's SEO
+description: Free ways to make your site SEO faster and better | PocoCMS
 ---
-#### WORLD
-
 # Resources: an all-you-can-eat buffet of free and surprisingly useful resources, even for commercial use
 
 This is a curated list of ways to make your web publishing fast and cheaper.
 They are all free (some may require attribution or a signup process) and
 have withstood the test of time... for a couple of years.
 
-#### **By** [Tom Campbell](https://pococms.com) [![Twitter profile](twitter-14px-blue.svg)@pococms](https://twitter.com/pococms)  | Dec 21, 2022 at 7:30pm
-
-![Photgraph of a wet shiny city](img/buildings-668616_640.jpg)
-![Image of happy fisherman unknowingly hooking a huge fish underwater](fishing-3635221.svg)
-
-## All resources are free
-## Some require attribution
-## They're great time savers
-
-## Performance
+## SEO and Performance
 
 Paste your site URL into these pages and get the unvarnished truth
 about what might be interfering with user experience: from speed to
 accessibility to SEO.
-
-* itme
-* imt
-* tim3
-## SEO
-* Google's perspecitve on the all-important [title tag](https://developers.google.com/search/docs/appearance/title-link). In PocoCMS you supply it
+* Google's perspective on the all-important [title tag](https://developers.google.com/search/docs/appearance/title-link). In PocoCMS you supply it
 using `title` in your page's [front matter](front-matter.html#title)
-
-## RANDOM h2
-
-### Google's PageSpeed Insights
-
-Google's [PageSpeed Insights](https://pagespeed.web.dev) is 
+* Google's [PageSpeed Insights](https://pagespeed.web.dev) is 
 like a free consultant. The SEO insights are gold.
-
-### Pingdom's Website Speed Test
-
-When you're testing from the same country your site is
+* When you're testing from the same country in which your site is
 hosted, you may not be getting realistic results.
 Pingdom's [Website Speed Test](https://tools.pingdom.com) lets you
-see how your site performance from different places on the planet.
+see how your site performance from different places on the planet. It gives many other 
+recommendations to improve your SEO. Essential.
+* The [Google SEO starter guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide) gives
+explicit, clear coverage of how to improve your search results.
 
 ## HTML
 

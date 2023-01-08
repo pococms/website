@@ -21,6 +21,46 @@ When rendered as an HTML page using the PocoDocs theme, you'll also
 see a header, nav, aside, and footer. Those are *not* part of
 the article. They're known as page [layout elements](#layout-element).
 
+## anchor text
+
+In HTML, a link to a site has at a minimum these essential elements:
+
+```
+<a href="https://example.com">Examplicious!</a>
+```
+
+As you can probably guess, the destination URL for this link is
+the legendary site `https://example.com`. The part that humans
+read on a web page can be anything, and the term for it is
+*anchor text*. 
+
+In Markdown you'll see links formatted this way:
+
+```
+[Examplicious!](https://example.com)
+```
+
+Such a link gets converted to the precise form shown above it.
+Anchor text is a little more important that you think, because
+it's considered in [SEO](#seo) and accessibility factors. 
+If you have a site about nutrition and you're writing about 
+riboflavin, this link:
+
+
+##### Uh-uh
+
+```
+Read [here](https://example.com/riboflavin)
+```
+
+Is much less helpful than this one:
+
+##### That's what I'm talking about
+
+```
+Learn more about [riboflavin's role in metabolism](https://example.com/riboflavin)
+```
+
 ## burger menu
 
 The navigation menu that appears only on small format screens, such
@@ -98,6 +138,63 @@ front matter (replace "poquito" with whatever theme name you wish):
     ---
     theme: "poquito"
     ---
+
+
+## h1, h2, h3, h4, h5, h6
+
+HTML headings, corresponding directly to heading
+levels in Markdown. See [heading](#heading).
+
+## heading
+
+The term *heading* has a specific meaning in HTML. 
+Most body text is in paragraphs. Take a typical
+sentence like this one:
+
+```
+PocoCMS lets you start a website in just a few seconds.
+```
+
+That body text gets translated into `<p>` or *paragraph* tags
+in HTML, like this:
+
+```
+<p>PocoCMS lets you start a website in just a few seconds.</p>
+```
+
+Sometimes you need to emphasize something, so you emphasize
+it this way:
+
+```
+# Getting Started
+
+PocoCMS lets you start a website in just a few seconds.
+```
+
+The `Getting started` portion will usually be emphasized visually in some way,
+typically through font height and weight. When you have a line starting
+with `# ` it means use the most important weight, or a header 1.
+It gets translated into HTML like this:
+
+```
+<h1>Getting Started</h1>
+```
+
+There are 6 levels of headings: `h1` through `h6`. Start
+a line with a `#` for each one. This Markdown:
+
+```
+### Create a site
+```
+
+converts to the HTML:
+
+```
+<h3>Getting Started</h3>
+```
+
+While all 6 levels of indentation can provide useful visual cues to the reader,
+search engines usually respect only 3 levels.
 
 
 ## home page
@@ -365,13 +462,12 @@ important than the footer, and so on.
 ## SEO
 
 SEO, or search engine optimization, is the art of structuring and
-writing your site so that it's more likely to be found on the web.
-For example, making sure each page of your site has a different
-[title](#title)
-
+writing your site so that it's more likely to be found in web searches.
+[PocoCMS SEO](seo.html)
 
 
 ## site
+
 See [project](#project)
 
 

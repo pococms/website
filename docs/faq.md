@@ -1,10 +1,47 @@
 # PocoCMS Frequently Asked Questions
 
 
+What's the difference between a theme and a pagetheme?
+: You customize the look of PocoCMS sites with themes. You can do it on each
+page in the [front matter](glossary.html#front-matter), like this:
+
+##### Filename: **weather.md**
+
+```
+---
+pagetheme: informer
+---
+# Weather
+
+Today's weather outloook is etc.
+```
+
+But what if you just want an overall look and don't want to be 
+putting `pagethemes` on every page? You go to the [home page](glossary.html#home-page)
+and use the `theme` declaration:
+
+##### Filename: **index.md** on the home page
+
+```
+---
+theme: informer
+---
+```
+
+Now you can forget about `pagetheme` except when you choose to override the theme for
+a particular page.
+
 
 How do I get blank lines after paragraphs? 
-: To get end a line and start a new one, you need
-to end the first line with two spaces. Imagine the
+: Method 1: End the line with a single backslash character like this: `\`.
+Don't forget the last line doesn't need the backslash.
+```
+Line 1.\
+Line 2.\
+Line 3.
+```
+Method 2: To get end a line and start a new one, you can 
+end the first line with two spaces. Imagine the
 little dot characters ·· are actually you pressing
 the space key twice:
 
