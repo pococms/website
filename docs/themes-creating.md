@@ -1,5 +1,5 @@
 ---
-aside: SUPPRESS
+hide: aside
 ---
 # Creating PocoCMS themes
 

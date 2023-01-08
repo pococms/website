@@ -1,5 +1,5 @@
 ---
-aside: SUPPRESS
+hide: aside
 styles:
 - "article img{width:100%;box-shadow:gray 1px 1px 3px 0px;}"
 - "article>table>tbody>tr>td{border:none;}"

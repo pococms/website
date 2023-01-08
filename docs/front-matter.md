@@ -1,5 +1,5 @@
 ---
-aside: SUPPRESS
+hide: aside
 styles:
 - "article>h3{font-weight:normal;}"
 ---
@@ -48,6 +48,7 @@ front matter options PocoCMS provides.
 [description](#description)\
 [footer](#footer)\
 [header](#header)\
+[hide](#hide)\
 [keywords](#keywords)\
 [lang](#lang)\
 [nav](#nav)\
@@ -213,15 +214,9 @@ with empty front matter like this:
 
 Asides appear next to the article content: [Anatomy](gs-parts-of-theme.html#anatomy).
 
-1. When given the value as SUPPRESS, hides the sidebar for this page only.
-
-```
----
-aside: SUPPRESS
----
-```
-2. When given a filename, uses the contents of that file instead of the
+When given a filename, use the contents of that file instead of the
 value supplied by the theme. 
+
 ```
 ---
 aside: new-aside.md
@@ -304,14 +299,7 @@ Return to [top](#alphabetical-list-of-front-matter-options)
 
 Controls behavior of the footer, shown in [Anatomy](gs-parts-of-theme.html#anatomy).
 
-1. When given the value as SUPPRESS, hides the footer for this page only.
-
-```
----
-footer: SUPPRESS
----
-```
-2. When given a filename, uses the contents of that file instead of the
+When given a filename, uses the contents of that file instead of the
 value supplied by the theme. 
 
 ##### Filename: **new-footer.md**
@@ -330,18 +318,35 @@ Return to [top](#alphabetical-list-of-front-matter-options)
 
 Controls behavior of the header, shown in [Anatomy](gs-parts-of-theme.html#anatomy).
 
-1. When given the value as SUPPRESS, hides the header for this page only.
-```
----
-header: SUPPRESS
----
-```
-2. When given a filename, uses the contents of that file instead of the
+``
+When given a filename, uses the contents of that file instead of the
 value supplied by the theme. 
 
 ```
 ---
 header: new-header.md
+---
+```
+
+##### Filename: **new-header.md**
+
+```
+Powered by PocoCMS!
+```
+
+
+Return to [top](#alphabetical-list-of-front-matter-options)
+
+## hide
+
+Suppresses the header, nav, article, aside, or footer,
+shown in [Anatomy](gs-parts-of-theme.html#anatomy).
+
+To hide the aside and the footer, for example:
+
+```
+---
+hide: aside, footer
 ---
 ```
 
@@ -407,13 +412,7 @@ Return to [top](#alphabetical-list-of-front-matter-options)
 
 Controls behavior of the navbar, shown in [Anatomy](gs-parts-of-theme.html#anatomy).
 
-1. When given the value as SUPPRESS, hides the navbar for this page only.
-```
----
-nav: SUPPRESS
----
-```
-2. When given a filename, uses the contents of that file instead of the
+When given a filename, uses the contents of that file instead of the
 value supplied by the theme. 
 ```
 ---

@@ -1,7 +1,7 @@
 ---
 pagetheme: "hero"
 nav: "docs/demos/hero-nav.md"
-aside: SUPPRESS
+hide: aside
 ---
 
 #### Theme demos

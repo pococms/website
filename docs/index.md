@@ -1,5 +1,5 @@
 ---
-aside: SUPPRESS
+hide: aside
 nav: "docs/docs-nav.md"
 ---
 # PocoCMS documentation hub

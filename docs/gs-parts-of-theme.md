@@ -65,7 +65,7 @@ Let's go back to the brief example file we've been using. Make sure
 ---
 title: "Powered with &hearts; by PocoCMS"
 theme: informer
-header: SUPPRESS
+hid: header
 ---
 # Welcome to mysite
 
@@ -90,8 +90,7 @@ Let's go back to the brief example file we've been using. Make sure
 ---
 title: "Powered with &hearts; by PocoCMS"
 theme: informer
-header: SUPPRESS
-nav: SUPPRESS
+hide: header, nav
 ---
 # Welcome to mysite
 
@@ -115,10 +114,7 @@ You see where this is going:
 ---
 title: "Powered with &hearts; by PocoCMS"
 theme: informer
-header: SUPPRESS
-nav: SUPPRESS
-aside: SUPPRESS
-footer: SUPPRESS
+hide: header, nav, aside, footer
 ---
 # Welcome to mysite
 
@@ -146,11 +142,7 @@ when working on problems with the look of a theme you're creating.
 ---
 title: "Powered with &hearts; by PocoCMS"
 theme: informer
-header: SUPPRESS
-nav: SUPPRESS
-aside: SUPPRESS
-footer: SUPPRESS
-article: SUPPRESS
+hide: header, nav, article, aside, footer 
 ---
 # Welcome to mysite
 

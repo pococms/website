@@ -1,11 +1,6 @@
 ---
 pagetheme: "tufte"
-header: "SUPPRESS"
-nav: "SUPPRESS"
-aside: "SUPPRESS"
-footer: "SUPPRESS"
-stylesheets:
-- "../../css/featuretable.css"
+hide: header, nav, aside, footer
 styles:
 - "th:first-child,td:first-child{width:.5rem;}"
 

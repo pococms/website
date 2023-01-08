@@ -6,7 +6,7 @@ aside: "docs/gs-aside.md"
 
 In [The parts of a PocoCMS theme](gs-parts-of-theme.html) you learned how
 easy it is to hide the header, footer, and other [page layout elements](glosssary.html#layout-element) on a page. What if you just want them gone completely so you don't have 
-to use [SUPPRESS](glossary.html#suppress)? What
+to use [hide](glossary.html#hide)? What
 if you never need or want these in your theme at all? You make a simple
   change to the theme itself.
 

@@ -1,5 +1,5 @@
 ---
-aside: SUPPRESS
+hide: aside
 nav: docs/docs-nav.md
 ---
 # Glossary
@@ -197,6 +197,20 @@ While all 6 levels of indentation can provide useful visual cues to the reader,
 search engines usually respect only 3 levels.
 
 
+## hide
+
+You'll often see [front matter](#front-matter) that looks like this
+to [hide parts of a page](gs-parts-of-theme.html#hiding-header-nav-aside-or-footer-on-a-per-page-basis) such as the [header](#header),[nav](#nav),[aside](#aside), or [footer](#footer):
+
+```
+---
+hide: aside
+---
+```
+
+This makes the selected page layout elementl disappear
+for that page only.
+
 ## home page
 
 The home page is a file named either `index.md` or `README.md`
@@ -284,16 +298,17 @@ some common navigation elements such as links to contact,
 terms and conditions, privacy policy, and sitemap.
 
 Layout elements appear on the page only if the theme has defined
-theme. Most of them can be omitted one page at a time
-by using "SUPPRESS" as their value in the front matter
+theme. They can be omitted one page at a time
+by using `hide`, then their tag type in the front matter. 
 
 For example, to prevent a sidebar from appearing on the
 current page, you'd add this to the [front matter](#front-matter).
 
-     ---
-     Aside: "SUPPRESS"
-     ---
-
+```
+---
+hide: aside
+---
+```
 For more on layout elements, read about the structure of a  
 [complete HTML document](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure#HTML_layout_elements_in_more_detail) on MDN.
 
@@ -486,35 +501,6 @@ after stylesheets, so you're guaranteed that they have the final say
 on that page.
 
 See [front matter](front-matter.html#styles) for a complete example.
-
-
-## SUPPRESS
-
-You'll often see [front matter](#front-matter) that looks like this
-to [hide parts of a page](gs-parts-of-theme.html#hiding-header-nav-aside-or-footer-on-a-per-page-basis) such as the [header](#header),[nav](#nav),[aside](#aside), or [footer](#footer):
-
-```
----
-aside: SUPPRESS
----
-```
-
-This notation is specifically in uppercase. Why?
-
-Because another feature of PocoCMS is that you can replace these 
-page elements with the contents of a file, like this:
-
-```
----
-aside: newaside.md 
----
-```
-
-Keeping the word `SUPPRESS` in uppercase helps reduce the possibility that
-the user somehow had a file by the name of `suppress`.
-
-This is probably a dumb constraint and will probably be removed in a future version.
-
 
 
 

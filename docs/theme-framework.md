@@ -494,18 +494,18 @@ output stream. If it's HTML, you must include the proper
 tags for each page layout element: `<header>` and `</header>`,
 `<footer>` and `</footer>`, and so on.
 
-### Page layout elements are included on every page, unless you SUPPRESS...
+### Page layout elements are included on every page, unless you hide them
 
 When PocoCMS generates a site, every page uses that theme
 incorporates the CSS files required for that theme. The same
 is true with the header, nav, footer and aside. Assuming files
 for them exist in the `README.md` front matter, each generated
 page will have them all. But they can be suppressed on a
-page-by-page basis using SUPPRESS. For example, if you don't
+page-by-page basis using [hide](front-matter.html#hide). For example, if you don't
 wait a page to have a nav bar just do this:
 
 ```
-nav: SUPPRESS
+hide: nav
 ---
 # Missing!
 

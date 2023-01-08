@@ -30,7 +30,7 @@ title: "Powered with &hearts; by PocoCMS"
 
 ```
 ---
-nav: SUPPRESS
+hide: nav
 ---
 ```
 

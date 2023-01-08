@@ -14,17 +14,17 @@ without a header:
 
 ```
 ---
-header: "SUPPRESS"
+hide: header
 ---
 Look ma, the header disappeared!
 ```
 
-The `YAML` portion of the document is a single rule called `header`.
+The `YAML` portion of the document is a single rule called `hide`.
 It consists of a key/value pair separated with a colon. 
 
-* The key is the name of the rule and always comes first. In this case it's `header`
+* The key is the name of the rule and always comes first. In this case it's `hide`
 * Next comes the semicolon separating key and value: `:`
-* After that is the value, which is `"SUPPRESS"` in this example.
+* After that is the value, which is `header` in this example.
 
 ## Rules that end in S take lists, not just a single value
 
@@ -58,8 +58,8 @@ Hoefler Text can't be found, it will attempt to use Nimbus Roman No9 L Regular
 `serif` font, which is internal to your browser and which is guaranteed 
 to be available.
 
-Sharp-eyed YAML users will notice that in both the case of `"SUPPRESS"` above
-for the `header` rule, and `styles` for style tags, the quotes surrounding
+Sharp-eyed YAML users will notice that in both the case of `header` above
+for the `hide` rule, and `styles` for style tags, the quotes surrounding
 the value aren't strictly necessary according to YAML rules.
 
 The reason for this is that sometime characters used by CSS seem to cause

@@ -1,5 +1,5 @@
 ---
-aside: SUPPRESS
+hide: aside
 ---
 # PocoCMS command-line options
 
