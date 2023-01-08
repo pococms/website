@@ -765,16 +765,16 @@ for technical reasons. It's just how most site menus work these days.</p>
 output stream. If it's HTML, you must include the proper
 tags for each page layout element: <code>&lt;header&gt;</code> and <code>&lt;/header&gt;</code>,
 <code>&lt;footer&gt;</code> and <code>&lt;/footer&gt;</code>, and so on.</p>
-<h3 id="page-layout-elements-are-included-on-every-page-unless-you-suppress">Page layout elements are included on every page, unless you SUPPRESS...</h3>
+<h3 id="page-layout-elements-are-included-on-every-page-unless-you-hide-them">Page layout elements are included on every page, unless you hide them</h3>
 <p>When PocoCMS generates a site, every page uses that theme
 incorporates the CSS files required for that theme. The same
 is true with the header, nav, footer and aside. Assuming files
 for them exist in the <code>README.md</code> front matter, each generated
 page will have them all. But they can be suppressed on a
-page-by-page basis using SUPPRESS. For example, if you don't
+page-by-page basis using <code>hide</code>. For example, if you don't
 wait a page to have a nav bar just do this:</p>
 <pre><code>---
-nav: SUPPRESS
+hide: nav
 ---
 # Missing!
 

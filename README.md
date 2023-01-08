@@ -1,7 +1,7 @@
 ---
 title: "Powered by PocoCMS"
 theme: "pocodocs"
-aside: SUPPRESS
+hide: aside
 stylesheets:
 - ".poco/themes/pocodocs/big-circles.css"
 ---

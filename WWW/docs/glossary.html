@@ -601,6 +601,15 @@ a line with a <code>#</code> for each one. This Markdown:</p>
 </code></pre>
 <p>While all 6 levels of indentation can provide useful visual cues to the reader,
 search engines usually respect only 3 levels.</p>
+<h2 id="hide">hide</h2>
+<p>You'll often see <a href="#front-matter">front matter</a> that looks like this
+to <a href="gs-parts-of-theme.html#hiding-header-nav-aside-or-footer-on-a-per-page-basis">hide parts of a page</a> such as the <a href="#header">header</a>,<a href="#nav">nav</a>,<a href="#aside">aside</a>, or <a href="#footer">footer</a>:</p>
+<pre><code>---
+hide: aside
+---
+</code></pre>
+<p>This makes the selected page layout elementl disappear
+for that page only.</p>
 <h2 id="home-page">home page</h2>
 <p>The home page is a file named either <code>index.md</code> or <code>README.md</code>
 in the root directory of your project. It has some special
@@ -667,13 +676,13 @@ some common navigation elements such as links to contact,
 terms and conditions, privacy policy, and sitemap.</li>
 </ul>
 <p>Layout elements appear on the page only if the theme has defined
-theme. Most of them can be omitted one page at a time
-by using &quot;SUPPRESS&quot; as their value in the front matter</p>
+theme. They can be omitted one page at a time
+by using <code>hide</code>, then their tag type in the front matter.</p>
 <p>For example, to prevent a sidebar from appearing on the
 current page, you'd add this to the <a href="#front-matter">front matter</a>.</p>
-<pre><code> ---
- Aside: &quot;SUPPRESS&quot;
- ---
+<pre><code>---
+hide: aside
+---
 </code></pre>
 <p>For more on layout elements, read about the structure of a<br />
 <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure#HTML_layout_elements_in_more_detail">complete HTML document</a> on MDN.</p>
@@ -811,23 +820,6 @@ enclosed in <code>&lt;style&gt;</code>/<code>&lt;/style&gt;</code> tags on the p
 after stylesheets, so you're guaranteed that they have the final say
 on that page.</p>
 <p>See <a href="front-matter.html#styles">front matter</a> for a complete example.</p>
-<h2 id="suppress">SUPPRESS</h2>
-<p>You'll often see <a href="#front-matter">front matter</a> that looks like this
-to <a href="gs-parts-of-theme.html#hiding-header-nav-aside-or-footer-on-a-per-page-basis">hide parts of a page</a> such as the <a href="#header">header</a>,<a href="#nav">nav</a>,<a href="#aside">aside</a>, or <a href="#footer">footer</a>:</p>
-<pre><code>---
-aside: SUPPRESS
----
-</code></pre>
-<p>This notation is specifically in uppercase. Why?</p>
-<p>Because another feature of PocoCMS is that you can replace these
-page elements with the contents of a file, like this:</p>
-<pre><code>---
-aside: newaside.md 
----
-</code></pre>
-<p>Keeping the word <code>SUPPRESS</code> in uppercase helps reduce the possibility that
-the user somehow had a file by the name of <code>suppress</code>.</p>
-<p>This is probably a dumb constraint and will probably be removed in a future version.</p>
 <h2 id="theme">theme</h2>
 <p>A PocoCMS theme is a collection of stylesheets and Markdown files
 contained in a directory (folder).

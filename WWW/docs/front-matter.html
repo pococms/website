@@ -502,6 +502,7 @@ front matter options PocoCMS provides.</p>
 <a href="#description">description</a><br />
 <a href="#footer">footer</a><br />
 <a href="#header">header</a><br />
+<a href="#hide">hide</a><br />
 <a href="#keywords">keywords</a><br />
 <a href="#lang">lang</a><br />
 <a href="#nav">nav</a><br />
@@ -628,17 +629,8 @@ with empty front matter like this:</li>
 </code></pre>
 <h2 id="aside">aside</h2>
 <p>Asides appear next to the article content: <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
-<ol>
-<li>When given the value as SUPPRESS, hides the sidebar for this page only.</li>
-</ol>
-<pre><code>---
-aside: SUPPRESS
----
-</code></pre>
-<ol start="2">
-<li>When given a filename, uses the contents of that file instead of the
-value supplied by the theme.</li>
-</ol>
+<p>When given a filename, use the contents of that file instead of the
+value supplied by the theme.</p>
 <pre><code>---
 aside: new-aside.md
 ---
@@ -687,17 +679,8 @@ description: &quot;PocoCMS is the easiest static site generator available&quot;
 <p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="footer">footer</h2>
 <p>Controls behavior of the footer, shown in <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
-<ol>
-<li>When given the value as SUPPRESS, hides the footer for this page only.</li>
-</ol>
-<pre><code>---
-footer: SUPPRESS
----
-</code></pre>
-<ol start="2">
-<li>When given a filename, uses the contents of that file instead of the
-value supplied by the theme.</li>
-</ol>
+<p>When given a filename, uses the contents of that file instead of the
+value supplied by the theme.</p>
 <h5 id="filename-new-footermd">Filename: <strong>new-footer.md</strong></h5>
 <pre><code>---
 footer: new-footer.md
@@ -707,22 +690,26 @@ Powered by PocoCMS!
 <p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="header">header</h2>
 <p>Controls behavior of the header, shown in <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
-<ol>
-<li>When given the value as SUPPRESS, hides the header for this page only.</li>
-</ol>
-<pre><code>---
-header: SUPPRESS
----
-</code></pre>
-<ol start="2">
-<li>When given a filename, uses the contents of that file instead of the
-value supplied by the theme.</li>
-</ol>
+<p>``
+When given a filename, uses the contents of that file instead of the
+value supplied by the theme.</p>
 <pre><code>---
 header: new-header.md
 ---
 </code></pre>
 <h5 id="filename-new-headermd">Filename: <strong>new-header.md</strong></h5>
+<pre><code>Powered by PocoCMS!
+</code></pre>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
+<h2 id="hide">hide</h2>
+<p>Suppresses the header, nav, article, aside, or footer,
+shown in <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
+<p>To hide the aside and the footer, for example:</p>
+<pre><code>---
+hide: aside, footer
+---
+</code></pre>
+<h5 id="filename-new-headermd-1">Filename: <strong>new-header.md</strong></h5>
 <pre><code>Powered by PocoCMS!
 </code></pre>
 <p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
@@ -758,17 +745,8 @@ lang: &quot;is&quot;
 <p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="nav">nav</h2>
 <p>Controls behavior of the navbar, shown in <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
-<ol>
-<li>When given the value as SUPPRESS, hides the navbar for this page only.</li>
-</ol>
-<pre><code>---
-nav: SUPPRESS
----
-</code></pre>
-<ol start="2">
-<li>When given a filename, uses the contents of that file instead of the
-value supplied by the theme.</li>
-</ol>
+<p>When given a filename, uses the contents of that file instead of the
+value supplied by the theme.</p>
 <pre><code>---
 nav: new-navbar.md
 ---

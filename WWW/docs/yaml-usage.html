@@ -488,16 +488,16 @@ It determines how the document gets displayed and rendered into HTML.</p>
 <p>For example, here's the complete text of a page that gets displayed
 without a header:</p>
 <pre><code>---
-header: &quot;SUPPRESS&quot;
+hide: header
 ---
 Look ma, the header disappeared!
 </code></pre>
-<p>The <code>YAML</code> portion of the document is a single rule called <code>header</code>.
+<p>The <code>YAML</code> portion of the document is a single rule called <code>hide</code>.
 It consists of a key/value pair separated with a colon.</p>
 <ul>
-<li>The key is the name of the rule and always comes first. In this case it's <code>header</code></li>
+<li>The key is the name of the rule and always comes first. In this case it's <code>hide</code></li>
 <li>Next comes the semicolon separating key and value: <code>:</code></li>
-<li>After that is the value, which is <code>&quot;SUPPRESS&quot;</code> in this example.</li>
+<li>After that is the value, which is <code>header</code> in this example.</li>
 </ul>
 <h2 id="rules-that-end-in-s-take-lists-not-just-a-single-value">Rules that end in S take lists, not just a single value</h2>
 <p>If you see a key ending in <code>s</code>, it means you can list one or more values.
@@ -523,8 +523,8 @@ Hoefler Text can't be found, it will attempt to use Nimbus Roman No9 L Regular
 (hell of a font name), and if all those fail it will fall back to the
 <code>serif</code> font, which is internal to your browser and which is guaranteed
 to be available.</p>
-<p>Sharp-eyed YAML users will notice that in both the case of <code>&quot;SUPPRESS&quot;</code> above
-for the <code>header</code> rule, and <code>styles</code> for style tags, the quotes surrounding
+<p>Sharp-eyed YAML users will notice that in both the case of <code>header</code> above
+for the <code>hide</code> rule, and <code>styles</code> for style tags, the quotes surrounding
 the value aren't strictly necessary according to YAML rules.</p>
 <p>The reason for this is that sometime characters used by CSS seem to cause
 problems with the Go template engine or the Go YAML parser, notably the
