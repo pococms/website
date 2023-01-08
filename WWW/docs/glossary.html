@@ -467,7 +467,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </header>
 	
 <nav id="nav-poco"><ul>
-<li><a href="/docs/tutorials.html">Tutorials</a> <a href="/docs/glossary.html">Glossary</a> <a href="/docs/theme-framework.html">Theme framework</a></li>
+<li><a href="/docs/tutorials.html">Tutorials</a> <a href="/docs/glossary.html">Glossary</a> <a href="/docs/seo.html">SEO</a> <a href="/docs/theme-framework.html">Theme framework</a> <a href="/docs/front-matter.html">Front matter</a> <a href="/docs/faq.html">FAQ</a></li>
 </ul>
 </nav>
 	
@@ -484,6 +484,29 @@ hello, world.
 <p>When rendered as an HTML page using the PocoDocs theme, you'll also
 see a header, nav, aside, and footer. Those are <em>not</em> part of
 the article. They're known as page <a href="#layout-element">layout elements</a>.</p>
+<h2 id="anchor-text">anchor text</h2>
+<p>In HTML, a link to a site has at a minimum these essential elements:</p>
+<pre><code>&lt;a href=&quot;https://example.com&quot;&gt;Examplicious!&lt;/a&gt;
+</code></pre>
+<p>As you can probably guess, the destination URL for this link is
+the legendary site <code>https://example.com</code>. The part that humans
+read on a web page can be anything, and the term for it is
+<em>anchor text</em>.</p>
+<p>In Markdown you'll see links formatted this way:</p>
+<pre><code>[Examplicious!](https://example.com)
+</code></pre>
+<p>Such a link gets converted to the precise form shown above it.
+Anchor text is a little more important that you think, because
+it's considered in <a href="#seo">SEO</a> and accessibility factors.
+If you have a site about nutrition and you're writing about
+riboflavin, this link:</p>
+<h5 id="uh-uh">Uh-uh</h5>
+<pre><code>Read [here](https://example.com/riboflavin)
+</code></pre>
+<p>Is much less helpful than this one:</p>
+<h5 id="thats-what-im-talking-about">That's what I'm talking about</h5>
+<pre><code>Learn more about [riboflavin's role in metabolism](https://example.com/riboflavin)
+</code></pre>
 <h2 id="burger-menu">burger menu</h2>
 <p>The navigation menu that appears only on small format screens, such
 as phones. It is a simple list of links that replaces
@@ -544,6 +567,40 @@ front matter (replace &quot;poquito&quot; with whatever theme name you wish):</p
 theme: &quot;poquito&quot;
 ---
 </code></pre>
+<h2 id="h1-h2-h3-h4-h5-h6">h1, h2, h3, h4, h5, h6</h2>
+<p>HTML headings, corresponding directly to heading
+levels in Markdown. See <a href="#heading">heading</a>.</p>
+<h2 id="heading">heading</h2>
+<p>The term <em>heading</em> has a specific meaning in HTML.
+Most body text is in paragraphs. Take a typical
+sentence like this one:</p>
+<pre><code>PocoCMS lets you start a website in just a few seconds.
+</code></pre>
+<p>That body text gets translated into <code>&lt;p&gt;</code> or <em>paragraph</em> tags
+in HTML, like this:</p>
+<pre><code>&lt;p&gt;PocoCMS lets you start a website in just a few seconds.&lt;/p&gt;
+</code></pre>
+<p>Sometimes you need to emphasize something, so you emphasize
+it this way:</p>
+<pre><code># Getting Started
+
+PocoCMS lets you start a website in just a few seconds.
+</code></pre>
+<p>The <code>Getting started</code> portion will usually be emphasized visually in some way,
+typically through font height and weight. When you have a line starting
+with <code># </code> it means use the most important weight, or a header 1.
+It gets translated into HTML like this:</p>
+<pre><code>&lt;h1&gt;Getting Started&lt;/h1&gt;
+</code></pre>
+<p>There are 6 levels of headings: <code>h1</code> through <code>h6</code>. Start
+a line with a <code>#</code> for each one. This Markdown:</p>
+<pre><code>### Create a site
+</code></pre>
+<p>converts to the HTML:</p>
+<pre><code>&lt;h3&gt;Getting Started&lt;/h3&gt;
+</code></pre>
+<p>While all 6 levels of indentation can provide useful visual cues to the reader,
+search engines usually respect only 3 levels.</p>
 <h2 id="home-page">home page</h2>
 <p>The home page is a file named either <code>index.md</code> or <code>README.md</code>
 in the root directory of your project. It has some special
@@ -739,9 +796,8 @@ important than the article. The header is probably more
 important than the footer, and so on.</p>
 <h2 id="seo">SEO</h2>
 <p>SEO, or search engine optimization, is the art of structuring and
-writing your site so that it's more likely to be found on the web.
-For example, making sure each page of your site has a different
-<a href="#title">title</a></p>
+writing your site so that it's more likely to be found in web searches.
+<a href="seo.html">PocoCMS SEO</a></p>
 <h2 id="site">site</h2>
 <p>See <a href="#project">project</a></p>
 <h2 id="source-file">source file</h2>

@@ -498,6 +498,7 @@ front matter options PocoCMS provides.</p>
 <h2 id="alphabetical-list-of-front-matter-options">Alphabetical list of front matter options</h2>
 <p><a href="#aside">aside</a><br />
 <a href="#author">author</a><br />
+<a href="#burger">burger</a><br />
 <a href="#description">description</a><br />
 <a href="#footer">footer</a><br />
 <a href="#header">header</a><br />
@@ -505,15 +506,14 @@ front matter options PocoCMS provides.</p>
 <a href="#lang">lang</a><br />
 <a href="#nav">nav</a><br />
 <a href="#pagetheme">pagetheme</a><br />
-<a href="#robots">robots</a>
-<a href="#script-after">script-after</a><br />
+<a href="#robots">robots</a><br />
 <a href="#sidebar">sidebar</a><br />
 <a href="#skip">skip</a><br />
 <a href="#styles">styles</a><br />
 <a href="#stylesheets">stylesheets</a><br />
 <a href="#theme">theme</a><br />
 <a href="#title">title</a></p>
-<p>Return to <a href="#front-matter">top</a></p>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="front-matter-basics">Front Matter basics</h2>
 <p>The simplest PocoCMS Markdown document looks something
 like this:</p>
@@ -590,7 +590,7 @@ keywords: static site generator, jamstack, cms
 <p>Caused a <code>keywords</code> metatag to be inserted into the file:</p>
 <pre><code>&lt;meta name=&quot;keywords&quot; content=&quot;static site generator, jamstack, cms&quot;&gt;
 </code></pre>
-<p>Return to <a href="#front-matter">top</a></p>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="formatting-rules">Formatting rules</h2>
 <ul>
 <li>The front matter always starts with a dashed line consisting
@@ -628,7 +628,6 @@ with empty front matter like this:</li>
 </code></pre>
 <h2 id="aside">aside</h2>
 <p>Asides appear next to the article content: <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
-<p>``</p>
 <ol>
 <li>When given the value as SUPPRESS, hides the sidebar for this page only.</li>
 </ol>
@@ -648,6 +647,7 @@ aside: new-aside.md
 <pre><code>Announcement soon. Check the [news](news.html) page tomorrow!
 </code></pre>
 <p>See also <a href="#header">header</a>, <a href="#nav">nav</a>, and <a href="#footer">footer</a></p>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="author">author</h2>
 <p>Causes an <code>author</code> metatag to be inserted into the file.</p>
 <h3 id="example">Example</h3>
@@ -659,20 +659,20 @@ author: &quot;Tom Campbell&quot;
 <p>Causes this metatag to be generated:</p>
 <pre><code>&lt;meta name=&quot;author&quot; content=&quot;Tom Campbell&quot;&gt;
 </code></pre>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="burger">burger</h2>
 <p>Defines the list of links used for the <a href="glossary.html#burger-menu">burger menu</a>,
 a fallback menu meant to appears only in small screen formats.
 It's an alternate to the <a href="glossary.html#header">header</a>, which
 is often too large for a phone.</p>
-<p>It generates a list of HTML links with the first part
-as the anchor (visible) text, and the second part as the
-destination URL.</p>
 <p></p>
-<pre><code>burger:
-- Home: pococms.com
-- Docs: pococoms.com/docs
-- Tutorial: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+<p>Its contents should only be in the form of a Markdown unordered list,
+like so:</p>
+<pre><code>- [Home](https://pococms.com)
+- [Github](https://github.com/pococms/poco)
+- [Demos](https://pococms.com/docs/theme-demos.html)
 </code></pre>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="description">description</h2>
 <p>Causes a <code>description</code> metatag to be inserted into the file.</p>
 <h3 id="example-1">Example</h3>
@@ -684,6 +684,7 @@ description: &quot;PocoCMS is the easiest static site generator available&quot;
 <p>Causes this metatag to be generated:</p>
 <pre><code>&lt;meta name=&quot;description&quot; content=&quot;PocoCMS is the easiest static site generator available&quot;&gt;
 </code></pre>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="footer">footer</h2>
 <p>Controls behavior of the footer, shown in <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
 <ol>
@@ -703,6 +704,7 @@ footer: new-footer.md
 ---
 Powered by PocoCMS!
 </code></pre>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="header">header</h2>
 <p>Controls behavior of the header, shown in <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
 <ol>
@@ -723,6 +725,7 @@ header: new-header.md
 <h5 id="filename-new-headermd">Filename: <strong>new-header.md</strong></h5>
 <pre><code>Powered by PocoCMS!
 </code></pre>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="keywords">keywords</h2>
 <p>Takes a list of keywords to be used in
 the <code>keywords</code> metatag.</p>
@@ -734,6 +737,7 @@ keywords: static site generator, jamstack, cms
 <p>Generates this <code>keywords</code> metatag to be inserted into the file:</p>
 <pre><code>&lt;meta name=&quot;keywords&quot; content=&quot;static site generator, jamstack, cms&quot;&gt;
 </code></pre>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="lang">lang</h2>
 <p>Sets the code HTML uses for its <code>html lang=</code> tag.
 Defaults to <code>en</code> for English.</p>
@@ -751,6 +755,7 @@ lang: &quot;is&quot;
 </ul>
 <pre><code>&lt;html lang=&quot;en&quot;&gt;
 </code></pre>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="nav">nav</h2>
 <p>Controls behavior of the navbar, shown in <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
 <ol>
@@ -772,6 +777,7 @@ nav: new-navbar.md
 <pre><code>Announcement soon. Check the [news](news.html) page tomorrow!
 </code></pre>
 <p>See also <a href="#header">header</a>, <a href="#aside">aside</a>, and <a href="#footer">footer</a></p>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="pagetheme">pagetheme</h2>
 <p>Defines a <a href="glossary.html#page-theme">page theme</a> to
 replace the global <a href="#theme">theme</a> if any,
@@ -780,8 +786,9 @@ on a per-page pgases.</p>
 pagetheme: hero
 ---
 </code></pre>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="robots">robots</h2>
-<p>Causes a [<code>robots</code> metatag](<a href="https://moz.com/learn/seo/robots-meta-directives#:~:text=Robots%20meta%20directives%20(sometimes%20called,or%20index%20web%20page%20content.)">https://moz.com/learn/seo/robots-meta-directives#:~:text=Robots%20meta%20directives%20(sometimes%20called,or%20index%20web%20page%20content.)</a> to be inserted into the file.</p>
+<p>Causes a <a href="https://moz.com/learn/seo/robots-meta-directives">robots metatag</a> to be inserted into the file.</p>
 <h3 id="example-4">Example</h3>
 <p>Using this <code>Robots</code> entry in the front matter:</p>
 <pre><code>---
@@ -795,6 +802,7 @@ robots: &quot;NoIndex&quot;
 <p>Be careful following this example! It tells
 search engines <em>not</em> to index your page, which is
 the opposite of what you normally want.</p>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="sidebar">sidebar</h2>
 <p>An <a href="#aside">aside</a> can often be on either the left or
 the right side of the page. That capability is built into
@@ -852,6 +860,7 @@ skip-publish:
 - .gitignore
 ---
 </code></pre>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="stylesheets">stylesheets</h2>
 <p>Causes a stylesheet link to be inserted into the file
 for each file in the list.</p>
@@ -863,6 +872,7 @@ stylesheets:
 - &quot;https://cdn.jsdelivr.net/npm/@ajusa/lit@latest/src/lit.css&quot;
 ---
 </code></pre>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="styles">styles</h2>
 <p>Causes a <code>&lt;style&gt;</code> tag to be inserted into the file
 for each line in the list. Because they
@@ -885,6 +895,7 @@ styles:
   article&gt;p{color:blue;}
 &lt;/style&gt;
 </code></pre>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="theme">theme</h2>
 <p>Defines a <a href="glossary.html#theme">theme</a> to be used as
 the default for all pages in the site. It's also
@@ -912,6 +923,7 @@ rule causes the theme to be overridden for the selected page...
 which in this case is the home page.</p>
 <p>This works only on the
 home page.</p>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="title">title</h2>
 <p>The <code>Title</code> key lets you set a title for your HTML page.
 This has a number of important benefits.</p>
@@ -936,6 +948,7 @@ Here's your .
 read as shown below in a web browser:</p>
 <pre><code>Here's your Static generator overview
 </code></pre>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 
 </article>
 

@@ -477,8 +477,115 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </ul>
 </aside>
 <article id="article-poco">
-<h1 id="seo">SEO</h1>
+<h1 id="pococms-seo">PocoCMS SEO</h1>
+<p>PocoCMS claims that themes created using
+its <a href="theme-framework.html">theme framework</a> are SEO-enabled.
+Why should you care and what does it even mean?</p>
+<p><a href="glossary.html#seo">SEO</a> means Search Engine Optimization.
+It's the art of presenting pages on your site in such a way
+that they are more likely to bubble to the top of search results.
+Why use the term <em>art</em> and not <em>science</em>? Because there are
+many factors that can't be dealt with by PocoCMS. For example,
+if Google decides your site is dangerous, they will downrank
+it or remove it from the public search results.</p>
+<p>How can PocoCMS make the claim it's SEO-enabled? Because it closely follows
+guidelines such as the invaluable
+<a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide">Google SEO starter guide</a>
+and <a href="https://moz.com/beginners-guide-to-seo">The beginner's guide to SEO</a> from <a href="https://moz.com">Moz</a>,
+an independent SEO firm with years of experience. The Moz pages
+explaining SEO often appear at the top of the search results.</p>
+<p>Here's how PocoCMS builds SEO into its themes.</p>
+<h2 id="good-page-structure-is-easy">Good page structure is easy</h2>
+<p>The contents of your Markdown article get enclosed in
+<code>&lt;article&gt;</code> tags. After that, the best SEO is to</p>
+<ul>
+<li>Use just one <a href="glossary.html#heading">level 1 heading</a> per page, as recommended by the Google <a href="https://developers.google.com/style/headings">developer documentation style guide</a></li>
+<li>Sprinkle in a few level 2 headings</li>
+<li>Use some level 3 headings if necessary</li>
+</ul>
+<p>It's dead easy to do and made ultra-simple using Markdown.</p>
+<h2 id="front-matter-support-for-title-and-description-tags">Front matter support for title and description tags</h2>
+<h3 id="add-a-unique-title-to-your-front-matter">Add a unique title to your front matter</h3>
+<ul>
+<li>According to Google Search Central's <a href="https://developers.google.com/search/docs/appearance/title-link">Influencing your title links in search results</a>
+, each page of your site should has a unique
+<a href="front-matter.html#title">title</a>. It helps Google present
+deep search results inside your site. It's this easy:</li>
+</ul>
+<pre><code>---
+title: Helpful and free resources to improve your site's SEO
+---
+</code></pre>
+<h3 id="add-a-unique-description-to-your-front-matter">Add a unique description to your front matter</h3>
+<ul>
+<li>Search engines like strong, unique <code>description</code> metatags, as
+described in
+Google Search Central's <a href="https://developers.google.com/search/docs/appearance/snippet">Control your snippets in search results</a>
+article. A well-designed one will show up as the title on a browser tab. It's easy to add
+a title using your front matter:</li>
+</ul>
+<pre><code>---
+title: Helpful and free resources to improve your site's SEO
+description: Website SEO tactics | PocoCMS
+---
+</code></pre>
+<h2 id="fast-pages-improve-search-results">Fast pages improve search results</h2>
+<p>If you plug any page on the <a href="https://pococms.com">PocoCMS</a> site into
+the <a href="https://tools.pingdom.com">Pingdom Website Speed Test</a> or
+Google's <a href="https://pagespeed.web.dev">PageSpeed Insights</a> you'll see
+that the pages are very small, usually smaller than the logo on
+a typical web page. For perhaps obvious reasons, small pages
+that load fast get favored in search results. People are less
+likely to leave before the page loads.</p>
+<p>The average web page size is now something like 1.5 to 3 megabytes, according to
+interested parties such as <a href="https://www.keycdn.com/support/the-growth-of-web-page-size">keycdn</a>
+and <a href="https://www.pingdom.com/blog/webpages-are-getting-larger-every-year-and-heres-why-it-matters/">Pingdom</a>.
+By contrast, an average page with illustrations on the PocoCMS site (like
+<a href="https://pococms.com/docs/gs-change-theme.html">https://pococms.com/docs/gs-change-theme.html</a>) is 500KB, with most text-only pages
+weighing in more like 7KB. At the 500KB number you're looking at about 1/3
+to 1/6th the average size. Both search engines and users appreciate that.</p>
+<h2 id="semantic-meaning-and-page-structure">Semantic meaning and page structure</h2>
+<p>Many web developers don't understand that every element of a page has
+<a href="glossary.html#semantic-meaning">semantic meaning</a>. Just making
+a <strong>bold line</strong> over a paragraph of text does nothing to aid
+search results. But if you decide it's important enough to be
+a level 1 heading (as in <code># PocoCMS SEO</code>) and don't use too many
+of those on a page, it will add weight to that heading in
+search results.</p>
+<p>Likewise whether something is in a <a href="glossary.html#header">header</a> vs. an
+<a href="glossary.html#article">article</a> vs. an
+<a href="glossary.html#aside">aside</a> also has semantic meaning, adding
+another signal to search queries regarding your topic.</p>
+<p>The PocoCMS theme framework has full support for headers, nav bars, footers, articles,
+and asides. It's nearly unavoidable: it's hard <em>not</em> to do it right when you
+have to fill out files named <code>header.md</code>, <code>aside.md</code> and so on to get
+rolling with your site.</p>
+<h2 id="markdown-itself-is-all-about-semantic-meaning">Markdown itself is all about semantic meaning</h2>
+<p>You almost can't help committing great SEO when you use Markdown. It's just natural
+to do this:</p>
+<pre><code># Editing the page
+
+To make changes to the main part of the web page (the [article](glossary.html#article)), you'll edit the file `index.md`.
+
+* Load `index.md` into your text editor. It looks like this:
+
+</code></pre>
+<p>than to do this:</p>
+<h5 id="ugh-doesnt-even-look-right">Ugh. Doesn't even look right</h5>
+<pre><code>**Editing the page**
+
+To make changes to the etc.
+</code></pre>
 <h2 id="concerns">Concerns</h2>
+<h3 id="article-tags-only-no-section-tags">Article tags only. No section tags.</h3>
+<p>Any Markdown file you write to be published gets converted into a single
+HTML file enclosing the text of that file inside <code>&lt;article&gt;</code> and <code>&lt;/article&gt;</code>
+tags. This is normally good for SEO because it helps you focus on a single
+topic per page. That helps users and improves your search signals.</p>
+<p>The downside to this is that there's no support for <code>&lt;section&gt;</code> through
+Markdown files. We have not been able to determine any disadvantages
+of this approach, especially not in terms of SEO.</p>
+<h3 id="occasional-minor-breaches-of-semantic-meaning">Occasional minor breaches of semantic meaning</h3>
 <p>Every once in a while, PocoCMS chooses to break the rules of semantic HTML in minor
 ways. These transgressions haven't caused any SEO problems. Examples:</p>
 <ul>
@@ -492,6 +599,22 @@ any SEO problems at all, and we have used it in many other sites.</li>
 <a href="theme-framework.html">theme framework</a> headers. We don't use
 <code>h1</code> tags (or any other heading level) in headers. Those are
 reserved for content inside <code>&lt;article&gt;</code> tags as explained elsehere.</p>
+<h3 id="image-sizes-arent-specified-by-default">Image sizes aren't specified by default</h3>
+<p>Many, many themes for other website builders impose oddly specific
+constraints on image size for certain parts of a page,
+for example 1048x250 pixels or some damn thing. This is a good thing for
+the browser, because it means the browser can figure out exactly how tall
+your image is. When it's rendering the page, the text won't reflow.</p>
+<p>The PocoCMS theme framework works on any pure Markdown file instantly.
+It is also fully responsive. You should be able to drop images in
+as you please without specifying a size. For those reasons <code>&lt;img&gt;</code> tags are
+all given as 100%, meaning that by default they fit the width of their
+containing element, so the height has to be computed on the fly. That
+can cause the text reflow, and therefore the page resizes itself while you watch. Not the greatest
+user experience, but PocoCMS can make no assumptions about your
+image content. You can easily add any image requirements to your theme's CSS.</p>
+<p>If you can add image constraint sizes to your theme, you'll also improve
+SEO performance.</p>
 
 </article>
 

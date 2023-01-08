@@ -479,12 +479,41 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <article id="article-poco">
 <h1 id="pococms-frequently-asked-questions">PocoCMS Frequently Asked Questions</h1>
 <dl>
-<dt>How do I get blank lines after paragraphs?</dt>
-<dd>To get end a line and start a new one, you need
-to end the first line with two spaces. Imagine the
-little dot characters ·· are actually you pressing
-the space key twice:</dd>
+<dt>What's the difference between a theme and a pagetheme?</dt>
+<dd>You customize the look of PocoCMS sites with themes. You can do it on each
+page in the <a href="glossary.html#front-matter">front matter</a>, like this:</dd>
 </dl>
+<h5 id="filename-weathermd">Filename: <strong>weather.md</strong></h5>
+<pre><code>---
+pagetheme: informer
+---
+# Weather
+
+Today's weather outloook is etc.
+</code></pre>
+<p>But what if you just want an overall look and don't want to be
+putting <code>pagethemes</code> on every page? You go to the <a href="glossary.html#home-page">home page</a>
+and use the <code>theme</code> declaration:</p>
+<h5 id="filename-indexmd-on-the-home-page">Filename: <strong>index.md</strong> on the home page</h5>
+<pre><code>---
+theme: informer
+---
+</code></pre>
+<p>Now you can forget about <code>pagetheme</code> except when you choose to override the theme for
+a particular page.</p>
+<dl>
+<dt>How do I get blank lines after paragraphs?</dt>
+<dd>Method 1: End the line with a single backslash character like this: <code>\</code>.
+Don't forget the last line doesn't need the backslash.</dd>
+</dl>
+<pre><code>Line 1.\
+Line 2.\
+Line 3.
+</code></pre>
+<p>Method 2: To get end a line and start a new one, you can
+end the first line with two spaces. Imagine the
+little dot characters ·· are actually you pressing
+the space key twice:</p>
 <pre><code>Line 1.··   ← Pretend those are 2 space characters
 Line 2.
 </code></pre>

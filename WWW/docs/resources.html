@@ -3,7 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>&#129502; Powered by PocoCMS</title>
+	<title>Helpful and free resources to improve your site's SEO</title>
+	<meta name="description" content="Free ways to make your site SEO faster and better | PocoCMS">
 
 <style></style>
 <style>
@@ -325,211 +326,179 @@ h4{color:var(--h4-fg);}
 
 
 
-/* informer.css*/
-/* informer.css */
-body,article,header,footer,aside,a,p,h1,h2,h3,h4,h5,h6 {font-family:Cambria,'Hoefler Text',Utopia,'Liberation Serif','Nimbus Roman No9 L Regular',Times,'Times New Roman',serif;}
-html{font-size:16px}
-p,p a,strong,em,a{font-size:1rem;line-height:1.75em}
-table{margin-top:1rem;}
+/* pocodocs.css*/
+
+/* --------------------------------------------------
+ * Aside unordered lists are used for table of 
+ * contents, so disable indentation and bullet 
+ * character. Use size, color, and underline
+ * to indicate level.
+ * --------------------------------------------------
+ */   
+
+aside{padding-top:8em;}
+/* Disable list indentation and bullet characters. */
+aside > ul li {list-style-type: none; }
+aside > ul li  {margin-left:0em;}
+
+/* Line-spacing for whole unordered list */
+aside ul {line-height:1.4rem;}
+
+/* 1st level of list */
+aside ul li a {font-size:1.2rem;}
+aside ul li a {text-decoration:underline}
+
+/* 2nd level of list */
+aside ul ul li a {border:none;text-decoration:none;}
 
 
-article{width:65%}
-aside{width:35%}
-aside{border-left: 1px solid #DCDCDC;padding:1rem;}
-aside>h2{font-size:1.5em;font-weight:bold;}
-aside>h3{width:60%;font-size:1em;font-weight:bold;padding-top:3rem;}
-aside>h4{padding-top:2rem;font-size:1em;font-weight:bold;color:gray;}
-aside>p>img{float:right;width:40%;clear:right;display:block;}
-aside>p{line-height:1rem;padding-right:.5rem}
+/* 3rd level of list */
+aside ul ul ul li a 
+ {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}
 
+/* --------------------------------------------------
+ * Images: full width, light drop shadow 
+ * --------------------------------------------------
+ */   
+article > img, article > p > img {
+  width:100%;                                        
+  box-shadow: /* rgb(128,128,128) */ gray 1px 1px 3px 0px;
+  display:block;                                     
+  margin-top:1em;margin-bottom:2em;
+}
+/* OVERRIDE FRAMEWORK PADDING, MARGIN, HEIGHTS */
+header{/*line-height:2em;*/ padding-top:2em;}
+header>ul>li:first-child>a{padding-right:1rem;padding-left:0}
+
+nav>ul{line-height:2em;}
+nav>p>a{padding-right:1.25em;}
 /*
  * --------------------------------------------------
- * TODO: Document this. Pattern looks like this
- * --------------------------------------------------
- */
-
-aside>h5{font-style:italic;padding-left:0;color:gray}
-aside>h4+p+h5{padding-bottom:1rem;border-bottom:1px solid #CDCDCD;}
-
-
-footer{height:20vh;}
-footer{border-top:1px solid gray;}
-footer>table{white-space:nowrap}
-footer>table{font-size:.75em;}
-footer>table>td{width:1rem;}
-/* Make change to all headers (first row of table) */
-table{table-layout:fixed;width:100%;}
-footer>table th{border:0;}  /* Removes border from header row */
-footer>table td{border:0;}  /* Remove border from all other rows */
-footer>table>thead>tr{line-height:1.5rem;} /* Set height of header row */
-footer>table>tbody>tr{line-height:0;} /* Set height of all other rows */
-
-/* Text-align all rows left */
-footer>table>tbody>tr>td{text-align:left}
-
-
-article p>a,article p>a:visited{text-decoration:underline;text-decoration-color:blue;
-	-webkit-text-decoration-color:blue;}
-
-article>p{padding:.25rem 0 .25rem} 
-h1 {font-size:1.75rem;font-weight:bold;padding-top:1.75rem}
-article>h2{font-size:1.25rem;font-weight:bold;padding-top:1.25rem;padding-bottom:.5em;}
-article>p>img{width:95%;}
-article>p{width:95%}
-
-/*
- * --------------------------------------------------
- * TODO: Document this. It's used for those bulleted
- * lists at the beginning of an article, but with
- * SEO powers
- * It works with an h4 (byline) followed by h2s,
- * or an h4 followed by an img followed by an h2
- * --------------------------------------------------
- */
-
-article>h4+p+h2:before,
-article>h2+h2:before, 
-article>h4+h2:before{content:'■';margin-right:.5rem;}
-article>h4+p+h2,
-article>h2+h2, 
-article>h4+h2{padding-top:.25rem}
-
-
-article>h4{font-weight:normal;}
-article>h4>strong{color:black;font-weight:bold;}
-article>h4>em{font-weight:normal;}
-article>h4>a>img {width:14px;margin-left:.5rem;margin-right:.15rem;} /* Social media icons in byline */
-
-header,nav{white-space:nowrap;overflow:hidden;}
-header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
-header{border-bottom:1px solid #DCDCDC;margin-bottom:1rem;}
-header > ul {height:6rem;}
-article,nav,header,footer{padding-left:5%;} 
-
-/*
- * --------------------------------------------------
- * If you have more than one item, use an unordered list. 
- * These styles show the first item with branding applied,
- * any number of links following, still slightly
- * larger than body text, and a last link that
- * looks like a button.
- * --------------------------------------------------
- */
-header > ul, nav > ul  {list-style-type:none;}
-header > ul > li{font-size:1.25rem;}
-header > ul > li, nav > ul > li{display:inline;padding-right:.5rem;}
-
-/*
- * --------------------------------------------------
- * TODO: Document
  * Special feature: First item in list has biggest
  * branding
  * --------------------------------------------------
  */
-header > ul > li:first-child > a {font-size:3em;padding-right:1rem;text-decoration:none;letter-spacing:-.05em}
+header>ul>li:first-child>a{font-size:1.5rem;}
 
+/* OVERRIDE FRAMEWORK LAYOUT */
 
-/*
- * --------------------------------------------------
+/* OVERRIDE FRAMEWORK TYPOGRAPHY AND FONTS */
+html{
+  font-size:18px;
+  font-family:
+    'system-ui',                           
+    '-apple-system',                  
+    'LucidaGrandeUI',                         
+    'HelveticaNeueDeskInterface-Regular',     
+    'HelveticaNeueDeskInterface-Light',        
+    'DroidSans',                           
+    'Ubuntu Light',
+    'Arial',  
+    'Roboto-Light',                            
+    'Segoe UI Light',                                   
+    'Tahoma',                             
+    'sans-serif';
+}
+
+header>ul>li:first-child>a{font-weight:900;letter-spacing:-.1rem;}
+header>ul>li>a{font-weight:700;}
+/* The article may be wider than you want text and
+ * code listings to be. This narrows the text and
+ * code listings without affecting the article width. 
+ */
+article>p,article>ul,article>ul>li,article>pre{
+  width:var(--article-width);
+}
+article>h1{padding-bottom:.8em;}
+article>h5{padding-top:1em;}
+/* h6 links become buttons (for Prev/Next usge)
+ */
+article>h6>a{line-height:6em;padding:1em;background-color:var(--bg);border:1px solid black;}
+
+/* OVERRIDE FRAMEWORK COLORS */
+article>h2{color:var(--article-h2-fg);}
+article>h5>strong{color:var(--fg);}
+
+/* --------------------------------------------------
  * Special feature: Surround letters in first item 
  * with ~~ characters to get change of color
  * --------------------------------------------------
  */
 header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 
-
-nav{margin-bottom:1rem;}
-nav>ul{line-height:2rem;}
-nav>p>a{padding-right:2rem;}
-nav a,nav>ul>li>a,nav>ul>li>a:link,nav>ul>li>a:visited{text-decoration:none}
-nav>p>a:active,nav>p>a:hover,nav>ul>li>a:hover,nav>ul>li>a:active{
-  text-decoration:underline;
-  text-decoration-color:blue;
-	-webkit-text-decoration-color:blue;}
-
-
-
-article>dl>dt {font-weight:bold;padding-top:1rem;}
-article>dl>dd {margin-left:0;padding-bottom:.5rem;}
-
-article>h3{color:dimgray;font-size:1.5rem;padding-top:1rem;;padding-bottom:.5rem}
+/* OVERRIDE MEDIA QUERIES. LIGHT AND DARK THEMES */
 
 @media (prefers-color-scheme:light) {
 :root {
-  --a:black;
+  --article-h2-fg:red;        /* Article h2 text color */
+  --aside-h2-fg:gray;         /* Aside h2 text color */
 }
+  article>h6>a{background-color:var(--bg);border:1px solid black;}
+
+
+  /* 1st level of list */
+  aside ul li a {color:blue;}
+  /* 2nd level of list */
+  aside ul ul li a {color:var(--aside-h2-fg);}
+
 }
 
 @media (prefers-color-scheme:dark) {
 :root {
-  --a:white;
+  --article-h2-fg:cyan;       /* Article h2 text color */
+  --aside-h2-fg:var(--fg);    /* Aside h2 text color */
 }
-}
+  article>h6>a{background-color:var(--bg);border:1px solid white;}
 
+  /* 1st level of list */
+  aside ul li a {color:cyan;}
+
+}
 
 </style>
 </head>
 <body>
 <header id="header-poco"><ul>
-<li><a href="https://pococms.com">Informer theme</a></li>
-<li><a href="#">Topics</a></li>
-<li><a href="#">Columns</a></li>
-<li><a href="#">Insights</a></li>
-<li><a href="#">More</a></li>
-<li><a href="#">Subscribe</a></li>
+<li><a href="https://pococms.com">poco<del>CMS</del></a></li>
+<li><a href="/docs/theme-demos.html">Theme demos</a></li>
+<li><a href="https://github.com/pococms/downloads/tree/main/dist">Download</a></li>
+<li><a href="/docs/index.html">Docs</a></li>
+<li><a href="https://github.com/pococms/poco">GitHub</a></li>
 </ul>
 </header>
 	
-<nav id="nav-poco"><p><a href="#">Archives</a> <a href="#">RSS</a>  <a href="#">About</a>   <a href="#">Contact</a>   <a href="#">Sitemap</a>  <a href="#">Terms of Service</a>  <a href="#">Privacy Policy</a></p>
+<nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/technical-overview.html">Technical overiew</a></p>
 </nav>
 	
-<aside id="aside-poco"><h2 id="locally">Locally</h2>
-<p>Sidebars on news sites most commonly appear on the right.</p>
-<h3 id="weather">WEATHER</h3>
-<p>Tomorrow's high will be 75°, and the low will be 45°.
-Chances of precipitation are good, so be ready to,
-you know, precipitate in late afternoon.</p>
-<h3 id="events">EVENTS</h3>
-<p>City Center will be holding a jobs fair from 8am-5pm.
-Which is kind of odd if you think about it.
-What if you want to go after work because
-you're looking for a better job?</p>
+<aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
+<ul>
+<li>Item 1 in the aside</li>
+<li>Item 2 in the aside</li>
+<li>Pocodocs theme!</li>
+</ul>
 </aside>
 <article id="article-poco">
-<h4 id="world">WORLD</h4>
 <h1 id="resources-an-all-you-can-eat-buffet-of-free-and-surprisingly-useful-resources-even-for-commercial-use">Resources: an all-you-can-eat buffet of free and surprisingly useful resources, even for commercial use</h1>
 <p>This is a curated list of ways to make your web publishing fast and cheaper.
 They are all free (some may require attribution or a signup process) and
 have withstood the test of time... for a couple of years.</p>
-<h4 id="by-tom-campbellhttpspococmscom-twitter-profiletwitter-14px-bluesvgpococmshttpstwittercompococms---dec-21-2022-at-730pm"><strong>By</strong> <a href="https://pococms.com">Tom Campbell</a> <a href="https://twitter.com/pococms"><img src="twitter-14px-blue.svg" alt="Twitter profile" />@pococms</a>  | Dec 21, 2022 at 7:30pm</h4>
-<p><img src="img/buildings-668616_640.jpg" alt="Photgraph of a wet shiny city" />
-<img src="fishing-3635221.svg" alt="Image of happy fisherman unknowingly hooking a huge fish underwater" /></p>
-<h2 id="all-resources-are-free">All resources are free</h2>
-<h2 id="some-require-attribution">Some require attribution</h2>
-<h2 id="theyre-great-time-savers">They're great time savers</h2>
-<h2 id="performance">Performance</h2>
+<h2 id="seo-and-performance">SEO and Performance</h2>
 <p>Paste your site URL into these pages and get the unvarnished truth
 about what might be interfering with user experience: from speed to
 accessibility to SEO.</p>
 <ul>
-<li>itme</li>
-<li>imt</li>
-<li>tim3</li>
-</ul>
-<h2 id="seo">SEO</h2>
-<ul>
-<li>Google's perspecitve on the all-important <a href="https://developers.google.com/search/docs/appearance/title-link">title tag</a>. In PocoCMS you supply it
+<li>Google's perspective on the all-important <a href="https://developers.google.com/search/docs/appearance/title-link">title tag</a>. In PocoCMS you supply it
 using <code>title</code> in your page's <a href="front-matter.html#title">front matter</a></li>
-</ul>
-<h2 id="random-h2">RANDOM h2</h2>
-<h3 id="googles-pagespeed-insights">Google's PageSpeed Insights</h3>
-<p>Google's <a href="https://pagespeed.web.dev">PageSpeed Insights</a> is
-like a free consultant. The SEO insights are gold.</p>
-<h3 id="pingdoms-website-speed-test">Pingdom's Website Speed Test</h3>
-<p>When you're testing from the same country your site is
+<li>Google's <a href="https://pagespeed.web.dev">PageSpeed Insights</a> is
+like a free consultant. The SEO insights are gold.</li>
+<li>When you're testing from the same country in which your site is
 hosted, you may not be getting realistic results.
 Pingdom's <a href="https://tools.pingdom.com">Website Speed Test</a> lets you
-see how your site performance from different places on the planet.</p>
+see how your site performance from different places on the planet. It gives many other
+recommendations to improve your SEO. Essential.</li>
+<li>The <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide">Google SEO starter guide</a> gives
+explicit, clear coverage of how to improve your search results.</li>
+</ul>
 <h2 id="html">HTML</h2>
 <p>Sometimes it's convenient and maybe even a little fun to use colors by name instead of
 obscure RGB values or hex codes. Modern browsers recognize 140
@@ -618,68 +587,7 @@ are 1920x1080 (10%), 1366x768 (6%), and 360x640 (6%).</li>
 
 </article>
 
-<footer id="footer-poco"><table>
-<thead>
-<tr>
-<th align="left">WORLD NEWS</th>
-<th align="left">LOCAL NEWS</th>
-<th align="left">TECH</th>
-<th align="left">ARTS</th>
-<th align="left">SOCIAL MEDIA</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">North America</td>
-<td align="left">State</td>
-<td align="left">Reviews</td>
-<td align="left">Literary</td>
-<td align="left">Twitter</td>
-</tr>
-<tr>
-<td align="left">South America</td>
-<td align="left">Weather</td>
-<td align="left">Analysis</td>
-<td align="left">Television</td>
-<td align="left">Facebook</td>
-</tr>
-<tr>
-<td align="left">Europe</td>
-<td align="left">Traffic</td>
-<td align="left">Stocks</td>
-<td align="left">Cinema</td>
-<td align="left">Instagram</td>
-</tr>
-<tr>
-<td align="left">Asia</td>
-<td align="left">Crime</td>
-<td align="left">New products</td>
-<td align="left">Podcasts</td>
-<td align="left">YouTube</td>
-</tr>
-<tr>
-<td align="left">Africa</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">WhatsApp</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Reddit</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">LinkedIn</td>
-</tr>
-</tbody>
-</table>
+<footer id="footer-poco"><p><em>Powered by <a href="https://pococms.com">PocoCMS</a></em> · Copyright 2022 by Tom Campbell</p>
 </footer>
 <script> {
   // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
