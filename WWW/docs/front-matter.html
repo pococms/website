@@ -143,7 +143,7 @@
 
 
 /* reset.css*/
-html,body,nav,header,article,footer{width:100%;height:auto;max-width:100%;display:block;float:left;clear:both;overflow:auto;}
+html,body,nav,header,article,footer,img{width:100%;height:auto;max-width:100%;display:block;float:left;clear:both;overflow:auto;}
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
 
@@ -241,6 +241,7 @@ aside{float:right;}
 
 
 /* type.css*/
+p>img {width:100%;}
 /* Links show same if visited, underlined when hovered */
 a{text-decoration:none;}
 a:visited{text-decoration:none;}
@@ -474,8 +475,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 	
 <article id="article-poco">
 <h1 id="front-matter">Front Matter</h1>
-<p></p>
-<p><em>Front matter</em> optionally starts your file. It contains
+<p>Front matter optionally starts your file. It contains
 instructions for things Markdown can't do for you,
 for example, choosing a theme, inserting Javascript
 or new style tags into your document, and ensuring
@@ -638,6 +638,12 @@ aside: new-aside.md
 <h5 id="filename-new-asidemd">Filename: <strong>new-aside.md</strong></h5>
 <pre><code>Announcement soon. Check the [news](news.html) page tomorrow!
 </code></pre>
+<h3 id="html-aside-file">HTML aside file</h3>
+<p>You can also use an HTML file. If so, remember to
+start with an HTML <code>&lt;aside&gt;</code> tag end end with a <code>&lt;/aside&gt;</code>.</p>
+<h5 id="filename-asidehtml">Filename: <strong>aside.html</strong></h5>
+<pre><code>&lt;aside style=&quot;font-size:2em;font-weight:900;padding:0;margin:0;padding-bottom:2em;margin-top:4em;width:auto;-webkit-transform: rotateZ(-90deg);-ms-transform: rotateZ(-90deg);transform: rotateZ(-90deg);&quot;&gt;WHAT'S UP?&lt;/aside&gt;
+</code></pre>
 <p>See also <a href="#header">header</a>, <a href="#nav">nav</a>, and <a href="#footer">footer</a></p>
 <p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="author">author</h2>
@@ -657,7 +663,6 @@ author: &quot;Tom Campbell&quot;
 a fallback menu meant to appears only in small screen formats.
 It's an alternate to the <a href="glossary.html#header">header</a>, which
 is often too large for a phone.</p>
-<p></p>
 <p>Its contents should only be in the form of a Markdown unordered list,
 like so:</p>
 <pre><code>- [Home](https://pococms.com)
@@ -687,19 +692,37 @@ footer: new-footer.md
 ---
 Powered by PocoCMS!
 </code></pre>
+<h3 id="html-footer-file">HTML footer file</h3>
+<p>You can also use an HTML file. If so, remember to
+start with an HTML <code>&lt;footer&gt;</code> tag end end with a <code>&lt;/footer&gt;</code>.</p>
+<h5 id="filename-footerhtml">Filename: <strong>footer.html</strong></h5>
+<pre><code>&lt;footer&gt;Prices so good it looks like a &lt;span style=&quot;padding:0 1em 0 1em;font-size:2rem;color:yellow;background-color:black;font-family:monospace&quot;&gt;CRIME SCENE!&lt;/footer&gt;
+</code></pre>
 <p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="header">header</h2>
 <p>Controls behavior of the header, shown in <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
-<p>``
-When given a filename, uses the contents of that file instead of the
-value supplied by the theme.</p>
-<pre><code>---
-header: new-header.md
----
+<pre><code>When given a filename, uses the contents of that file instead of the
+value supplied by the theme. 
+
 </code></pre>
-<h5 id="filename-new-headermd">Filename: <strong>new-header.md</strong></h5>
-<pre><code>Powered by PocoCMS!
+<hr />
+<h2 id="header-new-headermd">header: new-header.md</h2>
+<pre><code>
+##### Filename: **new-header.md**
+
 </code></pre>
+<p>Powered by PocoCMS!</p>
+<pre><code>
+### HTML header file
+
+You can also use an HTML file. If so, remember to 
+start with an HTML `&lt;header&gt;` tag end end with a `&lt;/header&gt;`.
+
+##### Filename: **header.html**
+
+</code></pre>
+<header style="font-size:3em;font-weight:900;background: #FF0000;background: linear-gradient(to left, #FF0000 76%, #ffff00 6%, #FF0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">FIRE!</header>
+```
 <p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="hide">hide</h2>
 <p>Suppresses the header, nav, article, aside, or footer,
@@ -709,7 +732,7 @@ shown in <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
 hide: aside, footer
 ---
 </code></pre>
-<h5 id="filename-new-headermd-1">Filename: <strong>new-header.md</strong></h5>
+<h5 id="filename-new-headermd">Filename: <strong>new-header.md</strong></h5>
 <pre><code>Powered by PocoCMS!
 </code></pre>
 <p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
@@ -755,6 +778,16 @@ nav: new-navbar.md
 <pre><code>Announcement soon. Check the [news](news.html) page tomorrow!
 </code></pre>
 <p>See also <a href="#header">header</a>, <a href="#aside">aside</a>, and <a href="#footer">footer</a></p>
+<h3 id="html-nav-file">HTML nav file</h3>
+<p>You can also use an HTML file. If so, remember to
+start with an HTML <code>&lt;nav&gt;</code> tag end end with a <code>&lt;/nav&gt;</code>.</p>
+<h5 id="filename-navhtml">Filename: <strong>nav.html</strong></h5>
+<pre><code>
+&lt;nav style=&quot;text-shadow: 0 0 30px white;line-height:2em;font-weight:900;font-size:2em;color:white;background:#1F6097;text-align:center;&quot;&gt;FOGGY&lt;/nav&gt;
+
+</code></pre>
+<p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
+<h2 id="header-1">header</h2>
 <p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="pagetheme">pagetheme</h2>
 <p>Defines a <a href="glossary.html#page-theme">page theme</a> to

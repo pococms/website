@@ -5,13 +5,7 @@ styles:
 ---
 # Front Matter
 
-{{- /* # TODO:
-[branding](#branding)
-[scriptafter](#scriptafter)  
-*/
--}} 
-
-*Front matter* optionally starts your file. It contains
+Front matter optionally starts your file. It contains
 instructions for things Markdown can't do for you,
 for example, choosing a theme, inserting Javascript
 or new style tags into your document, and ensuring
@@ -228,6 +222,19 @@ aside: new-aside.md
 ```
 Announcement soon. Check the [news](news.html) page tomorrow!
 ```
+
+
+### HTML aside file
+
+You can also use an HTML file. If so, remember to 
+start with an HTML `<aside>` tag end end with a `</aside>`.
+
+##### Filename: **aside.html** 
+
+    <aside style="font-size:2em;font-weight:900;padding:0;margin:0;padding-bottom:2em;margin-top:4em;width:auto;-webkit-transform: rotateZ(-90deg);-ms-transform: rotateZ(-90deg);transform: rotateZ(-90deg);">WHAT'S UP?</aside>
+
+
+
 See also [header](#header), [nav](#nav), and [footer](#footer) 
 
 Return to [top](#alphabetical-list-of-front-matter-options)
@@ -261,7 +268,6 @@ a fallback menu meant to appears only in small screen formats.
 It's an alternate to the [header](glossary.html#header), which
 is often too large for a phone.
 
-{{- /* # TODO: Pic or it didn't happen */ -}} 
 
 Its contents should only be in the form of a Markdown unordered list, 
 like so:
@@ -311,6 +317,16 @@ footer: new-footer.md
 Powered by PocoCMS!
 ```
 
+### HTML footer file
+
+You can also use an HTML file. If so, remember to 
+start with an HTML `<footer>` tag end end with a `</footer>`.
+
+##### Filename: **footer.html**
+
+    <footer>Prices so good it looks like a <span style="padding:0 1em 0 1em;font-size:2rem;color:yellow;background-color:black;font-family:monospace">CRIME SCENE!</footer>
+
+
 
 Return to [top](#alphabetical-list-of-front-matter-options)
 
@@ -318,7 +334,7 @@ Return to [top](#alphabetical-list-of-front-matter-options)
 
 Controls behavior of the header, shown in [Anatomy](gs-parts-of-theme.html#anatomy).
 
-``
+```
 When given a filename, uses the contents of that file instead of the
 value supplied by the theme. 
 
@@ -333,6 +349,18 @@ header: new-header.md
 ```
 Powered by PocoCMS!
 ```
+
+### HTML header file
+
+You can also use an HTML file. If so, remember to 
+start with an HTML `<header>` tag end end with a `</header>`.
+
+##### Filename: **header.html**
+
+```
+<header style="font-size:3em;font-weight:900;background: #FF0000;background: linear-gradient(to left, #FF0000 76%, #ffff00 6%, #FF0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">FIRE!</header>
+```
+
 
 
 Return to [top](#alphabetical-list-of-front-matter-options)
@@ -427,6 +455,24 @@ Announcement soon. Check the [news](news.html) page tomorrow!
 ```
 See also [header](#header), [aside](#aside), and [footer](#footer) 
 
+
+### HTML nav file
+
+You can also use an HTML file. If so, remember to 
+start with an HTML `<nav>` tag end end with a `</nav>`.
+
+##### Filename: **nav.html**
+
+```
+
+<nav style="text-shadow: 0 0 30px white;line-height:2em;font-weight:900;font-size:2em;color:white;background:#1F6097;text-align:center;">FOGGY</nav>
+
+```
+
+
+Return to [top](#alphabetical-list-of-front-matter-options)
+
+## header 
 
 Return to [top](#alphabetical-list-of-front-matter-options)
 
