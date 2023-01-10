@@ -1,5 +1,6 @@
 ---
 aside: docs/gs-aside.md
+sidebar: right 
 ---
 # Getting Started
 

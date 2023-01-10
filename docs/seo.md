@@ -12,7 +12,7 @@ many factors that can't be dealt with by PocoCMS. For example,
 if Google decides your site is dangerous, they will downrank 
 it or remove it from the public search results.
 
-How can PocoCMS make the claim it's SEO-enabled? Because it closely follows
+PocoCMS claims to be SEO-enabled because it closely follows
 guidelines such as the invaluable 
 [Google SEO starter guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)
 and [The beginner's guide to SEO](https://moz.com/beginners-guide-to-seo) from [Moz](https://moz.com),

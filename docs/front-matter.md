@@ -1,7 +1,7 @@
 ---
 hide: aside
 styles:
-- "article>h3{font-weight:normal;}"
+- "article>h3{font-size:larger}"
 ---
 # Front Matter
 
@@ -217,6 +217,10 @@ aside: new-aside.md
 ---
 ```
 
+[Try it](../.poco/demo/aside.html)\
+[Try it](/docs/.poco/demo/aside.html)\
+[Try it](/.poco/demo/aside.html)
+
 ##### Filename: **new-aside.md**
 
 ```
@@ -228,6 +232,7 @@ Announcement soon. Check the [news](news.html) page tomorrow!
 
 You can also use an HTML file. If so, remember to 
 start with an HTML `<aside>` tag end end with a `</aside>`.
+The file extension must be `.html`.
 
 ##### Filename: **aside.html** 
 
@@ -321,6 +326,8 @@ Powered by PocoCMS!
 
 You can also use an HTML file. If so, remember to 
 start with an HTML `<footer>` tag end end with a `</footer>`.
+The file extension must be `.html`.
+
 
 ##### Filename: **footer.html**
 
@@ -354,6 +361,8 @@ Powered by PocoCMS!
 
 You can also use an HTML file. If so, remember to 
 start with an HTML `<header>` tag end end with a `</header>`.
+The file extension must be `.html`.
+
 
 ##### Filename: **header.html**
 
@@ -460,6 +469,8 @@ See also [header](#header), [aside](#aside), and [footer](#footer)
 
 You can also use an HTML file. If so, remember to 
 start with an HTML `<nav>` tag end end with a `</nav>`.
+The file extension must be `.html`.
+
 
 ##### Filename: **nav.html**
 

@@ -85,3 +85,5 @@ theme: base
 
 
 ###### [Previous: Editing the page](gs-edit-page.html) [Next: Parts of a theme](gs-parts-of-theme.html)
+
+

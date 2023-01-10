@@ -1,6 +1,27 @@
 # PocoCMS Frequently Asked Questions
 
 
+Why my website look like plain HTML all of a sudden?
+: This is probably because an error in your
+[front matter](front-matter.html). For example, perhaps
+you wanted to hide the [nav](glossary.html#nav) and did
+it like this:
+
+```
+---
+hide nav
+---
+```
+
+The problem is that `hide` needs a colon after it, like this:
+
+```
+---
+hide: nav
+---
+```
+
+
 What's the difference between a theme and a pagetheme?
 : You customize the look of PocoCMS sites with themes. You can do it on each
 page in the [front matter](glossary.html#front-matter), like this:
