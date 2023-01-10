@@ -1,6 +1,7 @@
 ---
-title: "Powered by PocoCMS"
-theme: "pocodocs"
+#title: "Powered by PocoCMS"
+theme: pocodocs 
+nav: "docs/docs-nav.md"
 hide: aside
 stylesheets:
 - ".poco/themes/pocodocs/big-circles.css"
