@@ -19,6 +19,12 @@ and [The beginner's guide to SEO](https://moz.com/beginners-guide-to-seo) from [
 an independent SEO firm with years of experience. The Moz pages 
 explaining SEO often appear at the top of the search results.
 
+## Plugins
+
+PocoCMS needs no plugins for SEO support. It is built from the
+ground up for SEO.
+
+
 Here's how PocoCMS builds SEO into its themes.
 
 ## Good page structure is easy

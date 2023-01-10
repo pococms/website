@@ -460,10 +460,11 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <body>
 <header id="header-poco"><ul>
 <li><a href="https://pococms.com">poco<del>CMS</del></a></li>
+<li><a href="https://github.com/pococms/downloads/tree/main/dist">Free Download</a></li>
 <li><a href="/docs/theme-demos.html">Theme demos</a></li>
-<li><a href="https://github.com/pococms/downloads/tree/main/dist">Download</a></li>
 <li><a href="/docs/index.html">Docs</a></li>
 <li><a href="https://github.com/pococms/poco">GitHub</a></li>
+<li><a href="/about.html">About</a></li>
 </ul>
 </header>
 	
@@ -668,6 +669,8 @@ repeated.</p>
 <p>The <code>&lt;aside&gt;</code> element acts as a sidebar. It normally appears to the
 left or right of the article. HTML recognizes only one aside
 per page.</p>
+<p>You can usually control which side it appears on using <a href="#sidebar">sidebar</a>
+in the <a href="front-matter.html#sidebar">front matter</a></p>
 <h3 id="footer">footer</h3>
 <ul>
 <li>The <code>&lt;footer&gt;</code> appears at the bottom of the page right after
@@ -808,6 +811,15 @@ important than the footer, and so on.</p>
 <p>SEO, or search engine optimization, is the art of structuring and
 writing your site so that it's more likely to be found in web searches.
 <a href="seo.html">PocoCMS SEO</a></p>
+<h2 id="sidebar">sidebar</h2>
+<p>The PocoCMS theme framework supports <a href="#aside">asides</a>, which appear
+to the left or right of the article. Depending on theme support
+you can control which side they appear on using the <code>sidebar</code>
+rule in the <a href="front-matter.html#sidebar">front matter</a>, like this:</p>
+<pre><code>---
+sidebar: left
+---
+</code></pre>
 <h2 id="site">site</h2>
 <p>See <a href="#project">project</a></p>
 <h2 id="source-file">source file</h2>
@@ -815,6 +827,24 @@ writing your site so that it's more likely to be found in web searches.
 For example, most directories have a source filenamed <code>index.html</code>, which
 is the default location web servers look when users navigate to a
 website</p>
+<h2 id="static-site-generator">static site generator</h2>
+<p>A static site generator like PocoCMS takes some kind of text input,
+for example, <a href="#markdown">Markdown</a>, applies style sheets
+to it, converts that text to HTML, and generates an
+ouput directory full of HTML and stylesheets. That directory,
+called the <a href="#webroot">webroot</a>,
+is ready to be published to a web server.</p>
+<h3 id="templates">Templates</h3>
+<p>To drill down a little deeper, the static site generator normally
+applies a consistent visual appearance by including a set
+of stylesheets, graphics, and other assets to the generated
+web page before generating the HTML.
+In the case of PocoCMS, templates are made up
+of standard HTML <a href="#page-layout">page layout</a> elements:
+<a href="#header">header</a>, <a href="#nav">nav</a>,<a href="#aside">aside</a>, and <a href="#footer">footer</a>,</p>
+<h3 id="assets">Assets</h3>
+<p>The site may also include assets such as graphic images, video
+files, and so on. Those get passed through unchanged to the</p>
 <h2 id="style-tag">style tag</h2>
 <p>You can override a page's stylesheet with <em>style tags</em>. These are the
 enclosed in <code>&lt;style&gt;</code>/<code>&lt;/style&gt;</code> tags on the page. They are loaded
@@ -833,9 +863,9 @@ pages in the site to use the same theme without having to specify it
 every time in the page front matter. See <a href="#home-page">home page</a> for
 a usage example.</p>
 <p>You can specify themes on a per page basis. For example, if you want
-to use the theme named <code>wide</code> you would add this to your Markdown page:</p>
+to use the theme named <code>electro</code> you would add this to your Markdown page:</p>
 <pre><code>---
-theme: .poco/themes/wide
+theme: electro
 ---
 </code></pre>
 <h3 id="how-to-find-out-what-themes-are-installed">How to find out what themes are installed</h3>
@@ -843,6 +873,15 @@ theme: .poco/themes/wide
 this at the command line:</p>
 <pre><code>poco -themes
 </code></pre>
+<h3 id="technical-overview-of-a-theme">Technical overview of a theme</h3>
+<p>A theme minimally consists of:</p>
+<ul>
+<li>A directory in <code>.poco/themes</code></li>
+<li>A <code>README.md</code> in that directory, called the <a href="#theme-readme">theme README</a></li>
+<li>A <code>LICENSE</code> file</li>
+</ul>
+<p>More likely the <code>README.md</code> has a list of stylesheets and Markdown
+file that define the theme's header, nav, aside, and footer.</p>
 <h2 id="theme-readme">theme README</h2>
 <p>A PocoCMS <a href="#theme">theme</a> is a collection of stylesheets,
 Markdown files, and other assets
@@ -919,6 +958,11 @@ designate a different directory using the <code>webroot</code>
 <p>To make your website visible to the world, all you have
 to do is copy those files into a publicly available directory
 at a web host.</p>
+<h3 id="note">Note</h3>
+<p>PocoCMS always deletes the webroot before building a project. You can
+prevent this with the <code>-preserve</code> <a href="cli.html#preserve">command line flag</a>.</p>
+<pre><code>poco -preserve mysite
+</code></pre>
 <h2 id="yaml">YAML</h2>
 <p>YAML is a language used to describe data in a way that people
 can figure out very easily, just the way <a href="#markdown">Markdown</a>

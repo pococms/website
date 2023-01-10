@@ -1,4 +1,10 @@
-# Quickie tutorial for programmers
+# PocoCMS quickie tutorial for programmers and power users
+
+If you're used to the command line or 
+are a veteran static site generator users,
+here's a quick visual runthrough of 
+the most relevant PocoCMS features.
+
 
 * Create a site:
 

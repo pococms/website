@@ -39,6 +39,16 @@ To stop the web server, press Ctrl+C
 Just paste the URL into your browser and you'll see the site as 
 others on the Web will see it.
 
+[-from and -to](#copy-a-theme-with--from-and--to)\
+[-port](#port)\
+[-preserve](#preserve)\
+[-serve](#serve)\
+[-skip](#skip)\
+[-themes](#themes)
+[-timestamp](#timestamp)
+[-webroot](#webroot)\
+
+
 ### Command-line option help
 
 You can get a summary of command-line options with the `-h` flag
@@ -49,35 +59,40 @@ written):
 
 ```
 poco -h
- -cleanup
-    	Delete publish directory before converting files (default true)
+
+Usage of poco:
+  -from string
+    	Name of theme to copy from
   -lang string
     	HTML language designation, such as en or fr (default "en")
-  -new string
+  -new
     	Create a new site
   -port string
     	Port to use for localhost web server (default ":54321")
+  -preserve
+    	Preserve webroot directory when generating site
+  -root string
+    	Starting directory of the project (default ".")
   -serve
     	Run as a web server on localhost
-  -settings
-    	Shows configuration values instead of processing site
   -skip string
     	List of files to skip when generating a site (default "node_modules/ .git/ .DS_Store/ .gitignore")
   -themes
     	Show themes in .poco directory
   -timestamp
     	Insert timestamp at top of home page article
+  -to string
+    	Name of theme to create
   -verbose
     	Display information about project as it's generated
   -webroot string
     	Subdirectory used for generated HTML files (default "WWW")
-
 ```
 
 ### Command-line options come immediately after `poco`
 
 Remember that you can build in another directory
-(see [Building a project in another directory](building-a-project-in-another-directory.html) but just remember it's command-line options first, directory
+(see [Building a project in another directory](building-a-project-in-another-directory.html)) but just remember it's command-line options first, directory
 name second.
 
 **GOOD: Command-line options first**
@@ -90,7 +105,7 @@ poco -timestamp ~/mydir/mysite
 
 If you don't follow the command-line options first rule, unpredictable
 things will happen. Your friends won't like you, your lottery tickets
-will lose, and, most important, you'll get unexpected results:j
+will lose, and, most important, you'll get unexpected results:
 
 ```
 # Bless your heart
@@ -103,25 +118,96 @@ You can also specify that PocoCMS build a project
 in a different directory. Just add its location to the
 command line:
 
-```bash
+```
 poco ~/html/demosite
 Site published to /Users/tom/hmtl/demosite/WWW/index.html
-
 ```
 
 {{- /* TODO: screenshots of both kinds of output for timestamp */ -}}
 
-## Copy a theme with -from and -toh
+## Copy a theme with -from and -to
 
 If you want to create a new theme, the quickest way is
 to use the `-from` and `-to` options. You follow `-from` with the
-theme you want to copy from, and follow `-to` wth the new theme name.
+theme you want to copy from, and follow `-to` with the new theme name.
 
 Suppose you want to create a new theme named `future` from
 the existing `electro` theme. You'd do so this way:
 
 ```
 poco -from electro -to future
+```
+
+## port
+
+The [-serve](#serve) command-line option lets you 
+see the current project as it would appear
+on the web, using port `54321`. If you want
+to use a different port, this command-line
+option does the trick. To use port `42069`:
+
+```
+poco -new quickie
+cd quickie
+Site published to /Users/tom//quickie/WWW/index.html
+
+poco -serve -port 42069
+Web server running at:
+
+http://localhost:42069
+
+To stop the web server, press Ctrl+C
+```
+
+### Note: you can change the port using the -port option
+
+If you need to use a port other than `54321`, see the
+[port](#port) command-line option.
+
+
+
+
+## preserve
+
+When PocoCMS generates a project, it places the output
+in the [webroot](#webroot) directory. Before it
+does so, it deletes any existing data in that
+directory.
+
+If you wish to keep the webroot directory contents between invocations,
+just add `-preserve` to the command line:
+
+```
+poco -preserve
+```
+
+## themes
+
+The `-themes` command-line option shows which themes
+are installed in the current project. Go to your
+[root directory](glossary.html#root-directory) and
+enter:
+
+```
+poco -themes
+```
+
+The result will be something like:
+
+```
+base
+clerk
+electro
+gossip
+hero
+informer
+newman
+paper
+pasteboard
+pocodocs
+rawdog
+skyscraper
+tufte
 ```
 
 
@@ -150,26 +236,33 @@ You can now check it against the timestamp on your homepage
 to ensure the home page you see has cleared browser or server caches.
 
 
-## webroot
+## serve
 
-The `-webroot` command-line option lets you choose what directory
-Poco CMS uses for the finished HTML, CSS, images, and related assets
-to be published. By default it's `WWW`. 
-
-To change it, just run `poco` `-webroot` followed by the
-directory you'd like to use. For example:
+The `-serve` command-line option runs a simple, local webserver
+that lets you see how your site appears live on the web:
 
 ```
-$ poco -webroot  public_html
+poco -new quickie
+cd quickie
+Site published to /Users/tom//quickie/WWW/index.html
 
+poco -serve
+Web server running at:
+
+http://localhost:54321
+
+To stop the web server, press Ctrl+C
 ```
 
+When the server is running, just paste the address 
+`http://localhost:54321` into your browser to see the
+site live.
 
-You'll see results something like this:
+### Note: you can change the port using the -port option
 
-```
-PocoCMS: Site published to /Users/travis/mysite/public_html
-```
+If you need to use a port other than `54321`, see the
+[port](#port) command-line option.
+
 
 ## skip
 
@@ -206,4 +299,32 @@ skip:
 - .gitignore
 ---
 ```
+
+## webroot
+
+The `-webroot` command-line option lets you choose what directory
+Poco CMS uses for the finished HTML, CSS, images, and related assets
+to be published. By default it's `WWW`. 
+
+To change it, just run `poco` `-webroot` followed by the
+directory you'd like to use. For example:
+
+```
+$ poco -webroot  public_html
+
+```
+
+
+You'll see results something like this:
+
+```
+PocoCMS: Site published to /Users/travis/mysite/public_html
+```
+
+
+### Note: PocoCMS deletes the webroot contents unless you use -preserve
+
+The contents of the webroot get deleted before the project is generated.
+You can prevent that using the [-preserve](#preserve) command-line option.
+
 

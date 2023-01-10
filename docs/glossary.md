@@ -285,9 +285,13 @@ don't like to see articles or [title tags](front-matter#title)
 repeated.
 
 ### aside 
+
 The `<aside>` element acts as a sidebar. It normally appears to the
 left or right of the article. HTML recognizes only one aside
 per page.
+
+You can usually control which side it appears on using [sidebar](#sidebar)
+in the [front matter](front-matter.html#sidebar)
 
 ### footer
 
@@ -481,6 +485,20 @@ writing your site so that it's more likely to be found in web searches.
 [PocoCMS SEO](seo.html)
 
 
+## sidebar
+
+The PocoCMS theme framework supports [asides](#aside), which appear
+to the left or right of the article. Depending on theme support
+you can control which side they appear on using the `sidebar`
+rule in the [front matter](front-matter.html#sidebar), like this:
+
+```
+---
+sidebar: left
+---
+```
+
+
 ## site
 
 See [project](#project)
@@ -492,6 +510,34 @@ A *source file* is the Markdown file used to create a matching HTML file for out
 For example, most directories have a source filenamed `index.html`, which
 is the default location web servers look when users navigate to a 
 website
+
+## static site generator
+
+A static site generator like PocoCMS takes some kind of text input,
+for example, [Markdown](#markdown), applies style sheets
+to it, converts that text to HTML, and generates an
+ouput directory full of HTML and stylesheets. That directory,
+called the [webroot](#webroot),
+is ready to be published to a web server.
+
+### Templates
+
+To drill down a little deeper, the static site generator normally
+applies a consistent visual appearance by including a set
+of stylesheets, graphics, and other assets to the generated
+web page before generating the HTML. 
+In the case of PocoCMS, templates are made up 
+of standard HTML [page layout](#page-layout) elements:
+[header](#header), [nav](#nav),[aside](#aside), and [footer](#footer),
+
+### Assets
+
+The site may also include assets such as graphic images, video
+files, and so on. Those get passed through unchanged to the
+
+
+
+
 
 ## style tag
 
@@ -519,11 +565,13 @@ every time in the page front matter. See [home page](#home-page) for
 a usage example.
 
 You can specify themes on a per page basis. For example, if you want
-to use the theme named `wide` you would add this to your Markdown page:
+to use the theme named `electro` you would add this to your Markdown page:
 
-    ---
-    theme: .poco/themes/wide
-    ---
+```
+---
+theme: electro
+---
+```
 
 ### How to find out what themes are installed
 
@@ -533,6 +581,17 @@ this at the command line:
 ```
 poco -themes
 ```
+
+### Technical overview of a theme
+
+A theme minimally consists of:
+
+* A directory in `.poco/themes`
+* A `README.md` in that directory, called the [theme README](#theme-readme)
+* A `LICENSE` file
+
+More likely the `README.md` has a list of stylesheets and Markdown
+file that define the theme's header, nav, aside, and footer.
 
 ## theme README
 
@@ -639,6 +698,14 @@ To make your website visible to the world, all you have
 to do is copy those files into a publicly available directory
 at a web host.
 
+### Note
+
+PocoCMS always deletes the webroot before building a project. You can
+prevent this with the `-preserve` [command line flag](cli.html#preserve).
+
+```
+poco -preserve mysite
+```
 
 ## YAML
 
