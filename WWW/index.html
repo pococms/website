@@ -225,6 +225,8 @@ h6{ font-size:0.9em; }
 
 
 /* layout.css*/
+article>h1,article>h2,article>h3,article>h4,article>h5,article>h6 {clear:left;}
+
 
 /* Table cells share borders */
 table{border-collapse:collapse;}
@@ -245,7 +247,6 @@ aside{float:right;}
 
 
 /* type.css*/
-p>img {width:100%;}
 /* Links show same if visited, underlined when hovered */
 a{text-decoration:none;}
 a:visited{text-decoration:none;}
@@ -333,7 +334,6 @@ h4{color:var(--h4-fg);}
 
 
 /* pocodocs.css*/
-
 /* --------------------------------------------------
  * Aside unordered lists are used for table of 
  * contents, so disable indentation and bullet 
@@ -525,12 +525,14 @@ ol li:before {
 </head>
 <body>
 	
-<nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/technical-overview.html">Technical overiew</a></p>
+<nav id="nav-poco"><ul>
+<li><a href="/docs/tutorials.html">Tutorials</a> <a href="/docs/glossary.html">Glossary</a> <a href="/docs/seo.html">SEO</a> <a href="/docs/theme-framework.html">Theme framework</a> <a href="/docs/front-matter.html">Front matter</a> <a href="/docs/faq.html">FAQ</a></li>
+</ul>
 </nav>
 	
 <article id="article-poco">
 
-<p>08 Jan 2023 21:54:09</p>
+<p>09 Jan 2023 16:38:28</p>
 <h1 id="welcome-to-pococms">Welcome to PocoCMS</h1>
 <ol>
 <li><a href="docs/install.html">Install</a></li>
@@ -597,7 +599,6 @@ function bodyScroll()
   scrollTimer = window.setTimeout(sidebarHeight, 100);
 }
 function sidebarHeight() {
-    console.log("sidebarHeight()")
   s=document.getElementById('aside-poco');
   a=document.getElementById('article-poco'); 
   if (s != null && a != null) {

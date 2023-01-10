@@ -222,6 +222,8 @@ h6{ font-size:0.9em; }
 
 
 /* layout.css*/
+article>h1,article>h2,article>h3,article>h4,article>h5,article>h6 {clear:left;}
+
 
 /* Table cells share borders */
 table{border-collapse:collapse;}
@@ -241,7 +243,6 @@ aside{float:right;}
 
 
 /* type.css*/
-p>img {width:100%;}
 /* Links show same if visited, underlined when hovered */
 a{text-decoration:none;}
 a:visited{text-decoration:none;}
@@ -327,7 +328,6 @@ h4{color:var(--h4-fg);}
 
 
 /* pocodocs.css*/
-
 /* --------------------------------------------------
  * Aside unordered lists are used for table of 
  * contents, so disable indentation and bullet 
@@ -457,7 +457,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 
 </style>
 
-<style>		article>h3{font-weight:normal;}
+<style>		article>h3{font-size:larger}
 </style>
 </head>
 <body>
@@ -635,12 +635,16 @@ value supplied by the theme.</p>
 aside: new-aside.md
 ---
 </code></pre>
+<p><a href="../.poco/demo/aside.html">Try it</a><br />
+<a href="/docs/.poco/demo/aside.html">Try it</a><br />
+<a href="/.poco/demo/aside.html">Try it</a></p>
 <h5 id="filename-new-asidemd">Filename: <strong>new-aside.md</strong></h5>
 <pre><code>Announcement soon. Check the [news](news.html) page tomorrow!
 </code></pre>
 <h3 id="html-aside-file">HTML aside file</h3>
 <p>You can also use an HTML file. If so, remember to
-start with an HTML <code>&lt;aside&gt;</code> tag end end with a <code>&lt;/aside&gt;</code>.</p>
+start with an HTML <code>&lt;aside&gt;</code> tag end end with a <code>&lt;/aside&gt;</code>.
+The file extension must be <code>.html</code>.</p>
 <h5 id="filename-asidehtml">Filename: <strong>aside.html</strong></h5>
 <pre><code>&lt;aside style=&quot;font-size:2em;font-weight:900;padding:0;margin:0;padding-bottom:2em;margin-top:4em;width:auto;-webkit-transform: rotateZ(-90deg);-ms-transform: rotateZ(-90deg);transform: rotateZ(-90deg);&quot;&gt;WHAT'S UP?&lt;/aside&gt;
 </code></pre>
@@ -694,7 +698,8 @@ Powered by PocoCMS!
 </code></pre>
 <h3 id="html-footer-file">HTML footer file</h3>
 <p>You can also use an HTML file. If so, remember to
-start with an HTML <code>&lt;footer&gt;</code> tag end end with a <code>&lt;/footer&gt;</code>.</p>
+start with an HTML <code>&lt;footer&gt;</code> tag end end with a <code>&lt;/footer&gt;</code>.
+The file extension must be <code>.html</code>.</p>
 <h5 id="filename-footerhtml">Filename: <strong>footer.html</strong></h5>
 <pre><code>&lt;footer&gt;Prices so good it looks like a &lt;span style=&quot;padding:0 1em 0 1em;font-size:2rem;color:yellow;background-color:black;font-family:monospace&quot;&gt;CRIME SCENE!&lt;/footer&gt;
 </code></pre>
@@ -717,6 +722,8 @@ value supplied by the theme.
 
 You can also use an HTML file. If so, remember to 
 start with an HTML `&lt;header&gt;` tag end end with a `&lt;/header&gt;`.
+The file extension must be `.html`.
+
 
 ##### Filename: **header.html**
 
@@ -780,7 +787,8 @@ nav: new-navbar.md
 <p>See also <a href="#header">header</a>, <a href="#aside">aside</a>, and <a href="#footer">footer</a></p>
 <h3 id="html-nav-file">HTML nav file</h3>
 <p>You can also use an HTML file. If so, remember to
-start with an HTML <code>&lt;nav&gt;</code> tag end end with a <code>&lt;/nav&gt;</code>.</p>
+start with an HTML <code>&lt;nav&gt;</code> tag end end with a <code>&lt;/nav&gt;</code>.
+The file extension must be <code>.html</code>.</p>
 <h5 id="filename-navhtml">Filename: <strong>nav.html</strong></h5>
 <pre><code>
 &lt;nav style=&quot;text-shadow: 0 0 30px white;line-height:2em;font-weight:900;font-size:2em;color:white;background:#1F6097;text-align:center;&quot;&gt;FOGGY&lt;/nav&gt;
@@ -1020,7 +1028,6 @@ function bodyScroll()
   scrollTimer = window.setTimeout(sidebarHeight, 100);
 }
 function sidebarHeight() {
-    console.log("sidebarHeight()")
   s=document.getElementById('aside-poco');
   a=document.getElementById('article-poco'); 
   if (s != null && a != null) {

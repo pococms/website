@@ -222,6 +222,8 @@ h6{ font-size:0.9em; }
 
 
 /* layout.css*/
+article>h1,article>h2,article>h3,article>h4,article>h5,article>h6 {clear:left;}
+
 
 /* Table cells share borders */
 table{border-collapse:collapse;}
@@ -241,7 +243,6 @@ aside{float:right;}
 
 
 /* type.css*/
-p>img {width:100%;}
 /* Links show same if visited, underlined when hovered */
 a{text-decoration:none;}
 a:visited{text-decoration:none;}
@@ -327,7 +328,6 @@ h4{color:var(--h4-fg);}
 
 
 /* pocodocs.css*/
-
 /* --------------------------------------------------
  * Aside unordered lists are used for table of 
  * contents, so disable indentation and bullet 
@@ -479,6 +479,22 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </aside>
 <article id="article-poco">
 <h1 id="pococms-frequently-asked-questions">PocoCMS Frequently Asked Questions</h1>
+<dl>
+<dt>Why my website look like plain HTML all of a sudden?</dt>
+<dd>This is probably because an error in your
+<a href="front-matter.html">front matter</a>. For example, perhaps
+you wanted to hide the <a href="glossary.html#nav">nav</a> and did
+it like this:</dd>
+</dl>
+<pre><code>---
+hide nav
+---
+</code></pre>
+<p>The problem is that <code>hide</code> needs a colon after it, like this:</p>
+<pre><code>---
+hide: nav
+---
+</code></pre>
 <dl>
 <dt>What's the difference between a theme and a pagetheme?</dt>
 <dd>You customize the look of PocoCMS sites with themes. You can do it on each
@@ -640,7 +656,6 @@ function bodyScroll()
   scrollTimer = window.setTimeout(sidebarHeight, 100);
 }
 function sidebarHeight() {
-    console.log("sidebarHeight()")
   s=document.getElementById('aside-poco');
   a=document.getElementById('article-poco'); 
   if (s != null && a != null) {

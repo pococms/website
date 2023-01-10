@@ -223,6 +223,8 @@ h6{ font-size:0.9em; }
 
 
 /* layout.css*/
+article>h1,article>h2,article>h3,article>h4,article>h5,article>h6 {clear:left;}
+
 
 /* Table cells share borders */
 table{border-collapse:collapse;}
@@ -242,7 +244,6 @@ aside{float:right;}
 
 
 /* type.css*/
-p>img {width:100%;}
 /* Links show same if visited, underlined when hovered */
 a{text-decoration:none;}
 a:visited{text-decoration:none;}
@@ -328,7 +329,6 @@ h4{color:var(--h4-fg);}
 
 
 /* pocodocs.css*/
-
 /* --------------------------------------------------
  * Aside unordered lists are used for table of 
  * contents, so disable indentation and bullet 
@@ -645,7 +645,6 @@ function bodyScroll()
   scrollTimer = window.setTimeout(sidebarHeight, 100);
 }
 function sidebarHeight() {
-    console.log("sidebarHeight()")
   s=document.getElementById('aside-poco');
   a=document.getElementById('article-poco'); 
   if (s != null && a != null) {
