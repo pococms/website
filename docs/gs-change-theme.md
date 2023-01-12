@@ -9,12 +9,12 @@ Recall that we were left with this newly edited page:
 
 We can totally remodel this tiny site with one change.
 
-* Add `theme: informer` between the lines at the top of the `index.md` page:
+* Add `pagetheme: informer` between the lines at the top of the `index.md` page:
 
 ```
 ---
 title: "Powered with &hearts; by PocoCMS"
-theme: informer
+pagetheme: informer
 ---
 # Welcome to mysite
 
@@ -43,7 +43,7 @@ as shown here:
 ```
 ---
 title: "Powered with &hearts; by PocoCMS"
-theme: informer
+pagetheme: informer
 ---
 ```
 
@@ -62,7 +62,7 @@ front matter as lessons progress.
 ```
 ---
 title: "Powered with &hearts; by PocoCMS"
-theme: electro 
+pagetheme: electro 
 ---
 ```
 
@@ -74,7 +74,7 @@ Base is, well, the basis of all PocoCMS themes that use the [framework](theme-fr
 ```
 ---
 title: "Powered with &hearts; by PocoCMS"
-theme: base 
+pagetheme: base 
 ---
 ```
 

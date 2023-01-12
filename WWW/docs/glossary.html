@@ -198,7 +198,7 @@ footer, header, hgroup, menu, nav, pre, section {
 
 /* sizes.css*/
 article{width:var(--article-width);height:auto;}  
-aside{width:var(--aside-width);padding:0 2em 0 2em;}  
+aside{width:var(--aside-width);padding-left:var(--padding-left);}  
 ol li, ul li  {margin-left:1em;}
 p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
 td,th{padding: 0.5em;}
@@ -224,6 +224,15 @@ h6{ font-size:0.9em; }
 /* layout.css*/
 article>h1,article>h2,article>h3,article>h4,article>h5,article>h6 {clear:left;}
 
+/* Innocuous but at least legible block quote style */
+blockquote {
+  width: 60%;
+  font-size: 1rem;
+  font-style: italic;
+  margin: .75em 4em .75em;
+  padding-left: 1em;
+  border-left: .3em solid var(--fg);
+} 
 
 /* Table cells share borders */
 table{border-collapse:collapse;}
@@ -342,19 +351,19 @@ aside > ul li {list-style-type: none; }
 aside > ul li  {margin-left:0em;}
 
 /* Line-spacing for whole unordered list */
-aside ul {line-height:1.4rem;}
+aside ul {line-height:.9em;}
 
 /* 1st level of list */
-aside ul li a {font-size:1.2rem;}
+aside ul li a {font-size:.8rem}
 aside ul li a {text-decoration:underline}
 
 /* 2nd level of list */
-aside ul ul li a {border:none;text-decoration:none;}
+aside ul ul li a {border:none;text-decoration:none;font-size:.8rem}
 
 
 /* 3rd level of list */
 aside ul ul ul li a 
- {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}
+ {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;font-size:.8rem}
 
 /* --------------------------------------------------
  * Images: full width, light drop shadow 
@@ -630,13 +639,19 @@ for the distinguished file named <code>index.html</code> in its own webroot dire
 <p>The reason <code>README.md</code> takes priority over <code>index.md</code> is that's how many
 previous site generators roll, such as the one on GitHub.</p>
 <h3 id="defining-a-global-theme-on-the-home-page">Defining a global theme on the home page</h3>
-<p>The home page lets you define a global <a href="#theme">theme</a> for the entire site.
+<p>The home page lets you define a <a href="#global-theme">global theme</a> for the entire site.
 If you add <code>theme:</code> followed by the theme name to the front
 matter as shown below, all pages of your site will default to
 the global theme without your having to specify it on each page.
 For example, this defines <code>wide</code> as the global theme:</p>
 <pre><code>---
-theme: &quot;pocodocs&quot;
+theme: pocodocs
+---
+</code></pre>
+<p>If you use a global theme you always have the option to
+override it on a per-page basis using <code>pagetheme</code>:</p>
+<pre><code>---
+pagetheme: pocodocs/home
 ---
 </code></pre>
 <h2 id="layout-element">Layout element</h2>
@@ -711,6 +726,22 @@ conventions used to generate your web pages. In these help pages it is synonomou
 Markdown, markup, and <a href="#commonmark">CommonMark</a>.</p>
 <p>Technically speaking HTML is also a <a href="https://en.wikipedia.org/wiki/Markup_language">markup language</a> but in the context of static site generators
 such as PocoCMS the term normally refers to Markdown.</p>
+<h2 id="named-anchor">named anchor</h2>
+<p>A <em>named anchor</em> is a destination you can click to in an HTML document.
+Here's an example of a level 2 <a href="#heading">heading</a> serving
+as a named anchor.</p>
+<pre><code>&lt;h2 id=&quot;why-markdown&quot;&gt;Why Markdown?&lt;/h2&gt;
+</code></pre>
+<p>In the document itself it will simply appear as a clickable link
+with the text <code>Why Markdown?</code> exactly as it would if the
+in-document location marker <code>id=&quot;why-markdown&quot;</code> weren't there.
+But that location marker, which is required to be unique within
+the document, allows you to create a link like this
+taking you directly to that heading:</p>
+<pre><code>[Why Markdown?](gs-creating-and-linking-pages.html#why-markdown)
+
+</code></pre>
+<p>PocoCMS creates unique named anchors automatically for all <a href="#headings">headings</a>.</p>
 <h2 id="page-theme">page theme</h2>
 <p>A page <a href="#theme">theme</a> controls the appearance of a single page.
 It overrides the <a href="#theme">global theme</a>, if any.</p>
@@ -768,7 +799,7 @@ PocoCMS and copied into your <a href="#webroot">webroot</a></p>
 <h2 id="root-directory">root directory</h2>
 <p>The root directory is the starting point of your
 PocoCMS <a href="#project">project</a>, and because it also
-holds the [.poco directory)(#poco-directory) it's
+holds the <a href="#poco-directory">.poco directory</a> it's
 important to know what root directory means.
 When you do something like</p>
 <pre><code>poco -new mysite
@@ -925,6 +956,25 @@ Page layout elements get their definitions from files named <code>header.md</cod
 <p>Each HTML document should have a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title">title</a> tag. Often the title tag determines what
 text appears to people <a href="https://developers.google.com/search/docs/appearance/title-link">searching on the web</a>, and it's normally
 used for browser tabs as well.</p>
+<h2 id="unique-identifier">unique identifier</h2>
+<p>Sometimes you can link not just to an HTML document, but inside it
+at a particular location. That requires an <code>id=</code> attribute
+in the HTML that looks something like this:</p>
+<pre><code>&lt;h2 id=&quot;why-markdown&quot;&gt;Why Markdown?&lt;/h2&gt;
+</code></pre>
+<p>This is called a bookmark or <a href="#named-anchor">named anchor</a>.</p>
+<p>PocoCMS inserts these automatically for all <a href="#headings">headings</a>.
+It ensures they're unique even if the headings appear externally
+to be the same. The foregoing case works for the page
+at on this site at <code>/docs/gs-creating-and-linking-pages.html</code> with the following
+Markdown:</p>
+<pre><code>[Why Markdown?](gs-creating-and-linking-pages.html#why-markdown)
+
+</code></pre>
+<p>Try clicking it <a href="gs-creating-and-linking-pages.html#why-markdown">here</a> if you wish.</p>
+<p>(Astute web developers will know that the ID isn't just there for
+bookmarking purposes, but it is the context for HMTL
+anchors in this documentation.)</p>
 <h2 id="user-application-data-directory">user application data directory</h2>
 <p>Every operating system has a preferred location for storing
 data from third-party apps such as PocoCMS.</p>

@@ -198,7 +198,7 @@ footer, header, hgroup, menu, nav, pre, section {
 
 /* sizes.css*/
 article{width:var(--article-width);height:auto;}  
-aside{width:var(--aside-width);padding:0 2em 0 2em;}  
+aside{width:var(--aside-width);padding-left:var(--padding-left);}  
 ol li, ul li  {margin-left:1em;}
 p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
 td,th{padding: 0.5em;}
@@ -224,6 +224,15 @@ h6{ font-size:0.9em; }
 /* layout.css*/
 article>h1,article>h2,article>h3,article>h4,article>h5,article>h6 {clear:left;}
 
+/* Innocuous but at least legible block quote style */
+blockquote {
+  width: 60%;
+  font-size: 1rem;
+  font-style: italic;
+  margin: .75em 4em .75em;
+  padding-left: 1em;
+  border-left: .3em solid var(--fg);
+} 
 
 /* Table cells share borders */
 table{border-collapse:collapse;}
@@ -342,19 +351,19 @@ aside > ul li {list-style-type: none; }
 aside > ul li  {margin-left:0em;}
 
 /* Line-spacing for whole unordered list */
-aside ul {line-height:1.4rem;}
+aside ul {line-height:.9em;}
 
 /* 1st level of list */
-aside ul li a {font-size:1.2rem;}
+aside ul li a {font-size:.8rem}
 aside ul li a {text-decoration:underline}
 
 /* 2nd level of list */
-aside ul ul li a {border:none;text-decoration:none;}
+aside ul ul li a {border:none;text-decoration:none;font-size:.8rem}
 
 
 /* 3rd level of list */
 aside ul ul ul li a 
- {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}
+ {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;font-size:.8rem}
 
 /* --------------------------------------------------
  * Images: full width, light drop shadow 
@@ -471,155 +480,34 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/technical-overview.html">Technical overiew</a></p>
 </nav>
 	
-<aside id="aside-poco"><ul>
-<li><a href="getting-started.html">Getting started</a>
+<aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
 <ul>
-<li><a href="getting-started.html#create-a-site">Create a site</a></li>
-<li><a href="getting-started.html#view-the-files-pococms-created">View the files PocoCMS created</a></li>
-</ul>
-</li>
-<li><a href="gs-edit-page.html">Editing the page</a></li>
-<li><a href="gs-change-theme.html">Changing themes</a>
-<ul>
-<li><a href="gs-change-theme.html#front-matter">Front matter</a></li>
-<li><a href="gs-change-theme.html#trying-a-few-more-themes">Trying a few more themes</a></li>
-</ul>
-</li>
-<li><a href="gs-parts-of-theme.html">The parts of a PocoCMS theme</a>
-<ul>
-<li><a href="gs-parts-of-theme.html#header-nav-article-aside-and-footer">Header, nav, article, aside, and footer</a></li>
-<li><a href="gs-parts-of-theme.html#layout-elements">Layout elements</a></li>
-<li><a href="gs-parts-of-theme.html#hiding-header-nav-aside-or-footer-on-a-per-page-basis">Hiding header, nav, aside, or footer on a per-page basis</a>
-<ul>
-<li><a href="gs-parts-of-theme.html#hide-the-header">Hide the header</a></li>
-<li><a href="gs-parts-of-theme.html#hide-the-nav">Hide the nav</a></li>
-<li><a href="gs-parts-of-theme.html#hide-the-rest">Hide the rest</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="gs-hide-theme-parts-globally.html">Hiding parts of a PocoCMS theme globally</a>
-<ul>
-<li><a href="gs-hide-theme-parts-globally.html#remove-header-nav-aside-or-footer-from-a-theme">Remove header, nav, aside, or footer from a theme</a>
-<ul>
-<li><a href="gs-hide-theme-parts-globally.html#find-your-theme-file-in-the-poco-directory">Find your theme file in the .poco directory</a></li>
-<li><a href="gs-hide-theme-parts-globally.html#comment-out-the-aside-or-any-other-page-layout-element">Comment out the aside (or any other) page layout element</a></li>
-<li><a href="gs-hide-theme-parts-globally.html#comments-in-the-yaml-front-matter">Comments in the YAML front matter</a></li>
-<li><a href="gs-hide-theme-parts-globally.html#find-your-theme-file-in-the-poco-directory">Find your theme file in the .poco directory</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="gs-editing-parts-of-a-theme.html">Editing parts of a theme</a>
-<ul>
-<li><a href="gs-editing-parts-of-a-theme.html#editing-the-header">Editing the header</a></li>
-<li><a href="gs-editing-parts-of-a-theme.html#replacing-the-nav">Replacing the nav</a></li>
-<li><a href="gs-editing-parts-of-a-theme.html#replacing-the-contents-of-the-article-with-a-file">Replacing the contents of the article with a file</a>
-<ul>
-<li><a href="gs-editing-parts-of-a-theme.html#editing-other-page-layout-elements">Editing other page layout elements</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="gs-creating-and-linking-pages.html">Creating and linking to pages</a>
-<ul>
-<li><a href="gs-creating-and-linking-pages.html#why-markdown">Why Markdown?</a></li>
-</ul>
-<ul>
-<li><a href="gs-creating-and-linking-pages.html#a-few-quick-markdown-samples">A few quick Markdown samples</a></li>
-<li><a href="gs-creating-and-linking-pages.html#why-markdown.html">Why Markdown?</a></li>
-<li><a href="gs-creating-and-linking-pages.html#markdown-has-semantic-importance">Markdown has semantic importance</a></li>
-</ul>
-<ul>
-<li><a href="gs-creating-and-linking-pages.html#creating-a-new-page">Creating a new page</a></li>
-<li><a href="gs-creating-and-linking-pages.html#creating-links">Creating links</a></li>
-<li><a href="gs-creating-and-linking-pages.html#markdown-link-format">Markdown link format</a></li>
-</ul>
-</li>
-<li><a href="gs-formatting-characters-in-markdown.html">Formatting characters in Markdown</a>
-<ul>
-<li><a href="gs-formatting-characters-in-markdown.html#bold-text-in-markdown">Bold</a></li>
-<li><a href="gs-formatting-characters-in-markdown.html#italic-text-in-markdown">Italic</a></li>
-<li><a href="gs-formatting-characters-in-markdown.html#monospaced-text-in-markdown">Monospaced</a></li>
-<li><a href="gs-formatting-characters-in-markdown.html#strikethrough-text-in-markdown">Strikethough</a></li>
-</ul>
-</li>
-<li><a href="gs-lines-lists-blocks.html">Lines, lists, and blocks of text in Markdown</a>
-<ul>
-<li><a href="gs-lines-lists-blocks.html#markdown-usually-treats-multiple-blank-lines-as-one">Markdown usually treats multiple blank lines as one</a></li>
-<li><a href="gs-lines-lists-blocks.html#markdown-two-adjacent-lines-of-text">Markdown: two adjacent lines of text</a>
-<ul>
-<li><a href="gs-lines-lists-blocks.html#forcing-two-consecutive-lines-to-appear-that-way">Forcing two consecutive lines to appear that way</a></li>
-</ul>
-</li>
-<li><a href="gs-lines-lists-blocks.html#markdown-lists">Markdown Lists</a>
-<ul>
-<li><a href="gs-lines-lists-blocks.html#markdown-unordered-list-syntax">Markdown unordered list syntax</a></li>
-<li><a href="gs-lines-lists-blocks.html#alternate-unordered-list-syntax">Alternate unordered list syntax</a></li>
-<li><a href="gs-lines-lists-blocks.html#markdown-ordered-list-syntax">Markdown ordered list syntax</a></li>
-<li><a href="gs-lines-lists-blocks.html#markdown-indented-list-syntax-nested-lists">Markdown indented list syntax: nested lists</a></li>
-<li><a href="gs-lines-lists-blocks.html#">Markdown indented list syntax: indenting text</a></li>
-</ul>
-</li>
-<li><a href="gs-lines-lists-blocks.html#markdown-indented-list-syntax-indenting-text">Block quotes</a></li>
-<li><a href="gs-lines-lists-blocks.html#horizontal-lines-aka-horizontal-rules">Horizontal lines (aka horizontal rules)</a></li>
-</ul>
-</li>
-<li><a href="gs-tables-in-markdown.html">Tables in Markdown</a>
-<ul>
-<li><a href="gs-tables-in-markdown.html#table-syntax-simplified">Table syntax simplified</a></li>
-<li><a href="gs-tables-in-markdown.html#simple-table-example">Simple table example</a></li>
-<li><a href="gs-tables-in-markdown.html#minimum-table-a-header-only">Minimum table: a header only</a></li>
-<li><a href="gs-tables-in-markdown.html#table-with-one-header-and-one-row">Table with one header and one row:</a></li>
-<li><a href="gs-tables-in-markdown.html#typical-table-with-several-rows">Typical table with several rows</a></li>
-<li><a href="gs-tables-in-markdown.html#dash-and-space-count-dont-matter">Dash and space count don't matter</a></li>
-<li><a href="gs-tables-in-markdown.html#aligning-text-within-columns">Aligning text within columns</a></li>
-</ul>
-</li>
-<li><a href="gs-displaying-code-in-markdown.html">Displaying code in Markdown</a>
-<ul>
-<li><a href="gs-displaying-code-in-markdown.html#creating-a-code-block-aka-code-fence">Creating a code block, aka code fence</a></li>
-<li><a href="gs-displaying-code-in-markdown.html#keyword-highlighting-for-computer-languages">Keyword highlighting for computer languages</a></li>
-<li><a href="gs-displaying-code-in-markdown.html#languages-supported">Languages supported</a></li>
-</ul>
-</li>
+<li>Item 1 in the aside</li>
+<li>Item 2 in the aside</li>
+<li>Pocodocs theme!</li>
 </ul>
 </aside>
 <article id="article-poco">
-<h1 id="formatting-characters-in-markdown">Formatting characters in Markdown</h1>
-<p>Here's how to do things like <em>italic</em>, bold, and <del>strikethrough</del>.</p>
-<h2 id="bold-text-in-markdown">Bold text in Markdown</h2>
-<p>To make text bold, surround it with <code>**</code> on each side. Avoid spaces.
-Note: technically this is called <em>strong text</em>, which is
-more semantic meaning.</p>
-<h5 id="markdown">Markdown:</h5>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>You never expected a <span style="font-weight:bold">**Spanish Inquisition!**</span>
-</span></span></code></pre><h5 id="results">Results:</h5>
-<p>You never expected a <strong>Spanish Inquisition!</strong></p>
-<h2 id="italic-text-in-markdown">Italic text in Markdown</h2>
-<p>To make text italic, surround it with <code>_</code> on each side. Avoid spaces.
-You can also use <code>*</code> on each side.</p>
-<p>Note: this is technically called <em>emphasized text</em>.</p>
-<h5 id="markdown-1">Markdown:</h5>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>Robert left his space suit at the cleaners. <span style="font-style:italic">_What will NASA say?_</span>
-</span></span><span style="display:flex;"><span>More important, <span style="font-style:italic">*how can he choose his italics Markdown?*</span>
-</span></span></code></pre><h5 id="results-1">Results:</h5>
-<p>Robert left his space suit at the cleaners. <em>What will NASA say?</em>
-More important, <em>how can he choose his italics Markdown?</em></p>
-<h2 id="monospaced-text-in-markdown">Monospaced text in Markdown</h2>
-<p>To use a monospaced font, surround it with <code>`</code> on each side. Avoid spaces.</p>
-<h5 id="markdown-2">Markdown:</h5>
-<pre><code>The killer computer displayed a frightening message: `hello, world.`
+<h1 id="images-in-markdown">Images in Markdown</h1>
+<p>Recall that to create a link in Markdown you do
+something like this: <code>[PocoCMS home page](https://pococms.com)</code>.</p>
+<p>You can to insert an image into your Markdown with syntax much
+like that, but starting with an exclamation point or <code>!</code> character.</p>
+<ul>
+<li>To insert the image file named <code>fishing-3635221.svg</code> onto your page,
+you'd do it like this:</li>
+</ul>
+<pre><code>![Cartoon of man fishing above enormous fish](fishing-3635221.svg)
 </code></pre>
-<h5 id="results-2">Results:</h5>
-<p>The killer computer displayed a frightening message: <code>hello, world.</code></p>
-<h2 id="strikethough-text-in-markdown">Strikethough text in Markdown</h2>
-<p>To show strikethrough text, surround it with two tildes (<code>~~</code>) on each side. Avoid spaces.</p>
-<h5 id="markdown-3">Markdown:</h5>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span>Your children are <span style="color:#a00">~~not very~~</span> well informed.
-</span></span></code></pre><h5 id="results-3">Results:</h5>
-<p>Your children are <del>not very</del> well informed.</p>
-<h6 id="previous-creating-and-linking-pagesgs-creating-and-linking-pageshtml-lines-lists-and-blocks-of-text-in-markdowngs-lines-lists-blockshtml"><a href="gs-creating-and-linking-pages.html">Previous: Creating and linking pages</a> <a href="gs-lines-lists-blocks.html">Lines, lists, and blocks of text in Markdown</a></h6>
+<p>The result would be:</p>
+<p><img src="fishing-3635221.svg" alt="Cartoon of man fishing above enormous fish" /></p>
+<p>Note that the text  <code>Cartoon of man fishing above enormous fish</code>
+doesn't seem to appear. It will if you hover over it.
+These descriptions are necessary for visually impaired users who
+may not be able to see what's going on. Screen readers use that
+description to narrate for theme.</p>
+<h2 id="clickable-image-links">Clickable image links</h2>
+<h2 id="youtube-videos">YouTube videos</h2>
 
 </article>
 

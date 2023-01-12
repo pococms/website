@@ -198,7 +198,7 @@ footer, header, hgroup, menu, nav, pre, section {
 
 /* sizes.css*/
 article{width:var(--article-width);height:auto;}  
-aside{width:var(--aside-width);padding:0 2em 0 2em;}  
+aside{width:var(--aside-width);padding-left:var(--padding-left);}  
 ol li, ul li  {margin-left:1em;}
 p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
 td,th{padding: 0.5em;}
@@ -224,6 +224,15 @@ h6{ font-size:0.9em; }
 /* layout.css*/
 article>h1,article>h2,article>h3,article>h4,article>h5,article>h6 {clear:left;}
 
+/* Innocuous but at least legible block quote style */
+blockquote {
+  width: 60%;
+  font-size: 1rem;
+  font-style: italic;
+  margin: .75em 4em .75em;
+  padding-left: 1em;
+  border-left: .3em solid var(--fg);
+} 
 
 /* Table cells share borders */
 table{border-collapse:collapse;}
@@ -342,19 +351,19 @@ aside > ul li {list-style-type: none; }
 aside > ul li  {margin-left:0em;}
 
 /* Line-spacing for whole unordered list */
-aside ul {line-height:1.4rem;}
+aside ul {line-height:.9em;}
 
 /* 1st level of list */
-aside ul li a {font-size:1.2rem;}
+aside ul li a {font-size:.8rem}
 aside ul li a {text-decoration:underline}
 
 /* 2nd level of list */
-aside ul ul li a {border:none;text-decoration:none;}
+aside ul ul li a {border:none;text-decoration:none;font-size:.8rem}
 
 
 /* 3rd level of list */
 aside ul ul ul li a 
- {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}
+ {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;font-size:.8rem}
 
 /* --------------------------------------------------
  * Images: full width, light drop shadow 
@@ -471,316 +480,82 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/technical-overview.html">Technical overiew</a></p>
 </nav>
 	
-<aside id="aside-poco"><ul>
-<li><a href="getting-started.html">Getting started</a>
+<aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
 <ul>
-<li><a href="getting-started.html#create-a-site">Create a site</a></li>
-<li><a href="getting-started.html#view-the-files-pococms-created">View the files PocoCMS created</a></li>
-</ul>
-</li>
-<li><a href="gs-edit-page.html">Editing the page</a></li>
-<li><a href="gs-change-theme.html">Changing themes</a>
-<ul>
-<li><a href="gs-change-theme.html#front-matter">Front matter</a></li>
-<li><a href="gs-change-theme.html#trying-a-few-more-themes">Trying a few more themes</a></li>
-</ul>
-</li>
-<li><a href="gs-parts-of-theme.html">The parts of a PocoCMS theme</a>
-<ul>
-<li><a href="gs-parts-of-theme.html#header-nav-article-aside-and-footer">Header, nav, article, aside, and footer</a></li>
-<li><a href="gs-parts-of-theme.html#layout-elements">Layout elements</a></li>
-<li><a href="gs-parts-of-theme.html#hiding-header-nav-aside-or-footer-on-a-per-page-basis">Hiding header, nav, aside, or footer on a per-page basis</a>
-<ul>
-<li><a href="gs-parts-of-theme.html#hide-the-header">Hide the header</a></li>
-<li><a href="gs-parts-of-theme.html#hide-the-nav">Hide the nav</a></li>
-<li><a href="gs-parts-of-theme.html#hide-the-rest">Hide the rest</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="gs-hide-theme-parts-globally.html">Hiding parts of a PocoCMS theme globally</a>
-<ul>
-<li><a href="gs-hide-theme-parts-globally.html#remove-header-nav-aside-or-footer-from-a-theme">Remove header, nav, aside, or footer from a theme</a>
-<ul>
-<li><a href="gs-hide-theme-parts-globally.html#find-your-theme-file-in-the-poco-directory">Find your theme file in the .poco directory</a></li>
-<li><a href="gs-hide-theme-parts-globally.html#comment-out-the-aside-or-any-other-page-layout-element">Comment out the aside (or any other) page layout element</a></li>
-<li><a href="gs-hide-theme-parts-globally.html#comments-in-the-yaml-front-matter">Comments in the YAML front matter</a></li>
-<li><a href="gs-hide-theme-parts-globally.html#find-your-theme-file-in-the-poco-directory">Find your theme file in the .poco directory</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="gs-editing-parts-of-a-theme.html">Editing parts of a theme</a>
-<ul>
-<li><a href="gs-editing-parts-of-a-theme.html#editing-the-header">Editing the header</a></li>
-<li><a href="gs-editing-parts-of-a-theme.html#replacing-the-nav">Replacing the nav</a></li>
-<li><a href="gs-editing-parts-of-a-theme.html#replacing-the-contents-of-the-article-with-a-file">Replacing the contents of the article with a file</a>
-<ul>
-<li><a href="gs-editing-parts-of-a-theme.html#editing-other-page-layout-elements">Editing other page layout elements</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="gs-creating-and-linking-pages.html">Creating and linking to pages</a>
-<ul>
-<li><a href="gs-creating-and-linking-pages.html#why-markdown">Why Markdown?</a></li>
-</ul>
-<ul>
-<li><a href="gs-creating-and-linking-pages.html#a-few-quick-markdown-samples">A few quick Markdown samples</a></li>
-<li><a href="gs-creating-and-linking-pages.html#why-markdown.html">Why Markdown?</a></li>
-<li><a href="gs-creating-and-linking-pages.html#markdown-has-semantic-importance">Markdown has semantic importance</a></li>
-</ul>
-<ul>
-<li><a href="gs-creating-and-linking-pages.html#creating-a-new-page">Creating a new page</a></li>
-<li><a href="gs-creating-and-linking-pages.html#creating-links">Creating links</a></li>
-<li><a href="gs-creating-and-linking-pages.html#markdown-link-format">Markdown link format</a></li>
-</ul>
-</li>
-<li><a href="gs-formatting-characters-in-markdown.html">Formatting characters in Markdown</a>
-<ul>
-<li><a href="gs-formatting-characters-in-markdown.html#bold-text-in-markdown">Bold</a></li>
-<li><a href="gs-formatting-characters-in-markdown.html#italic-text-in-markdown">Italic</a></li>
-<li><a href="gs-formatting-characters-in-markdown.html#monospaced-text-in-markdown">Monospaced</a></li>
-<li><a href="gs-formatting-characters-in-markdown.html#strikethrough-text-in-markdown">Strikethough</a></li>
-</ul>
-</li>
-<li><a href="gs-lines-lists-blocks.html">Lines, lists, and blocks of text in Markdown</a>
-<ul>
-<li><a href="gs-lines-lists-blocks.html#markdown-usually-treats-multiple-blank-lines-as-one">Markdown usually treats multiple blank lines as one</a></li>
-<li><a href="gs-lines-lists-blocks.html#markdown-two-adjacent-lines-of-text">Markdown: two adjacent lines of text</a>
-<ul>
-<li><a href="gs-lines-lists-blocks.html#forcing-two-consecutive-lines-to-appear-that-way">Forcing two consecutive lines to appear that way</a></li>
-</ul>
-</li>
-<li><a href="gs-lines-lists-blocks.html#markdown-lists">Markdown Lists</a>
-<ul>
-<li><a href="gs-lines-lists-blocks.html#markdown-unordered-list-syntax">Markdown unordered list syntax</a></li>
-<li><a href="gs-lines-lists-blocks.html#alternate-unordered-list-syntax">Alternate unordered list syntax</a></li>
-<li><a href="gs-lines-lists-blocks.html#markdown-ordered-list-syntax">Markdown ordered list syntax</a></li>
-<li><a href="gs-lines-lists-blocks.html#markdown-indented-list-syntax-nested-lists">Markdown indented list syntax: nested lists</a></li>
-<li><a href="gs-lines-lists-blocks.html#">Markdown indented list syntax: indenting text</a></li>
-</ul>
-</li>
-<li><a href="gs-lines-lists-blocks.html#markdown-indented-list-syntax-indenting-text">Block quotes</a></li>
-<li><a href="gs-lines-lists-blocks.html#horizontal-lines-aka-horizontal-rules">Horizontal lines (aka horizontal rules)</a></li>
-</ul>
-</li>
-<li><a href="gs-tables-in-markdown.html">Tables in Markdown</a>
-<ul>
-<li><a href="gs-tables-in-markdown.html#table-syntax-simplified">Table syntax simplified</a></li>
-<li><a href="gs-tables-in-markdown.html#simple-table-example">Simple table example</a></li>
-<li><a href="gs-tables-in-markdown.html#minimum-table-a-header-only">Minimum table: a header only</a></li>
-<li><a href="gs-tables-in-markdown.html#table-with-one-header-and-one-row">Table with one header and one row:</a></li>
-<li><a href="gs-tables-in-markdown.html#typical-table-with-several-rows">Typical table with several rows</a></li>
-<li><a href="gs-tables-in-markdown.html#dash-and-space-count-dont-matter">Dash and space count don't matter</a></li>
-<li><a href="gs-tables-in-markdown.html#aligning-text-within-columns">Aligning text within columns</a></li>
-</ul>
-</li>
-<li><a href="gs-displaying-code-in-markdown.html">Displaying code in Markdown</a>
-<ul>
-<li><a href="gs-displaying-code-in-markdown.html#creating-a-code-block-aka-code-fence">Creating a code block, aka code fence</a></li>
-<li><a href="gs-displaying-code-in-markdown.html#keyword-highlighting-for-computer-languages">Keyword highlighting for computer languages</a></li>
-<li><a href="gs-displaying-code-in-markdown.html#languages-supported">Languages supported</a></li>
-</ul>
-</li>
+<li>Item 1 in the aside</li>
+<li>Item 2 in the aside</li>
+<li>Pocodocs theme!</li>
 </ul>
 </aside>
 <article id="article-poco">
-<h1 id="tables-in-markdown">Tables in Markdown</h1>
-<p>PocoCMS uses <a href="https://help.github.com/articles/organizing-information-with-tables">GitHub-style table markdown</a>, a widely accepted
-extension to <a href="glossary.html#markdown">Markdown</a>. Here are the highlights.</p>
-<h3 id="table-syntax-simplified">Table syntax simplified</h3>
-<p>Tables consist of a two-line required header, then zero or more rows.</p>
+<h1 id="creating-a-theme">Creating a theme</h1>
+<p>When you start a new site you'll probably want to alter customize a theme. The best
+practice is to make a copy of that theme first.</p>
+<h2 id="copying-a-theme">Copying a theme</h2>
+<p>It's best to copy a theme you like instead working with it directly,
+because you'll want to make numerous small changes to it in production.
+That way if you  make any big mistakes and want to revert, you'll have
+the factory original to fall back on.</p>
 <ul>
-<li>At least one header consisting of a line surrounded by pipe characters: <code>| Header |</code></li>
-<li>A line of dashes surrounded by pipe characters: <code>| ------ |</code></li>
-<li>Zero or more rows text surrounded by pipe characters, like this: <code>| Row 1 |</code></li>
+<li>To copy a theme, choose the theme you want to start with. Let's
+say it's <a href="https://pococms.com/docs/demos/pasteboard.html">Pasteboard</a>.</li>
+<li>Decide on name of your new theme, which of course in this example will
+be <code>mytheme</code> because hey, it's all about you.</li>
+<li>Copy the theme like this:</li>
 </ul>
-<p>Let's put it all together.</p>
-<h3 id="simple-table-example">Simple table example</h3>
-<p>To get a table that looks like this:</p>
-<h5 id="result">Result:</h5>
-<table>
-<thead>
-<tr>
-<th>Header</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Row 1, Column 1</td>
-<td>Row 1, Column 2</td>
-</tr>
-</tbody>
-</table>
-<p>You'd use the following markdown:</p>
-<h5 id="markdown">Markdown:</h5>
-<pre><code>| Header                |                            |
-| --------------------- | -------------------------- |
-| Row 1, Column 1       | Row 1, Column 2            |
+<pre><code>poco -from pasteboard -to mytheme
 </code></pre>
-<h3 id="minimum-table-a-header-only">Minimum table: a header only</h3>
-<p>The absolute minimum table would consist of a single header with no rows:</p>
-<h5 id="markdown-1">Markdown:</h5>
-<pre><code>| Header                |           
-| --------------------- | 
+<p>You're then informed:</p>
+<pre><code>PocoCMS mytheme created
 </code></pre>
-<h5 id="result-1">Result:</h5>
-<table>
-<thead>
-<tr>
-<th>Header</th>
-</tr>
-</thead>
-</table>
-<h3 id="table-with-one-header-and-one-row">Table with one header and one row:</h3>
-<p>Let's extend the previous example with one row:</p>
-<h5 id="markdown-2">Markdown:</h5>
-<pre><code>| Header                |                            
-| --------------------- | 
-| Single cell           |
+<p>Now to use your theme, just specify it in the
+front matter as you would any other:</p>
+<pre><code>---
+theme: mytheme
+---
 </code></pre>
-<h5 id="result-2">Result:</h5>
-<table>
-<thead>
-<tr>
-<th>Header</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Single cell</td>
-</tr>
-</tbody>
-</table>
-<h3 id="typical-table-with-several-rows">Typical table with several rows</h3>
-<p>Most tables have multiple columns and rows, for example:</p>
-<table>
-<thead>
-<tr>
-<th>Column 1</th>
-<th>Column 2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Row 1, Column 1</td>
-<td>Row 1, Column 2</td>
-</tr>
-<tr>
-<td>Row 2, Column 1</td>
-<td>Row 2, Column 2</td>
-</tr>
-<tr>
-<td>Row 3, Column 1</td>
-<td>Row 3, Column 2</td>
-</tr>
-<tr>
-<td>Row 4, Column 1</td>
-<td>Row 4, Column 2</td>
-</tr>
-</tbody>
-</table>
-<h5 id="markdown-3">Markdown:</h5>
-<pre><code>| Column 1        | Column 2         |
-| --------------- | ---------------- |
-| Row 1, Column 1 | Row 1, Column 2  |
-| Row 2, Column 1 | Row 2, Column 2  |
-| Row 3, Column 1 | Row 3, Column 2  |
-| Row 4, Column 1 | Row 4, Column 2  |
-</code></pre>
-<h3 id="dash-and-space-count-dont-matter">Dash and space count don't matter</h3>
-<p>The number of dashes used to specify the header and the number of spaces surrounding
-the pipe characters don't matter. Take the following table:</p>
-<table>
-<thead>
-<tr>
-<th>Column 1</th>
-<th>Column 2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>row 1</td>
-<td>2nd column</td>
-</tr>
-<tr>
-<td>row 2</td>
-<td>2nd column</td>
-</tr>
-</tbody>
-</table>
-<p>You could use this crazy-ass markdown for it:</p>
-<pre><code>| Column 1| Column 2         |
-| ------------ | --- |
-| row 1 | 2nd column  |
-| row 2    | 2nd column    |
-</code></pre>
-<p>Or you could use this markup:</p>
-<pre><code>| Column 1     | Column 2         |
-| ------------ | ---------------- |
-| row 1        | 2nd column       |
-| row 2        | 2nd column       |
-</code></pre>
-<p>And they would both produce the same output.</p>
-<h3 id="aligning-text-within-columns">Aligning text within columns</h3>
-<p>Normally table text is left-aligned. You can change alignment by using colon characters
-(<code>:</code>) in the second header row, which contains the dash characters (<code>-</code>).</p>
+<h3 id="add-themenamecss-to-the-themes-readmemd-file">Add themename.css to the theme's README.md file</h3>
 <ul>
-<li><strong>To left-align the column</strong>, replace the leftmost dash with a colon</li>
-<li><strong>To right-align the column</strong>, replace the rightmost dash with a colon</li>
-<li><strong>To center-align the column</strong>, both the leftmost and rightmost dashes with a colon</li>
+<li>Load the theme's <code>README.md</code> file from your project's <a href="#glossary.html#root-directory">root directory</a> by editing the file <code>.poco/themes/mytheme/README.md</code>. Obviously
+you will replace <code>mysite</code> with whatever theme name you created.</li>
+<li>It will look something like this, in the example where your
+theme was copied from the Pasteboard theme:</li>
 </ul>
-<p>Here's a table showing alignment:</p>
-<table>
-<thead>
-<tr>
-<th>Alignment</th>
-<th align="center">Column 2</th>
-<th align="right">Column 3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Center align column 2</td>
-<td align="center">*</td>
-<td align="right"></td>
-</tr>
-<tr>
-<td>Right align column 3</td>
-<td align="center"></td>
-<td align="right">Boo</td>
-</tr>
-<tr>
-<td>Right align numbers</td>
-<td align="center"></td>
-<td align="right">1</td>
-</tr>
-<tr>
-<td></td>
-<td align="center"></td>
-<td align="right">123</td>
-</tr>
-<tr>
-<td></td>
-<td align="center"></td>
-<td align="right">$456.67</td>
-</tr>
-</tbody>
-</table>
-<p>Markdown:</p>
-<pre><code>| Alignment             | Column 2       | Column 3      |
-| --------------------- |:--------------:| -------------:|
-| Center align column 2 | *              |               |
-| Right align column 3  |                | Boo           |
-| Right align numbers:  |                |   1           |
-|                       |                | 123           |
-|                       |                |     $456.67   |
+<pre><code>---
+header: header.md
+nav: nav.md
+aside: aside.md
+footer: footer.md
+stylesheets:
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/colors.css
+- &quot;https://unpkg.com/mvp.css@1.12/mvp.css&quot;
+- ../../css/sizes.css
+- ../../css/layout.css
+- &quot;../../css/medium-skinny.css&quot;
+- &quot;pasteboard.css&quot;
+- ../../css/media.css
+---
 </code></pre>
-<p>For more details, see the
-<a href="https://help.github.com/articles/organizing-information-with-tables/">GitHub style documentation</a>.</p>
-<h6 id="previous-lines-lists-and-blocks-of-textgs-lines-lists-blockshtml-next-displaying-code-in-markdowngs-displaying-code-in-markdownhtml"><a href="gs-lines-lists-blocks.html">Previous: Lines, lists, and blocks of text</a> <a href="gs-displaying-code-in-markdown.html">Next: Displaying code in Markdown</a></h6>
+<ul>
+<li>Immediately append the <code>.css</code> named after your theme to the <em>end</em> of the <code>stylesheets</code>
+list:</li>
+</ul>
+<pre><code>stylesheets:
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/colors.css
+- &quot;https://unpkg.com/mvp.css@1.12/mvp.css&quot;
+- ../../css/sizes.css
+- ../../css/layout.css
+- &quot;../../css/medium-skinny.css&quot;
+- &quot;pasteboard.css&quot;
+- ../../css/media.css
+- &quot;mytheme.css&quot; 
+</code></pre>
+<p>The contents of <code>mytheme.css</code> are pretty much blank and
+will have no affect on the theme so far:</p>
 
 </article>
 

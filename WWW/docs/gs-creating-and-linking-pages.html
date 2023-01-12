@@ -198,7 +198,7 @@ footer, header, hgroup, menu, nav, pre, section {
 
 /* sizes.css*/
 article{width:var(--article-width);height:auto;}  
-aside{width:var(--aside-width);padding:0 2em 0 2em;}  
+aside{width:var(--aside-width);padding-left:var(--padding-left);}  
 ol li, ul li  {margin-left:1em;}
 p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
 td,th{padding: 0.5em;}
@@ -224,6 +224,15 @@ h6{ font-size:0.9em; }
 /* layout.css*/
 article>h1,article>h2,article>h3,article>h4,article>h5,article>h6 {clear:left;}
 
+/* Innocuous but at least legible block quote style */
+blockquote {
+  width: 60%;
+  font-size: 1rem;
+  font-style: italic;
+  margin: .75em 4em .75em;
+  padding-left: 1em;
+  border-left: .3em solid var(--fg);
+} 
 
 /* Table cells share borders */
 table{border-collapse:collapse;}
@@ -342,19 +351,19 @@ aside > ul li {list-style-type: none; }
 aside > ul li  {margin-left:0em;}
 
 /* Line-spacing for whole unordered list */
-aside ul {line-height:1.4rem;}
+aside ul {line-height:.9em;}
 
 /* 1st level of list */
-aside ul li a {font-size:1.2rem;}
+aside ul li a {font-size:.8rem}
 aside ul li a {text-decoration:underline}
 
 /* 2nd level of list */
-aside ul ul li a {border:none;text-decoration:none;}
+aside ul ul li a {border:none;text-decoration:none;font-size:.8rem}
 
 
 /* 3rd level of list */
 aside ul ul ul li a 
- {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}
+ {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;font-size:.8rem}
 
 /* --------------------------------------------------
  * Images: full width, light drop shadow 
@@ -527,60 +536,26 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </ul>
 <ul>
 <li><a href="gs-creating-and-linking-pages.html#a-few-quick-markdown-samples">A few quick Markdown samples</a></li>
-<li><a href="gs-creating-and-linking-pages.html#why-markdown.html">Why Markdown?</a></li>
 <li><a href="gs-creating-and-linking-pages.html#markdown-has-semantic-importance">Markdown has semantic importance</a></li>
 </ul>
 <ul>
 <li><a href="gs-creating-and-linking-pages.html#creating-a-new-page">Creating a new page</a></li>
 <li><a href="gs-creating-and-linking-pages.html#creating-links">Creating links</a></li>
+<li><a href="gs-creating-and-linking-pages.html#theme-vs-pagetheme">theme vs pagetheme</a></li>
+</ul>
+<ul>
+<li><a href="gs-creating-and-linking-pages.html#theme-on-the-home-page-sets-a-global-theme">theme on the home page sets a global theme</a></li>
+<li><a href="gs-creating-and-linking-pages.html#pagetheme-sets-the-theme-on-a-per-page-basis">pagetheme sets the theme on a per-page basis</a></li>
+</ul>
+<ul>
 <li><a href="gs-creating-and-linking-pages.html#markdown-link-format">Markdown link format</a></li>
-</ul>
-</li>
-<li><a href="gs-formatting-characters-in-markdown.html">Formatting characters in Markdown</a>
-<ul>
-<li><a href="gs-formatting-characters-in-markdown.html#bold-text-in-markdown">Bold</a></li>
-<li><a href="gs-formatting-characters-in-markdown.html#italic-text-in-markdown">Italic</a></li>
-<li><a href="gs-formatting-characters-in-markdown.html#monospaced-text-in-markdown">Monospaced</a></li>
-<li><a href="gs-formatting-characters-in-markdown.html#strikethrough-text-in-markdown">Strikethough</a></li>
-</ul>
-</li>
-<li><a href="gs-lines-lists-blocks.html">Lines, lists, and blocks of text in Markdown</a>
-<ul>
-<li><a href="gs-lines-lists-blocks.html#markdown-usually-treats-multiple-blank-lines-as-one">Markdown usually treats multiple blank lines as one</a></li>
-<li><a href="gs-lines-lists-blocks.html#markdown-two-adjacent-lines-of-text">Markdown: two adjacent lines of text</a>
-<ul>
-<li><a href="gs-lines-lists-blocks.html#forcing-two-consecutive-lines-to-appear-that-way">Forcing two consecutive lines to appear that way</a></li>
-</ul>
-</li>
-<li><a href="gs-lines-lists-blocks.html#markdown-lists">Markdown Lists</a>
-<ul>
-<li><a href="gs-lines-lists-blocks.html#markdown-unordered-list-syntax">Markdown unordered list syntax</a></li>
-<li><a href="gs-lines-lists-blocks.html#alternate-unordered-list-syntax">Alternate unordered list syntax</a></li>
-<li><a href="gs-lines-lists-blocks.html#markdown-ordered-list-syntax">Markdown ordered list syntax</a></li>
-<li><a href="gs-lines-lists-blocks.html#markdown-indented-list-syntax-nested-lists">Markdown indented list syntax: nested lists</a></li>
-<li><a href="gs-lines-lists-blocks.html#">Markdown indented list syntax: indenting text</a></li>
-</ul>
-</li>
-<li><a href="gs-lines-lists-blocks.html#markdown-indented-list-syntax-indenting-text">Block quotes</a></li>
-<li><a href="gs-lines-lists-blocks.html#horizontal-lines-aka-horizontal-rules">Horizontal lines (aka horizontal rules)</a></li>
-</ul>
-</li>
-<li><a href="gs-tables-in-markdown.html">Tables in Markdown</a>
-<ul>
-<li><a href="gs-tables-in-markdown.html#table-syntax-simplified">Table syntax simplified</a></li>
-<li><a href="gs-tables-in-markdown.html#simple-table-example">Simple table example</a></li>
-<li><a href="gs-tables-in-markdown.html#minimum-table-a-header-only">Minimum table: a header only</a></li>
-<li><a href="gs-tables-in-markdown.html#table-with-one-header-and-one-row">Table with one header and one row:</a></li>
-<li><a href="gs-tables-in-markdown.html#typical-table-with-several-rows">Typical table with several rows</a></li>
-<li><a href="gs-tables-in-markdown.html#dash-and-space-count-dont-matter">Dash and space count don't matter</a></li>
-<li><a href="gs-tables-in-markdown.html#aligning-text-within-columns">Aligning text within columns</a></li>
-</ul>
-</li>
-<li><a href="gs-displaying-code-in-markdown.html">Displaying code in Markdown</a>
-<ul>
-<li><a href="gs-displaying-code-in-markdown.html#creating-a-code-block-aka-code-fence">Creating a code block, aka code fence</a></li>
-<li><a href="gs-displaying-code-in-markdown.html#keyword-highlighting-for-computer-languages">Keyword highlighting for computer languages</a></li>
-<li><a href="gs-displaying-code-in-markdown.html#languages-supported">Languages supported</a></li>
+<li><a href="gs-creating-and-linking-pages.html#view-source-how-to-find-out-where-you-can-link-inside-another-web-page">View Source: how to find out where you can link inside another web page</a></li>
+<li><a href="gs-creating-and-linking-pages.html#pococms-creates-bookmarks-for-all-headings">PocoCMS creates bookmarks for all headings</a></li>
+<li><a href="gs-creating-and-linking-pages.html#bookmarks-have-a-unique-identifier">Bookmarks have a unique identifier</a></li>
+<li><a href="gs-creating-and-linking-pages.html#unique-identifiers-are-created-even-if-headings-repeat">Unique identifiers are created even if headings repeat</a></li>
+<li><a href="gs-creating-and-linking-pages.html#view-source-on-windows-ctrlu">View source on Windows</a></li>
+<li><a href="gs-creating-and-linking-pages.html#view-source-on-macos-u">View source on MacOS</a></li>
+<li><a href="gs-creating-and-linking-pages.html#if-view-source-doesnt-work">If view source doesn't work</a></li>
 </ul>
 </li>
 </ul>
@@ -674,30 +649,62 @@ include this line:</li>
 </ul>
 <pre><code>poco
 </code></pre>
-<p>The home page should link to the new subdirectory:</p>
 <p><img src="img/added-link-to-subdir.png" alt="Screen shot of revised home page" /></p>
 <ul>
 <li>Click the link you just added, and you should connect
 to the new page:</li>
 </ul>
+<p><img src="img/go-back-home-unthemed.png" alt="Screen shot of the new docs/index.html page" /></p>
+<p>The home page should link to the page you've created in the new subdirectory,
+although something's wrong. The theming is gone. Not good.
+test the link while whe're here.</p>
+<h2 id="theme-vs-pagetheme">theme vs pagetheme</h2>
+<ul>
+<li>Bring up the home page <code>index.md</code> and change the line that starts
+with <code>pagetheme:</code> to <code>theme:</code></li>
+</ul>
+<pre><code>theme: base
+</code></pre>
+<ul>
+<li>Run poco again to rebuild your website, then re-click the link that
+says <code>Check out our Documentation</code>.</li>
+</ul>
+<p><strong>Even though you made no change to the new page, it is now properly
+themed:</strong></p>
 <p><img src="img/go-back-home.png" alt="Screen shot of the new docs/index.html page" /></p>
+<h3 id="theme-on-the-home-page-sets-a-global-theme">theme on the home page sets a global theme</h3>
+<p>If you use <code>theme</code> on the <a href="glossary.html#home-page">home page</a> of your
+site, it causes every other page on the site to use that theme
+unless otherwise directed by a <code>pagetheme</code>.
+That way you don't have to type <code>pagetheme:</code> into the front matter
+of every page of your site.</p>
+<p>Using <code>theme</code>  won't work on any other page of the site. Just the <a href="glossary.html#home-page">home page</a> <code>index.md</code> or <code>README.md</code> in your site's root directory.</p>
+<p>The term for this is <a href="glossary.html#global-theme">global theme</a>.</p>
+<h3 id="pagetheme-sets-the-theme-on-a-per-page-basis">pagetheme sets the theme on a per-page basis</h3>
+<p>So wait, what if you like having a global theme but sometimes
+prefer a different theme? You can override the global theme on any other page
+using the familiar <code>pagetheme</code>:</p>
+<pre><code>pagetheme: pasteboard
+</code></pre>
+<p>Having cleared that up, let's look into the link we just created
+to the new page, and the link from the new page back to the
+original one.</p>
 <h2 id="markdown-link-format">Markdown link format</h2>
-<p>Based on these observations, let's expand our definition of link formatting
+<p>Here's an informal look at link formatting
 in Markdown:</p>
 <ul>
 <li>a link is in the format <code>[Anchor text](url)</code>, where
 <code>[Anchor text]</code> is anything you want to put there, surrounded by
-<code>[</code> and <code>]</code>, also called <em>square brackets</em>. It's the visible
-part of the link, formally known as <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">anchor text</a> in the HTML world.</li>
+part of the link. This visible portion is formally known as <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">anchor text</a> in the HTML world.</li>
 <li>The second part of the link immediately follows the square brackets.
 No space is allowed or it won't be interpreted as a link. It's the
 part in <code>(</code> and <code>)</code> <em>parentheses</em>. That's the target of the link.
-It could be another website, such as <code>[Google](https://google.com)</code></li>
+It can be a simple URL to another website, such as <code>[Google](https://google.com)</code>, or:</li>
 <li>You can easily indicate a subdirectory below the current one
 by giving its name, followed by a slash:
 <code>[Documentation](docs/index.html)</code></li>
-<li>If you want to indicate the home page, just use a slash by itself:
-<code>[home](/)</code></li>
+<li>Or, if you want to indicate the home page, just use a slash by itself:
+<code>[home](/)</code>. Or:</li>
 <li>If you're in a subdirectory you can actually open a file in the
 directory above it like this:</li>
 </ul>
@@ -721,7 +728,73 @@ example, this will link the <code>Why Markdown</code> heading in this page:
 <code>[Why Markdown](#why-markdown)</code> would therefore link to
 <a href="#why-markdown">Why Markdown</a>.</li>
 </ul>
-<h6 id="previous-editing-parts-of-a-themegs-editing-parts-of-a-themehtml-next-formatting-characters-in-markdowngs-formatting-characters-in-markdownhtml"><a href="gs-editing-parts-of-a-theme.html">Previous: Editing parts of a theme</a> <a href="gs-formatting-characters-in-markdown.html">Next: Formatting characters in Markdown</a></h6>
+<h2 id="view-source-how-to-find-out-where-you-can-link-inside-another-web-page">View Source: how to find out where you can link inside another web page</h2>
+<p>So how do you know what inside parts of a web page you can
+link to? In the HTML of the page you'll a notation something like
+this, in the case of the <code>Why Markdown</code> heading on this page:</p>
+<pre><code>&lt;h2 id=&quot;why-markdown&quot;&gt;Why Markdown?&lt;/h2&gt;
+</code></pre>
+<p>If you have a passing acquaintance with HTML you'll know a heading
+looks like this:</p>
+<pre><code>&lt;h2&gt;Why Markdown?&lt;/h2&gt;
+</code></pre>
+<p>The additional <code>id=&quot;why-markdown&quot;</code> is called a <a href="glossary.html#unique-identifier">unique identifier</a> and makes it possible for
+browsers to find that part of the page:</p>
+<pre><code>&lt;h2 id=&quot;why-markdown&quot;&gt;Why Markdown?&lt;/h2&gt;
+</code></pre>
+<p>The whole thing is called a bookmark or <a href="glossary.html#named-anchor">named anchor</a></p>
+<h3 id="pococms-creates-bookmarks-for-all-headings">PocoCMS creates bookmarks for all headings</h3>
+<p>PocoCMS generates a unique named anchor or bookmark for each <a href="glossary.html#heading">heading</a> levels, from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>. If you have two headings that look the same,
+PocoCMS ensures the links are unique. For example, the first level 2 heading
+like this:</p>
+<pre><code>## Why Markdown?
+</code></pre>
+<p>Generates this HTML:</p>
+<pre><code>&lt;h2 id=&quot;why-markdown&quot;&gt;Why Markdown?&lt;/h2&gt;
+</code></pre>
+<h3 id="bookmarks-have-a-unique-identifier">Bookmarks have a unique identifier</h3>
+<p>The additional <code>id=&quot;why-markdown&quot;</code> is called a <a href="glossary.html#unique-identifier">unique identifier</a> and makes it possible for
+browsers to find that part of the page:</p>
+<pre><code>&lt;h2 id=&quot;why-markdown&quot;&gt;Why Markdown?&lt;/h2&gt;
+</code></pre>
+<h3 id="unique-identifiers-are-created-even-if-headings-repeat">Unique identifiers are created even if headings repeat</h3>
+<p>If the heading is repeated within the same document (which is just a bad idea):</p>
+<pre><code>## Why Markdown?
+</code></pre>
+<p>The anchor text is generated with a trailing number. Notice the <code>id=&quot;why-markdown-1&quot;</code>
+in the example below of a repeated heading:</p>
+<pre><code>&lt;h2 id=&quot;why-markdown-1&quot;&gt;Why Markdown?&lt;/h2&gt;
+</code></pre>
+<h3 id="view-source-on-windows-ctrlu">View source on Windows: Ctrl+U</h3>
+<ul>
+<li>If you're running a Windows machine, you can see the HTML source code
+of a web page by holding down the <code>Ctrl</code> key and pressing the <code>u</code> key
+at the same time, an action notated as <code>Ctrl+U</code>.</li>
+<li>You can then search for the anchor text, <code>Why Markdown</code> in this case,
+by pressing <code>Ctrl+F</code>. That will get you to the <code>id=</code> part you need
+to include in your link.</li>
+</ul>
+<h3 id="view-source-on-macos-u">View source on MacOS: ⌘+U</h3>
+<ul>
+<li>If you're using a Macintosh, you can see the HTML source code
+of a web page by holding down the <code>Ctrl</code> key and pressing the <code>⌘</code> key
+(also known as the command key) at the same time, an action notated as <code>⌘-U</code> or
+<code>Command+U</code>.</li>
+<li>You can then search for the anchor text, <code>Why Markdown</code> in this case,
+by pressing <code>⌘-F</code>, also known as <code>Command+F</code>
+That will get you to the <code>id=</code> part you need
+to include in your link.</li>
+</ul>
+<h3 id="if-view-source-doesnt-work">If view source doesn't work</h3>
+<p>If those things don't work, you need to choose develeper mode for your browser.
+That's out of the scope of this document, but you can look it up here:</p>
+<ul>
+<li><a href="https://www.google.com/search?q=view+source+on+Windows">View source on Windows</a></li>
+<li><a href="https://www.google.com/search?q=view+source+on+mac+os">View source on MacOS</a></li>
+</ul>
+<h2 id="learn-more-about-markdown">Learn more about Markdown</h2>
+<p>If you'd like to learn more about Markdown basics, see our guide at <a href="markdown.html">Markdown</a></p>
+<h6 id="previous-editing-parts-of-a-themegs-editing-parts-of-a-themehtml-next-creating-athemegs-create-themehtml"><a href="gs-editing-parts-of-a-theme.html">Previous: Editing parts of a theme</a> <a href="gs-create-theme.html">Next: Creating atheme</a></h6>
 
 </article>
 

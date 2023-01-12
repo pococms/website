@@ -198,7 +198,7 @@ footer, header, hgroup, menu, nav, pre, section {
 
 /* sizes.css*/
 article{width:var(--article-width);height:auto;}  
-aside{width:var(--aside-width);padding:0 2em 0 2em;}  
+aside{width:var(--aside-width);padding-left:var(--padding-left);}  
 ol li, ul li  {margin-left:1em;}
 p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
 td,th{padding: 0.5em;}
@@ -224,6 +224,15 @@ h6{ font-size:0.9em; }
 /* layout.css*/
 article>h1,article>h2,article>h3,article>h4,article>h5,article>h6 {clear:left;}
 
+/* Innocuous but at least legible block quote style */
+blockquote {
+  width: 60%;
+  font-size: 1rem;
+  font-style: italic;
+  margin: .75em 4em .75em;
+  padding-left: 1em;
+  border-left: .3em solid var(--fg);
+} 
 
 /* Table cells share borders */
 table{border-collapse:collapse;}
@@ -342,19 +351,19 @@ aside > ul li {list-style-type: none; }
 aside > ul li  {margin-left:0em;}
 
 /* Line-spacing for whole unordered list */
-aside ul {line-height:1.4rem;}
+aside ul {line-height:.9em;}
 
 /* 1st level of list */
-aside ul li a {font-size:1.2rem;}
+aside ul li a {font-size:.8rem}
 aside ul li a {text-decoration:underline}
 
 /* 2nd level of list */
-aside ul ul li a {border:none;text-decoration:none;}
+aside ul ul li a {border:none;text-decoration:none;font-size:.8rem}
 
 
 /* 3rd level of list */
 aside ul ul ul li a 
- {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}
+ {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;font-size:.8rem}
 
 /* --------------------------------------------------
  * Images: full width, light drop shadow 
@@ -527,60 +536,26 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </ul>
 <ul>
 <li><a href="gs-creating-and-linking-pages.html#a-few-quick-markdown-samples">A few quick Markdown samples</a></li>
-<li><a href="gs-creating-and-linking-pages.html#why-markdown.html">Why Markdown?</a></li>
 <li><a href="gs-creating-and-linking-pages.html#markdown-has-semantic-importance">Markdown has semantic importance</a></li>
 </ul>
 <ul>
 <li><a href="gs-creating-and-linking-pages.html#creating-a-new-page">Creating a new page</a></li>
 <li><a href="gs-creating-and-linking-pages.html#creating-links">Creating links</a></li>
+<li><a href="gs-creating-and-linking-pages.html#theme-vs-pagetheme">theme vs pagetheme</a></li>
+</ul>
+<ul>
+<li><a href="gs-creating-and-linking-pages.html#theme-on-the-home-page-sets-a-global-theme">theme on the home page sets a global theme</a></li>
+<li><a href="gs-creating-and-linking-pages.html#pagetheme-sets-the-theme-on-a-per-page-basis">pagetheme sets the theme on a per-page basis</a></li>
+</ul>
+<ul>
 <li><a href="gs-creating-and-linking-pages.html#markdown-link-format">Markdown link format</a></li>
-</ul>
-</li>
-<li><a href="gs-formatting-characters-in-markdown.html">Formatting characters in Markdown</a>
-<ul>
-<li><a href="gs-formatting-characters-in-markdown.html#bold-text-in-markdown">Bold</a></li>
-<li><a href="gs-formatting-characters-in-markdown.html#italic-text-in-markdown">Italic</a></li>
-<li><a href="gs-formatting-characters-in-markdown.html#monospaced-text-in-markdown">Monospaced</a></li>
-<li><a href="gs-formatting-characters-in-markdown.html#strikethrough-text-in-markdown">Strikethough</a></li>
-</ul>
-</li>
-<li><a href="gs-lines-lists-blocks.html">Lines, lists, and blocks of text in Markdown</a>
-<ul>
-<li><a href="gs-lines-lists-blocks.html#markdown-usually-treats-multiple-blank-lines-as-one">Markdown usually treats multiple blank lines as one</a></li>
-<li><a href="gs-lines-lists-blocks.html#markdown-two-adjacent-lines-of-text">Markdown: two adjacent lines of text</a>
-<ul>
-<li><a href="gs-lines-lists-blocks.html#forcing-two-consecutive-lines-to-appear-that-way">Forcing two consecutive lines to appear that way</a></li>
-</ul>
-</li>
-<li><a href="gs-lines-lists-blocks.html#markdown-lists">Markdown Lists</a>
-<ul>
-<li><a href="gs-lines-lists-blocks.html#markdown-unordered-list-syntax">Markdown unordered list syntax</a></li>
-<li><a href="gs-lines-lists-blocks.html#alternate-unordered-list-syntax">Alternate unordered list syntax</a></li>
-<li><a href="gs-lines-lists-blocks.html#markdown-ordered-list-syntax">Markdown ordered list syntax</a></li>
-<li><a href="gs-lines-lists-blocks.html#markdown-indented-list-syntax-nested-lists">Markdown indented list syntax: nested lists</a></li>
-<li><a href="gs-lines-lists-blocks.html#">Markdown indented list syntax: indenting text</a></li>
-</ul>
-</li>
-<li><a href="gs-lines-lists-blocks.html#markdown-indented-list-syntax-indenting-text">Block quotes</a></li>
-<li><a href="gs-lines-lists-blocks.html#horizontal-lines-aka-horizontal-rules">Horizontal lines (aka horizontal rules)</a></li>
-</ul>
-</li>
-<li><a href="gs-tables-in-markdown.html">Tables in Markdown</a>
-<ul>
-<li><a href="gs-tables-in-markdown.html#table-syntax-simplified">Table syntax simplified</a></li>
-<li><a href="gs-tables-in-markdown.html#simple-table-example">Simple table example</a></li>
-<li><a href="gs-tables-in-markdown.html#minimum-table-a-header-only">Minimum table: a header only</a></li>
-<li><a href="gs-tables-in-markdown.html#table-with-one-header-and-one-row">Table with one header and one row:</a></li>
-<li><a href="gs-tables-in-markdown.html#typical-table-with-several-rows">Typical table with several rows</a></li>
-<li><a href="gs-tables-in-markdown.html#dash-and-space-count-dont-matter">Dash and space count don't matter</a></li>
-<li><a href="gs-tables-in-markdown.html#aligning-text-within-columns">Aligning text within columns</a></li>
-</ul>
-</li>
-<li><a href="gs-displaying-code-in-markdown.html">Displaying code in Markdown</a>
-<ul>
-<li><a href="gs-displaying-code-in-markdown.html#creating-a-code-block-aka-code-fence">Creating a code block, aka code fence</a></li>
-<li><a href="gs-displaying-code-in-markdown.html#keyword-highlighting-for-computer-languages">Keyword highlighting for computer languages</a></li>
-<li><a href="gs-displaying-code-in-markdown.html#languages-supported">Languages supported</a></li>
+<li><a href="gs-creating-and-linking-pages.html#view-source-how-to-find-out-where-you-can-link-inside-another-web-page">View Source: how to find out where you can link inside another web page</a></li>
+<li><a href="gs-creating-and-linking-pages.html#pococms-creates-bookmarks-for-all-headings">PocoCMS creates bookmarks for all headings</a></li>
+<li><a href="gs-creating-and-linking-pages.html#bookmarks-have-a-unique-identifier">Bookmarks have a unique identifier</a></li>
+<li><a href="gs-creating-and-linking-pages.html#unique-identifiers-are-created-even-if-headings-repeat">Unique identifiers are created even if headings repeat</a></li>
+<li><a href="gs-creating-and-linking-pages.html#view-source-on-windows-ctrlu">View source on Windows</a></li>
+<li><a href="gs-creating-and-linking-pages.html#view-source-on-macos-u">View source on MacOS</a></li>
+<li><a href="gs-creating-and-linking-pages.html#if-view-source-doesnt-work">If view source doesn't work</a></li>
 </ul>
 </li>
 </ul>

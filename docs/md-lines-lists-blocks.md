@@ -243,26 +243,11 @@ As the great Tony Stark once said:
 
 Multiple `>` symbols on successive lines work together as one:
 
-##### Markdown:
-
-```
-As the great Tony Stark once said:
-
-> I'm a huge fan of the way you lose control 
-> hand turn into an enormous green rage monster.
-```
-
-##### Result:
-
-As the great Tony Stark once said:
-
-> I'm a huge fan of the way you lose control 
-> and turn into an enormous green rage monster.
-
-
 
 ## Horizontal lines (aka horizontal rules)
 
+There are several ways to get a horizontal rule, which is a line by itself.
+You just put 3 of the following characters on a line by themselves.
 
 ```
 Asterisks:
@@ -292,7 +277,10 @@ Underscores:
 
 ***
 
+Normally horizontal rules stretch across the containing block, but that's completely
+up to the styles in your theme.
 
 
-###### [Previous: Formatting characters in Markdown](gs-formatting-characters-in-markdown.html) [Next: Tables in Markdown](gs-tables-in-markdown.html)
+
+###### [Previous: Formatting characters in Markdown](md-formatting-characters-in-markdown.html) [Next: Tables in Markdown](md-tables-in-markdown.html)
 

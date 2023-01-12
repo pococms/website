@@ -198,7 +198,7 @@ footer, header, hgroup, menu, nav, pre, section {
 
 /* sizes.css*/
 article{width:var(--article-width);height:auto;}  
-aside{width:var(--aside-width);padding:0 2em 0 2em;}  
+aside{width:var(--aside-width);padding-left:var(--padding-left);}  
 ol li, ul li  {margin-left:1em;}
 p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
 td,th{padding: 0.5em;}
@@ -224,6 +224,15 @@ h6{ font-size:0.9em; }
 /* layout.css*/
 article>h1,article>h2,article>h3,article>h4,article>h5,article>h6 {clear:left;}
 
+/* Innocuous but at least legible block quote style */
+blockquote {
+  width: 60%;
+  font-size: 1rem;
+  font-style: italic;
+  margin: .75em 4em .75em;
+  padding-left: 1em;
+  border-left: .3em solid var(--fg);
+} 
 
 /* Table cells share borders */
 table{border-collapse:collapse;}
@@ -342,19 +351,19 @@ aside > ul li {list-style-type: none; }
 aside > ul li  {margin-left:0em;}
 
 /* Line-spacing for whole unordered list */
-aside ul {line-height:1.4rem;}
+aside ul {line-height:.9em;}
 
 /* 1st level of list */
-aside ul li a {font-size:1.2rem;}
+aside ul li a {font-size:.8rem}
 aside ul li a {text-decoration:underline}
 
 /* 2nd level of list */
-aside ul ul li a {border:none;text-decoration:none;}
+aside ul ul li a {border:none;text-decoration:none;font-size:.8rem}
 
 
 /* 3rd level of list */
 aside ul ul ul li a 
- {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}
+ {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;font-size:.8rem}
 
 /* --------------------------------------------------
  * Images: full width, light drop shadow 
@@ -481,7 +490,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <article id="article-poco">
 <h1 id="pococms-technical-overview">PocoCMS Technical Overview</h1>
 <p>PocoCMS is a single executable file that reads a
-directory tree of files, converts Markdown files
+directory tree of files, converts <a href="glossary.html#markdown">Markdown</a> files
 to HTML, and passes the rest through to
 the webroot directory unchanged.
 The <a href="glossary.html#webroot">webroot</a> is where
@@ -491,6 +500,9 @@ are sent to be published on the Web.</p>
 basis. Themes are simple directories with
 CSS declarations and templates for page
 layout features: header, nav, aside, and footer.</p>
+<p>Stylesheets are <em>inlined</em>, which means that they get absorbed right into the
+generated HTML file.
+It makes web pages render faster, sometimes much faster.</p>
 <p>PocoCMS is meant above all to be unobtrusive,
 easy to learn, and extremely easy to get
 started with. You don't
@@ -505,9 +517,12 @@ files, graphic assets, style sheets, and so on.</p>
 <p>The root of the directory requires a file named
 either <code>index.md</code> or <code>README.md</code>. That file
 will be converted to HTML and will be named
-<code>index.html</code>. If you have both <code>README.md</code>
-and <code>index.md</code>, <code>README.md</code> takes priority
-and <code>index.md</code> will be sadly ignored.</p>
+<code>index.html</code>; such a file is required at the root
+of any website. If you have both <code>README.md</code>
+and <code>index.md</code>, in the root directory,
+<code>README.md</code> takes priority and <code>index.md</code> will be sadly ignored.
+You will also get confused when trying to remember
+which file to update, so just don't do that.</p>
 <p>You create your site at the command line this way:</p>
 <pre><code>poco -new mysite
 Site published to /Users/tom/pococms/poco/mysite/WWW/index.html
@@ -523,7 +538,54 @@ Site published to /Users/tom/pococms/poco/mysite/WWW/index.html
 and it is where all output goes. To publish your site, you just
 need to copy the webroot directory tree onto a public web server.</p>
 <p>The <code>.poco</code> directory contains all assets needed to build your site:
-themes, graphic assets, and so forth.</p>
+themes, graphic assets, and so forth. It's shown in most
+of its glorious detail <a href="poco-directory-structure">.poco directory structure</a>,
+although minor details (such as theme names or particular
+CSS files) will be different from that illustration.</p>
+<h2 id="markdown-extensions">Markdown extensions</h2>
+<p>The heart of PocoCMS' code that generates HTML from Markdown is an
+incredibly well-written Go Package named <a href="https://github.com/yuin/goldmark">Goldmark</a>,
+by a Japanese wizard named <a href="https://github.com/yuin">Yuin</a>
+who pretends to be human so the rest of us feel better. While poorly
+documented on this site, PocoCMS employs many extensions to Markdown
+including:</p>
+<p>extension.Table,
+extension.GFM,
+extension.DefinitionList,
+extension.Footnote,
+extension.Linkify,</p>
+<ul>
+<li>
+<p><a href="github.com/yuin/goldmark/extension">goldmark/extension</a>
+by <a href="https://github.com/yuin">Yuin</a> adds a cornucopia of
+features to CommonMark including</p>
+<ul>
+<li><a href="https://github.github.com/gfm/#tables-extension-">GitHub-style tables</a></li>
+<li><a href="https://github.github.com/gfm/#strikethrough-extension-">GitHub-style strikethrough</a></li>
+<li><a href="https://github.github.com/gfm/#autolinks-extension-">GitHub-style autolinks</a>,</li>
+<li><a href="https://github.github.com/gfm/#task-list-items-extension-">GitHub-style task lists</a></li>
+<li><a href="https://michelf.ca/projects/php-markdown/extra/#def-list">Definition lists</a></li>
+<li><a href="https://michelf.ca/projects/php-markdown/extra/#footnotes">PHP-style footnotes</a></li>
+<li><a href="https://daringfireball.net/projects/smartypants/">Smartypants typography extensions</a></li>
+</ul>
+<p>The good news is, these features are all extraordinarily useful. The bad news is,
+most of them aren't documented in our <a href="markdown.html">Markdown</a> guide and they
+could post compatibility problems if you use another static site generator that
+doesn't offer these extensions.</p>
+</li>
+<li>
+<p><a href="github.com/yuin/goldmark-highlighting">goldmark-highlighting</a>
+by <a href="https://github.com/yuin">Yuin</a> adds syntax highlighting for code blocks</p>
+</li>
+<li>
+<p><a href="github.com/yuin/goldmark-meta">goldmark-meta</a>
+by <a href="https://github.com/yuin">Yuin</a> parses the YAML front matter</p>
+</li>
+<li>
+<p><a href="https://github.com/13rac1/goldmark-embed">goldmark-embed</a>
+by <a href="https://github.com/13rac1">Brad Erickson</a>, enables YouTube embeds</p>
+</li>
+</ul>
 <h2 id="the-pococms-theme-framework">The PocoCMS theme framework</h2>
 <p>Most PocoCMS themes use the PocoCMS <a href="theme-framework.html">theme framework</a>,
 which lets you publish complete-looking sites within a few
@@ -562,7 +624,7 @@ can learn more at <a href="themes-creating.html">Creating themes</a>.</p>
 <p>A <code>theme</code> declaration on the home page is also known as the <a href="glossary.html#global-theme">global theme</a>. It lets you propagate the theme through all
 pages in the site.</p>
 <h3 id="all-pages-inherit-the-home-page-theme-unless">All pages inherit the home page theme, unless...</h3>
-<p>PocoCMS has theme support, so you can just mention a theme
+<p>If mention a theme
 in the <a href="glossary.html#front-matter">front matter</a> of
 the <a href="glossary.html#home-page">home page</a> and
 all other pages in the site will inherit that theme:</p>
@@ -600,6 +662,8 @@ theme: pocodocs
 pagetheme: hero
 ---
 </code></pre>
+<p>The only place this works is the home page, because it's the only place
+PocoCMS respects the <code>theme:</code> rule.</p>
 <h2 id="starting-a-site">Starting a site</h2>
 <ul>
 <li>
@@ -630,7 +694,8 @@ what happens.</li>
 <pre><code>cd mysite
 poco
 </code></pre>
-<p>Invoking <code>poco</code> by itself builds the site, which means the following:</p>
+<p>Invoking <code>poco</code> by itself <em>builds</em> the site, which means it generates
+HTML for your directory tree of Markdown files. In more detail:</p>
 <ul>
 <li>PocoCMS checks to make sure it's in a valid project, which
 means it looks for the <code>index.md</code> (or <code>README.md</code>) home page
@@ -650,7 +715,7 @@ and Markdown or HTML files required for the page elements
 </ul>
 </li>
 </ul>
-<h5 id="directory-base-theme">Directory: <strong>base</strong> theme</h5>
+<h5 id="directory-pocothemesbase-theme">Directory: <strong>./poco/themes/base</strong> theme</h5>
 <pre><code>header: header.md
 nav: nav.md
 aside: aside.md
@@ -668,7 +733,8 @@ stylesheets:
 <h2 id="theme-structure">Theme structure</h2>
 <p>A theme's name is its directory name. The <code>README.me</code>
 file in that subdirectory has a special use. It
-determines what files are used to produce the theme.</p>
+determines what files are used to produce the theme.
+It's also known as the <a href="glossary.html#theme-readme">theme README</a> file.</p>
 <h3 id="stylesheets-in-the-themes-readmemd-file">Stylesheets in the theme's README.md file</h3>
 <p>The list of one or more stylesheets in standard Markdown unordered
 list format are required for each page that uses the theme.</p>
@@ -801,20 +867,10 @@ overridden by the file called <code>news-update.md</code> (use any filename you 
 <pre><code>If you used beta version 10.0.9, please **[upgrade now](beta-10-0-0.html)**
 </code></pre>
 <h2 id="installation">Installation</h2>
-<p>PocoCMS is distribued as a single executable file. Upon startup, PocoCMS:</p>
-<ul>
-<li>Queries the system to see where user application data is stored.</li>
-<li>Checks to see if that directory contains a subdirectory named <code>pococms</code></li>
-<li>If no such directory can be found, it's created and populated by
-the &quot;factory installed&quot; <code>.poco</code> directory contained within the executable.</li>
-<li>A new file called <code>.poco/INSTALLED</code> is created at that point. It's used
-as a heuristic and simply contains the time and date the directory was created. Sometimes it's hard to know if a <code>.poco</code> directory exists
-but is empty. Instead of trying to figure out what should be in a subdirectory
-under <code>.poco</code>, the INSTALLED file can be used to guess that <code>.poco</code> is
-probably not empty.</li>
-<li>When a new PocoCMS project is created via <code>poco -new</code>, the factory <code>.poco</code>
-directory is copied from the PocoCMS user application data directory.</li>
-</ul>
+<p>PocoCMS is distribued as a single executable file. It doesn't require
+an installation step.</p>
+<p>When a new PocoCMS project is created via <code>poco -new</code>, the factory <code>.poco</code>
+directory is copied from within the PocoCMS executable.</p>
 <h2 id="running-pococms">Running PocoCMS</h2>
 <p>Suppose you plan to create a new site, also known as a project.
 You'd create a subdirectory, in this example <code>mysite</code>, and
@@ -846,7 +902,7 @@ you'll see this:</li>
 <p></p>
 <pre><code>---
 Stylesheets:
-    - &quot;https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/poquito.css&quot;
+- &quot;https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/poquito.css&quot;
 ---
 # Welcome to mysite
 
@@ -864,14 +920,15 @@ and it provides a set of instructions to format and display
 the generated HTML, which starts with <strong>Welcome to mysite</strong>.</p>
 <p>The front matter is considered a separate document.
 It is in <a href="https://yaml.org">YAML</a> format. The only YAML
-in this document is <code>Stylesheets:</code>, which is used
+in this document is <code>stylesheets:</code>, which is used
 to generate a <code>&lt;link&gt;</code> tag that pulls in a minimal
 spreadsheet from a CDN. It could just as easily
 be a local file but this makes for a quick demo.</p>
 <h2 id="poco-directory-structure">.poco directory structure</h2>
-<p>Here's an accurate view of the contents of
+<p>Here's an accurate but abridged view of the contents of
 the <code>.poco</code> directory in a new site. Repetitive
-elements have been replaced by an <code>.. etc</code> note.</p>
+elements have been replaced by an <code>.. etc</code> note;
+if you've seen one theme directory, you've seen them all.</p>
 <pre><code>.
 ├── index.md
 │   

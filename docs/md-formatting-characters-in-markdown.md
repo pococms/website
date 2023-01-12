@@ -69,4 +69,4 @@ Your children are ~~not very~~ well informed.
 
 Your children are ~~not very~~ well informed.
 
-###### [Previous: Creating and linking pages](gs-creating-and-linking-pages.html) [Lines, lists, and blocks of text in Markdown](gs-lines-lists-blocks.html)
+###### [Previous: Markdown](markdown.html) [Next: Lines, lists, and blocks of text in Markdown](md-lines-lists-blocks.html)

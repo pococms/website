@@ -52,6 +52,12 @@ And we're going to do just that.
 
 ## Editing the header
 
+For the sake of learning we're going to do something slightly
+dangerous, which is to alter one of the themes that comes
+with PocoCMS. The best thing to do is to
+[Copy the theme first](gs-create-theme.html#copying-a-theme).
+We'll get to that soon.
+
 * Load the file `.poco/themes/mytheme/header.md` into your
 text editor, replacing `mytheme` with whatever theme
 you wish to edit.
@@ -94,6 +100,16 @@ your company's full URL:
 Here's the result:
 
 ![Closeup screen shot of editor now saying "Example"](img/header-edited-to-example.png)
+
+The `**` on each side of the link mean "make this text bold".
+It works on normal text, too. So if you want to 
+**make this phrase bold**, you'd type:
+
+```
+**make this phrase bold**
+```
+
+You can omit the bolding if you wish.
 
 ## Replacing the nav
 
@@ -163,7 +179,7 @@ article: ".poco/demo/mdemo.md"
 The `article: .poco/demo/mdemo.md` line means "take the contents
 of the file given after `article: ` and replace the existing 
 article with it." It works for any Markdown document, but this
-one is useful for demonstrating themes.
+one is comes with PocoCMS. It's useful for demonstrating themes.
 
 
 

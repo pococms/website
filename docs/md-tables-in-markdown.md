@@ -159,5 +159,5 @@ For more details, see the
 [GitHub style documentation](https://help.github.com/articles/organizing-information-with-tables/).
 
 
-###### [Previous: Lines, lists, and blocks of text](gs-lines-lists-blocks.html) [Next: Displaying code in Markdown](gs-displaying-code-in-markdown.html)
+###### [Previous: Lines, lists, and blocks of text](md-lines-lists-blocks.html) [Next: Displaying code in Markdown](md-displaying-code-in-markdown.html)
 

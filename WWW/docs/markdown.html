@@ -488,53 +488,63 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </ul>
 </aside>
 <article id="article-poco">
-<h1 id="todo">Todo</h1>
-<h2 id="write">Write</h2>
+<h1 id="markdown">Markdown</h1>
+<p>If you're unfamiliar with <a href="glossary.html#markdown">Markdown</a>, this
+guide covers 90% of what you'll need to create sites. The version
+of Markdown supported by PocoCMS is an industry standard called
+CommonMark.</p>
+<p>For the gritty details, see the complete and very well written
+specification at the <a href="https://commonmark.org/">CommonMark</a> site.</p>
 <ul>
-<li>steal markdown tutorial from vuepress &amp; link to it from tutorial</li>
+<li>The rudiments of Markdown can be found at <a href="gs-creating-and-linking-pages.html">Creating and linking to pages</a> in the first PocoCMS tutorial</li>
+<li><a href="md-images-markdown.html">Images in Markdown</a></li>
+<li><a href="md-formatting-characters-in-markdown.html">Formatting characters in Markdown</a>
+<ul>
+<li><a href="md-formatting-characters-in-markdown.html#bold-text-in-markdown">Bold</a></li>
+<li><a href="md-formatting-characters-in-markdown.html#italic-text-in-markdown">Italic</a></li>
+<li><a href="md-formatting-characters-in-markdown.html#monospaced-text-in-markdown">Monospaced</a></li>
+<li><a href="md-formatting-characters-in-markdown.html#strikethrough-text-in-markdown">Strikethough</a></li>
 </ul>
-<h2 id="distribution">Distribution</h2>
+</li>
+<li><a href="md-lines-lists-blocks.html">Lines, lists, and blocks of text in Markdown</a>
 <ul>
-<li>Create formulas for choco, brew tap, apt get, etc.</li>
+<li><a href="md-lines-lists-blocks.html#markdown-usually-treats-multiple-blank-lines-as-one">Markdown usually treats multiple blank lines as one</a></li>
+<li><a href="md-lines-lists-blocks.html#markdown-two-adjacent-lines-of-text">Markdown: two adjacent lines of text</a>
+<ul>
+<li><a href="md-lines-lists-blocks.html#forcing-two-consecutive-lines-to-appear-that-way">Forcing two consecutive lines to appear that way</a></li>
 </ul>
-<h2 id="test">Test</h2>
+</li>
+<li><a href="md-lines-lists-blocks.html#markdown-lists">Markdown Lists</a>
 <ul>
-<li>Run <code>poco -settings</code> on Windows. Will it show as on the path?</li>
-<li>Do this on a home page. Point is to</li>
+<li><a href="md-lines-lists-blocks.html#markdown-unordered-list-syntax">Markdown unordered list syntax</a></li>
+<li><a href="md-lines-lists-blocks.html#alternate-unordered-list-syntax">Alternate unordered list syntax</a></li>
+<li><a href="md-lines-lists-blocks.html#markdown-ordered-list-syntax">Markdown ordered list syntax</a></li>
+<li><a href="md-lines-lists-blocks.html#markdown-indented-list-syntax-nested-lists">Markdown indented list syntax: nested lists</a></li>
+<li><a href="md-lines-lists-blocks.html#">Markdown indented list syntax: indenting text</a></li>
 </ul>
-<pre><code>stylesheets:
-- &quot;foo.css&quot;
-- &quot;https://cdn.jsdelivr.net/npm/water.css@2/out/water.css&quot;
-- &quot;../.poco/css/featuretable.css&quot;
-</code></pre>
-<h2 id="feature-enhancements">Feature enhancements</h2>
-<ul>
-<li>Gossip is unfinished. Current version is the front page of the
-site. Do another that's for interior pages. Then make all images
-on the front page clickable, and they'd go to a page using
-the interior theme.</li>
-<li>ts2 needs a test that shows background of all page layout elemetns, like ts1 has</li>
-<li>ts2: create a theme</li>
-<li>ts2: Make trashing the factory settings an option:</li>
+</li>
+<li><a href="md-lines-lists-blocks.html#markdown-indented-list-syntax-indenting-text">Block quotes</a></li>
+<li><a href="md-lines-lists-blocks.html#horizontal-lines-aka-horizontal-rules">Horizontal lines (aka horizontal rules)</a></li>
 </ul>
-<pre><code>echo &quot;Stress test: Removing factory themes&quot;
-rm -rf /Users/tom/Library/Application\ Support/pococms/
-</code></pre>
+</li>
+<li><a href="md-tables-in-markdown.html">Tables in Markdown</a>
 <ul>
-<li>Need to get functions working if I want to support toc,
-among other things</li>
-<li>Fill out <a href="docs/demos/paperboard.html">Paperboard theme demo</a>,
-source at docs/demos/paperboard.md and docs/demos/paperboard-aside.md</li>
+<li><a href="md-tables-in-markdown.html#table-syntax-simplified">Table syntax simplified</a></li>
+<li><a href="md-tables-in-markdown.html#simple-table-example">Simple table example</a></li>
+<li><a href="md-tables-in-markdown.html#minimum-table-a-header-only">Minimum table: a header only</a></li>
+<li><a href="md-tables-in-markdown.html#table-with-one-header-and-one-row">Table with one header and one row:</a></li>
+<li><a href="md-tables-in-markdown.html#typical-table-with-several-rows">Typical table with several rows</a></li>
+<li><a href="md-tables-in-markdown.html#dash-and-space-count-dont-matter">Dash and space count don't matter</a></li>
+<li><a href="md-tables-in-markdown.html#aligning-text-within-columns">Aligning text within columns</a></li>
 </ul>
-<h2 id="themes">Themes</h2>
+</li>
+<li><a href="md-displaying-code-in-markdown.html">Displaying code in Markdown</a>
 <ul>
-<li>Collect footer CSS, at least from Metabuzz</li>
-<li>Try to get <code>.poco/css/nav-menu.css</code> working</li>
+<li><a href="md-displaying-code-in-markdown.html#creating-a-code-block-aka-code-fence">Creating a code block, aka code fence</a></li>
+<li><a href="md-displaying-code-in-markdown.html#keyword-highlighting-for-computer-languages">Keyword highlighting for computer languages</a></li>
+<li><a href="md-displaying-code-in-markdown.html#languages-supported">Languages supported</a></li>
 </ul>
-<h2 id="documentation">Documentation</h2>
-<ul>
-<li>Write <a href="docs/next-steps.html">Next Steps</a></li>
-<li>Figure out how to standardize theme documentation</li>
+</li>
 </ul>
 
 </article>

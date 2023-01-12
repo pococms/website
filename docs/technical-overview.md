@@ -5,7 +5,7 @@ Keywords: "PocoCMS, PocoCMS summary, technical overview, how does PocoCMS work"
 # PocoCMS Technical Overview
 
 PocoCMS is a single executable file that reads a
-directory tree of files, converts Markdown files
+directory tree of files, converts [Markdown](glossary.html#markdown) files
 to HTML, and passes the rest through to
 the webroot directory unchanged. 
 The [webroot](glossary.html#webroot) is where
@@ -16,6 +16,10 @@ You can theme your website on a global or per-page
 basis. Themes are simple directories with
 CSS declarations and templates for page
 layout features: header, nav, aside, and footer.
+
+Stylesheets are *inlined*, which means that they get absorbed right into the 
+generated HTML file. 
+It makes web pages render faster, sometimes much faster. 
 
 PocoCMS is meant above all to be unobtrusive,
 easy to learn, and extremely easy to get
@@ -34,9 +38,12 @@ files, graphic assets, style sheets, and so on.
 The root of the directory requires a file named 
 either `index.md` or `README.md`. That file
 will be converted to HTML and will be named
-`index.html`. If you have both `README.md`
-and `index.md`, `README.md` takes priority
-and `index.md` will be sadly ignored.
+`index.html`; such a file is required at the root
+of any website. If you have both `README.md`
+and `index.md`, in the root directory, 
+`README.md` takes priority and `index.md` will be sadly ignored.
+You will also get confused when trying to remember 
+which file to update, so just don't do that.
 
 You create your site at the command line this way:
 
@@ -60,8 +67,47 @@ and it is where all output goes. To publish your site, you just
 need to copy the webroot directory tree onto a public web server.
 
 The `.poco` directory contains all assets needed to build your site:
-themes, graphic assets, and so forth.
+themes, graphic assets, and so forth. It's shown in most
+of its glorious detail [.poco directory structure](poco-directory-structure),
+although minor details (such as theme names or particular
+CSS files) will be different from that illustration. 
 
+## Markdown extensions
+
+The heart of PocoCMS' code that generates HTML from Markdown is an
+incredibly well-written Go Package named [Goldmark](https://github.com/yuin/goldmark),
+by a Japanese wizard named [Yuin](https://github.com/yuin) 
+who pretends to be human so the rest of us feel better. While poorly
+documented on this site, PocoCMS employs many extensions to Markdown
+including:
+
+extension.Table,
+		extension.GFM,
+		extension.DefinitionList,
+		extension.Footnote,
+		extension.Linkify,
+
+* [goldmark/extension](github.com/yuin/goldmark/extension)
+by [Yuin](https://github.com/yuin) adds a cornucopia of
+features to CommonMark including 
+  - [GitHub-style tables](https://github.github.com/gfm/#tables-extension-)
+  - [GitHub-style strikethrough](https://github.github.com/gfm/#strikethrough-extension-) 
+  - [GitHub-style autolinks](https://github.github.com/gfm/#autolinks-extension-),
+  - [GitHub-style task lists](https://github.github.com/gfm/#task-list-items-extension-)
+  - [Definition lists](https://michelf.ca/projects/php-markdown/extra/#def-list)
+  - [PHP-style footnotes](https://michelf.ca/projects/php-markdown/extra/#footnotes)
+  - [Smartypants typography extensions](https://daringfireball.net/projects/smartypants/)
+
+   The good news is, these features are all extraordinarily useful. The bad news is,
+   most of them aren't documented in our [Markdown](markdown.html) guide and they
+   could post compatibility problems if you use another static site generator that
+   doesn't offer these extensions.
+* [goldmark-highlighting](github.com/yuin/goldmark-highlighting) 
+by [Yuin](https://github.com/yuin) adds syntax highlighting for code blocks
+* [goldmark-meta](github.com/yuin/goldmark-meta) 
+by [Yuin](https://github.com/yuin) parses the YAML front matter
+* [goldmark-embed](https://github.com/13rac1/goldmark-embed) 
+by [Brad Erickson](https://github.com/13rac1), enables YouTube embeds
 
 ## The PocoCMS theme framework
 
@@ -117,7 +163,7 @@ pages in the site.
 
 ### All pages inherit the home page theme, unless...
 
-PocoCMS has theme support, so you can just mention a theme
+If mention a theme
 in the [front matter](glossary.html#front-matter) of
 the [home page](glossary.html#home-page) and
 all other pages in the site will inherit that theme:
@@ -151,7 +197,7 @@ header, nav bar, aside (a.k.a. sidebar), and footer.
 
 Suppose you want a separate theme for the home page than
 for the rest of the site? It's a common case because the
-  home page is often used for sales purposes.
+home page is often used for sales purposes.
 
 Remember that you declare a global theme on the
 home page using the `theme` declaration, but that
@@ -160,8 +206,8 @@ you can override themes on a per-page basis using
 
 This is how you create a site using the `pocodocs` theme
 for everything but the home page, but you use the `hero`
-  theme for the home page itself. You put *both* declarations
-  on the home page:
+theme for the home page itself. You put *both* declarations
+on the home page:
 
 ##### file: **index.md**
 
@@ -171,6 +217,11 @@ theme: pocodocs
 pagetheme: hero
 ---
 ```
+
+
+The only place this works is the home page, because it's the only place
+PocoCMS respects the `theme:` rule.
+
 
 ## Starting a site
 
@@ -206,7 +257,8 @@ poco
 ```
 
 
-Invoking `poco` by itself builds the site, which means the following:
+Invoking `poco` by itself *builds* the site, which means it generates
+HTML for your directory tree of Markdown files. In more detail:
 
 * PocoCMS checks to make sure it's in a valid project, which
 means it looks for the `index.md` (or `README.md`) home page
@@ -223,7 +275,7 @@ look in `.poco/themes/base`. Quit with an error if no such directory is found.
   and Markdown or HTML files required for the page elements
   (header, footer, and so on). For the `base` theme, the list looks like this:
 
-##### Directory: **base** theme
+##### Directory: **./poco/themes/base** theme
 
 ```
 header: header.md
@@ -240,12 +292,13 @@ stylesheets:
 - ../../css/media.css
 ---
 ```
+
 ## Theme structure
 
 A theme's name is its directory name. The `README.me`
 file in that subdirectory has a special use. It
 determines what files are used to produce the theme.
-
+It's also known as the [theme README](glossary.html#theme-readme) file.
 
 ### Stylesheets in the theme's README.md file
 
@@ -436,19 +489,11 @@ If you used beta version 10.0.9, please **[upgrade now](beta-10-0-0.html)**
 
 ## Installation
 
-PocoCMS is distribued as a single executable file. Upon startup, PocoCMS:
+PocoCMS is distribued as a single executable file. It doesn't require
+an installation step.
 
-* Queries the system to see where user application data is stored.
-* Checks to see if that directory contains a subdirectory named `pococms`
-* If no such directory can be found, it's created and populated by
-the "factory installed" `.poco` directory contained within the executable.
-* A new file called `.poco/INSTALLED` is created at that point. It's used
-as a heuristic and simply contains the time and date the directory was created. Sometimes it's hard to know if a `.poco` directory exists
-but is empty. Instead of trying to figure out what should be in a subdirectory
-under `.poco`, the INSTALLED file can be used to guess that `.poco` is
-probably not empty.
-* When a new PocoCMS project is created via `poco -new`, the factory `.poco`
-directory is copied from the PocoCMS user application data directory.
+When a new PocoCMS project is created via `poco -new`, the factory `.poco`
+directory is copied from within the PocoCMS executable.
 
 ## Running PocoCMS
 
@@ -491,7 +536,7 @@ you'll see this:
 ```
 ---
 Stylesheets:
-    - "https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/poquito.css"
+- "https://cdn.jsdelivr.net/gh/pococms/poco/pages/assets/css/poquito.css"
 ---
 # Welcome to mysite
 
@@ -512,16 +557,17 @@ the generated HTML, which starts with **Welcome to mysite**.
 
 The front matter is considered a separate document.
 It is in [YAML](https://yaml.org) format. The only YAML
-in this document is `Stylesheets:`, which is used
+in this document is `stylesheets:`, which is used
 to generate a `<link>` tag that pulls in a minimal
 spreadsheet from a CDN. It could just as easily
 be a local file but this makes for a quick demo.
 
 ## .poco directory structure 
 
-Here's an accurate view of the contents of
+Here's an accurate but abridged view of the contents of
 the `.poco` directory in a new site. Repetitive
-elements have been replaced by an `.. etc` note.
+elements have been replaced by an `.. etc` note;
+if you've seen one theme directory, you've seen them all.
 
 ```
 .

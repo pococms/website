@@ -237,14 +237,22 @@ previous site generators roll, such as the one on GitHub.
 
 ### Defining a global theme on the home page
 
-The home page lets you define a global [theme](#theme) for the entire site.
+The home page lets you define a [global theme](#global-theme) for the entire site.
 If you add `theme:` followed by the theme name to the front
 matter as shown below, all pages of your site will default to
 the global theme without your having to specify it on each page.
 For example, this defines `wide` as the global theme:
 
     ---
-    theme: "pocodocs"
+    theme: pocodocs
+    ---
+
+
+If you use a global theme you always have the option to
+override it on a per-page basis using `pagetheme`:
+
+    ---
+    pagetheme: pocodocs/home
     ---
 
 
@@ -354,6 +362,30 @@ Markdown, markup, and [CommonMark](#commonmark).
 Technically speaking HTML is also a [markup language](https://en.wikipedia.org/wiki/Markup_language) but in the context of static site generators
 such as PocoCMS the term normally refers to Markdown.
 
+## named anchor
+
+A *named anchor* is a destination you can click to in an HTML document.
+Here's an example of a level 2 [heading](#heading) serving
+as a named anchor.
+
+```
+<h2 id="why-markdown">Why Markdown?</h2>
+``` 
+
+In the document itself it will simply appear as a clickable link
+with the text `Why Markdown?` exactly as it would if the
+in-document location marker `id="why-markdown"` weren't there.
+But that location marker, which is required to be unique within
+the document, allows you to create a link like this
+taking you directly to that heading:
+
+```
+[Why Markdown?](gs-creating-and-linking-pages.html#why-markdown)
+
+```
+PocoCMS creates unique named anchors automatically for all [headings](#headings).
+
+
 ## page theme
 
 A page [theme](#theme) controls the appearance of a single page. 
@@ -428,7 +460,7 @@ PocoCMS and copied into your [webroot](#webroot)
 
 The root directory is the starting point of your
 PocoCMS [project](#project), and because it also
-holds the [.poco directory)(#poco-directory) it's
+holds the [.poco directory](#poco-directory) it's
 important to know what root directory means. 
 When you do something like
 
@@ -647,6 +679,39 @@ Page layout elements get their definitions from files named `header.md` and so f
 Each HTML document should have a [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title) tag. Often the title tag determines what
 text appears to people [searching on the web](https://developers.google.com/search/docs/appearance/title-link), and it's normally
 used for browser tabs as well. 
+
+## unique identifier
+
+Sometimes you can link not just to an HTML document, but inside it
+at a particular location. That requires an `id=` attribute
+in the HTML that looks something like this:
+
+```
+<h2 id="why-markdown">Why Markdown?</h2>
+``` 
+
+This is called a bookmark or [named anchor](#named-anchor).
+
+PocoCMS inserts these automatically for all [headings](#headings).
+It ensures they're unique even if the headings appear externally
+to be the same. The foregoing case works for the page
+at on this site at `/docs/gs-creating-and-linking-pages.html` with the following
+Markdown:
+
+```
+[Why Markdown?](gs-creating-and-linking-pages.html#why-markdown)
+
+```
+
+Try clicking it [here](gs-creating-and-linking-pages.html#why-markdown) if you wish.
+
+ 
+
+
+
+(Astute web developers will know that the ID isn't just there for
+bookmarking purposes, but it is the context for HMTL
+anchors in this documentation.)
 
 ## user application data directory
 

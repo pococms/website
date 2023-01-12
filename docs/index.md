@@ -18,6 +18,7 @@ nav: "docs/docs-nav.md"
 
 ## Reference
 * [Front matter](front-matter.html)
+* [Markdown](markdown.html)
 * [Glossary](glossary.html)
 * [Resources](resources.html)
 

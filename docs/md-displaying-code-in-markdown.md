@@ -146,5 +146,5 @@ Here are the most common ones.
 Complete list can be found in the "languages" node of 
 the PrismJS source file [components.json](https://github.com/PrismJS/prism/blob/master/components.json).
 
-###### [Previous:  Tables in Markdown](gs-tables-in-markdown.html) 
+###### [Previous:  Tables in Markdown](md-tables-in-markdown.html) 
 
