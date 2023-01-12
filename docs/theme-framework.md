@@ -9,6 +9,7 @@ work within a few seconds: with just a theme name and
 Markdown files, you should be able to publish your site
 moments after starting
 * Both mobile and desktop friendly
+* Allows creation of themes by adding a single file that overrides CSS presets 
 * Responsive (change behavior to accomodate different screen sizes)
 * Accomodate dark themes
 * Work on older browsers
@@ -324,7 +325,7 @@ the same spacing. This takes care of it all at once.
 
 ### layout.css
 
-The PocoCMS theme framework's [layout.css](https://github.com/pococms/poco/blob/main/.poco/css/layout.css) file handles how page elements are arranged but most crucically
+The PocoCMS theme framework's [layout.css](https://github.com/pococms/poco/blob/main/.poco/css/layout.css) file handles how page elements are arranged but most crucially
 it defines the relationship between article and aside so that both right and
 left orientation work. 
 
@@ -559,17 +560,18 @@ And the opposite for aside on the right:
 ```
 /* Aside on right, article on on left: */
 article{float:left;clear:left;}\naside{float:right;}o
+
 ```
 
+The Go code generating it looks like this:
 
+```
+if side == "right" {
+  t = t + "article{float:left;clear:left;}\naside{float:right;}"
+}
 
-	if aside == "left" {
-		//if t.asideType == asideLeft
-		t = t + "article{float:right;clear:right;}\naside{float:left;}"
-	}
-
-	if aside == "right" {
-		//if t.asideType == asideRight
-		t = t + "article{float:left;clear:left;}\naside{float:right;}"
+if side == "left" {
+  t = t + "article{float:right;clear:right;}\naside{float:left;}"
+}
 ```
 

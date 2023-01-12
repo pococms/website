@@ -76,16 +76,10 @@ CSS files) will be different from that illustration.
 
 The heart of PocoCMS' code that generates HTML from Markdown is an
 incredibly well-written Go Package named [Goldmark](https://github.com/yuin/goldmark),
-by a Japanese wizard named [Yuin](https://github.com/yuin) 
+by a super-intelligent being from the future named [Yuin](https://github.com/yuin) 
 who pretends to be human so the rest of us feel better. While poorly
 documented on this site, PocoCMS employs many extensions to Markdown
 including:
-
-extension.Table,
-		extension.GFM,
-		extension.DefinitionList,
-		extension.Footnote,
-		extension.Linkify,
 
 * [goldmark/extension](github.com/yuin/goldmark/extension)
 by [Yuin](https://github.com/yuin) adds a cornucopia of
@@ -102,9 +96,9 @@ features to CommonMark including
    most of them aren't documented in our [Markdown](markdown.html) guide and they
    could post compatibility problems if you use another static site generator that
    doesn't offer these extensions.
-* [goldmark-highlighting](github.com/yuin/goldmark-highlighting) 
+* [goldmark-highlighting](https://github.com/yuin/goldmark-highlighting) 
 by [Yuin](https://github.com/yuin) adds syntax highlighting for code blocks
-* [goldmark-meta](github.com/yuin/goldmark-meta) 
+* [goldmark-meta](https://github.com/yuin/goldmark-meta) 
 by [Yuin](https://github.com/yuin) parses the YAML front matter
 * [goldmark-embed](https://github.com/13rac1/goldmark-embed) 
 by [Brad Erickson](https://github.com/13rac1), enables YouTube embeds

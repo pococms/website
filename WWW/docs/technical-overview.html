@@ -238,7 +238,7 @@ blockquote {
 table{border-collapse:collapse;}
 
 /* No one wants unordered lists in header, nav, footer to be vertical */
-header>ul,nav>ul,footer>ul{list-style-type:none;}
+header>ul,nav>ul,footer>ul>a{list-style-type:none;}
 header>ul>li,nav>ul>li,footer>ul>li{display:inline;}
 
 /* Article on the right, aside on the left */
@@ -545,15 +545,10 @@ CSS files) will be different from that illustration.</p>
 <h2 id="markdown-extensions">Markdown extensions</h2>
 <p>The heart of PocoCMS' code that generates HTML from Markdown is an
 incredibly well-written Go Package named <a href="https://github.com/yuin/goldmark">Goldmark</a>,
-by a Japanese wizard named <a href="https://github.com/yuin">Yuin</a>
+by a super-intelligent being from the future named <a href="https://github.com/yuin">Yuin</a>
 who pretends to be human so the rest of us feel better. While poorly
 documented on this site, PocoCMS employs many extensions to Markdown
 including:</p>
-<p>extension.Table,
-extension.GFM,
-extension.DefinitionList,
-extension.Footnote,
-extension.Linkify,</p>
 <ul>
 <li>
 <p><a href="github.com/yuin/goldmark/extension">goldmark/extension</a>
@@ -574,11 +569,11 @@ could post compatibility problems if you use another static site generator that
 doesn't offer these extensions.</p>
 </li>
 <li>
-<p><a href="github.com/yuin/goldmark-highlighting">goldmark-highlighting</a>
+<p><a href="https://github.com/yuin/goldmark-highlighting">goldmark-highlighting</a>
 by <a href="https://github.com/yuin">Yuin</a> adds syntax highlighting for code blocks</p>
 </li>
 <li>
-<p><a href="github.com/yuin/goldmark-meta">goldmark-meta</a>
+<p><a href="https://github.com/yuin/goldmark-meta">goldmark-meta</a>
 by <a href="https://github.com/yuin">Yuin</a> parses the YAML front matter</p>
 </li>
 <li>

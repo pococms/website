@@ -238,7 +238,7 @@ blockquote {
 table{border-collapse:collapse;}
 
 /* No one wants unordered lists in header, nav, footer to be vertical */
-header>ul,nav>ul,footer>ul{list-style-type:none;}
+header>ul,nav>ul,footer>ul>a{list-style-type:none;}
 header>ul>li,nav>ul>li,footer>ul>li{display:inline;}
 
 /* Article on the right, aside on the left */
@@ -347,11 +347,6 @@ h4{color:var(--h4-fg);}
 
 
 /* hero.css*/
-/* LESSON NOTES
- * - Disabled aside
- */
-
-
 /* --------------------------------------------------
  * HEADER: 
  * - First item is bigger and formatted differently
@@ -424,9 +419,7 @@ article>h1{
 
 
 
-/* OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT & DARK THEMES */
 
-/* https://stackoverflow.com/questions/37976431/image-floating-right-that-is-further-in-html-structure-than-text-in-paragraphs#comment63405979_37976742 */
 nav{
   height:auto;
   margin:0 auto;
@@ -458,6 +451,7 @@ nav pre{
   top:0;
 }
 
+/* OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT & DARK THEMES */
 @media (prefers-color-scheme:light) {
 :root {
   nav-fg:var(--fg);

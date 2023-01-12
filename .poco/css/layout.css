@@ -14,7 +14,7 @@ blockquote {
 table{border-collapse:collapse;}
 
 /* No one wants unordered lists in header, nav, footer to be vertical */
-header>ul,nav>ul,footer>ul{list-style-type:none;}
+header>ul,nav>ul,footer>ul>a{list-style-type:none;}
 header>ul>li,nav>ul>li,footer>ul>li{display:inline;}
 
 /* Article on the right, aside on the left */

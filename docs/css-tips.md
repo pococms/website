@@ -1,111 +1,21 @@
 # CSS tips
 
-## Format for commenting special features that should be added to a theme's public documentation
-
-```
-/* --------------------------------------------------
- * SPECIAL FEATURE FOR HEADER: 
- * First item in header gets special treatment:
- * - Larger font size
- * - Deeper text shadow
- * --------------------------------------------------
- */   
-
-header>ul>li:first-child>a,header>p:first-child>a,{
-  font-size:3.25rem;
-  text-shadow: 3px 3px 0 black;
-}
-
-```
-
-
-## rem vs em
-
-* Use rem for font sizes and @media query, because rem is based 
-on browser settings.
-* Use em for margins, padding, etc.
-
-# RAW MATERIAL: TABLES
-
-
-
-From the Informer theme
-
-```
-footer,footer>p,footer>p>a{color:white;background-color:blue;}
-footer{color:black;background-color:white;}
-footer>table{font-size:.75em;}
-/* Make change to all headers (first row of table) */
-/* Next 2 lines of code are required. */
-table{table-layout:fixed;width:95%;}
-footer>table th{font-weight:bold;width:5%;}
-
-footer>table>th,footer>table>td{color:yellow;width:5rem;}
-footer>table th{border:0;}  /* Removes border from header row */
-footer>table td{border:0;}  /* Remove border from all other rows */
-footer>table>thead>tr{line-height:1.5rem;} /* Set height of header row */
-footer>table>tbody>tr{line-height:0;} /* Set height of all other rows */
-
-/*This seems unnecessary */
-footer>table{
-  /* Cells in table share borders */
-  border-collapse: collapse;
-  border:none;
-}
-/* Text-align all rows left */
-footer>table>tbody>tr>td{text-align:left}
-```
-
-
 In case you're new to CSS, here's some handy code
 you can drop right into your own themes.
 
 ## Contents
 
-[2 colors in your logo text](#2-colors-in-your-logo-text)   
-[How to do headers using list syntax](#how-to-do-headers-using-list-syntax)  
-[Unordered lists with no bullet characters or indentation]()
+* [2 colors in your logo text](#2-colors-in-your-logo-text)   
+* [How to do headers using list syntax](#how-to-do-headers-using-list-syntax)  
+* [Unordered lists with no bullet characters or indentation](#unordered-lists-with-no-bullet-characters-or-indentation)
+* [Links with modern cursor and custom underline](#links-with-modern-cursor-and-custom-underline)  
+* [How to show links with separate underline color](#how-to-show-links-with-separate-underline-color)  
+* [Centering old-school](#centering)  
+* [Font reset](#font-reset)
+* [Font stacks](#font-stacks)  
+* [Downloadable fonts](#downloadable-fonts)  
+* [GitHub-based files get free CDN hosting through jsdelivr.net](#github-based-files-get-free-cdn-hosting-through-jsdelivrnet)  
 
-```
-/* --------------------------------------------------
- * Aside unordered lists are used for table of 
- * contents, so disable indentation and bullet 
- * character. Use size, color, and underline
- * to indicate level.
- * --------------------------------------------------
- */   
-
-/* Disable list indentation and bullet characters. */
-aside > ul li {list-style-type: none; }
-aside > ul li  {margin-left:0em;}
-
-/* Line-spacing for whole unordered list */
-aside ul {line-height:1.4rem;}
-
-/* 1st level of list */
-aside ul li a {font-size:1.2rem;}
-aside ul li a {color:cyan;}
-aside ul li a {text-decoration:underline}
-
-/* 2nd level of list */
-aside ul ul li a {color:red;border:none;text-decoration:none;}
-
-/* 3rd level of list */
-aside ul ul ul li a 
- {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}
-```
-
-[Links with modern cursor and custom underline](#links-with-modern-cursor-and-custom-underline)  
-[How to show links with separate underline color](#how-to-show-links-with-separate-underline-color)  
-[Centering old-school](#centering)  
-[Font reset](#font-reset)
-[Font stacks](#font-stacks)  
-[Downloadable fonts](#downloadable-fonts)  
-[GitHub-based files get free CDN hosting through jsdelivr.net](#github-based-files-get-free-cdn-hosting-through-jsdelivrnet)  
-
-See also
-
-* [Resources](resources.html) page with many classless CSS libraries 
 
 ## 2 colors in your logo text
 
@@ -137,6 +47,41 @@ header > ul > li:first-child > a > del, header > p > del {
 
 Note that this example keeps it specifically to the header.
 That reduces the likelihood of problems down the line.
+
+## Unordered lists with no bullet characters or indentation
+
+```
+/* --------------------------------------------------
+ * Aside unordered lists are used for table of 
+ * contents, so disable indentation and bullet 
+ * character. Use size, color, and underline
+ * to indicate level.
+ * --------------------------------------------------
+ */   
+
+/* Disable list indentation and bullet characters. */
+aside > ul li {list-style-type: none; }
+aside > ul li  {margin-left:0em;}
+
+/* Line-spacing for whole unordered list */
+aside ul {line-height:1.4rem;}
+
+/* 1st level of list */
+aside ul li a {font-size:1.2rem;}
+aside ul li a {color:cyan;}
+aside ul li a {text-decoration:underline}
+
+/* 2nd level of list */
+aside ul ul li a {color:red;border:none;text-decoration:none;}
+
+/* 3rd level of list */
+aside ul ul ul li a 
+ {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}
+```
+
+See also
+
+* [Resources](resources.html) page with many classless CSS libraries 
 
 ## Unordered lists with no bullet characters or indentation
 
@@ -217,7 +162,7 @@ header>ul>li:first-child>a{font-size:3rem;font-weight:900;letter-spacing:-.1rem;
 
 ### Bonus header concept #2: Redefine the Markdown strikethrough characters to change the color of the selected letters
 
-```css
+```
 ul>li:first-child>a>del{text-decoration:none;color:red;}
 ```
 
@@ -229,7 +174,7 @@ To use downloadable fonts, you need to add an import rule
 in the theme's front matter like this:
 
 
-```css
+```
 ---
 importrules:
 - "@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap';"
@@ -238,7 +183,7 @@ importrules:
 
 Then in one of the CSS files, for exampple, `test.css`, you'd have a rule like this:
 
-```css
+```
 article>h1{font-family:'Oswald',sans-serif}
 
 ```
@@ -263,8 +208,9 @@ header {text-align:center;padding-left:0;padding-right:0;width:100%;margin-left:
 
 Here's how to change the font of everything all at once. Obviously what comes after
 `font-family` is your choice. This example comes from the [Informer](https://github.com/pococms/poco/tree/main/.poco/themes/informer) theme in the [informer.css](https://github.com/pococms/poco/blob/main/.poco/themes/informer/informer.css) file.
+
 ```
-body,article,header,footer,aside,a,p,h1,h2,h3,h4,h5,h6 {font-family:Cambria,'Hoefler Text',Utopia,'Liberation Serif','Nimbus Roman No9 L Regular',Times,'Times New Roman',serif;}
+html * {font-family:Cambria,'Hoefler Text',Utopia,'Liberation Serif','Nimbus Roman No9 L Regular',Times,'Times New Roman',serif;} 
 ```
 
 <a name="font-stacks"></a>

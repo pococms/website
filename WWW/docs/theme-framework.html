@@ -238,7 +238,7 @@ blockquote {
 table{border-collapse:collapse;}
 
 /* No one wants unordered lists in header, nav, footer to be vertical */
-header>ul,nav>ul,footer>ul{list-style-type:none;}
+header>ul,nav>ul,footer>ul>a{list-style-type:none;}
 header>ul>li,nav>ul>li,footer>ul>li{display:inline;}
 
 /* Article on the right, aside on the left */
@@ -498,6 +498,7 @@ work within a few seconds: with just a theme name and
 Markdown files, you should be able to publish your site
 moments after starting</li>
 <li>Both mobile and desktop friendly</li>
+<li>Allows creation of themes by adding a single file that overrides CSS presets</li>
 <li>Responsive (change behavior to accomodate different screen sizes)</li>
 <li>Accomodate dark themes</li>
 <li>Work on older browsers</li>
@@ -751,7 +752,7 @@ to forget. In the example above it's easy to miss that you probably
 want your paragraphs of text in ordered and unordered lists to employ
 the same spacing. This takes care of it all at once.</p>
 <h3 id="layoutcss">layout.css</h3>
-<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/layout.css">layout.css</a> file handles how page elements are arranged but most crucically
+<p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/layout.css">layout.css</a> file handles how page elements are arranged but most crucially
 it defines the relationship between article and aside so that both right and
 left orientation work.</p>
 <h3 id="typecss">type.css</h3>
@@ -911,17 +912,16 @@ article{float:right;clear:right;}\naside{float:left;}&quot;
 <p>And the opposite for aside on the right:</p>
 <pre><code>/* Aside on right, article on on left: */
 article{float:left;clear:left;}\naside{float:right;}o
+
 </code></pre>
-<pre><code>if aside == &quot;left&quot; {
-	//if t.asideType == asideLeft
-	t = t + &quot;article{float:right;clear:right;}\naside{float:left;}&quot;
+<p>The Go code generating it looks like this:</p>
+<pre><code>if side == &quot;right&quot; {
+  t = t + &quot;article{float:left;clear:left;}\naside{float:right;}&quot;
 }
 
-if aside == &quot;right&quot; {
-	//if t.asideType == asideRight
-	t = t + &quot;article{float:left;clear:left;}\naside{float:right;}&quot;
-</code></pre>
-<pre><code>
+if side == &quot;left&quot; {
+  t = t + &quot;article{float:right;clear:right;}\naside{float:left;}&quot;
+}
 </code></pre>
 
 </article>

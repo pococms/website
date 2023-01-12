@@ -238,7 +238,7 @@ blockquote {
 table{border-collapse:collapse;}
 
 /* No one wants unordered lists in header, nav, footer to be vertical */
-header>ul,nav>ul,footer>ul{list-style-type:none;}
+header>ul,nav>ul,footer>ul>a{list-style-type:none;}
 header>ul>li,nav>ul>li,footer>ul>li{display:inline;}
 
 /* Article on the right, aside on the left */
@@ -489,58 +489,42 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </aside>
 <article id="article-poco">
 <h1 id="css-tips">CSS tips</h1>
-<h2 id="format-for-commenting-special-features-that-should-be-added-to-a-themes-public-documentation">Format for commenting special features that should be added to a theme's public documentation</h2>
-<pre><code>/* --------------------------------------------------
- * SPECIAL FEATURE FOR HEADER: 
- * First item in header gets special treatment:
- * - Larger font size
- * - Deeper text shadow
- * --------------------------------------------------
- */   
-
-header&gt;ul&gt;li:first-child&gt;a,header&gt;p:first-child&gt;a,{
-  font-size:3.25rem;
-  text-shadow: 3px 3px 0 black;
-}
-
-</code></pre>
-<h2 id="rem-vs-em">rem vs em</h2>
-<ul>
-<li>Use rem for font sizes and @media query, because rem is based
-on browser settings.</li>
-<li>Use em for margins, padding, etc.</li>
-</ul>
-<h1 id="raw-material-tables">RAW MATERIAL: TABLES</h1>
-<p>From the Informer theme</p>
-<pre><code>footer,footer&gt;p,footer&gt;p&gt;a{color:white;background-color:blue;}
-footer{color:black;background-color:white;}
-footer&gt;table{font-size:.75em;}
-/* Make change to all headers (first row of table) */
-/* Next 2 lines of code are required. */
-table{table-layout:fixed;width:95%;}
-footer&gt;table th{font-weight:bold;width:5%;}
-
-footer&gt;table&gt;th,footer&gt;table&gt;td{color:yellow;width:5rem;}
-footer&gt;table th{border:0;}  /* Removes border from header row */
-footer&gt;table td{border:0;}  /* Remove border from all other rows */
-footer&gt;table&gt;thead&gt;tr{line-height:1.5rem;} /* Set height of header row */
-footer&gt;table&gt;tbody&gt;tr{line-height:0;} /* Set height of all other rows */
-
-/*This seems unnecessary */
-footer&gt;table{
-  /* Cells in table share borders */
-  border-collapse: collapse;
-  border:none;
-}
-/* Text-align all rows left */
-footer&gt;table&gt;tbody&gt;tr&gt;td{text-align:left}
-</code></pre>
 <p>In case you're new to CSS, here's some handy code
 you can drop right into your own themes.</p>
 <h2 id="contents">Contents</h2>
-<p><a href="#2-colors-in-your-logo-text">2 colors in your logo text</a><br />
-<a href="#how-to-do-headers-using-list-syntax">How to do headers using list syntax</a><br />
-<a href="">Unordered lists with no bullet characters or indentation</a></p>
+<ul>
+<li><a href="#2-colors-in-your-logo-text">2 colors in your logo text</a></li>
+<li><a href="#how-to-do-headers-using-list-syntax">How to do headers using list syntax</a></li>
+<li><a href="#unordered-lists-with-no-bullet-characters-or-indentation">Unordered lists with no bullet characters or indentation</a></li>
+<li><a href="#links-with-modern-cursor-and-custom-underline">Links with modern cursor and custom underline</a></li>
+<li><a href="#how-to-show-links-with-separate-underline-color">How to show links with separate underline color</a></li>
+<li><a href="#centering">Centering old-school</a></li>
+<li><a href="#font-reset">Font reset</a></li>
+<li><a href="#font-stacks">Font stacks</a></li>
+<li><a href="#downloadable-fonts">Downloadable fonts</a></li>
+<li><a href="#github-based-files-get-free-cdn-hosting-through-jsdelivrnet">GitHub-based files get free CDN hosting through jsdelivr.net</a></li>
+</ul>
+<h2 id="2-colors-in-your-logo-text">2 colors in your logo text</h2>
+<p>In the <a href="https://pococms.com">PocoCMS</a> header you'll note that <code>Poco</code> is one
+color and <code>CMS</code> is another, even though it's selectable text. We cheated a little
+by reassigning the Markdown strikethrough characters. Normally when you start
+and end text with two tile characters (<code>~~</code>), as in:</p>
+<h4 id="you-type">You type:</h4>
+<pre><code>I ~~really don't~~ love politicians
+
+</code></pre>
+<p>And the result is:</p>
+<p>I <del>really don't</del> love politicians</p>
+<p>Since it's highly unlikely you'd want strikethrough characters
+in a header, it's safe to style them like this. (The <code>del</code>
+attribute is strikethrough.)</p>
+<pre><code>header &gt; ul &gt; li:first-child &gt; a &gt; del, header &gt; p &gt; del {
+  color:red;text-decoration:none;font-weight:900;
+}
+</code></pre>
+<p>Note that this example keeps it specifically to the header.
+That reduces the likelihood of problems down the line.</p>
+<h2 id="unordered-lists-with-no-bullet-characters-or-indentation">Unordered lists with no bullet characters or indentation</h2>
 <pre><code>/* --------------------------------------------------
  * Aside unordered lists are used for table of 
  * contents, so disable indentation and bullet 
@@ -568,38 +552,11 @@ aside ul ul li a {color:red;border:none;text-decoration:none;}
 aside ul ul ul li a 
  {font-size:1rem;text-decoration:none;border-bottom:dotted 1px white;}
 </code></pre>
-<p><a href="#links-with-modern-cursor-and-custom-underline">Links with modern cursor and custom underline</a><br />
-<a href="#how-to-show-links-with-separate-underline-color">How to show links with separate underline color</a><br />
-<a href="#centering">Centering old-school</a><br />
-<a href="#font-reset">Font reset</a>
-<a href="#font-stacks">Font stacks</a><br />
-<a href="#downloadable-fonts">Downloadable fonts</a><br />
-<a href="#github-based-files-get-free-cdn-hosting-through-jsdelivrnet">GitHub-based files get free CDN hosting through jsdelivr.net</a></p>
 <p>See also</p>
 <ul>
 <li><a href="resources.html">Resources</a> page with many classless CSS libraries</li>
 </ul>
-<h2 id="2-colors-in-your-logo-text">2 colors in your logo text</h2>
-<p>In the <a href="https://pococms.com">PocoCMS</a> header you'll note that <code>Poco</code> is one
-color and <code>CMS</code> is another, even though it's selectable text. We cheated a little
-by reassigning the Markdown strikethrough characters. Normally when you start
-and end text with two tile characters (<code>~~</code>), as in:</p>
-<h4 id="you-type">You type:</h4>
-<pre><code>I ~~really don't~~ love politicians
-
-</code></pre>
-<p>And the result is:</p>
-<p>I <del>really don't</del> love politicians</p>
-<p>Since it's highly unlikely you'd want strikethrough characters
-in a header, it's safe to style them like this. (The <code>del</code>
-attribute is strikethrough.)</p>
-<pre><code>header &gt; ul &gt; li:first-child &gt; a &gt; del, header &gt; p &gt; del {
-  color:red;text-decoration:none;font-weight:900;
-}
-</code></pre>
-<p>Note that this example keeps it specifically to the header.
-That reduces the likelihood of problems down the line.</p>
-<h2 id="unordered-lists-with-no-bullet-characters-or-indentation">Unordered lists with no bullet characters or indentation</h2>
+<h2 id="unordered-lists-with-no-bullet-characters-or-indentation-1">Unordered lists with no bullet characters or indentation</h2>
 <p>The Pocodocs theme uses special unordered list
 formatting for asides where a table of contents works best.
 Unordered lists are normally indented,
@@ -662,19 +619,22 @@ header&gt;ul&gt;li&gt;a:visited
 <pre><code>header&gt;ul&gt;li:first-child&gt;a{font-size:3rem;font-weight:900;letter-spacing:-.1rem;padding-right:1rem;padding-left:0}
 </code></pre>
 <h3 id="bonus-header-concept-2-redefine-the-markdown-strikethrough-characters-to-change-the-color-of-the-selected-letters">Bonus header concept #2: Redefine the Markdown strikethrough characters to change the color of the selected letters</h3>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">ul</span>&gt;<span style="color:#1e90ff;font-weight:bold">li</span>:<span style="color:#888">first-child</span>&gt;<span style="color:#1e90ff;font-weight:bold">a</span>&gt;<span style="color:#1e90ff;font-weight:bold">del</span>{<span style="color:#00a">text-decoration</span>:<span style="color:#00a">none</span>;<span style="color:#00a">color</span>:<span style="color:#00a">red</span>;}
-</span></span></code></pre><p><a href="#contents">Return</a></p>
+<pre><code>ul&gt;li:first-child&gt;a&gt;del{text-decoration:none;color:red;}
+</code></pre>
+<p><a href="#contents">Return</a></p>
 <h2 id="downloadable-fonts">Downloadable fonts</h2>
 <p>To use downloadable fonts, you need to add an import rule
 in the theme's front matter like this:</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">---</span>
-</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">importrules</span>:
-</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">-</span> <span style="color:#a50">&#34;@import url(&#39;https://fonts.googleapis.com/css2?family=Oswald:wght@200&amp;display=swap&#39;;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">---</span>
-</span></span></code></pre><p>Then in one of the CSS files, for exampple, <code>test.css</code>, you'd have a rule like this:</p>
-<pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#1e90ff;font-weight:bold">article</span>&gt;<span style="color:#1e90ff;font-weight:bold">h1</span>{<span style="color:#00a">font-family</span>:<span style="color:#a50">&#39;Oswald&#39;</span>,<span style="color:#00a">sans-serif</span>}
-</span></span><span style="display:flex;"><span>
-</span></span></code></pre><p>For more details, see <a href="themes-creating.html#downloadable-fonts">Creating PocoCMS themes</a></p>
+<pre><code>---
+importrules:
+- &quot;@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&amp;display=swap';&quot;
+---
+</code></pre>
+<p>Then in one of the CSS files, for exampple, <code>test.css</code>, you'd have a rule like this:</p>
+<pre><code>article&gt;h1{font-family:'Oswald',sans-serif}
+
+</code></pre>
+<p>For more details, see <a href="themes-creating.html#downloadable-fonts">Creating PocoCMS themes</a></p>
 <p><a href="#contents">Return</a></p>
 <h2 id="centering">Centering</h2>
 <p>Here's how to center a div (or any block-level element) using
@@ -686,7 +646,7 @@ Replace <code>header</code> with whatever element you want centered.</p>
 <h2 id="font-reset">Font reset</h2>
 <p>Here's how to change the font of everything all at once. Obviously what comes after
 <code>font-family</code> is your choice. This example comes from the <a href="https://github.com/pococms/poco/tree/main/.poco/themes/informer">Informer</a> theme in the <a href="https://github.com/pococms/poco/blob/main/.poco/themes/informer/informer.css">informer.css</a> file.</p>
-<pre><code>body,article,header,footer,aside,a,p,h1,h2,h3,h4,h5,h6 {font-family:Cambria,'Hoefler Text',Utopia,'Liberation Serif','Nimbus Roman No9 L Regular',Times,'Times New Roman',serif;}
+<pre><code>html * {font-family:Cambria,'Hoefler Text',Utopia,'Liberation Serif','Nimbus Roman No9 L Regular',Times,'Times New Roman',serif;} 
 </code></pre>
 <p><a name="font-stacks"></a></p>
 <h2 id="font-stacks-for-sans-serif-serif-and-monospace">Font stacks for sans-serif, serif, and monospace</h2>

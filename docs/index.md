@@ -8,6 +8,7 @@ nav: "docs/docs-nav.md"
 * [Tutorial: getting started](getting-started.html)
 * [Creating themes](themes-creating.html)
 * [PocoCMS SEO](seo.html)
+* [CSS tips](css-tips.html)
 
 ## Running PocoCMS
 * [Command-line operation](cli.html)
