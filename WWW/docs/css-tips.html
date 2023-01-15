@@ -199,24 +199,24 @@ footer, header, hgroup, menu, nav, pre, section {
 /* sizes.css*/
 article{width:var(--article-width);height:auto;}  
 aside{width:var(--aside-width);padding-left:var(--padding-left);}  
-ol li, ul li  {margin-left:1em;}
-p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
-td,th{padding: 0.5em;}
-pre{font-size: smaller;overflow: auto;padding:1em;margin:1rem 0 1rem 0;}
+ol li, ul li  {margin-left:1rem;}
+p,ol,ul {line-height:1.5rem;padding-top:.25rem;padding-bottom:.5rem;}
+td,th{padding: 0.5rem;}
+pre{font-size: smaller;overflow: auto;padding:1rem;margin:1rem 0 1rem 0;}
 header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
-header>ul>li{padding-right:.5em;}
-nav a {margin-right:.5em;}
-footer {padding-top:2em;}
+header>ul>li{padding-right:.5rem;}
+nav a {margin-right:.5rem;}
+footer {padding-top:2rem;}
 article,nav,header,footer{padding-left:var(--padding-left);}
-article>dl>dt {padding-top:1em;}
+article>dl>dt {padding-top:1rem;}
 article>dl>dd {margin-left:0;padding-bottom:0;}
 
-h1{ font-size:2.5em;padding-top:2em;font-weight:bold; }
-h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:.35em;}
-h3{ font-size:1.5em;padding-top:.5em;font-weight:bold;padding-bottom:.1em;}
-h4{ font-size:.9em;padding-top:1em;}
-h5{ font-size:.8em; }
-h6{ font-size:0.9em; }
+h1{ font-size:2.5rem;padding-top:2rem;font-weight:bold; }
+h2{ font-size:2rem;padding-top:1rem;font-weight:bold;padding-bottom:.35rem;}
+h3{ font-size:1.5rem;padding-top:.5rem;font-weight:bold;padding-bottom:.1rem;}
+h4{ font-size:.9rem;padding-top:1rem;}
+h5{ font-size:.8rem; }
+h6{ font-size:0.9rem; }
 
 
 
@@ -227,11 +227,11 @@ article>h1,article>h2,article>h3,article>h4,article>h5,article>h6 {clear:left;}
 /* Innocuous but at least legible block quote style */
 blockquote {
   width: 60%;
-  font-size: 1rem;
+  font-size: 1em;
   font-style: italic;
-  margin: .75em 4em .75em;
-  padding-left: 1em;
-  border-left: .3em solid var(--fg);
+  margin: .75rem 4rem .75rem;
+  padding-left: 1rem;
+  border-left: .3rem solid var(--fg);
 } 
 
 /* Table cells share borders */
@@ -293,44 +293,17 @@ h4{color:var(--h4-fg);}
 
 
 @media (max-width:1080px){
-  html{font-size:1.25rem;}
+  html{font-size:1.25em;}
   body{width:100%;margin:0}
   aside{display:none}
   article{margin:0;float:left;clear:left;width:100%}
 }
-@media (max-width:1000px){
-  html{font-size:1.25rem;}
+@media (max-width:768px){
+  html{font-size:1.25em;}
   nav,aside,footer{display:none}
-  article{padding:1em;}
+  article{padding:1rem;}
   article{float:left;clear:left;width:100%}
   header{display:block;}
-
-  /* Format of hamburger menu items */
-  /*
-  header ul li a {
-    color: var(--menu-a-fg);
-    color:black;
-    box-sizing: border-box;
-    display: block;
-    width: 100%;
-    border-top: 1px solid var(--burger-menu-separator-color);
-  }
-  
-  /* Actual burger icon 
-  header label {
-    color: var(--burger-menu-fg);
-    color: black;
-    display: inline-block;
-    background-color: var(--burger-menu-bg);
-    font-style: normal;
-    font-size: 1.5em;
-    padding: .5em;
-  }
-  header > ul { display:none;}
-  header > input:checked + ul   { display: block; }
-  */
-
-
 }
 
 
@@ -493,6 +466,8 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 you can drop right into your own themes.</p>
 <h2 id="contents">Contents</h2>
 <ul>
+<li><a href="#social-media-icons-next-to-heading">Social media icons next to heading</a></li>
+<li><a href="#why-pococms-uses-rem-for-sizes">Why PocCMS uses rem for sizes</a></li>
 <li><a href="#2-colors-in-your-logo-text">2 colors in your logo text</a></li>
 <li><a href="#how-to-do-headers-using-list-syntax">How to do headers using list syntax</a></li>
 <li><a href="#unordered-lists-with-no-bullet-characters-or-indentation">Unordered lists with no bullet characters or indentation</a></li>
@@ -503,7 +478,68 @@ you can drop right into your own themes.</p>
 <li><a href="#font-stacks">Font stacks</a></li>
 <li><a href="#downloadable-fonts">Downloadable fonts</a></li>
 <li><a href="#github-based-files-get-free-cdn-hosting-through-jsdelivrnet">GitHub-based files get free CDN hosting through jsdelivr.net</a></li>
+<li><a href="#table-tweaks">Table tweaks</a></li>
+<li><a href="documenting-special-theme-features">Documenting special theme features</a></li>
 </ul>
+<h2 id="social-media-icons-next-to-heading">Social media icons next to heading</h2>
+<p>It's nice in an article byline to show social media icons next
+to the text. This example displays them to the right of the
+text, and they can be clicked through to their respective websites.</p>
+<h3 id="use-clearnone-and-floatright">Use clear:none and float:right</h3>
+<p>The images won't stay on the same line without
+the <code>clear:none</code> and <code>float:right</code>. It's the key
+to this technique:</p>
+<pre><code>/* Social media icons hang to right of header text. */
+article&gt;h4&gt;a&gt;img{
+  clear:none;
+  float:right;
+  margin-right:1rem;
+  margin-top:.2rem; 
+  height:1.2rem;
+  width:1.2rem;
+}
+</code></pre>
+<p>Everything but <code>clear:none</code> and <code>float:right</code> is expected to
+be tweaked. It depends on how large the icon images are, where
+they're oriented vertically, and how much space you want between them.</p>
+<h3 id="move-them-all-in-from-the-right-margin">Move them all in from the right margin</h3>
+<p>Depending on how many icons you have, you may want to pull them
+to the left somewhat. Let the <code>margin-right</code> value below
+vary according to your taste.</p>
+<pre><code>/* Decrease this if there are more icon images next to header.  */
+article&gt;h4{margin-right:20%;}
+</code></pre>
+<h3 id="the-final-markdown">The final markdown</h3>
+<p>Here's how you'd use the byline in Markdown form:</p>
+<pre><code>#### By Anna Utopia [![Instagram logo](../.poco/img/instagram-24px-magenta-outline.png)](https://www.instagram.com/anna.u.topia/) [![Twitter logo](../.poco/demo/twitter-24px-blue-outline.png)](https://twitter.com/anna.u.topia/)
+</code></pre>
+<h3 id="seo-considerations-for-this-example">SEO considerations for this example</h3>
+<p>You could use any block-level element. This example
+uses <code>h4</code> explicitly because headings under <code>h3</code> don't get indexed
+in search results, yet its semantica importance is probably higher
+than whatever <code>h5</code> and <code>h6</code> would be used for.</p>
+<h2 id="why-poccms-uses-rem-for-sizes">Why PocCMS uses rem for sizes</h2>
+<p>PocoCMS almost never specifies sizes in <code>px</code>. It's always <code>rem</code>.
+The reason is that <code>rem</code> values are based on the root font size.</p>
+<p>That's because it's much friendlier for users who require
+accessibility features. You can scale the web page size up or
+down and get predictable results.</p>
+<p>What's the root font size this is all based on? That's up to the
+browser (currently all browsers default to a 16px base font size).
+PocoCMS will sometimes use a construction like this to start
+with a base font size other than the default:</p>
+<pre><code>html * {font-size:x-large;}
+</code></pre>
+<p>Font sizes such as <code>x-large</code> are explained in  MDN's
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-size">font-size</a>
+article.</p>
+<h3 id="youre-safe-to-use-px-sizing">You're safe to use px sizing</h3>
+<p>Feel free to specify exact pixel sizes in your own themes. It's
+a good practice for web page design for images especially. PocoCMS
+doesn't know in advance how you plan to use images, so it uses
+the much more flexible system of proportions. It guarantees
+that you can use an image almost anywhere without thinking
+too much about how to design things in advance.</p>
 <h2 id="2-colors-in-your-logo-text">2 colors in your logo text</h2>
 <p>In the <a href="https://pococms.com">PocoCMS</a> header you'll note that <code>Poco</code> is one
 color and <code>CMS</code> is another, even though it's selectable text. We cheated a little
@@ -642,6 +678,8 @@ old techniques that will work on any mobile browser.
 Replace <code>header</code> with whatever element you want centered.</p>
 <pre><code>header {text-align:center;padding-left:0;padding-right:0;width:100%;margin-left:auto;margin-right:auto;}
 </code></pre>
+<p>Why not use more modern techniques? Feel free to! The first wave of
+PocoCMS themes is purposesly designed to work with older browsers.</p>
 <p><a href="#contents">Return</a></p>
 <h2 id="font-reset">Font reset</h2>
 <p>Here's how to change the font of everything all at once. Obviously what comes after
@@ -750,10 +788,8 @@ this effect is that it's transient.</p>
 <p>Here's how to add that default behavior to all
 your links.</p>
 <pre><code>a{color:blue;}
-a:link,
-a:visited {color:inherit;display:inline;} 
-a:hover,
-a:active {text-decoration:underline;} 
+a:link, a:visited {color:inherit;display:inline;} 
+a:hover,a:active {text-decoration:underline;} 
 </code></pre>
 <p><a href="#contents">Return</a></p>
 <h2 id="how-to-show-links-with-separate-underline-color">How to show links with separate underline color</h2>
@@ -783,6 +819,66 @@ that makes life much easier for people who want their stylesheets hosted on the 
 <li>It's instantly transformed in the <strong>jsdelivr</strong> field as:</li>
 </ul>
 <pre><code>https://github.com/egoist/hack/blob/master/src/css/hack.css
+</code></pre>
+<p><a href="#contents">Return</a></p>
+<h2 id="table-tweaks">Table tweaks</h2>
+<p>Here are some ways to change table layout and display.
+If you were putting the table in the footer, you'd
+change <code>article&gt;</code> to <code>footer&gt;</code>.</p>
+<pre><code>/* Remove lines in all rows except header */
+article&gt;table&gt;tbody&gt;tr&gt;td{text-align:left}
+
+/* Remove lines from all rows of table except header */
+article&gt;table&gt;tbody&gt;tr&gt;td{border:none;}
+
+/* Remove lines from table header. */
+article&gt;table&gt;thead&gt;tr&gt;th{border:none;} 
+
+/* Force text to stay in one row of the same height */
+article&gt;table{white-space:nowrap;}
+
+/* Keep the table narrow. It spaces columns closer. */
+article&gt;table{table-layout:fixed;width:35%;}
+
+/* Make rows shorter */
+article&gt;table&gt;tbody&gt;tr{line-height:.5rem;}
+
+/* Make columns 12 rem wide */
+article th{width:12rem;}
+
+/* First column is just wide enough for checkbox character */
+article th:first-child{width:1rem;}
+</code></pre>
+<p><a href="#contents">Return</a></p>
+<h2 id="documenting-special-theme-features">Documenting special theme features</h2>
+<p>Anytime a theme does something out of the ordinary,
+violates normal design patterns, or surfaces a feature
+the user should know, call it this way. If there
+are specific steps required to use it, mention
+them in the comments:</p>
+<pre><code>/*
+ * --------------------------------------------------
+ * Used for those bulleted
+ * lists at the beginning of an article, but with
+ * SEO powers because it calls them out using h2s
+ * that look like an unordered list. Must
+ * be preceded by an h4.
+ *
+ * It works with an h4 (byline) followed by h2s,
+ * or an h4 followed by an img followed by an h2
+ * --------------------------------------------------
+ */
+</code></pre>
+<p>Or:</p>
+<pre><code>/*
+ * --------------------------------------------------
+ * If you have more than one item, use an unordered list. 
+ * These styles show the first item with branding applied,
+ * any number of links following, still slightly
+ * larger than body text, and a last link that
+ * looks like a button.
+ * --------------------------------------------------
+ */
 </code></pre>
 <p><a href="#contents">Return</a></p>
 

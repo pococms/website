@@ -1,4 +1,5 @@
 ---
+hide: aside
 title: Helpful and free resources to improve your site's SEO
 description: Free ways to make your site SEO faster and better | PocoCMS
 ---

@@ -721,17 +721,12 @@ Example:
 title: "Static generator overview"
 ---
 
-Here's your {{ .title }}.
-```
-
-This page would have its `keywords` [metatag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name) set to 
-`Static generator overview` and the page generated would
-read as shown below in a web browser:
-
+# Static Site Generators
 
 ```
-Here's your Static generator overview
-```
+
+This page would have its `title` [metatag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name) set to 
+`Static generator overview`.
 
 Return to [top](#alphabetical-list-of-front-matter-options)
 

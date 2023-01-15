@@ -28,5 +28,38 @@ description to narrate for theme.
 
 ## Clickable image links
 
+You can add Markdown to make an image that's clickable and
+takes you to another web page. The form is:
+
+```
+[![alt text](image filename)](URL)
+```
+
+So if you have in image named `bird.svg` in the 
+current directory, and you want to link to Twitter, 
+you'd do this:
+
+```
+[![Twitter logo](bird.svg)](https://twitter.com)
+```
+
+Or to get a sample image from the Poco directory and
+use it in a header (you'd also have to alter the CSS for 
+`img` tags in the header):
+
+```
+* [![image-text](../.poco/img/twitter-20px-blue.svg)](https://twitter.com)
+```
+
 ## YouTube videos
+
+PocoCMS supports a nonstandard extension to Markdown that
+detects Youtube videos and gives them an embedded player. The
+syntax is identical to image links in Markdown:
+
+```
+Here's a helpful tutorial:
+![](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+```
+
 

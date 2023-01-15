@@ -199,24 +199,24 @@ footer, header, hgroup, menu, nav, pre, section {
 /* sizes.css*/
 article{width:var(--article-width);height:auto;}  
 aside{width:var(--aside-width);padding-left:var(--padding-left);}  
-ol li, ul li  {margin-left:1em;}
-p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
-td,th{padding: 0.5em;}
-pre{font-size: smaller;overflow: auto;padding:1em;margin:1rem 0 1rem 0;}
+ol li, ul li  {margin-left:1rem;}
+p,ol,ul {line-height:1.5rem;padding-top:.25rem;padding-bottom:.5rem;}
+td,th{padding: 0.5rem;}
+pre{font-size: smaller;overflow: auto;padding:1rem;margin:1rem 0 1rem 0;}
 header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
-header>ul>li{padding-right:.5em;}
-nav a {margin-right:.5em;}
-footer {padding-top:2em;}
+header>ul>li{padding-right:.5rem;}
+nav a {margin-right:.5rem;}
+footer {padding-top:2rem;}
 article,nav,header,footer{padding-left:var(--padding-left);}
-article>dl>dt {padding-top:1em;}
+article>dl>dt {padding-top:1rem;}
 article>dl>dd {margin-left:0;padding-bottom:0;}
 
-h1{ font-size:2.5em;padding-top:2em;font-weight:bold; }
-h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:.35em;}
-h3{ font-size:1.5em;padding-top:.5em;font-weight:bold;padding-bottom:.1em;}
-h4{ font-size:.9em;padding-top:1em;}
-h5{ font-size:.8em; }
-h6{ font-size:0.9em; }
+h1{ font-size:2.5rem;padding-top:2rem;font-weight:bold; }
+h2{ font-size:2rem;padding-top:1rem;font-weight:bold;padding-bottom:.35rem;}
+h3{ font-size:1.5rem;padding-top:.5rem;font-weight:bold;padding-bottom:.1rem;}
+h4{ font-size:.9rem;padding-top:1rem;}
+h5{ font-size:.8rem; }
+h6{ font-size:0.9rem; }
 
 
 
@@ -227,11 +227,11 @@ article>h1,article>h2,article>h3,article>h4,article>h5,article>h6 {clear:left;}
 /* Innocuous but at least legible block quote style */
 blockquote {
   width: 60%;
-  font-size: 1rem;
+  font-size: 1em;
   font-style: italic;
-  margin: .75em 4em .75em;
-  padding-left: 1em;
-  border-left: .3em solid var(--fg);
+  margin: .75rem 4rem .75rem;
+  padding-left: 1rem;
+  border-left: .3rem solid var(--fg);
 } 
 
 /* Table cells share borders */
@@ -293,44 +293,17 @@ h4{color:var(--h4-fg);}
 
 
 @media (max-width:1080px){
-  html{font-size:1.25rem;}
+  html{font-size:1.25em;}
   body{width:100%;margin:0}
   aside{display:none}
   article{margin:0;float:left;clear:left;width:100%}
 }
-@media (max-width:1000px){
-  html{font-size:1.25rem;}
+@media (max-width:768px){
+  html{font-size:1.25em;}
   nav,aside,footer{display:none}
-  article{padding:1em;}
+  article{padding:1rem;}
   article{float:left;clear:left;width:100%}
   header{display:block;}
-
-  /* Format of hamburger menu items */
-  /*
-  header ul li a {
-    color: var(--menu-a-fg);
-    color:black;
-    box-sizing: border-box;
-    display: block;
-    width: 100%;
-    border-top: 1px solid var(--burger-menu-separator-color);
-  }
-  
-  /* Actual burger icon 
-  header label {
-    color: var(--burger-menu-fg);
-    color: black;
-    display: inline-block;
-    background-color: var(--burger-menu-bg);
-    font-style: normal;
-    font-size: 1.5em;
-    padding: .5em;
-  }
-  header > ul { display:none;}
-  header > input:checked + ul   { display: block; }
-  */
-
-
 }
 
 

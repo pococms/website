@@ -21,6 +21,7 @@ nav: "docs/docs-nav.md"
 * [Front matter](front-matter.html)
 * [Markdown](markdown.html)
 * [Glossary](glossary.html)
+* [Roadmap](roadmap.html)
 * [Resources](resources.html)
 
 

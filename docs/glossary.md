@@ -395,9 +395,11 @@ To set a theme for a single page, use `pagetheme` in the
 front matter like this, where you'd replace `pocodocs` with any
 theme you have available:
 
+```
 ---
 pagetheme: "pocodocs"
 ---
+```
 
 
 ## .poco directory
@@ -624,6 +626,15 @@ A theme minimally consists of:
 
 More likely the `README.md` has a list of stylesheets and Markdown
 file that define the theme's header, nav, aside, and footer.
+
+## theme directory
+
+The theme directory can be found in [root directory](#root-directory) 
+at `.poco/themes/themename`, where you'd
+replace `themename` with the name of the theme you're interested in.
+So if the theme name is Base, the theme directory 
+would be `.poco/themes/base`.
+
 
 ## theme README
 

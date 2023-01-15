@@ -316,6 +316,6 @@ That's out of the scope of this document, but you can look it up here:
 
 If you'd like to learn more about Markdown basics, see our guide at [Markdown](markdown.html)
 
-###### [Previous: Editing parts of a theme](gs-editing-parts-of-a-theme.html) [Next: Creating atheme](gs-create-theme.html)
+###### [Previous: Editing parts of a theme](gs-editing-parts-of-a-theme.html) [Next: Creating a theme](gs-create-theme.html)
 
 

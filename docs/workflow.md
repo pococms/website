@@ -292,7 +292,8 @@ don't skip the next part.
 ### Update the burger
 
 If you have mobile users, you'll need to create a
-[hamburger menu](glossary.html#burger) menu. It's a compact
+[hamburger menu](glossary.html#burger) menu in the
+[theme directory](glossary.htmle#theme-directory). It's a compact
 way to to let users navigate your site and is expected to
 omit big logos and so forth. 
 

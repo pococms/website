@@ -5,6 +5,8 @@ you can drop right into your own themes.
 
 ## Contents
 
+* [Social media icons next to heading](#social-media-icons-next-to-heading)
+* [Why PocCMS uses rem for sizes](#why-pococms-uses-rem-for-sizes)
 * [2 colors in your logo text](#2-colors-in-your-logo-text)   
 * [How to do headers using list syntax](#how-to-do-headers-using-list-syntax)  
 * [Unordered lists with no bullet characters or indentation](#unordered-lists-with-no-bullet-characters-or-indentation)
@@ -15,6 +17,95 @@ you can drop right into your own themes.
 * [Font stacks](#font-stacks)  
 * [Downloadable fonts](#downloadable-fonts)  
 * [GitHub-based files get free CDN hosting through jsdelivr.net](#github-based-files-get-free-cdn-hosting-through-jsdelivrnet)  
+* [Table tweaks](#table-tweaks)  
+* [Documenting special theme features](documenting-special-theme-features)
+
+
+## Social media icons next to heading
+
+It's nice in an article byline to show social media icons next
+to the text. This example displays them to the right of the
+text, and they can be clicked through to their respective websites. 
+
+
+### Use clear:none and float:right
+
+The images won't stay on the same line without
+the `clear:none` and `float:right`. It's the key 
+to this technique:
+
+```
+/* Social media icons hang to right of header text. */
+article>h4>a>img{
+  clear:none;
+  float:right;
+  margin-right:1rem;
+  margin-top:.2rem; 
+  height:1.2rem;
+  width:1.2rem;
+}
+```
+
+Everything but `clear:none` and `float:right` is expected to
+be tweaked. It depends on how large the icon images are, where
+they're oriented vertically, and how much space you want between them.
+
+### Move them all in from the right margin
+
+Depending on how many icons you have, you may want to pull them
+to the left somewhat. Let the `margin-right` value below
+vary according to your taste.
+ 
+```
+/* Decrease this if there are more icon images next to header.  */
+article>h4{margin-right:20%;}
+```
+
+### The final markdown
+
+Here's how you'd use the byline in Markdown form:
+
+```
+#### By Anna Utopia [![Instagram logo](../.poco/img/instagram-24px-magenta-outline.png)](https://www.instagram.com/anna.u.topia/) [![Twitter logo](../.poco/demo/twitter-24px-blue-outline.png)](https://twitter.com/anna.u.topia/)
+```
+### SEO considerations for this example
+
+You could use any block-level element. This example
+uses `h4` explicitly because headings under `h3` don't get indexed
+in search results, yet its semantica importance is probably higher
+than whatever `h5` and `h6` would be used for.
+
+## Why PocCMS uses rem for sizes
+
+PocoCMS almost never specifies sizes in `px`. It's always `rem`. 
+The reason is that `rem` values are based on the root font size.
+
+That's because it's much friendlier for users who require
+accessibility features. You can scale the web page size up or
+down and get predictable results.
+
+What's the root font size this is all based on? That's up to the
+browser (currently all browsers default to a 16px base font size). 
+PocoCMS will sometimes use a construction like this to start 
+with a base font size other than the default:
+
+```
+html * {font-size:x-large;}
+```
+Font sizes such as `x-large` are explained in  MDN's
+[font-size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size)
+article.
+
+### You're safe to use px sizing
+
+Feel free to specify exact pixel sizes in your own themes. It's
+a good practice for web page design for images especially. PocoCMS
+doesn't know in advance how you plan to use images, so it uses 
+the much more flexible system of proportions. It guarantees
+that you can use an image almost anywhere without thinking
+too much about how to design things in advance.
+
+
 
 
 ## 2 colors in your logo text
@@ -202,6 +293,10 @@ Replace `header` with whatever element you want centered.
 ```
 header {text-align:center;padding-left:0;padding-right:0;width:100%;margin-left:auto;margin-right:auto;}
 ```
+
+Why not use more modern techniques? Feel free to! The first wave of
+PocoCMS themes is purposesly designed to work with older browsers.
+
 [Return](#contents)
 
 ## Font reset
@@ -360,10 +455,8 @@ your links.
 
 ```
 a{color:blue;}
-a:link,
-a:visited {color:inherit;display:inline;} 
-a:hover,
-a:active {text-decoration:underline;} 
+a:link, a:visited {color:inherit;display:inline;} 
+a:hover,a:active {text-decoration:underline;} 
 ```
 
 [Return](#contents)
@@ -410,6 +503,78 @@ https://github.com/egoist/hack/blob/master/src/css/hack.css
 ```
 
 
+[Return](#contents)
+
+## Table tweaks
+
+Here are some ways to change table layout and display.
+If you were putting the table in the footer, you'd
+change `article>` to `footer>`.
+
+```
+/* Remove lines in all rows except header */
+article>table>tbody>tr>td{text-align:left}
+
+/* Remove lines from all rows of table except header */
+article>table>tbody>tr>td{border:none;}
+
+/* Remove lines from table header. */
+article>table>thead>tr>th{border:none;} 
+
+/* Force text to stay in one row of the same height */
+article>table{white-space:nowrap;}
+
+/* Keep the table narrow. It spaces columns closer. */
+article>table{table-layout:fixed;width:35%;}
+
+/* Make rows shorter */
+article>table>tbody>tr{line-height:.5rem;}
+
+/* Make columns 12 rem wide */
+article th{width:12rem;}
+
+/* First column is just wide enough for checkbox character */
+article th:first-child{width:1rem;}
+```
+
+[Return](#contents)
+
+## Documenting special theme features
+
+Anytime a theme does something out of the ordinary, 
+violates normal design patterns, or surfaces a feature
+the user should know, call it this way. If there
+are specific steps required to use it, mention
+them in the comments:
+
+```
+/*
+ * --------------------------------------------------
+ * Used for those bulleted
+ * lists at the beginning of an article, but with
+ * SEO powers because it calls them out using h2s
+ * that look like an unordered list. Must
+ * be preceded by an h4.
+ *
+ * It works with an h4 (byline) followed by h2s,
+ * or an h4 followed by an img followed by an h2
+ * --------------------------------------------------
+ */
+```
+
+Or:
+
+```
+/*
+ * --------------------------------------------------
+ * If you have more than one item, use an unordered list. 
+ * These styles show the first item with branding applied,
+ * any number of links following, still slightly
+ * larger than body text, and a last link that
+ * looks like a button.
+ * --------------------------------------------------
+ */
+```
 [Return](#contents)
 
 

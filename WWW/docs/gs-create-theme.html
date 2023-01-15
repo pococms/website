@@ -199,24 +199,24 @@ footer, header, hgroup, menu, nav, pre, section {
 /* sizes.css*/
 article{width:var(--article-width);height:auto;}  
 aside{width:var(--aside-width);padding-left:var(--padding-left);}  
-ol li, ul li  {margin-left:1em;}
-p,ol,ul {line-height:1.5em;padding-top:.25em;padding-bottom:.5em;}
-td,th{padding: 0.5em;}
-pre{font-size: smaller;overflow: auto;padding:1em;margin:1rem 0 1rem 0;}
+ol li, ul li  {margin-left:1rem;}
+p,ol,ul {line-height:1.5rem;padding-top:.25rem;padding-bottom:.5rem;}
+td,th{padding: 0.5rem;}
+pre{font-size: smaller;overflow: auto;padding:1rem;margin:1rem 0 1rem 0;}
 header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
-header>ul>li{padding-right:.5em;}
-nav a {margin-right:.5em;}
-footer {padding-top:2em;}
+header>ul>li{padding-right:.5rem;}
+nav a {margin-right:.5rem;}
+footer {padding-top:2rem;}
 article,nav,header,footer{padding-left:var(--padding-left);}
-article>dl>dt {padding-top:1em;}
+article>dl>dt {padding-top:1rem;}
 article>dl>dd {margin-left:0;padding-bottom:0;}
 
-h1{ font-size:2.5em;padding-top:2em;font-weight:bold; }
-h2{ font-size:2em;padding-top:1em;font-weight:bold;padding-bottom:.35em;}
-h3{ font-size:1.5em;padding-top:.5em;font-weight:bold;padding-bottom:.1em;}
-h4{ font-size:.9em;padding-top:1em;}
-h5{ font-size:.8em; }
-h6{ font-size:0.9em; }
+h1{ font-size:2.5rem;padding-top:2rem;font-weight:bold; }
+h2{ font-size:2rem;padding-top:1rem;font-weight:bold;padding-bottom:.35rem;}
+h3{ font-size:1.5rem;padding-top:.5rem;font-weight:bold;padding-bottom:.1rem;}
+h4{ font-size:.9rem;padding-top:1rem;}
+h5{ font-size:.8rem; }
+h6{ font-size:0.9rem; }
 
 
 
@@ -227,11 +227,11 @@ article>h1,article>h2,article>h3,article>h4,article>h5,article>h6 {clear:left;}
 /* Innocuous but at least legible block quote style */
 blockquote {
   width: 60%;
-  font-size: 1rem;
+  font-size: 1em;
   font-style: italic;
-  margin: .75em 4em .75em;
-  padding-left: 1em;
-  border-left: .3em solid var(--fg);
+  margin: .75rem 4rem .75rem;
+  padding-left: 1rem;
+  border-left: .3rem solid var(--fg);
 } 
 
 /* Table cells share borders */
@@ -293,44 +293,17 @@ h4{color:var(--h4-fg);}
 
 
 @media (max-width:1080px){
-  html{font-size:1.25rem;}
+  html{font-size:1.25em;}
   body{width:100%;margin:0}
   aside{display:none}
   article{margin:0;float:left;clear:left;width:100%}
 }
-@media (max-width:1000px){
-  html{font-size:1.25rem;}
+@media (max-width:768px){
+  html{font-size:1.25em;}
   nav,aside,footer{display:none}
-  article{padding:1em;}
+  article{padding:1rem;}
   article{float:left;clear:left;width:100%}
   header{display:block;}
-
-  /* Format of hamburger menu items */
-  /*
-  header ul li a {
-    color: var(--menu-a-fg);
-    color:black;
-    box-sizing: border-box;
-    display: block;
-    width: 100%;
-    border-top: 1px solid var(--burger-menu-separator-color);
-  }
-  
-  /* Actual burger icon 
-  header label {
-    color: var(--burger-menu-fg);
-    color: black;
-    display: inline-block;
-    background-color: var(--burger-menu-bg);
-    font-style: normal;
-    font-size: 1.5em;
-    padding: .5em;
-  }
-  header > ul { display:none;}
-  header > input:checked + ul   { display: block; }
-  */
-
-
 }
 
 
@@ -489,21 +462,21 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </aside>
 <article id="article-poco">
 <h1 id="creating-a-theme">Creating a theme</h1>
-<p>When you start a new site you'll probably want to alter customize a theme. The best
-practice is to make a copy of that theme first.</p>
-<h2 id="copying-a-theme">Copying a theme</h2>
-<p>It's best to copy a theme you like instead working with it directly,
-because you'll want to make numerous small changes to it in production.
+<p>When you start a new site you'll probably want to alter customize or a theme.
+Don't make changes to it directly.
+It's best to copy a theme you like and use the copy.
+You'll want to make numerous small changes to it in production.
 That way if you  make any big mistakes and want to revert, you'll have
-the factory original to fall back on.</p>
+the original to fall back on.</p>
+<h2 id="copying-a-theme">Copying a theme</h2>
 <ul>
 <li>To copy a theme, choose the theme you want to start with. Let's
-say it's <a href="https://pococms.com/docs/demos/pasteboard.html">Pasteboard</a>.</li>
+say it's <a href="https://pococms.com/docs/demos/base.html">base</a>.</li>
 <li>Decide on name of your new theme, which of course in this example will
 be <code>mytheme</code> because hey, it's all about you.</li>
 <li>Copy the theme like this:</li>
 </ul>
-<pre><code>poco -from pasteboard -to mytheme
+<pre><code>poco -from base -to mytheme
 </code></pre>
 <p>You're then informed:</p>
 <pre><code>PocoCMS mytheme created
@@ -519,7 +492,7 @@ theme: mytheme
 <li>Load the theme's <code>README.md</code> file from your project's <a href="#glossary.html#root-directory">root directory</a> by editing the file <code>.poco/themes/mytheme/README.md</code>. Obviously
 you will replace <code>mysite</code> with whatever theme name you created.</li>
 <li>It will look something like this, in the example where your
-theme was copied from the Pasteboard theme:</li>
+theme was copied from the Base theme:</li>
 </ul>
 <pre><code>---
 header: header.md
@@ -530,11 +503,8 @@ stylesheets:
 - ../../css/root.css
 - ../../css/reset.css
 - ../../css/colors.css
-- &quot;https://unpkg.com/mvp.css@1.12/mvp.css&quot;
 - ../../css/sizes.css
 - ../../css/layout.css
-- &quot;../../css/medium-skinny.css&quot;
-- &quot;pasteboard.css&quot;
 - ../../css/media.css
 ---
 </code></pre>
@@ -546,16 +516,30 @@ list:</li>
 - ../../css/root.css
 - ../../css/reset.css
 - ../../css/colors.css
-- &quot;https://unpkg.com/mvp.css@1.12/mvp.css&quot;
 - ../../css/sizes.css
 - ../../css/layout.css
-- &quot;../../css/medium-skinny.css&quot;
-- &quot;pasteboard.css&quot;
 - ../../css/media.css
 - &quot;mytheme.css&quot; 
 </code></pre>
 <p>The contents of <code>mytheme.css</code> are pretty much blank and
 will have no affect on the theme so far:</p>
+<pre><code>/* OVERRIDE FRAMEWORK SIZES */
+
+/* OVERRIDE FRAMEWORK LAYOUT */
+
+/* OVERRIDE FRAMEWORK TYPOGRAPHY AND FONTS */
+
+/* OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT &amp; DARK THEMES */
+@media (prefers-color-scheme:light) {
+:root {
+}
+}
+
+@media (prefers-color-scheme:dark) {
+:root {
+}
+}
+</code></pre>
 
 </article>
 
