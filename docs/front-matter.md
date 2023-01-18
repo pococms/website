@@ -205,7 +205,6 @@ with empty front matter like this:
 
 ## aside
 
-
 Asides appear next to the article content: [Anatomy](gs-parts-of-theme.html#anatomy).
 
 When given a filename, use the contents of that file instead of the
@@ -217,9 +216,6 @@ aside: new-aside.md
 ---
 ```
 
-[Try it](../.poco/demo/aside.html)\
-[Try it](/docs/.poco/demo/aside.html)\
-[Try it](/.poco/demo/aside.html)
 
 ##### Filename: **new-aside.md**
 
@@ -239,6 +235,14 @@ The file extension must be `.html`.
     <aside style="font-size:2em;font-weight:900;padding:0;margin:0;padding-bottom:2em;margin-top:4em;width:auto;-webkit-transform: rotateZ(-90deg);-ms-transform: rotateZ(-90deg);transform: rotateZ(-90deg);">WHAT'S UP?</aside>
 
 
+
+### Theme README.md vs. individual page
+
+If you put this in the front matter of the 
+[theme README.md](#theme-readme) file,
+it will be used on every page of the site by default.
+If you put it in the front matter of an individual page, it
+will only affect that page.
 
 See also [header](#header), [nav](#nav), and [footer](#footer) 
 
@@ -335,13 +339,20 @@ The file extension must be `.html`.
 
 
 
+### Theme README.md vs. individual page
+
+If you put this in the front matter of the 
+[theme README.md](#theme-readme) file,
+it will be used on every page of the site by default.
+If you put it in the front matter of an individual page, it
+will only affect that page.
+
 Return to [top](#alphabetical-list-of-front-matter-options)
 
 ## header 
 
 Controls behavior of the header, shown in [Anatomy](gs-parts-of-theme.html#anatomy).
 
-```
 When given a filename, uses the contents of that file instead of the
 value supplied by the theme. 
 
@@ -369,6 +380,14 @@ The file extension must be `.html`.
 ```
 <header style="font-size:3em;font-weight:900;background: #FF0000;background: linear-gradient(to left, #FF0000 76%, #ffff00 6%, #FF0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">FIRE!</header>
 ```
+
+### Theme README.md vs. individual page
+
+If you put this in the front matter of the 
+[theme README.md](#theme-readme) file,
+it will be used on every page of the site by default.
+If you put it in the front matter of an individual page, it
+will only affect that page.
 
 
 
@@ -480,6 +499,14 @@ The file extension must be `.html`.
 
 ```
 
+### Theme README.md vs. individual page
+
+If you put this in the front matter of the 
+[theme README.md](#theme-readme) file,
+it will be used on every page of the site by default.
+If you put it in the front matter of an individual page, it
+will only affect that page.
+
 
 Return to [top](#alphabetical-list-of-front-matter-options)
 
@@ -491,7 +518,7 @@ Return to [top](#alphabetical-list-of-front-matter-options)
 
 Defines a [page theme](glossary.html#page-theme) to 
 replace the global [theme](#theme) if any,
-on a per-page pgases. 
+on a per-page basis. 
 
 ```
 ---
@@ -703,7 +730,7 @@ home page.
 Return to [top](#alphabetical-list-of-front-matter-options)
 
 ## title
-The `Title` key lets you set a title for your HTML page.
+The `title` key lets you set a title for your HTML page.
 This has a number of important benefits.
 
 * It will be used for browser tabs open to that page

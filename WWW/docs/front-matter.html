@@ -25,6 +25,8 @@
   --header-height:auto;       /* Height of header */
   --burger-menu-fg:var(--fg); /* Color of the burger menu */
   --burger-menu-bg:var(--bg); /* Background color of the burger menu */
+  --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
+  --burger-menu-hover-bg:var(--bg); /* Background color ifor burger menu hover */
   --burger-menu-font-border:none; /* Border around burger menu text/character */
   --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
   --burger-menu-separator-color: var(--burger-menu-fg); /* Line between burger menu items  */
@@ -67,7 +69,9 @@
   --header-height:auto;       /* Height of header */
   --burger-menu-fg: white;    /* Color of the burger menu */
   --burger-menu-bg: black;    /* Background color of the burger menu */
-  --burger-menu-font-border:none; /* Border around burger menu text/character */
+  --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
+  --burger-menu-hover-bg:var(--bg); /* Background color ifor burger menu hover */
+   --burger-menu-font-border:none; /* Border around burger menu text/character */
   --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
   --burger-menu-separator-color: white; /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
@@ -111,6 +115,8 @@
   --header-height:auto;       /* Height of header */
   --burger-menu-fg: white;    /* Color of the burger menu */
   --burger-menu-bg: black;    /* Background color of the burger menu */
+  --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
+  --burger-menu-hover-bg:var(--bg); /* Background color ifor burger menu hover */
   --burger-menu-font-border:none; /* Border around burger menu text/character */
   --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
   --burger-menu-separator-color: white; /* Line between burger menu items  */
@@ -618,9 +624,6 @@ value supplied by the theme.</p>
 aside: new-aside.md
 ---
 </code></pre>
-<p><a href="../.poco/demo/aside.html">Try it</a><br />
-<a href="/docs/.poco/demo/aside.html">Try it</a><br />
-<a href="/.poco/demo/aside.html">Try it</a></p>
 <h5 id="filename-new-asidemd">Filename: <strong>new-aside.md</strong></h5>
 <pre><code>Announcement soon. Check the [news](news.html) page tomorrow!
 </code></pre>
@@ -631,6 +634,12 @@ The file extension must be <code>.html</code>.</p>
 <h5 id="filename-asidehtml">Filename: <strong>aside.html</strong></h5>
 <pre><code>&lt;aside style=&quot;font-size:2em;font-weight:900;padding:0;margin:0;padding-bottom:2em;margin-top:4em;width:auto;-webkit-transform: rotateZ(-90deg);-ms-transform: rotateZ(-90deg);transform: rotateZ(-90deg);&quot;&gt;WHAT'S UP?&lt;/aside&gt;
 </code></pre>
+<h3 id="theme-readmemd-vs-individual-page">Theme README.md vs. individual page</h3>
+<p>If you put this in the front matter of the
+<a href="#theme-readme">theme README.md</a> file,
+it will be used on every page of the site by default.
+If you put it in the front matter of an individual page, it
+will only affect that page.</p>
 <p>See also <a href="#header">header</a>, <a href="#nav">nav</a>, and <a href="#footer">footer</a></p>
 <p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="author">author</h2>
@@ -686,33 +695,37 @@ The file extension must be <code>.html</code>.</p>
 <h5 id="filename-footerhtml">Filename: <strong>footer.html</strong></h5>
 <pre><code>&lt;footer&gt;Prices so good it looks like a &lt;span style=&quot;padding:0 1em 0 1em;font-size:2rem;color:yellow;background-color:black;font-family:monospace&quot;&gt;CRIME SCENE!&lt;/footer&gt;
 </code></pre>
+<h3 id="theme-readmemd-vs-individual-page-1">Theme README.md vs. individual page</h3>
+<p>If you put this in the front matter of the
+<a href="#theme-readme">theme README.md</a> file,
+it will be used on every page of the site by default.
+If you put it in the front matter of an individual page, it
+will only affect that page.</p>
 <p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="header">header</h2>
 <p>Controls behavior of the header, shown in <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
-<pre><code>When given a filename, uses the contents of that file instead of the
-value supplied by the theme. 
-
+<p>When given a filename, uses the contents of that file instead of the
+value supplied by the theme.</p>
+<pre><code>---
+header: new-header.md
+---
 </code></pre>
-<hr />
-<h2 id="header-new-headermd">header: new-header.md</h2>
-<pre><code>
-##### Filename: **new-header.md**
-
+<h5 id="filename-new-headermd">Filename: <strong>new-header.md</strong></h5>
+<pre><code>Powered by PocoCMS!
 </code></pre>
-<p>Powered by PocoCMS!</p>
-<pre><code>
-### HTML header file
-
-You can also use an HTML file. If so, remember to 
-start with an HTML `&lt;header&gt;` tag end end with a `&lt;/header&gt;`.
-The file extension must be `.html`.
-
-
-##### Filename: **header.html**
-
+<h3 id="html-header-file">HTML header file</h3>
+<p>You can also use an HTML file. If so, remember to
+start with an HTML <code>&lt;header&gt;</code> tag end end with a <code>&lt;/header&gt;</code>.
+The file extension must be <code>.html</code>.</p>
+<h5 id="filename-headerhtml">Filename: <strong>header.html</strong></h5>
+<pre><code>&lt;header style=&quot;font-size:3em;font-weight:900;background: #FF0000;background: linear-gradient(to left, #FF0000 76%, #ffff00 6%, #FF0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;&quot;&gt;FIRE!&lt;/header&gt;
 </code></pre>
-<header style="font-size:3em;font-weight:900;background: #FF0000;background: linear-gradient(to left, #FF0000 76%, #ffff00 6%, #FF0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">FIRE!</header>
-```
+<h3 id="theme-readmemd-vs-individual-page-2">Theme README.md vs. individual page</h3>
+<p>If you put this in the front matter of the
+<a href="#theme-readme">theme README.md</a> file,
+it will be used on every page of the site by default.
+If you put it in the front matter of an individual page, it
+will only affect that page.</p>
 <p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="hide">hide</h2>
 <p>Suppresses the header, nav, article, aside, or footer,
@@ -722,7 +735,7 @@ shown in <a href="gs-parts-of-theme.html#anatomy">Anatomy</a>.</p>
 hide: aside, footer
 ---
 </code></pre>
-<h5 id="filename-new-headermd">Filename: <strong>new-header.md</strong></h5>
+<h5 id="filename-new-headermd-1">Filename: <strong>new-header.md</strong></h5>
 <pre><code>Powered by PocoCMS!
 </code></pre>
 <p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
@@ -777,13 +790,19 @@ The file extension must be <code>.html</code>.</p>
 &lt;nav style=&quot;text-shadow: 0 0 30px white;line-height:2em;font-weight:900;font-size:2em;color:white;background:#1F6097;text-align:center;&quot;&gt;FOGGY&lt;/nav&gt;
 
 </code></pre>
+<h3 id="theme-readmemd-vs-individual-page-3">Theme README.md vs. individual page</h3>
+<p>If you put this in the front matter of the
+<a href="#theme-readme">theme README.md</a> file,
+it will be used on every page of the site by default.
+If you put it in the front matter of an individual page, it
+will only affect that page.</p>
 <p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="header-1">header</h2>
 <p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="pagetheme">pagetheme</h2>
 <p>Defines a <a href="glossary.html#page-theme">page theme</a> to
 replace the global <a href="#theme">theme</a> if any,
-on a per-page pgases.</p>
+on a per-page basis.</p>
 <pre><code>---
 pagetheme: hero
 ---
@@ -927,7 +946,7 @@ which in this case is the home page.</p>
 home page.</p>
 <p>Return to <a href="#alphabetical-list-of-front-matter-options">top</a></p>
 <h2 id="title">title</h2>
-<p>The <code>Title</code> key lets you set a title for your HTML page.
+<p>The <code>title</code> key lets you set a title for your HTML page.
 This has a number of important benefits.</p>
 <ul>
 <li>It will be used for browser tabs open to that page</li>

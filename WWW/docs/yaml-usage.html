@@ -25,6 +25,8 @@
   --header-height:auto;       /* Height of header */
   --burger-menu-fg:var(--fg); /* Color of the burger menu */
   --burger-menu-bg:var(--bg); /* Background color of the burger menu */
+  --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
+  --burger-menu-hover-bg:var(--bg); /* Background color ifor burger menu hover */
   --burger-menu-font-border:none; /* Border around burger menu text/character */
   --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
   --burger-menu-separator-color: var(--burger-menu-fg); /* Line between burger menu items  */
@@ -67,7 +69,9 @@
   --header-height:auto;       /* Height of header */
   --burger-menu-fg: white;    /* Color of the burger menu */
   --burger-menu-bg: black;    /* Background color of the burger menu */
-  --burger-menu-font-border:none; /* Border around burger menu text/character */
+  --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
+  --burger-menu-hover-bg:var(--bg); /* Background color ifor burger menu hover */
+   --burger-menu-font-border:none; /* Border around burger menu text/character */
   --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
   --burger-menu-separator-color: white; /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
@@ -111,6 +115,8 @@
   --header-height:auto;       /* Height of header */
   --burger-menu-fg: white;    /* Color of the burger menu */
   --burger-menu-bg: black;    /* Background color of the burger menu */
+  --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
+  --burger-menu-hover-bg:var(--bg); /* Background color ifor burger menu hover */
   --burger-menu-font-border:none; /* Border around burger menu text/character */
   --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
   --burger-menu-separator-color: white; /* Line between burger menu items  */
@@ -463,18 +469,48 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <article id="article-poco">
 <h1 id="yaml-usage-in-pococms">YAML usage in PocoCMS</h1>
 <p>The optional <a href="front-matter.html">front matter</a> used in PocoCMS documents follows
-a human-readable configuration language called <a href="https://yaml.org/">YAML</a>. [
+a human-readable configuration language called <a href="https://yaml.org/">YAML</a>.
 The front matter is considered to be a separate document from the article
 itself, even though they're in the same file: the front matter
 is a YAML document in its own right. The front matter is never displayed.
 It determines how the document gets displayed and rendered into HTML.</p>
-<p>This section describes how PocoCMS uses slighly uconventional YAML conventions.</p>
+<p>Here's an example:</p>
+<h5 id="filename-indexmd">Filename: <strong>index.md</strong></h5>
+<pre><code>---
+pagetheme: pocodocs
+hide: header
+---
+hello, world.
+
+</code></pre>
+<p>As you've probably figured out, this will display a page
+with the article contents <code>hello, word.</code>, surrounded by an informal,
+colorful theme without its header.</p>
+<p>The separate YAML document is between the <code>---</code> lines.
+Those lines are delimiters. They are part of neither document.
+They act solely to enclose the YAML.</p>
+<p>After the second such  <code>---</code> line, the YAML document ends and
+your Markdown <a href="glossary.html#article">article</a> begins.</p>
+<h2 id="avoid-blank-yaml-sections">Avoid blank YAML sections</h2>
+<p>The YAML specification warns against constructions
+like the example below, where the entire YAML
+document is empty but still surrounded
+by delimiters:</p>
+<h5 id="filename-badyamldoc">Filename: <strong>badyaml.doc</strong></h5>
+<pre><code>---
+---
+↑ Just remove these if they're empty
+
+</code></pre>
+<h3 id="more-on-yaml-at-a-high-level">More on YAML at a high level</h3>
+<p>The following section describes how PocoCMS uses slighly uconventional YAML conventions.</p>
 <p>For example, here's the complete text of a page that gets displayed
 without a header:</p>
 <pre><code>---
 hide: header
 ---
-Look ma, the header disappeared!
+hello, world.
+
 </code></pre>
 <p>The <code>YAML</code> portion of the document is a single rule called <code>hide</code>.
 It consists of a key/value pair separated with a colon.</p>
@@ -500,25 +536,29 @@ styles:
 - &quot;p {font-family:'Hoefler Text', 'Nimbus Roman No9 L Regular', serif;}&quot;
 ---
 </code></pre>
-<p>This causes the body text to choose fonts from the list given, in
+<p>This causes the body text for paragraphs to choose fonts from the list given, in
 decreasing priority order. Your browser
 wil search for the font named Hoefler Text when rendering paragraphs. If
 Hoefler Text can't be found, it will attempt to use Nimbus Roman No9 L Regular
-(hell of a font name), and if all those fail it will fall back to the
+(hell of a font name) If all those fail it will fall back to the
 <code>serif</code> font, which is internal to your browser and which is guaranteed
 to be available.</p>
 <p>Sharp-eyed YAML users will notice that in both the case of <code>header</code> above
 for the <code>hide</code> rule, and <code>styles</code> for style tags, the quotes surrounding
-the value aren't strictly necessary according to YAML rules.</p>
+the value aren't strictly necessary according to YAML rules.
+For example:</p>
+<pre><code>  stylesheets:
+  - &quot;https://unpkg.com/mvp.css@1.12/mvp.css&quot;
+</code></pre>
 <p>The reason for this is that sometime characters used by CSS seem to cause
 problems with the Go template engine or the Go YAML parser, notably the
 curly brace characters <code>{</code> and <code>}</code>.</p>
-<p>Because of that we suggest double-quoting everything so there's less to
-remember. It eliminates a whole class of problems that can be otherwise
-hard to track down.</p>
+<p>Because of that we suggest double-quoting values (the left side of a rule)
+whenever there might be some ambiguity.
+It eliminates a whole class of problems that can be otherwise hard to track down.</p>
 <h2 id="comments">Comments</h2>
 <p>YAML files let you add notes or temporary strike out lines
-using comments. A comment is anything starting with the <code>#</code>
+using comments. A comment is any line starting with the <code>#</code>
 character. It causes YAML to ignore the rest of the line.
 Here are a few examples of how it might be used.</p>
 <p><strong>Comments in a Markdown page</strong></p>
@@ -529,10 +569,22 @@ styles:
 # New version:
 - &quot;p {font-family:'Hoefler Text', 'Nimbus Roman No9 L Regular', serif;}&quot;
 ---
+# Welcome!
+
+hello, world.
 </code></pre>
+<p>Although this appears to be a Markdown page, remember that
+the Markdown only starts after the second <code>---</code> delimiter.
+Everything between those delimiters is YAML, and <code>#</code> followed
+by a space specifies that YAML ignores anything that space.
+That's a comment.</p>
 <p><strong>Comments in a theme READ.me file</strong></p>
+<p>Here' another example of YAML comments, this time in a
+<a href="glossary.html#theme-readme">theme READE.me</a> page.
+Once again, comments appear in the YAML portion,
+not the markdown.</p>
 <pre><code>---
-# Need something better than just &quot;Informer&quot;
+# Need better branding than just &quot;Informer&quot;
 branding: Informer 
 
 # Original theme file is header.md

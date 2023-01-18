@@ -55,7 +55,11 @@ Image by <a href="https://pixabay.com/users/saarnews-12553488/?utm_source=link-a
 * [Mugshot](https://www.pexels.com/photo/man-person-people-sign-8382616/) 
 By https://www.pexels.com/@cottonbro/
 
-* [Pixagay Skier](https://pixabay.com/photos/man-skier-ski-skiing-snow-slopes-498473/)
+* [Achievement](https://pixabay.com/vectors/achievement-dream-opportunity-best-7281630/) Image by <a href="https://pixabay.com/users/mohamed_hassan-5229782/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=7281630">Mohamed Hassan</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=7281630">Pixabay</a>
+
+* [Pixabay woman riding to the stars](https://pixabay.com/vectors/businesswoman-target-motivation-7279428/)  Image by <a href="https://pixabay.com/users/mohamed_hassan-5229782/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=7279428">Mohamed Hassan</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=7279428">Pixabay</a>
+
+* [Pixabay Skier](https://pixabay.com/photos/man-skier-ski-skiing-snow-slopes-498473/)
 Image by <a href="https://pixabay.com/users/up-free-427519/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=498473">Oleksandr Pyrohov</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=498473">Pixabay</a>
 
 ## References

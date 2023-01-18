@@ -25,6 +25,8 @@
   --header-height:auto;       /* Height of header */
   --burger-menu-fg:var(--fg); /* Color of the burger menu */
   --burger-menu-bg:var(--bg); /* Background color of the burger menu */
+  --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
+  --burger-menu-hover-bg:var(--bg); /* Background color ifor burger menu hover */
   --burger-menu-font-border:none; /* Border around burger menu text/character */
   --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
   --burger-menu-separator-color: var(--burger-menu-fg); /* Line between burger menu items  */
@@ -67,7 +69,9 @@
   --header-height:auto;       /* Height of header */
   --burger-menu-fg: white;    /* Color of the burger menu */
   --burger-menu-bg: black;    /* Background color of the burger menu */
-  --burger-menu-font-border:none; /* Border around burger menu text/character */
+  --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
+  --burger-menu-hover-bg:var(--bg); /* Background color ifor burger menu hover */
+   --burger-menu-font-border:none; /* Border around burger menu text/character */
   --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
   --burger-menu-separator-color: white; /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
@@ -111,6 +115,8 @@
   --header-height:auto;       /* Height of header */
   --burger-menu-fg: white;    /* Color of the burger menu */
   --burger-menu-bg: black;    /* Background color of the burger menu */
+  --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
+  --burger-menu-hover-bg:var(--bg); /* Background color ifor burger menu hover */
   --burger-menu-font-border:none; /* Border around burger menu text/character */
   --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
   --burger-menu-separator-color: white; /* Line between burger menu items  */
@@ -309,16 +315,6 @@ h4{color:var(--h4-fg);}
 
 
 
-/* css2?family=Secular+One:wght@400&display=swap*/
-@font-face {
-  font-family: 'Secular One';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/secularone/v11/8QINdiTajsj_87rMuMdKypDl.ttf) format('truetype');
-}
-
-
 /* hero.css*/
 /* --------------------------------------------------
  * HEADER: 
@@ -333,8 +329,9 @@ h4{color:var(--h4-fg);}
 
 /* Centers it vertically. Old-school, I know. */
 header{padding-top:1em;padding-bottom:1em;border-bottom:1px solid gray;}
+
+/* Necessary to pull last item on header menu to the right side */
 /* Requires newer browser but degrades gracefully */
-/* Necessary to get last item on header menu to the right side */
 header ul{
     display: -webkit-flex;
     display: -ms-flex;
@@ -423,6 +420,9 @@ nav pre{
   right:0;
   top:0;
 }
+
+footer > ul > li {margin-left:0; margin-right: 1em;font-weight:900;}
+footer > ul > li > a {color:var(--fg);}
 
 /* OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT & DARK THEMES */
 @media (prefers-color-scheme:light) {
