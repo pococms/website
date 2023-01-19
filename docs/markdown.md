@@ -10,6 +10,8 @@ specification at the [CommonMark](https://commonmark.org/) site.
 
 * The rudiments of Markdown can be found at [Creating and linking to pages](gs-creating-and-linking-pages.html) in the first PocoCMS tutorial
 * [Images in Markdown](md-images-markdown.html)
+  - [Clickable image links](md-images-markdown.html#clickable-image-links)
+  - [YouTube videos](md-images-markdown.html#youtube-videos)
 * [Formatting characters in Markdown](md-formatting-characters-in-markdown.html)
   - [Bold](md-formatting-characters-in-markdown.html#bold-text-in-markdown)
   - [Italic](md-formatting-characters-in-markdown.html#italic-text-in-markdown)

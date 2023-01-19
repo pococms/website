@@ -93,7 +93,7 @@ stylesheets:
 
 ```
 
-The contents of `mytheme.css` are pretty much blank and
+The contents of the file `.poco/themes/mytheme/mytheme.css` are pretty much blank and
 will have no affect on the theme so far:
 
 
@@ -122,6 +122,7 @@ will have no affect on the theme so far:
 
 * You should be in the directory you just created named `test`. Open the file `index.md`
 and add this line to the front matter so you can see the new theme:
+
 ```
 ---
 theme: mytheme 
@@ -257,7 +258,7 @@ color (`#1C4284`), and that links will use that color too.
 ### Override CSS color rules with root
 
 Put all rules that override CSS variables in the `:root` followed by `{` and `}`. They'll be hoisted to
-the top of the priority list.
+the top of the priority list. Add this to `.poco/themes/mytheme/mytheme.css`: 
 
 ```
 :root {
@@ -273,7 +274,7 @@ the top of the priority list.
 Some users prefer light themes, but others like themes that work better at night.
 Browsers and operating systems now have built-in support for dark themes.
 
-* Update the  `@media (prefers-color-scheme:dark)` portio of `mytheme.css` with these dark theme values:
+* Update the  `@media (prefers-color-scheme:dark)` portio of `.poco/themes/mytheme/mytheme.css` with these dark theme values:
 
 ```
 @media (prefers-color-scheme:dark) {
@@ -299,7 +300,7 @@ They aren't. Their colors have been overridden and there are background/foregrou
 ### Restyle links
 
 Add this just after the comment reading `OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT & DARK THEMES`
-and just before the `@media (prefers-color-scheme:light)` code:
+and just before the `@media (prefers-color-scheme:light)` code in `.poco/themes/mytheme/mytheme.css`:
 
 ```
 header,footer {background-color:var(--html-bg);}
@@ -407,7 +408,8 @@ They're both from Google and
 are freely usable for commercial purposes. Here's the easiest way to
 use a downloadable font that's make publicly available on a CDN like Google's.
 
-Insert this line under `stylesheets` just before `../../css/type.css`:
+Insert this line under `stylesheets` just before `../../css/type.css` in your
+theme README.md file at `.poco/themes/mytheme/README.md`:
 
 ```
 - "https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:ital@0;1&display=swap" 
@@ -480,7 +482,7 @@ The Base theme is so boring it leaves all headings the same size.
 Let's fix that, because larger headings normally have more 
 semantic importance. It's a helpful cue to the reader.
 
-Just under the  `OVERRIDE FRAMEWORK SIZES` comment add this:
+Just under the  `OVERRIDE FRAMEWORK SIZES` comment in `.poco/themes/mytheme/mytheme.css` add this:
 
 
 
@@ -545,8 +547,7 @@ article>ul, article>ol {padding-bottom:1.5rem;}
 ## Make header and footer flush left
 
 This theme left-justifies the header and footer.
-Add thise code under the `OVERRIDE FRAMEWORK LAYOUT` comment.
-
+Add thise code under the `OVERRIDE FRAMEWORK LAYOUT` comment in `.poco/themes/mytheme/mytheme.css`:
 ```
 /* OVERRIDE FRAMEWORK LAYOUT */
 header,footer {padding-left:0;}
@@ -557,13 +558,13 @@ The change is small but noticeable:
 
 ![Theme with header and footer flush left](img/new-theme-flush-left.png)
 
-## Make aside default to left side
+## Make aside default to the left 
 
-You may remember that using the
-Under
-the code you just added in the `OVERRIDE FRAMEWORK LAYOUT` comment
-section append these lines:
-
+You may remember that most themes created using the PocoCMS theme framework
+let you display the aside on the [left or right side of the article](gs-parts-of-theme.html#change-sidebar-direction). You can ensure it defaults to the side you like by adding two lines
+of CSS. It defaults to the right but this blog prefers it on the left.
+Under the code you just added in the `OVERRIDE FRAMEWORK LAYOUT` 
+comment of `.poco/themes/mytheme/mytheme.css` append these lines:
 
 ```
 /* Default to article on the right, aside on the left */
@@ -571,9 +572,367 @@ article{float:right;clear:right;}
 aside{float:left;}  
 ```
 
+### Make aside default to the right 
+
+For future reference, 
+if you decide you want the aside to default on the right at a future
+date, you would reverse the meaning of those lines.
+Don't leave it that way for this tutorial. Leave it on the left.
+
+```
+/* Article on the left, aside on the right */
+article{float:left;clear:left;}
+aside{float:right;}
+```
+
+Here's how it looks on the left. We'll leave it this way for the
+rest of this tutorial.
+
+![Screenshot of new theme with aside defaulting left](img/new-theme-sidebar-left.png)
+
+## Add image to the aside
+
+Recall that the aside has a round portrait [on the aside](#creating-a-pococms-theme-with-the-framework).
+To get the same effect you'll need a square image of any size. It will be clipped to a 
+circle using CSS. There are a few steps to get there.
+
+### Decide on image dimensions
+
+If you just added the image to the aside it would look odd. Let's try that first.
+
+* Open the file `.poco/themes/mytheme/aside.md` and replace its contents with
+this line of text:
+
+```
+![Screenshot of Anna](https://cdn.jsdelivr.net/gh/pococms/poco@main/.poco/demo/anna-256x256.jpg)
+```
+
+(Feel free to supply your own image file in place of `https://cdn.jsdelivr.net/gh/pococms/poco@main/.poco/demo/anna-256x256.jpg`)
+
+Here's what it looks like:
+
+![Screenshot of aside with raw image](img/new-theme-with-raw-aside-image.png)
+
+Way too big! That's becuase images by default take up 100% of their containing element.
+It makes sense for articles, but probably not for an aside. So we need to shrink
+it to fit the aside.
+
+PocoCMS prefers relative image sizes because they're easier to scale, so in this demo we're going
+to add a style constraining the image to `6rem` in both length and width.
+One `rem` is the height of a character in its containing unit, to simplify.
+PocoCMS uses `rem` almost exclusively in its measurements.
+
+Don't add the style yet but it starts out like this:
+
+### Image files always follow a paragraph
+
+One quirk of Markdown is that if you have an image in a Markdown file, it always
+follows a paragraph (`<p>` tag in HTML). Which means that this style *will not work*:
 
 
-###### [Previous: Add a classless stylesheet to your theme](th-add-classless-css.html)
+```
+/* FAIL: constrain image in aside to 6rem x 6rem. */
+aside>img {
+  width: 6rem;
+  height: 6rem;
+}
+```
 
+At a minimum your style would have to look like this, but we're still not
+there yet:
+
+
+```
+/* Constrain image in aside to 6rem x 6rem. */
+aside>p>img {
+  width: 6rem;
+  height: 6rem;
+}
+```
+
+### Clip image to circle format
+
+
+You also need to clip the image so it appears in a circle. For various
+reasons that are somewhat annoying to get into, you set the
+`border-radius` to 50%:
+
+```
+/* Round 6rem x 6rem portrait in aside. */
+aside>p>img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+}
+```
+
+It's worth experimenting with `border-radius`, which was largely designed
+to created [rounded corners](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius). 
+For example, setting it to `border-radius: .5rem` would show the image as
+a box with midly rounded corners.
+
+### Complete style for circular portrait in aside
+
+The completed style is this. Copy and paste this under the `OVERRIDE FRAMEWORK LAYOUT` comment
+in `.poco/themes/mytheme/mytheme.css`:
+```
+/* Round portrait in aside. */
+aside>p>img {
+  width: 6rem;
+  height: 6rem;
+  overflow: hidden;
+  border-radius: 50%;
+  float:none;
+  margin: 0 auto;
+  text-align:center;
+}
+```
+
+This is how it should look:
+
+![Screenshot of aside with final round portrait styling](img/new-theme-final-portrait.png)
+
+
+
+## Adjust font size in aside
+
+In this theme, the aside employs a smaller font size. Under
+the `OVERRIDE FRAMEWORK TYPOGRAPHY AND FONTS`
+comment in `.poco/themes/mytheme/mytheme.css`, add this override:
+
+##### Filename: **.poco/themes/mytheme/mytheme.css**
+
+
+```
+aside>p{font-size:small;}
+```
+
+Append the following sample text to the aside file named `.poco/themes/mytheme/aside.md` after
+the image tag, so the file looks like this:
+
+##### Filename: **.poco/themes/mytheme/aside.md**
+
+```
+![Screenshot of Anna](https://cdn.jsdelivr.net/gh/pococms/poco@main/.poco/demo/anna-256x256.jpg)
+
+Hi. I'm Anna Utopia and this is my blog.
+
+I studied design at Montreal's [Concordia University](https://www.concordia.ca/),
+where I learned the importance of static site generators, a lesson
+that transcends space and time.
+
+I have been doing professional web design for almost 9 years 
+and have won multiple national awards. I have two rescue dogs and
+can often be found online watching those heartending Dodo videos.
+```
+
+Here's the aside with text:
+
+![Screenshot of new theme with most aside text](img/new-theme-aside-text.png)
+
+Note that the link text is bigger. That was an accident because an additional
+rule should have been added in the CSS to be more specific than
+`aside>p{font-size:small;}`, but it looks pretty good. We're leaving it as is.
+
+(But if you wanted to make it boring, you'd add to the `aside` rule
+you added a moment ago, you'd add `,aside>p>a` to the
+rule like this:)
+
+##### Filename: **.poco/themes/mytheme/mytheme.css**
+
+```
+aside>p,aside>p>a{font-size:small;}
+```
+
+
+## Create CSS for icons in aside
+
+We are missing the icons in the aside, as shown in 
+[Creating a PocoCMS theme with the framework](#creating-a-pococms-theme-with-the-framework)
+The markdown for them in `.poco/themes/mytheme/aside.md` shows some challenges.
+It looks something like this. You should copy and paste this into a separate document
+so you can see all of it at once, but we'll explain it next.
+
+```
+###### Connections
+
+[![Twitter logo](../.poco/img/twitter-24px-blue-outline.svg)](https://www.twitter.com) [![Instagram logo](../.poco/img/instagram-24px-magenta-outline.svg)](https://www.instagram.com)   [![LinkedIn](../.poco/img/linkedin-24px-blue-outline.svg)](https://linkedin.com/)  [![YouTube logo](../.poco/img/youtube-24px-red-outline.svg)](https://youtube.com)  [![Facebook logo](../.poco/img/facebook-24px-blue-outline.svg)](https://facebook.com/)   
+```
+
+This looks intimidating but it's just a bunch of repeated patterns.
+
+### Clickable image links: a review
+
+Recall from [Clickable image links](md-images-markdown.html#clickable-image-links) that
+this is the format of a clickable image link:
+
+```
+[![alt-text](image-file.ext)](https://example.com)
+```
+
+Where:
+
+* `(image-file.ext)` is the filename or URL of the image to click
+* `(https://example.com)` is the destination URL the user will click to
+*  `alt-text` is the text used for screen readers and doesn't normally display
+
+Here is the Markdown for a complete clickable link:
+
+```
+[![Twitter logo](twitter-24px-blue-outline.svg)](https://www.twitter.com)
+```
+
+The image file `twitter-24px-blue-outline.svg` in this example can be any image 
+file you like, either local or a URL. In the 
+theme demo it's actually `../.poco/img/twitter-24px-blue-outline.svg` but it's
+easier to show the slightly simplified path for these examples. The whole
+list of images creates a column of these clickable links.
+
+When you look at the column of icons in the aside for the finished theme you 
+can see they're much smaller than the 6em x 6em we already styled for the
+blogger's portrait. How does that happen? It's a key ingredient to the way
+PocoCMS themes are created: context.
+
+### How to get different image sizes for the icons in the aside
+
+CSS lets you change an element's CSS based on its relationship with other elements.
+If you wondered why the Markdown for the icons included the
+line `###### Connections`, it's because the context we are going to
+use is a level 6 [heading](glosssary.html#heading) followed by the
+icon files, which are image files like any other. They will
+appear in a column, one per row.
+
+Here's how we're going to style this column of icons:
+
+```
+/* Icons following an h6 in the aside */
+aside>h6+p>a>img {
+  width: 2rem;
+  height: 2rem;
+  overflow: hidden;
+  float:none;
+  margin: 0;
+  text-align:left;
+}
+```
+
+Let's look at this dense little bit of CSS. First is the rule, which
+shows its context. The `aside` part means the aside, obviously. The
+`h6` means a level 6 heading inside that aside. The `+p` is a slightly
+underused CSS rule that means the `<p>` paragraph tag must follow the
+level 6 heading immediately. The `>a` following means it's a link,
+and finally, the `img` is an image tag. Because it's a link, the
+image is therefore clickable.
+
+
+```
+aside>h6+p>a>img {
+}
+```
+
+The icons will be twice the size of a letter in the aside in both
+horizontal and vertical dimensions, hence this code:
+
+```
+aside>h6+p>a>img {
+  width: 2rem;
+  height: 2rem;
+}
+```
+
+The rest is pretty straightforward. `float:none` means it
+will be displayed with a new line following it. `margin:0` makes sure there's no space pushing
+in from the outside. `text-align:left` does just that, makes
+sure the icon stays to the left.
+
+```
+aside>h6+p>a>img {
+  width: 2rem;
+  height: 2rem;
+  float:none;
+  margin: 0;
+  text-align:left;
+}
+```
+
+The result is that no matter how many of these image links are
+situated next to each other, they'll be displayed one per row,
+in a left-justified column. So let's add it to the theme CSS file:
+at `.poco/themes/mytheme/mytheme.css`:
+
+##### Filename: **.poco/themes/mytheme/mytheme.css**
+
+* Add the following text after the `OVERRIDE FRAMEWORK LAYOUT` comment:
+
+```
+/* Icons following an h6 in the aside */
+aside>h6+p>a>img {
+  width: 2rem;
+  height: 2rem;
+  float:none;
+  margin: 0;
+  text-align:left;
+}
+```
+
+* Append this text to `.poco/themes/mytheme/aside.md`:
+
+##### Filename: **.poco/themes/mytheme/aside.md**
+
+```
+###### Connections
+
+[![Twitter logo](../.poco/img/twitter-24px-blue-outline.svg)](https://www.twitter.com) [![Instagram logo](../.poco/img/instagram-24px-magenta-outline.svg)](https://www.instagram.com)   [![LinkedIn](../.poco/img/linkedin-24px-blue-outline.svg)](https://linkedin.com/)  [![YouTube logo](../.poco/img/youtube-24px-red-outline.svg)](https://youtube.com)  [![Facebook logo](../.poco/img/facebook-24px-blue-outline.svg)](https://facebook.com/)   
+```
+
+And it now looks like this:
+
+![Screenshot of evolving theme with column of icons in the aside](img/new-theme-aside-icons.png)
+
+### Add a row of images to the article byline
+
+Look at the byline on the finished theme:
+
+![Screenshot showing row of icons next to byline](img/new-theme-byline-icons.png)
+
+It shows a row of clickable images next to each other *on the same line as a level 4 heading*.
+We've gone through some of the basics of images in CSS so let's take a look at the style we'll
+be using.
+
+```
+/* Social media icons hang to right of level 4 heading text */
+article>h4>a>img{
+  clear:none;
+  float:right;
+  margin-right:1rem;
+  margin-top:.2rem; 
+  height:1.2rem;
+  width:1.2rem;
+}
+```
+
+You now know that the rule `article>h4>a>img` applies to a link inside level 4 heading with an
+image: a clickable link. `height:1.2rem;width:1.2rem;` tells you that the icon
+is 1.2 times the height of the character in both vertical and horizontal dimensions,
+keeping it square. You can put any size image there and it will be exactly 1.2rem square.
+
+
+`margin-right:1rem;margin-top:.2rem;` fine-tune the spacing around the icon and aren't
+very interesting.
+
+The special sauce is here:
+
+```
+clear:none;
+float:right;
+```
+
+[float:right](https://developer.mozilla.org/en-US/docs/Web/CSS/float) causes the image to float to the right of the level 4 heading text. 
+There is an odd side effect of the `float:right` we'll discuss in a moment. 
+
+Normally an image would be displayed on a line by itself. [clear:none](https://developer.mozilla.org/en-US/docs/Web/CSS/clear) means the image isn't moved below the level 4 heading that precedes it.
+
+
+{{- /*  `.poco/themes/mytheme/mytheme.css` */ -}}
 
 

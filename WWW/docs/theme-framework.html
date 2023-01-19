@@ -474,6 +474,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </aside>
 <article id="article-poco">
 <h1 id="the-pococms-theme-framework">The PocoCMS theme framework</h1>
+<p></p>
 <p>The PocoCMS theme framework is a set of CSS and text files
 designed to make it predictable
 and fast to design attractive themes with these qualities:</p>
@@ -633,6 +634,7 @@ view of the file structure is shown below:</p>
     │   ├── root.css
     │   ├── sizes.css
     │   ├── skinny.css
+    │   ├── burger.css
     │   └── type.css
     │
     └── themes
@@ -690,6 +692,7 @@ when you <a href="themes-creating.html">create a theme</a>.</p>
 <li><a href="#layoutcss">layout.css</a></li>
 <li><a href="#typecss">type.css</a></li>
 <li><a href="#mediacolorscss">mediacolors.css</a></li>
+<li><a href="#burgercss">burger.css</a></li>
 </ul>
 <p>And optionally:</p>
 <ul>
@@ -745,7 +748,26 @@ left orientation work.</p>
 <p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/type.css">type.css</a> file sets a few font values for common use.</p>
 <h3 id="mediacolorscss">mediacolors.css</h3>
 <p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/mediacolors.css">mediacolors.css</a> file is a central location for site color values. It manages both light and dark thems.  It also handles <code>@media</code> queries
-to change behavior and appearance of your site at different screen sizes.</p>
+to change behavior and appearance of your site at different screen sizes. The default version of
+<code>mediacolors</code> removes the aside and increases font size 25% at 1080px:</p>
+<pre><code>@media (max-width:1080px){
+  html{font-size:1.25em;}
+  body{width:100%;margin:0}
+  aside{display:none}
+  article{margin:0;float:left;clear:left;width:100%}
+}
+</code></pre>
+<p>If you go below 768px it hides the nav, aside, and footer. The burger menu also appears.</p>
+<pre><code>@media (max-width:768px){
+  html{font-size:1.25em;}
+  nav,aside,footer{display:none}
+  article{padding:1rem;}
+  article{float:left;clear:left;width:100%}
+  article&gt;h1{padding-top:0;}
+}
+</code></pre>
+<p>These are only convenient defaults. You are expected to edit them
+or add more according to your own site's requirements.</p>
 <h3 id="skinnycss">skinny.css</h3>
 <p>The PocoCMS theme framework's <a href="https://github.com/pococms/poco/blob/main/.poco/css/skinny.css">skinny.css</a> file changes a theme like <a href="https://pococms.com/docs/demos/base.html">Base</a>
 into, which fills the screen, to a theme like <a href="https://pococms.com/docs/demos/skyscraper.html">Skyscraper</a>, which shows the theme in the center of the screen with unused space
@@ -756,6 +778,15 @@ to the side.</p>
 which fills the screen, to a theme like <a href="https://pococms.com/docs/demos/pasteboard.html">Pasteboard</a>, which shows the theme in the center of the screen with some unused space
 to the side</p>
 <p>See also <a href="#medium-skinnycss">medium-skinny.css</a></p>
+<h3 id="burgercss">burger.css</h3>
+<p>The PocoCMS theme framework's
+<a href="https://github.com/pococms/poco/blob/main/.poco/css/burger.css">burger.css</a> file
+defines the CSS for the <a href="glossary.html#burger-menu">burger menu</a>, so you can change
+its menu item colors, padding, the media query that sets the threshold for its appearance, and so on.
+When the burger menu appears, the normal <a href="glosssary.html#header">header</a>, is replaced
+by the burger menu. The links that the burger menu contains can be found in
+the file pointed by the <a href="glossary.html#theme-readme">theme README</a>'s <code>burger</code> entry
+in the <a href="front-matter.html#burger">front matter</a>.</p>
 <h2 id="stylesheets-in-the-themes-readmemd-file">Stylesheets in the theme's README.md file</h2>
 <p>The list of one or more stylesheets in standard Markdown unordered
 list format are required for each page that uses the theme.</p>

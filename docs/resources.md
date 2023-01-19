@@ -88,5 +88,7 @@ are 1920x1080 (10%), 1366x768 (6%), and 360x640 (6%).
 
 ## Other graphic assets
 
+* **Free CDN for your assets on GitHub!** [jsdelivr's Migrating from GitHub to jsDelivr](https://www.jsdelivr.com/github) page is an amazing
+service that lets you enter the URL of an asset like our sample image of [Anna](https://github.com/pococms/poco/blob/main/.poco/demo/anna-256x256.jpg) and make it available at high speed to anyone on the web at [https://cdn.jsdelivr.net/gh/pococms/poco@main/.poco/demo/anna-256x256.jpg](https://cdn.jsdelivr.net/gh/pococms/poco@main/.poco/demo/anna-256x256.jpg). Thanks, [jsdelivr](https://www.jsdelivr.com)!
 * [TinyPNG](https://tinypng.com/) does miracles compressing PNG files. Smaller graphics files means better SEO.
 * [CSS Gradient](https://cssgradient.io/) generator goes into more depth than you'd think It has a handy generator on the home page, but then gets into things like [CSS Gradient Text](https://cssgradient.io/blog/css-gradient-text/),  [Gradient Backgrounds](https://cssgradient.io/blog/how-to-create-a-gradient-background/), [Patterns with CSS Gradients](https://cssgradient.io/blog/gradient-patterns/), done-for-you [CSS Gradient Swatches](https://cssgradient.io/swatches/), and  much more.

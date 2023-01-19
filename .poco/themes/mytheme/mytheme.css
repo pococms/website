@@ -29,19 +29,19 @@ aside>p>img {
   text-align:center;
 }
 
+/* Icons following an h6 in the aside */
 aside>h6+p>a>img {
   width: 2rem;
   height: 2rem;
-  overflow: hidden;
   float:none;
   margin: 0;
   text-align:left;
 }
 
-/* Decrease this if there are more icon images next to header.  */
+/* Decrease this if there are more icon images next to level 4 heading  */
 article>h4{margin-right:5%;}
 
-/* Social media icons hang to right of header text. */
+/* Social media icons hang to right of level 4 heading text */
 article>h4>a>img{
   clear:none;
   float:right;

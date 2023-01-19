@@ -5,6 +5,8 @@
 * [Changing themes](gs-change-theme.html)
   - [Front matter](gs-change-theme.html#front-matter)
   - [Trying a few more themes](gs-change-theme.html#trying-a-few-more-themes)
+  - [Mobile features](gs-change-theme.html#mobile-features)
+  - [Hamburger menu](gs-change-theme.html#hamburger-menu)
 * [The parts of a PocoCMS theme](gs-parts-of-theme.html)  
   - [Header, nav, article, aside, and footer](gs-parts-of-theme.html#header-nav-article-aside-and-footer)
   - [Layout elements](gs-parts-of-theme.html#layout-elements)

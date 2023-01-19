@@ -555,7 +555,7 @@ to the <em>end</em> of the <code>stylesheets</code> list:</li>
 - mytheme.css
 
 </code></pre>
-<p>The contents of <code>mytheme.css</code> are pretty much blank and
+<p>The contents of the file <code>.poco/themes/mytheme/mytheme.css</code> are pretty much blank and
 will have no affect on the theme so far:</p>
 <pre><code>/* OVERRIDE FRAMEWORK SIZES */
 
@@ -683,7 +683,7 @@ it anytime, but frequently you'll prefer them to use the same background color.<
 color (<code>#1C4284</code>), and that links will use that color too.</p>
 <h3 id="override-css-color-rules-with-root">Override CSS color rules with root</h3>
 <p>Put all rules that override CSS variables in the <code>:root</code> followed by <code>{</code> and <code>}</code>. They'll be hoisted to
-the top of the priority list.</p>
+the top of the priority list. Add this to <code>.poco/themes/mytheme/mytheme.css</code>:</p>
 <pre><code>:root {
   --a:var(--html-bg);         /* Default link color */
   --html-bg:#1C4284;          /* Color enclosing skinny themes */
@@ -695,7 +695,7 @@ the top of the priority list.</p>
 <p>Some users prefer light themes, but others like themes that work better at night.
 Browsers and operating systems now have built-in support for dark themes.</p>
 <ul>
-<li>Update the  <code>@media (prefers-color-scheme:dark)</code> portio of <code>mytheme.css</code> with these dark theme values:</li>
+<li>Update the  <code>@media (prefers-color-scheme:dark)</code> portio of <code>.poco/themes/mytheme/mytheme.css</code> with these dark theme values:</li>
 </ul>
 <pre><code>@media (prefers-color-scheme:dark) {
   a,footer &gt; a {color:#1B4284;}
@@ -716,7 +716,7 @@ Browsers and operating systems now have built-in support for dark themes.</p>
 They aren't. Their colors have been overridden and there are background/foreground color clashes.</p>
 <h3 id="restyle-links">Restyle links</h3>
 <p>Add this just after the comment reading <code>OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT &amp; DARK THEMES</code>
-and just before the <code>@media (prefers-color-scheme:light)</code> code:</p>
+and just before the <code>@media (prefers-color-scheme:light)</code> code in <code>.poco/themes/mytheme/mytheme.css</code>:</p>
 <pre><code>header,footer {background-color:var(--html-bg);}
 header&gt;ul&gt;li&gt;a,header&gt;ul&gt;li&gt;a:hover,header&gt;ul&gt;li&gt;a:active {color:var(--bg)}
 header,footer {background-color: var(--html-bg);}
@@ -793,7 +793,8 @@ variable is used for.</p>
 <p>They're both from Google and
 are freely usable for commercial purposes. Here's the easiest way to
 use a downloadable font that's make publicly available on a CDN like Google's.</p>
-<p>Insert this line under <code>stylesheets</code> just before <code>../../css/type.css</code>:</p>
+<p>Insert this line under <code>stylesheets</code> just before <code>../../css/type.css</code> in your
+theme README.md file at <code>.poco/themes/mytheme/README.md</code>:</p>
 <pre><code>- &quot;https://fonts.googleapis.com/css2?family=Abril+Fatface&amp;family=Montserrat:ital@0;1&amp;display=swap&quot; 
 </code></pre>
 <p>The whole <code>stylesheets</code> section now looks like this:</p>
@@ -846,7 +847,7 @@ but it's the <code>header&gt;ul&gt; li:first-child &gt; a &gt; del</code> part).
 <p>The Base theme is so boring it leaves all headings the same size.
 Let's fix that, because larger headings normally have more
 semantic importance. It's a helpful cue to the reader.</p>
-<p>Just under the  <code>OVERRIDE FRAMEWORK SIZES</code> comment add this:</p>
+<p>Just under the  <code>OVERRIDE FRAMEWORK SIZES</code> comment in <code>.poco/themes/mytheme/mytheme.css</code> add this:</p>
 <pre><code>nav ul li a  {font-size:small;} 
 article{padding-top:4rem;padding-right:3rem;}
 article&gt;h1,article&gt;h2,article&gt;h3{line-height:1em;}
@@ -887,23 +888,277 @@ article&gt;ul, article&gt;ol {padding-bottom:1.5rem;}
 </code></pre>
 <h2 id="make-header-and-footer-flush-left">Make header and footer flush left</h2>
 <p>This theme left-justifies the header and footer.
-Add thise code under the <code>OVERRIDE FRAMEWORK LAYOUT</code> comment.</p>
+Add thise code under the <code>OVERRIDE FRAMEWORK LAYOUT</code> comment in <code>.poco/themes/mytheme/mytheme.css</code>:</p>
 <pre><code>/* OVERRIDE FRAMEWORK LAYOUT */
 header,footer {padding-left:0;}
 footer &gt; ul &gt; li {margin-left:0; margin-right: 1em;}
 </code></pre>
 <p>The change is small but noticeable:</p>
 <p><img src="img/new-theme-flush-left.png" alt="Theme with header and footer flush left" /></p>
-<h2 id="make-aside-default-to-left-side">Make aside default to left side</h2>
-<p>You may remember that using the
-Under
-the code you just added in the <code>OVERRIDE FRAMEWORK LAYOUT</code> comment
-section append these lines:</p>
+<h2 id="make-aside-default-to-the-left">Make aside default to the left</h2>
+<p>You may remember that most themes created using the PocoCMS theme framework
+let you display the aside on the <a href="gs-parts-of-theme.html#change-sidebar-direction">left or right side of the article</a>. You can ensure it defaults to the side you like by adding two lines
+of CSS. It defaults to the right but this blog prefers it on the left.
+Under the code you just added in the <code>OVERRIDE FRAMEWORK LAYOUT</code>
+comment of <code>.poco/themes/mytheme/mytheme.css</code> append these lines:</p>
 <pre><code>/* Default to article on the right, aside on the left */
 article{float:right;clear:right;}    
 aside{float:left;}  
 </code></pre>
-<h6 id="previous-add-a-classless-stylesheet-to-your-themeth-add-classless-csshtml"><a href="th-add-classless-css.html">Previous: Add a classless stylesheet to your theme</a></h6>
+<h3 id="make-aside-default-to-the-right">Make aside default to the right</h3>
+<p>For future reference,
+if you decide you want the aside to default on the right at a future
+date, you would reverse the meaning of those lines.
+Don't leave it that way for this tutorial. Leave it on the left.</p>
+<pre><code>/* Article on the left, aside on the right */
+article{float:left;clear:left;}
+aside{float:right;}
+</code></pre>
+<p>Here's how it looks on the left. We'll leave it this way for the
+rest of this tutorial.</p>
+<p><img src="img/new-theme-sidebar-left.png" alt="Screenshot of new theme with aside defaulting left" /></p>
+<h2 id="add-image-to-the-aside">Add image to the aside</h2>
+<p>Recall that the aside has a round portrait <a href="#creating-a-pococms-theme-with-the-framework">on the aside</a>.
+To get the same effect you'll need a square image of any size. It will be clipped to a
+circle using CSS. There are a few steps to get there.</p>
+<h3 id="decide-on-image-dimensions">Decide on image dimensions</h3>
+<p>If you just added the image to the aside it would look odd. Let's try that first.</p>
+<ul>
+<li>Open the file <code>.poco/themes/mytheme/aside.md</code> and replace its contents with
+this line of text:</li>
+</ul>
+<pre><code>![Screenshot of Anna](https://cdn.jsdelivr.net/gh/pococms/poco@main/.poco/demo/anna-256x256.jpg)
+</code></pre>
+<p>(Feel free to supply your own image file in place of <code>https://cdn.jsdelivr.net/gh/pococms/poco@main/.poco/demo/anna-256x256.jpg</code>)</p>
+<p>Here's what it looks like:</p>
+<p><img src="img/new-theme-with-raw-aside-image.png" alt="Screenshot of aside with raw image" /></p>
+<p>Way too big! That's becuase images by default take up 100% of their containing element.
+It makes sense for articles, but probably not for an aside. So we need to shrink
+it to fit the aside.</p>
+<p>PocoCMS prefers relative image sizes because they're easier to scale, so in this demo we're going
+to add a style constraining the image to <code>6rem</code> in both length and width.
+One <code>rem</code> is the height of a character in its containing unit, to simplify.
+PocoCMS uses <code>rem</code> almost exclusively in its measurements.</p>
+<p>Don't add the style yet but it starts out like this:</p>
+<h3 id="image-files-always-follow-a-paragraph">Image files always follow a paragraph</h3>
+<p>One quirk of Markdown is that if you have an image in a Markdown file, it always
+follows a paragraph (<code>&lt;p&gt;</code> tag in HTML). Which means that this style <em>will not work</em>:</p>
+<pre><code>/* FAIL: constrain image in aside to 6rem x 6rem. */
+aside&gt;img {
+  width: 6rem;
+  height: 6rem;
+}
+</code></pre>
+<p>At a minimum your style would have to look like this, but we're still not
+there yet:</p>
+<pre><code>/* Constrain image in aside to 6rem x 6rem. */
+aside&gt;p&gt;img {
+  width: 6rem;
+  height: 6rem;
+}
+</code></pre>
+<h3 id="clip-image-to-circle-format">Clip image to circle format</h3>
+<p>You also need to clip the image so it appears in a circle. For various
+reasons that are somewhat annoying to get into, you set the
+<code>border-radius</code> to 50%:</p>
+<pre><code>/* Round 6rem x 6rem portrait in aside. */
+aside&gt;p&gt;img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+}
+</code></pre>
+<p>It's worth experimenting with <code>border-radius</code>, which was largely designed
+to created <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius">rounded corners</a>.
+For example, setting it to <code>border-radius: .5rem</code> would show the image as
+a box with midly rounded corners.</p>
+<h3 id="complete-style-for-circular-portrait-in-aside">Complete style for circular portrait in aside</h3>
+<p>The completed style is this. Copy and paste this under the <code>OVERRIDE FRAMEWORK LAYOUT</code> comment
+in <code>.poco/themes/mytheme/mytheme.css</code>:</p>
+<pre><code>/* Round portrait in aside. */
+aside&gt;p&gt;img {
+  width: 6rem;
+  height: 6rem;
+  overflow: hidden;
+  border-radius: 50%;
+  float:none;
+  margin: 0 auto;
+  text-align:center;
+}
+</code></pre>
+<p>This is how it should look:</p>
+<p><img src="img/new-theme-final-portrait.png" alt="Screenshot of aside with final round portrait styling" /></p>
+<h2 id="adjust-font-size-in-aside">Adjust font size in aside</h2>
+<p>In this theme, the aside employs a smaller font size. Under
+the <code>OVERRIDE FRAMEWORK TYPOGRAPHY AND FONTS</code>
+comment in <code>.poco/themes/mytheme/mytheme.css</code>, add this override:</p>
+<h5 id="filename-pocothemesmythememythemecss">Filename: <strong>.poco/themes/mytheme/mytheme.css</strong></h5>
+<pre><code>aside&gt;p{font-size:small;}
+</code></pre>
+<p>Append the following sample text to the aside file named <code>.poco/themes/mytheme/aside.md</code> after
+the image tag, so the file looks like this:</p>
+<h5 id="filename-pocothemesmythemeasidemd">Filename: <strong>.poco/themes/mytheme/aside.md</strong></h5>
+<pre><code>![Screenshot of Anna](https://cdn.jsdelivr.net/gh/pococms/poco@main/.poco/demo/anna-256x256.jpg)
+
+Hi. I'm Anna Utopia and this is my blog.
+
+I studied design at Montreal's [Concordia University](https://www.concordia.ca/),
+where I learned the importance of static site generators, a lesson
+that transcends space and time.
+
+I have been doing professional web design for almost 9 years 
+and have won multiple national awards. I have two rescue dogs and
+can often be found online watching those heartending Dodo videos.
+</code></pre>
+<p>Here's the aside with text:</p>
+<p><img src="img/new-theme-aside-text.png" alt="Screenshot of new theme with most aside text" /></p>
+<p>Note that the link text is bigger. That was an accident because an additional
+rule should have been added in the CSS to be more specific than
+<code>aside&gt;p{font-size:small;}</code>, but it looks pretty good. We're leaving it as is.</p>
+<p>(But if you wanted to make it boring, you'd add to the <code>aside</code> rule
+you added a moment ago, you'd add <code>,aside&gt;p&gt;a</code> to the
+rule like this:)</p>
+<h5 id="filename-pocothemesmythememythemecss-1">Filename: <strong>.poco/themes/mytheme/mytheme.css</strong></h5>
+<pre><code>aside&gt;p,aside&gt;p&gt;a{font-size:small;}
+</code></pre>
+<h2 id="create-css-for-icons-in-aside">Create CSS for icons in aside</h2>
+<p>We are missing the icons in the aside, as shown in
+<a href="#creating-a-pococms-theme-with-the-framework">Creating a PocoCMS theme with the framework</a>
+The markdown for them in <code>.poco/themes/mytheme/aside.md</code> shows some challenges.
+It looks something like this. You should copy and paste this into a separate document
+so you can see all of it at once, but we'll explain it next.</p>
+<pre><code>###### Connections
+
+[![Twitter logo](../.poco/img/twitter-24px-blue-outline.svg)](https://www.twitter.com) [![Instagram logo](../.poco/img/instagram-24px-magenta-outline.svg)](https://www.instagram.com)   [![LinkedIn](../.poco/img/linkedin-24px-blue-outline.svg)](https://linkedin.com/)  [![YouTube logo](../.poco/img/youtube-24px-red-outline.svg)](https://youtube.com)  [![Facebook logo](../.poco/img/facebook-24px-blue-outline.svg)](https://facebook.com/)   
+</code></pre>
+<p>This looks intimidating but it's just a bunch of repeated patterns.</p>
+<h3 id="clickable-image-links-a-review">Clickable image links: a review</h3>
+<p>Recall from <a href="md-images-markdown.html#clickable-image-links">Clickable image links</a> that
+this is the format of a clickable image link:</p>
+<pre><code>[![alt-text](image-file.ext)](https://example.com)
+</code></pre>
+<p>Where:</p>
+<ul>
+<li><code>(image-file.ext)</code> is the filename or URL of the image to click</li>
+<li><code>(https://example.com)</code> is the destination URL the user will click to</li>
+<li><code>alt-text</code> is the text used for screen readers and doesn't normally display</li>
+</ul>
+<p>Here is the Markdown for a complete clickable link:</p>
+<pre><code>[![Twitter logo](twitter-24px-blue-outline.svg)](https://www.twitter.com)
+</code></pre>
+<p>The image file <code>twitter-24px-blue-outline.svg</code> in this example can be any image
+file you like, either local or a URL. In the
+theme demo it's actually <code>../.poco/img/twitter-24px-blue-outline.svg</code> but it's
+easier to show the slightly simplified path for these examples. The whole
+list of images creates a column of these clickable links.</p>
+<p>When you look at the column of icons in the aside for the finished theme you
+can see they're much smaller than the 6em x 6em we already styled for the
+blogger's portrait. How does that happen? It's a key ingredient to the way
+PocoCMS themes are created: context.</p>
+<h3 id="how-to-get-different-image-sizes-for-the-icons-in-the-aside">How to get different image sizes for the icons in the aside</h3>
+<p>CSS lets you change an element's CSS based on its relationship with other elements.
+If you wondered why the Markdown for the icons included the
+line <code>###### Connections</code>, it's because the context we are going to
+use is a level 6 <a href="glosssary.html#heading">heading</a> followed by the
+icon files, which are image files like any other. They will
+appear in a column, one per row.</p>
+<p>Here's how we're going to style this column of icons:</p>
+<pre><code>/* Icons following an h6 in the aside */
+aside&gt;h6+p&gt;a&gt;img {
+  width: 2rem;
+  height: 2rem;
+  overflow: hidden;
+  float:none;
+  margin: 0;
+  text-align:left;
+}
+</code></pre>
+<p>Let's look at this dense little bit of CSS. First is the rule, which
+shows its context. The <code>aside</code> part means the aside, obviously. The
+<code>h6</code> means a level 6 heading inside that aside. The <code>+p</code> is a slightly
+underused CSS rule that means the <code>&lt;p&gt;</code> paragraph tag must follow the
+level 6 heading immediately. The <code>&gt;a</code> following means it's a link,
+and finally, the <code>img</code> is an image tag. Because it's a link, the
+image is therefore clickable.</p>
+<pre><code>aside&gt;h6+p&gt;a&gt;img {
+}
+</code></pre>
+<p>The icons will be twice the size of a letter in the aside in both
+horizontal and vertical dimensions, hence this code:</p>
+<pre><code>aside&gt;h6+p&gt;a&gt;img {
+  width: 2rem;
+  height: 2rem;
+}
+</code></pre>
+<p>The rest is pretty straightforward. <code>float:none</code> means it
+will be displayed with a new line following it. <code>margin:0</code> makes sure there's no space pushing
+in from the outside. <code>text-align:left</code> does just that, makes
+sure the icon stays to the left.</p>
+<pre><code>aside&gt;h6+p&gt;a&gt;img {
+  width: 2rem;
+  height: 2rem;
+  float:none;
+  margin: 0;
+  text-align:left;
+}
+</code></pre>
+<p>The result is that no matter how many of these image links are
+situated next to each other, they'll be displayed one per row,
+in a left-justified column. So let's add it to the theme CSS file:
+at <code>.poco/themes/mytheme/mytheme.css</code>:</p>
+<h5 id="filename-pocothemesmythememythemecss-2">Filename: <strong>.poco/themes/mytheme/mytheme.css</strong></h5>
+<ul>
+<li>Add the following text after the <code>OVERRIDE FRAMEWORK LAYOUT</code> comment:</li>
+</ul>
+<pre><code>/* Icons following an h6 in the aside */
+aside&gt;h6+p&gt;a&gt;img {
+  width: 2rem;
+  height: 2rem;
+  float:none;
+  margin: 0;
+  text-align:left;
+}
+</code></pre>
+<ul>
+<li>Append this text to <code>.poco/themes/mytheme/aside.md</code>:</li>
+</ul>
+<h5 id="filename-pocothemesmythemeasidemd-1">Filename: <strong>.poco/themes/mytheme/aside.md</strong></h5>
+<pre><code>###### Connections
+
+[![Twitter logo](../.poco/img/twitter-24px-blue-outline.svg)](https://www.twitter.com) [![Instagram logo](../.poco/img/instagram-24px-magenta-outline.svg)](https://www.instagram.com)   [![LinkedIn](../.poco/img/linkedin-24px-blue-outline.svg)](https://linkedin.com/)  [![YouTube logo](../.poco/img/youtube-24px-red-outline.svg)](https://youtube.com)  [![Facebook logo](../.poco/img/facebook-24px-blue-outline.svg)](https://facebook.com/)   
+</code></pre>
+<p>And it now looks like this:</p>
+<p><img src="img/new-theme-aside-icons.png" alt="Screenshot of evolving theme with column of icons in the aside" /></p>
+<h3 id="add-a-row-of-images-to-the-article-byline">Add a row of images to the article byline</h3>
+<p>Look at the byline on the finished theme:</p>
+<p><img src="img/new-theme-byline-icons.png" alt="Screenshot showing row of icons next to byline" /></p>
+<p>It shows a row of clickable images next to each other <em>on the same line as a level 4 heading</em>.
+We've gone through some of the basics of images in CSS so let's take a look at the style we'll
+be using.</p>
+<pre><code>/* Social media icons hang to right of level 4 heading text */
+article&gt;h4&gt;a&gt;img{
+  clear:none;
+  float:right;
+  margin-right:1rem;
+  margin-top:.2rem; 
+  height:1.2rem;
+  width:1.2rem;
+}
+</code></pre>
+<p>You now know that the rule <code>article&gt;h4&gt;a&gt;img</code> applies to a link inside level 4 heading with an
+image: a clickable link. <code>height:1.2rem;width:1.2rem;</code> tells you that the icon
+is 1.2 times the height of the character in both vertical and horizontal dimensions,
+keeping it square. You can put any size image there and it will be exactly 1.2rem square.</p>
+<p><code>margin-right:1rem;margin-top:.2rem;</code> fine-tune the spacing around the icon and aren't
+very interesting.</p>
+<p>The special sauce is here:</p>
+<pre><code>clear:none;
+float:right;
+</code></pre>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float">float:right</a> causes the image to float to the right of the level 4 heading text.
+There is an odd side effect of the <code>float:right</code> we'll discuss in a moment.</p>
+<p>Normally an image would be displayed on a line by itself. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clear">clear:none</a> means the image isn't moved below the level 4 heading that precedes it.</p>
+<p></p>
 
 </article>
 

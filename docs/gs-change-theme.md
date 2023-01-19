@@ -68,7 +68,7 @@ pagetheme: electro
 
 ![Screenshot of PocoCMS Electro theme](img/home-page-theme-electro-1366x768.png)
 
-* Finally, let's choose something generic: the Base theme. 
+* Let's go back to something generic: the Base theme. 
 Base is, well, the basis of all PocoCMS themes that use the [framework](theme-framework.html).
 
 ```
@@ -80,7 +80,34 @@ pagetheme: base
 
 ![Screenshot of PocoCMS Base theme](img/home-page-theme-base-1366x768.png)
 
+## Mobile features
 
+* Drag the corner of your web page slowly to shrink it until the aside disappears
+and the text size increases:
+
+![Screenshot of PocoCMS Base theme in mobile form](img/base-theme-mobile-1.png)
+
+When the web page gets narrower than 1080 pixels, the theme's aside is hidden to
+conserve screen real estate. The font size increases somewhat. The 1080px figure
+is configurable in the [.poco/css/mediacolors.css](theme-framework.html#mediacolors)
+
+## Hamburger menu
+
+* Drag the corner of your web page to shrink it even further. The header gets replaced
+by a [hamburger menu](glossary.html#burger-menu).
+
+![Screenshot of the PocoCMS Base theme with closed burger menu](img/base-theme-burger-1.png)
+
+When the web page gets narrower than 768 pixels, the theme's aside, nav, and footer are hidden to
+conserve screen real estate. The font size increases. The header is replaced with 
+the burger menu. The 768px figure
+is configurable in the [.poco/css/mediacolors.css](theme-framework.html#mediacolorscss) and
+[.poco/css/burger.css](theme-framework.html#burgercss) 
+
+* Click the hamburger menu and it opens up, showing a customized menu that may or may
+not match the header menu:
+
+![Screenshot of the PocoCMS Base theme with burger menu clicked](img/base-theme-burger-2.png)
 
 
 
