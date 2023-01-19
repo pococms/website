@@ -69,7 +69,17 @@ nav a:active,nav a:hover {color:var(--html-bg);}
 aside>p> a {color:var(--fg);}
 footer>ul>li>a,footer>ul>li>a:hover,footer>ul>li>a:active {color:var(--bg);}
 
+
+:root {
+  --burger-menu-padding:1em;
+  --burger-menu-fg:var(--bg);
+  --burger-menu-bg:var(--fg);
+}
+
 @media (prefers-color-scheme:light) {
+header#header-poco-burger label {
+  padding:2em;
+}
 :root {
   --a:var(--html-bg);         /* Default link color */
   --fg:#252627;               /* Default text color */ 

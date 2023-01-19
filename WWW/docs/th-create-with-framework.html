@@ -31,6 +31,8 @@
   --burger-menu-hover-bg:var(--bg); /* Background color ifor burger menu hover */
   --burger-menu-font-border:none; /* Border around burger menu text/character */
   --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
+  --burger-menu-margin:0;     /* Amount of space pushing into the burger menu icon */
+  --burger-menu-padding:0;    /* Amount of space surrounding the burger menu icon */
   --burger-menu-separator-color: var(--burger-menu-fg); /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
   --nav-bg:var(--bg);         /* Background color of nav */
@@ -1158,6 +1160,117 @@ float:right;
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float">float:right</a> causes the image to float to the right of the level 4 heading text.
 There is an odd side effect of the <code>float:right</code> we'll discuss in a moment.</p>
 <p>Normally an image would be displayed on a line by itself. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clear">clear:none</a> means the image isn't moved below the level 4 heading that precedes it.</p>
+<ul>
+<li>Add the CSS we've been studying under the <code>OVERRIDE FRAMEWORK LAYOUT</code> in
+<code>.poco/themes/mytheme/mytheme.css</code>:</li>
+</ul>
+<p>Filename: <strong>.poco/themes/mytheme/mytheme.css</strong></p>
+<pre><code>/* Social media icons hang to right of level 4 heading text */
+article&gt;h4&gt;a&gt;img{
+  clear:none;
+  float:right;
+  margin-right:1rem;
+  margin-top:.2rem; 
+  height:1.2rem;
+  width:1.2rem;
+}
+</code></pre>
+<ul>
+<li>Copy and paste this to replace the contents of your home page at <code>index.md</code> in your <a href="glossary.html#root-directory">root directory</a>:</li>
+</ul>
+<p>Filename: <strong>.index.md</strong></p>
+<pre><code>---
+pagetheme: mytheme
+hide: nav
+aside: aside.md
+---
+##### Blog
+
+# Static Site Generators
+
+
+#### By **Anna Utopia** | *December 3*   [![LinkedIn](../.poco/img/linkedin-24px-blue-outline.svg)](https://linkedin.com/) [![YouTube logo](../.poco/img/youtube-24px-red-outline.svg)](https://youtube.com/@pococms/)   [![Facebook logo](../.poco/img/facebook-24px-blue-outline.svg)](https://facebook.com/)   [![Instagram logo](../.poco/img/instagram-24px-magenta-outline.svg)](https://www.instagram.com/)  [![Twitter logo](../.poco/img/twitter-24px-blue-outline.svg)](https://www.instagram.com)
+
+As you may have noted from my bio, it's almost like I was born to
+promote the idea of static site generators. If the universe actually
+were a simulation, I would be a character designed solely to move
+the idea of static site generators forward.
+</code></pre>
+<p>And the result is as it will be on the finished theme, although other elements on
+the page are still unfinished:</p>
+<p><img src="img/new-theme-byline-icons-beginning.png" alt="Screen shot of byline with row of icons to its right" /></p>
+<h2 id="the-burger-menu">The burger menu</h2>
+<p>The PocoCMS theme framework supports <a href="glossary.html#burger-menu">hamburger menus</a>, which replace the
+header at mobile sizes to save space on your screen. Let's take a look.</p>
+<ul>
+<li>Drag the corner of your web page inward to narrow its width to mobile phone size.</li>
+</ul>
+<p><img src="img/new-theme-burger-closed.png" alt="Screen shot of theme with closed burger menu" /></p>
+<p>As you can see, the header is replaced by an icon that supposedly looks a bit like a hamburger,
+so it's called the <em>hamburger</em> or <em>burger</em> menu.</p>
+<ul>
+<li>Click the burger menu icon.</li>
+</ul>
+<p>A new menu appears, different from the one in the wide version of the header.</p>
+<p><img src="img/new-theme-burger-open.png" alt="Screen shot of theme with open burger menu" /></p>
+<p>You can alter the appearance of the burger menu. First let's replace the icon with something
+understandable, like, say... the word <code>menu</code>.</p>
+<h3 id="replace-burger-menu-icon-with-text">Replace burger menu icon with text</h3>
+<p>Find the <code>burgericon:</code> line in your theme README.md file at <code>.poco/themes/mytheme/README.md</code>:</p>
+<h5 id="filename-pocothemesmythemereadmemd">Filename: <strong>.poco/themes/mytheme/README.md</strong></h5>
+<pre><code>burgericon: &quot;&amp;#9776;&quot;
+</code></pre>
+<p>The HTML Unicode value is just <a href="https://unicode-table.com/en/2630/">one way to represent</a>
+the hamburger icon, but we're going to nuke it completely and replace it with a word.</p>
+<ul>
+<li>Change the value of the <code>burgericon:</code> rule in your theme README.md file at <code>.poco/themes/mytheme/README.md</code>
+to the word <code>menu</code>:</li>
+</ul>
+<h5 id="filename-pocothemesmythemereadmemd-1">Filename: <strong>.poco/themes/mytheme/README.md</strong></h5>
+<pre><code>burgericon: &quot;menu&quot;
+</code></pre>
+<h3 id="reverse-the-burger-menu-icon-colors">Reverse the burger menu icon colors</h3>
+<ul>
+<li>Add this code to <code>.poco/themes/mytheme/mytheme.css</code> after the comment <code>OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT &amp; DARK THEMES</code>:</li>
+</ul>
+<pre><code>:root {
+  --burger-menu-padding:1em;
+  --burger-menu-fg:var(--bg);
+  --burger-menu-bg:var(--fg);
+}
+</code></pre>
+<p>It's not in either the dark or light theme sections because it applies to both.</p>
+<ul>
+<li>Look at the burger menu now:</li>
+</ul>
+<p><img src="img/new-theme-format-burger-menu.png" alt="Screenshot of burger menu that actually says menu" /></p>
+<h3 id="edit-the-burger-menu-links">Edit the burger menu links</h3>
+<p>Let's imagine that this blog needs different links for the burger menu.</p>
+<ul>
+<li>Open the file <code>.poco/themes/mytheme/burger.md</code>, which is pointed to by the <code>burger</code> portion of your theme README.md file.</li>
+</ul>
+<p>The file can be named anything, for example. <code>newburger.md</code>, as long as you change the
+file <code>burger</code> points to. By convention the PocoCMS theme framework just uses the name
+of the layout element as its filename.</p>
+<p>The contents are an <a href="md-lines-lists-blocks.html#markdown-unordered-list-syntax">unordered list</a> of
+links, same as most headers and navs.</p>
+<h5 id="filename-pocothemesmythemeburgermd">Filename: <strong>.poco/themes/mytheme/burger.md</strong></h5>
+<pre><code>- [Home](/)
+- [Services](#)
+- [Pricing](#)
+- [Contact](#)
+- [About](#)
+</code></pre>
+<ul>
+<li>Edit the list like this. Feel free to replace these links with your own.</li>
+</ul>
+<h5 id="filename-pocothemesmythemeburgermd-1">Filename: <strong>.poco/themes/mytheme/burger.md</strong></h5>
+<pre><code>* [Home](/)
+* [Graphic design](#)
+* [Themes for sale](#)
+</code></pre>
+<p>Here are the new links:</p>
+<p><img src="img/new-theme-format-burger-links.png" alt="Screenshot of edited burger menu links" /></p>
 <p></p>
 
 </article>

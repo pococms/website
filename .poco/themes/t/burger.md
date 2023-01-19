@@ -1,8 +1,4 @@
-- [Home](/)
-- [Services](#)
-- [Pricing](#)
-- [Contact](#)
-- [About](#)
-
-
+* [Home](/)
+* [Graphic design](#)
+* [Themes for sale](#)
 

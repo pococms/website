@@ -20,6 +20,8 @@
   --burger-menu-hover-bg:var(--bg); /* Background color ifor burger menu hover */
   --burger-menu-font-border:none; /* Border around burger menu text/character */
   --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
+  --burger-menu-margin:0;     /* Amount of space pushing into the burger menu icon */
+  --burger-menu-padding:0;    /* Amount of space surrounding the burger menu icon */
   --burger-menu-separator-color: var(--burger-menu-fg); /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
   --nav-bg:var(--bg);         /* Background color of nav */
