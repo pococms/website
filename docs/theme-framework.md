@@ -19,6 +19,7 @@ HTML) on either side of the page
 * Support optional header, navbars, asides, and footers
 * Hide header, navbars, asides, or footers on a per-page basis
 * Replace header, navbars, asides, or footers on a per-page basis
+* Easy addition of [hamburger menus](glossary.html#burger-menu)
 * Are [SEO-optimized](seo.html) right out of the box, making it easier for your sites
 * Use few or no CSS [classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors) or [ids](https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors).
 
@@ -538,6 +539,38 @@ overridden by the file called `news-update.md` (use any filename you want).
 ```
 If you used beta version 10.0.9, please **[upgrade now](beta-10-0-0.html)**
 ```
+
+### Hamburger menu support
+
+
+Most themes support [hamburger menus](glossary.html#burger), which appear when
+the web page shrinks to something like mobile phone size. These replace 
+the normal [header](glossary.html#header) automatically.
+
+To get hamburger menu support README files require two entries:
+
+Filename: theme's **README.md**
+
+```
+burgericon: "&#9776;"
+burger: burger.md
+```
+
+The `burgericon` is the indicator that appears when the normal header is replace.
+It can be a character, as in the example above, or a string, such as `MENU`.
+
+
+The Markdown file for the burger menu itself, normally but not necessarily called
+`burger.md`, contains the same kind of unordered list you'd see for a header
+or nav menu, for example:
+
+```
+- [MySite](https://example.com)
+- [PocoCMS](https://pococms.com)
+- [Github](#)
+- [Profile](#)
+```
+
 
 ## Code generation
 

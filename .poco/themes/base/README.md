@@ -4,8 +4,7 @@ nav: nav.md
 aside: aside.md
 footer: footer.md
 
-hicon: "&#9776;"
-#hicon: "MENU"
+burgericon: "&#9776;"
 
 burger: burger.md
 

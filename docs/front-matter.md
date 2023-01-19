@@ -272,9 +272,12 @@ Return to [top](#alphabetical-list-of-front-matter-options)
 
 ## burger
 
+{{- /* TODO: Screenshot */ -}}
+
 Defines the list of links used for the [burger menu](glossary.html#burger-menu), 
 a fallback menu meant to appears only in small screen formats.
-It's an alternate to the [header](glossary.html#header), which
+It's part of the [theme README](#theme-readme) and is
+used an alternate to the [header](glossary.html#header), which
 is often too large for a phone.
 
 
@@ -287,7 +290,15 @@ like so:
 - [Demos](https://pococms.com/docs/theme-demos.html)
 ```
 
+You can change what the burger menu icon (indicator) looks like. See [burgericon](#burgericon).
+
 Return to [top](#alphabetical-list-of-front-matter-options)
+
+## burgericon
+
+Character or word representing the [burger menu](#burger-menu).
+
+{{- /* TODO: Screenshot */ -}}
 
 ## description
 

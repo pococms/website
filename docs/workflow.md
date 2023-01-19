@@ -1,3 +1,4 @@
+{{- /* Downloadable fonts should be downloaded to your site */ -}}
 # PocoCMS workflow
 
 Here's an idea of how you'll typically create a PocoCMS project
@@ -292,7 +293,7 @@ don't skip the next part.
 ### Update the burger
 
 If you have mobile users, you'll need to create a
-[hamburger menu](glossary.html#burger) menu in the
+[hamburger menu](glossary.html#burger-menu) menu in the
 [theme directory](glossary.htmle#theme-directory). It's a compact
 way to to let users navigate your site and is expected to
 omit big logos and so forth. 
@@ -310,7 +311,17 @@ your common sense. The links should be few, and they should
 be the most helpful ones for a user in a hurry, and 
 not close to a desktop machine. 
 
-## What each page should have
+### Update the burger icon
+
+The most common representation of the hamburger menu is a Unicode character
+but you can make it a string, for example:
+
+Filename: theme **README.md**
+```
+burgericon: 'MENU'
+```
+
+## Article checklist
 
 * Ensure each page of your site should has a unique 
 [description](front-matter.html#description) and 

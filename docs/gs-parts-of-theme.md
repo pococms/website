@@ -159,5 +159,29 @@ you know... it's blank. Ah, what the heck.
 
 ![Screen shot of Informer theme with EVERYTHING suppressed](img/home-page-informer-blank-all-suppressed.png)
 
+## Change sidebar direction
+
+One super handy featgure of themes created using the PocoCMS theme framework is that
+you can normally choose which side of the page an aside appears on. Just
+add `sidebar: left` or `sidebar: right` to the front matter. Note in the
+previous images that the aside defaults to the right for the Informer theme.
+You can change the side it appears on any page by adding this to the
+page front matter:
+
+```
+---
+pagetheme: informer
+sidebar: left
+---
+# Welcome to mysite
+
+Hello from https://example.com. Our site is changing quickly.
+```
+
+Et voilà:
+
+![Screenshot of Informer theme with aside on left](img/informer-theme-left-sidebar.png)
+
+
 
 ###### [Previous: Changing the theme](gs-change-theme.html) [Next: Hiding parts of a PocoCMS theme globally](gs-hide-theme-parts-globally.html)

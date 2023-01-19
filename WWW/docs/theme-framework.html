@@ -23,6 +23,8 @@
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
   --header-height:auto;       /* Height of header */
+  --burger-fg:var(--fg);      /* Text color of burger menu items */
+  --burger-bg:var(--bg);      /* Background color of burger menu items */
   --burger-menu-fg:var(--fg); /* Color of the burger menu */
   --burger-menu-bg:var(--bg); /* Background color of the burger menu */
   --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
@@ -44,7 +46,7 @@
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
   --article-width:80%;        /* Should add up to 100% with --aside-width */
-  --aside-width:20%;          /* Should add up to 100% with --aside-width */
+  --aside-width:20%;          /* Should add up to 100% with --article-width */
   --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
@@ -67,13 +69,15 @@
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
   --header-height:auto;       /* Height of header */
-  --burger-menu-fg: white;    /* Color of the burger menu */
-  --burger-menu-bg: black;    /* Background color of the burger menu */
+  --burger-fg:var(--fg);      /* Text color of burger menu items */
+  --burger-bg:var(--bg);      /* Background color of burger menu items */
+  --burger-menu-fg:var(--fg); /* Color of the burger menu */
+  --burger-menu-bg:var(--bg); /* Background color of the burger menu */
   --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
   --burger-menu-hover-bg:var(--bg); /* Background color ifor burger menu hover */
-   --burger-menu-font-border:none; /* Border around burger menu text/character */
+  --burger-menu-font-border:none; /* Border around burger menu text/character */
   --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
-  --burger-menu-separator-color: white; /* Line between burger menu items  */
+  --burger-menu-separator-color: var(--burger-menu-fg); /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
   --nav-bg:var(--bg);         /* Background color of nav */
   --aside-fg:var(--fg);       /* Text color of aside */
@@ -88,7 +92,7 @@
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
   --article-width:80%;        /* Should add up to 100% with --aside-width */
-  --aside-width:20%;          /* Should add up to 100% with --aside-width */
+  --aside-width:20%;          /* Should add up to 100% with --article-width */
   --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
@@ -113,13 +117,15 @@
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
   --header-height:auto;       /* Height of header */
-  --burger-menu-fg: white;    /* Color of the burger menu */
-  --burger-menu-bg: black;    /* Background color of the burger menu */
+  --burger-fg:var(--fg);      /* Text color of burger menu items */
+  --burger-bg:var(--bg);      /* Background color of burger menu items */
+  --burger-menu-fg:var(--fg); /* Color of the burger menu */
+  --burger-menu-bg:var(--bg); /* Background color of the burger menu */
   --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
   --burger-menu-hover-bg:var(--bg); /* Background color ifor burger menu hover */
   --burger-menu-font-border:none; /* Border around burger menu text/character */
   --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
-  --burger-menu-separator-color: white; /* Line between burger menu items  */
+  --burger-menu-separator-color: var(--burger-menu-fg); /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
   --nav-bg:var(--bg);         /* Background color of nav */
   --aside-fg:var(--fg);       /* Text color of aside */
@@ -134,7 +140,7 @@
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
   --article-width:80%;        /* Should add up to 100% with --aside-width */
-  --aside-width:20%;          /* Should add up to 100% with --aside-width */
+  --aside-width:20%;          /* Should add up to 100% with --article-width */
   --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:black;            /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
@@ -309,7 +315,7 @@ h4{color:var(--h4-fg);}
   nav,aside,footer{display:none}
   article{padding:1rem;}
   article{float:left;clear:left;width:100%}
-  header{display:block;}
+  article>h1{padding-top:0;}
 }
 
 
@@ -487,6 +493,7 @@ HTML) on either side of the page</li>
 <li>Support optional header, navbars, asides, and footers</li>
 <li>Hide header, navbars, asides, or footers on a per-page basis</li>
 <li>Replace header, navbars, asides, or footers on a per-page basis</li>
+<li>Easy addition of <a href="glossary.html#burger-menu">hamburger menus</a></li>
 <li>Are <a href="seo.html">SEO-optimized</a> right out of the box, making it easier for your sites</li>
 <li>Use few or no CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors">classes</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors">ids</a>.</li>
 </ul>
@@ -876,6 +883,25 @@ Beta users should update immediately. See the news announcement above.
 overridden by the file called <code>news-update.md</code> (use any filename you want).</p>
 <h5 id="file-news-updatemd">File: <strong>news-update.md</strong></h5>
 <pre><code>If you used beta version 10.0.9, please **[upgrade now](beta-10-0-0.html)**
+</code></pre>
+<h3 id="hamburger-menu-support">Hamburger menu support</h3>
+<p>Most themes support <a href="glossary.html#burger">hamburger menus</a>, which appear when
+the web page shrinks to something like mobile phone size. These replace
+the normal <a href="glossary.html#header">header</a> automatically.</p>
+<p>To get hamburger menu support README files require two entries:</p>
+<p>Filename: theme's <strong>README.md</strong></p>
+<pre><code>burgericon: &quot;&amp;#9776;&quot;
+burger: burger.md
+</code></pre>
+<p>The <code>burgericon</code> is the indicator that appears when the normal header is replace.
+It can be a character, as in the example above, or a string, such as <code>MENU</code>.</p>
+<p>The Markdown file for the burger menu itself, normally but not necessarily called
+<code>burger.md</code>, contains the same kind of unordered list you'd see for a header
+or nav menu, for example:</p>
+<pre><code>- [MySite](https://example.com)
+- [PocoCMS](https://pococms.com)
+- [Github](#)
+- [Profile](#)
 </code></pre>
 <h2 id="code-generation">Code generation</h2>
 <p>PocoCMS tries hard to avoid magic. For example, you normally know

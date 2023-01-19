@@ -23,6 +23,8 @@
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
   --header-height:auto;       /* Height of header */
+  --burger-fg:var(--fg);      /* Text color of burger menu items */
+  --burger-bg:var(--bg);      /* Background color of burger menu items */
   --burger-menu-fg:var(--fg); /* Color of the burger menu */
   --burger-menu-bg:var(--bg); /* Background color of the burger menu */
   --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
@@ -44,7 +46,7 @@
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
   --article-width:80%;        /* Should add up to 100% with --aside-width */
-  --aside-width:20%;          /* Should add up to 100% with --aside-width */
+  --aside-width:20%;          /* Should add up to 100% with --article-width */
   --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
@@ -67,13 +69,15 @@
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
   --header-height:auto;       /* Height of header */
-  --burger-menu-fg: white;    /* Color of the burger menu */
-  --burger-menu-bg: black;    /* Background color of the burger menu */
+  --burger-fg:var(--fg);      /* Text color of burger menu items */
+  --burger-bg:var(--bg);      /* Background color of burger menu items */
+  --burger-menu-fg:var(--fg); /* Color of the burger menu */
+  --burger-menu-bg:var(--bg); /* Background color of the burger menu */
   --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
   --burger-menu-hover-bg:var(--bg); /* Background color ifor burger menu hover */
-   --burger-menu-font-border:none; /* Border around burger menu text/character */
+  --burger-menu-font-border:none; /* Border around burger menu text/character */
   --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
-  --burger-menu-separator-color: white; /* Line between burger menu items  */
+  --burger-menu-separator-color: var(--burger-menu-fg); /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
   --nav-bg:var(--bg);         /* Background color of nav */
   --aside-fg:var(--fg);       /* Text color of aside */
@@ -88,7 +92,7 @@
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
   --article-width:80%;        /* Should add up to 100% with --aside-width */
-  --aside-width:20%;          /* Should add up to 100% with --aside-width */
+  --aside-width:20%;          /* Should add up to 100% with --article-width */
   --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
@@ -113,13 +117,15 @@
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
   --header-height:auto;       /* Height of header */
-  --burger-menu-fg: white;    /* Color of the burger menu */
-  --burger-menu-bg: black;    /* Background color of the burger menu */
+  --burger-fg:var(--fg);      /* Text color of burger menu items */
+  --burger-bg:var(--bg);      /* Background color of burger menu items */
+  --burger-menu-fg:var(--fg); /* Color of the burger menu */
+  --burger-menu-bg:var(--bg); /* Background color of the burger menu */
   --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
   --burger-menu-hover-bg:var(--bg); /* Background color ifor burger menu hover */
   --burger-menu-font-border:none; /* Border around burger menu text/character */
   --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
-  --burger-menu-separator-color: white; /* Line between burger menu items  */
+  --burger-menu-separator-color: var(--burger-menu-fg); /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
   --nav-bg:var(--bg);         /* Background color of nav */
   --aside-fg:var(--fg);       /* Text color of aside */
@@ -134,7 +140,7 @@
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
   --article-width:80%;        /* Should add up to 100% with --aside-width */
-  --aside-width:20%;          /* Should add up to 100% with --aside-width */
+  --aside-width:20%;          /* Should add up to 100% with --article-width */
   --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:black;            /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
@@ -309,7 +315,7 @@ h4{color:var(--h4-fg);}
   nav,aside,footer{display:none}
   article{padding:1rem;}
   article{float:left;clear:left;width:100%}
-  header{display:block;}
+  article>h1{padding-top:0;}
 }
 
 
@@ -834,6 +840,39 @@ sidebar: left
 </code></pre>
 <h2 id="site">site</h2>
 <p>See <a href="#project">project</a></p>
+<h2 id="skinny-theme">skinny theme</h2>
+<p>&quot;Skinny&quot; theme is an informal term to describe themes where you can see the HTML
+background to the theme. Take a look at the Skyscraper theme:</p>
+<p><img src="demos/skyscraper.png" alt="Screenshot of Skyscraper theme" /></p>
+<p>Now compare it to the Base theme:</p>
+<p><img src="demos/base.png" alt="Screenshot of Base theme" /></p>
+<p>You only see the HTML background in Skyscraper. Its source code  almost identical to
+Base. The only differences are that <code>skinny.css</code> is added to the <a href="https://raw.githubusercontent.com/pococms/poco/main/.poco/themes/skyscraper/README.md">theme README</a> for Skyscraper:</p>
+<pre><code>stylesheets:
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+- ../../css/type.css
+# Add this or medium-skinny.css to make the theme skinny
+- ../../css/skinny.css
+- ../../css/mediacolors.css
+- skyscraper.css
+</code></pre>
+<p>And a contrasting
+HTML background CSS variable is supplied in the <a href="https://github.com/pococms/poco/blob/main/.poco/themes/skyscraper/skyscraper.css">skyscraper.css</a> file:</p>
+<pre><code>@media (prefers-color-scheme:light) {
+:root {
+  --html-bg:gray
+}
+}
+
+@media (prefers-color-scheme:dark) {
+:root {
+  --html-bg:SteelBlue;
+}
+}
+</code></pre>
 <h2 id="source-file">source file</h2>
 <p>A <em>source file</em> is the Markdown file used to create a matching HTML file for output.
 For example, most directories have a source filenamed <code>index.html</code>, which

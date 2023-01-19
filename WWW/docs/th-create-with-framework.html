@@ -23,6 +23,8 @@
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
   --header-height:auto;       /* Height of header */
+  --burger-fg:var(--fg);      /* Text color of burger menu items */
+  --burger-bg:var(--bg);      /* Background color of burger menu items */
   --burger-menu-fg:var(--fg); /* Color of the burger menu */
   --burger-menu-bg:var(--bg); /* Background color of the burger menu */
   --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
@@ -44,7 +46,7 @@
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
   --article-width:80%;        /* Should add up to 100% with --aside-width */
-  --aside-width:20%;          /* Should add up to 100% with --aside-width */
+  --aside-width:20%;          /* Should add up to 100% with --article-width */
   --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
@@ -67,13 +69,15 @@
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
   --header-height:auto;       /* Height of header */
-  --burger-menu-fg: white;    /* Color of the burger menu */
-  --burger-menu-bg: black;    /* Background color of the burger menu */
+  --burger-fg:var(--fg);      /* Text color of burger menu items */
+  --burger-bg:var(--bg);      /* Background color of burger menu items */
+  --burger-menu-fg:var(--fg); /* Color of the burger menu */
+  --burger-menu-bg:var(--bg); /* Background color of the burger menu */
   --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
   --burger-menu-hover-bg:var(--bg); /* Background color ifor burger menu hover */
-   --burger-menu-font-border:none; /* Border around burger menu text/character */
+  --burger-menu-font-border:none; /* Border around burger menu text/character */
   --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
-  --burger-menu-separator-color: white; /* Line between burger menu items  */
+  --burger-menu-separator-color: var(--burger-menu-fg); /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
   --nav-bg:var(--bg);         /* Background color of nav */
   --aside-fg:var(--fg);       /* Text color of aside */
@@ -88,7 +92,7 @@
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
   --article-width:80%;        /* Should add up to 100% with --aside-width */
-  --aside-width:20%;          /* Should add up to 100% with --aside-width */
+  --aside-width:20%;          /* Should add up to 100% with --article-width */
   --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:var(--fg);        /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
@@ -113,13 +117,15 @@
   --header-fg:var(--fg);      /* Text color of header */
   --header-bg:var(--bg);      /* Background color of header */
   --header-height:auto;       /* Height of header */
-  --burger-menu-fg: white;    /* Color of the burger menu */
-  --burger-menu-bg: black;    /* Background color of the burger menu */
+  --burger-fg:var(--fg);      /* Text color of burger menu items */
+  --burger-bg:var(--bg);      /* Background color of burger menu items */
+  --burger-menu-fg:var(--fg); /* Color of the burger menu */
+  --burger-menu-bg:var(--bg); /* Background color of the burger menu */
   --burger-menu-hover-fg:var(--fg); /* Foreground color for burger menu hover */
   --burger-menu-hover-bg:var(--bg); /* Background color ifor burger menu hover */
   --burger-menu-font-border:none; /* Border around burger menu text/character */
   --burger-menu-font-size:1em; /* Size of the string representing the burger menu */
-  --burger-menu-separator-color: white; /* Line between burger menu items  */
+  --burger-menu-separator-color: var(--burger-menu-fg); /* Line between burger menu items  */
   --nav-fg:var(--fg);         /* Text color of nav */
   --nav-bg:var(--bg);         /* Background color of nav */
   --aside-fg:var(--fg);       /* Text color of aside */
@@ -134,7 +140,7 @@
   --h6-fg:var(--fg);          /* Default h6 text color */
   --article-h2-fg:var(--fg);  /* Article h2 text color */
   --article-width:80%;        /* Should add up to 100% with --aside-width */
-  --aside-width:20%;          /* Should add up to 100% with --aside-width */
+  --aside-width:20%;          /* Should add up to 100% with --article-width */
   --aside-h2-fg:var(--fg);    /* Aside h2 text color */
   --code-fg:black;            /* Text color for code inside a paragraph */
   --code-bg:ghostwhite;       /* Background color for code inside a paragraph */
@@ -309,7 +315,7 @@ h4{color:var(--h4-fg);}
   nav,aside,footer{display:none}
   article{padding:1rem;}
   article{float:left;clear:left;width:100%}
-  header{display:block;}
+  article>h1{padding-top:0;}
 }
 
 
@@ -467,14 +473,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 </ul>
 </aside>
 <article id="article-poco">
-<h1 id="creating-a-pococms-theme-with-the-framework">Creating a PocoCMS theme with the framework</h1>
-<p>GG
-The best way to create a highly versatile theme
-is to use the PocoCMS <a href="theme-framework.html">theme framework</a>.
-It's contained entirely in the Base theme and is the
-launchpad for all PocoCMS framework themes, from <a href="demos/electro.html">Electro</a> to
-<a href="demos/clerk.html">Clerk</a> to <a href="demos/skyscraper.html">Skyscraper</a>.</p>
-<p>COVER TODO:</p>
+<h1 id="todo">TODO:</h1>
 <ul>
 <li>Downloading fonts</li>
 <li>style tags</li>
@@ -482,15 +481,29 @@ launchpad for all PocoCMS framework themes, from <a href="demos/electro.html">El
 <li>Dark themes</li>
 <li>Ideally a nested theme</li>
 <li>Goal is to change things in only 1 place</li>
+<li>BREAK THESE SECTIONS UP WHEN THEIR ORDER IS CLEAR</li>
 </ul>
+<h1 id="creating-a-pococms-theme-with-the-framework">Creating a PocoCMS theme with the framework</h1>
+<p>The best way to create a highly versatile theme
+is to use the PocoCMS <a href="theme-framework.html">theme framework</a>.
+It's contained entirely in the Base theme and is the
+launchpad for all PocoCMS framework themes, from <a href="demos/electro.html">Electro</a> to
+<a href="demos/clerk.html">Clerk</a> to <a href="demos/skyscraper.html">Skyscraper</a>.</p>
+<p>Here's the theme we'll create:</p>
+<p><img src="img/mytheme-completed.png" alt="Screenshot of completed custom theme" /></p>
+<h2 id="overall-strategy">Overall strategy</h2>
+<p>The way to create a theme using the theme framework is simple:
+add a stylesheet and put all the changes in there. This
+guide takes you through every step of the way
+to create a theme using that technique.</p>
 <h2 id="start-a-new-project">Start a new project</h2>
 <p>Each Poco project is self-contained, with all theme data
 contained within the <code>.poco/themes</code> subdirectory.
 It's easy to copy a theme elsewhere when you're finished
-but righ now the safest thing to do is to start
-with a test project. We'll call it <code>gossip</code>.</p>
-<pre><code>poco -new gossip
-cd gossip
+but right now the safest thing to do is to start
+with a test project. We'll call it <code>mytheme</code>.</p>
+<pre><code>poco -new test
+cd test 
 </code></pre>
 <h2 id="copy-a-theme-you-like">Copy a theme you like</h2>
 <p>The first thing is to copy a theme you like.</p>
@@ -498,38 +511,22 @@ cd gossip
 <li>
 <p>To copy a theme, choose the theme you want to start with.
 <a href="https://pococms.com/docs/demos/base.html">Base</a> is the
-best place to start.</p>
+best place to start. It is a pretty neutral theme meant
+to be customized.</p>
 </li>
 <li>
-<p>Decide on name of your new theme, which of course in this example will
-be <code>tattle</code> because it's an industry gossip site.</p>
-</li>
-<li>
-<p>Copy the theme like this:</p>
+<p>Copy the <code>base</code> theme like this:</p>
 </li>
 </ul>
-<pre><code>poco -from base -to tattle 
+<pre><code>poco -from base -to mytheme 
 </code></pre>
 <p>You're then informed:</p>
-<pre><code>PocoCMS tattle created
+<pre><code>PocoCMS mytheme created
 </code></pre>
+<h2 id="append-themenamecss-to-end-of-the-themes-stylesheets-rule">Append themename.css to end of the theme's stylesheets rule</h2>
 <ul>
-<li>Let's test it. Go to your projects' Now to use your theme,
-just specify it in the front matter as you would any other:</li>
-</ul>
-<pre><code>---
-theme: tattle
----
-</code></pre>
-<ul>
-<li>Build the project. It should look like this,
-calling itself the Base theme when we know it's your Gossip theme.</li>
-</ul>
-<p><img src="img/home-page-default-1366x768.png" alt="Screenshot of what looks like the Base theme" /></p>
-<h3 id="append-themenamecss-to-end-of-the-themes-stylesheets-rule">Append themename.css to end of the theme's stylesheets rule</h3>
-<ul>
-<li>Load the theme's <code>README.md</code> file from your project's <a href="#glossary.html#root-directory">root directory</a> by editing the file <code>.poco/themes/gossip/README.md</code>. Obviously
-you will replace <code>gossip</code> with whatever theme name you created.</li>
+<li>Load the theme's <code>README.md</code> file from your project's <a href="#glossary.html#root-directory">root directory</a> by editing the file <code>.poco/themes/mytheme/README.md</code>. Obviously
+you will replace <code>mytheme</code> with whatever theme name you created.</li>
 <li>It will look something like this, in the example where your
 theme was copied from the Base theme:</li>
 </ul>
@@ -555,10 +552,10 @@ to the <em>end</em> of the <code>stylesheets</code> list:</li>
 - ../../css/type.css
 - ../../css/mediacolors.css
 # ADD THE LINE BELOW. Replace gossip with your theme name:
-- gossip.css
+- mytheme.css
 
 </code></pre>
-<p>The contents of <code>gossip.css</code> are pretty much blank and
+<p>The contents of <code>mytheme.css</code> are pretty much blank and
 will have no affect on the theme so far:</p>
 <pre><code>/* OVERRIDE FRAMEWORK SIZES */
 
@@ -577,14 +574,334 @@ will have no affect on the theme so far:</p>
 }
 }
 </code></pre>
+<ul>
+<li>Let's test it.</li>
+</ul>
+<h2 id="add-the-theme-to-your-indexmd-file">Add the theme to your index.md file</h2>
+<ul>
+<li>You should be in the directory you just created named <code>test</code>. Open the file <code>index.md</code>
+and add this line to the front matter so you can see the new theme:</li>
+</ul>
+<pre><code>---
+theme: mytheme 
+---
+</code></pre>
+<h2 id="run-poco--serve">Run poco -serve</h2>
+<ul>
+<li>Open a new terminal window.</li>
+<li>Change to your test directory</li>
+<li>Run the server:</li>
+</ul>
+<pre><code>poco -serve
+18 Jan 12:34:56 Web server running at:
+
+http://localhost:54321
+
+To stop the web server, press Ctrl+C
+</code></pre>
+<ul>
+<li>Paste the URL <code>http://localhost:54321</code> into a browser.</li>
+</ul>
+<p>You should see the test site:</p>
+<p><img src="img/new-theme-test.png" alt="Screenshot of what looks like the Base theme" /></p>
 <p>Right now we're just at parity with the Base theme. Next
 we'll learn about turning Base into something better
-for current news.</p>
-<p></p>
-<h3 id="add-downloadable-font-for-headlines">Add downloadable font for headlines</h3>
-<h5 id="file-pocothemesgossipreadmemd">File: <strong>.poco/themes/gossip/README.md</strong></h5>
-<pre><code>importrules:
-- url('https://fonts.googleapis.com/css?family=Oswald:wght@500&amp;display=swap');
+for a blog.</p>
+<p>The following steps are sort of random; you could do them in any order
+and still come out with the same results.</p>
+<h2 id="create-light-and-dark-themes">Create light and dark themes</h2>
+<p>The theme framework has built-in support for both light and dark themes.
+It comes with many sensible defaults but none of them is sacred.
+Load <code>.poco/themes/mytheme/mytheme.css</code> and let's start like this.
+Feel free to copy and paste the code shown below.</p>
+<pre><code>@media (prefers-color-scheme:light) {
+:root {
+  --a:var(--html-bg);         /* Default link color */
+  --fg:#252627;               /* Default text color */ 
+  --bg:white;                 /* Default background color */ 
+  --html-bg:#1C4284;          /* Color enclosing skinny themes */
+}
+}
+</code></pre>
+<p>If you're not too familiar with CSS we'll explain what's happening
+in a moment.</p>
+<h3 id="take-a-look">Take a look</h3>
+<p>We'll assume you do the following every time you make a
+change to the theme style sheet. We aren't going to repeat
+this instruction because it would get super annoying
+to read. So whenever we say something like &quot;take a look&quot; or anytime
+you feel it necessary, and more is better when you're using CSS
+because minor errors can cause scary-looking problems,
+we mean:</p>
+<ul>
+<li>Switch to the terminal window that has your <code>test</code> directory current.</li>
+<li>Run poco to rebuild the site (the exact directory shown will be different)</li>
+</ul>
+<pre><code>poco
+Site published to test/WWW/index.html
+</code></pre>
+<ul>
+<li>Switch to the browser you have running the URL <code>http://localhost:54321</code></li>
+<li>Refresh the page.</li>
+</ul>
+<p><img src="img/new-theme-light.png" alt="New theme with light color scheme" /></p>
+<h3 id="override-css-styles">Override CSS styles</h3>
+<p>Recall that CSS is <em>cascading</em>, which means that you can simply add a rule
+to replace an old one. You don't have to get rid of the old one. Whichever
+rule is encountered most recently is the one that takes priority.</p>
+<p>Let's see what's happening in this rule:</p>
+<pre><code>--bg:white;                 /* Default background color */ 
+</code></pre>
+<p>The <code>--bg</code> rule says &quot;take the previously defined CSS variable named <code>--bg</code> and
+replace it with the color white&quot;. Where is the original <code>--bg</code> rule? It comes
+from the stylesheet named <a href="https://github.com/pococms/poco/blob/main/.poco/css/root.css">.poco/css/root.css</a>, which has a number of such
+rules. It defines default values that look fine on their own, but which
+you're expected to replace as necessary in your theme. As you can see
+in <code>root.css</code> and the comment above, it's the default background color for text.</p>
+<p>When you see usage such as <code>background-color:var(--bg);</code> you'll know
+to replace <code>var(--bg)</code> with the most recent value of <code>--bg</code>, which is
+white in this example.</p>
+<p>Why not just say <code>background-color:white;</code> and be done with it? Because</p>
+<ol>
+<li>It's better to limit the number of places that value occurs when you decide to make a change.</li>
+<li>Replacing direct color names with symbolic values makes it easier to create dark and light themes at the same time.</li>
+<li>It can be propagated elsewhere, which relates to the first point. Take a look at
+this rule, also from <code>root.css</code>:</li>
+</ol>
+<pre><code>--header-bg:var(--bg);      /* Background color of header */
+</code></pre>
+<p>This rule says &quot;use the same background for <a href="glossary.html#header">headers</a> as the article uses&quot;. You can change
+it anytime, but frequently you'll prefer them to use the same background color.</p>
+<p>You'll see it again for the <a href="glossary.html#nav">nav</a>:</p>
+<pre><code>--nav-bg:var(--bg);         /* Background color of nav */
+</code></pre>
+<p>Now you can see a pattern:</p>
+<pre><code>--a:var(--html-bg);         /* Default link color */
+--html-bg:#1C4284;          /* Color enclosing skinny themes */
+</code></pre>
+<p>This tells us that the background behind the theme background will be a bluish
+color (<code>#1C4284</code>), and that links will use that color too.</p>
+<h3 id="override-css-color-rules-with-root">Override CSS color rules with root</h3>
+<p>Put all rules that override CSS variables in the <code>:root</code> followed by <code>{</code> and <code>}</code>. They'll be hoisted to
+the top of the priority list.</p>
+<pre><code>:root {
+  --a:var(--html-bg);         /* Default link color */
+  --html-bg:#1C4284;          /* Color enclosing skinny themes */
+  ..etc
+}
+
+</code></pre>
+<h2 id="create-the-dark-theme">Create the dark theme</h2>
+<p>Some users prefer light themes, but others like themes that work better at night.
+Browsers and operating systems now have built-in support for dark themes.</p>
+<ul>
+<li>Update the  <code>@media (prefers-color-scheme:dark)</code> portio of <code>mytheme.css</code> with these dark theme values:</li>
+</ul>
+<pre><code>@media (prefers-color-scheme:dark) {
+  a,footer &gt; a {color:#1B4284;}
+  header{color:#1B4284;}
+  header &gt; ul &gt; li:first-child &gt; a &gt; del {color:#E63946;} /* Strikethrough text gets different color */
+:root {
+  --fg:white;                 /* Default text color */ 
+  --bg:#044389;               /* Default background color */
+  --html-bg:#8EC7D4;          /* Color enclosing skinny themes */
+}
+}
+</code></pre>
+<ul>
+<li>Set your system to dark mode and take a look:</li>
+</ul>
+<p><img src="img/new-theme-dark.png" alt="Screenshot of first cut at dark theme" /></p>
+<p>The beginnings of a dark theme... but suddenly the header and footer look like they're missing.
+They aren't. Their colors have been overridden and there are background/foreground color clashes.</p>
+<h3 id="restyle-links">Restyle links</h3>
+<p>Add this just after the comment reading <code>OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT &amp; DARK THEMES</code>
+and just before the <code>@media (prefers-color-scheme:light)</code> code:</p>
+<pre><code>header,footer {background-color:var(--html-bg);}
+header&gt;ul&gt;li&gt;a,header&gt;ul&gt;li&gt;a:hover,header&gt;ul&gt;li&gt;a:active {color:var(--bg)}
+header,footer {background-color: var(--html-bg);}
+nav ul li a  {color:var(--a);} 
+nav a:active,nav a:hover {color:var(--html-bg);}
+aside&gt;p&gt; a {color:var(--fg);}
+footer&gt;ul&gt;li&gt;a,footer&gt;ul&gt;li&gt;a:hover,footer&gt;ul&gt;li&gt;a:active {color:var(--bg);}
+</code></pre>
+<ul>
+<li>Take a look now:</li>
+</ul>
+<p><img src="img/new-theme-dark-improved.png" alt="Screenshot of first cut at improved dark theme" /></p>
+<p>A brief look at what you just did:</p>
+<p><strong>Alter header and footer background colors</strong> Here the header and footer background colors are changed to be the same
+as the HTML background, which only matters on <a href="glossary.html#skinny-theme">skinny themes</a>:</p>
+<pre><code>header,footer {background-color:var(--html-bg);}
+</code></pre>
+<p>This isn't a skinny theme yet but it will be soon.</p>
+<p><strong>Change link colors</strong> A quick review. In most themes, everything in the header and footer is a link.
+The markup of a header file might look like this:</p>
+<pre><code>* [Base theme header](#)
+* [Reviews](#)
+* [Github](#)
+* [Profile](#)
+</code></pre>
+<p>As you can see, it's a list of links, technically, an HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul">unordered list</a> of links. Normally an unordered list shows a bullet for each item and each item
+has its own line in what is known as a block display. (Headings and paragraphs are normally blocks too,
+at least in the <code>&lt;article&gt;</code> portion of a page.) The vast majority of sites re-style the
+unordered list in the nav, header, and footer to appear in a horizontal line without the bullet characters.</p>
+<p>Let's break down the CSS.</p>
+<p>To restyle the header alone, PocoCMS uses very specific CSS so that only it gets that style. The theme
+framework is meant for you to style header, nav, footer, aside, and article separately. In the line below,
+you're targeting the <code>header</code>, then unordered lists in the header (<code>&lt;ul&gt;/&lt;/ul&gt;</code>), and individual items
+in that list (<code>&lt;li&gt;/&lt;/li&gt;</code>), and finally links (<code>&lt;a href...&lt;/a&gt;</code>). And finally, we are setting the
+background color of the link to the text background color with <code>var(--bg)</code>:</p>
+<pre><code>header ul li a {color:var(--bg)}
+</code></pre>
+<p>The rest continues to restyle header links for when the cursor is held over
+the link (<code>hover</code>) or when it's clicked (<code>active</code>):</p>
+<pre><code>header ul li a,header ul li a:hover,header ul li a:active {color:var(--bg)}
+</code></pre>
+<p>Roughly similar treatments are given to the footer and aside.</p>
+<h2 id="make-it-a-skinny-theme">Make it a skinny theme</h2>
+<p>A <a href="glossary.html#skinny-theme">skinny theme</a> is one that floats in a separate
+background color or outline. The theme framework makes it simple to add
+that quality to your theme.</p>
+<ul>
+<li>Insert <code>../../css/medium-skinny.css</code> this just after <code>../../css/layout.css</code> in the
+<code>stylesheets</code> portion of your theme README.md file.
+It's at <code>.poco/themes/mytheme/README.md</code> (replace
+<code>mytheme</code> with whatever theme directory name you chose):</li>
+</ul>
+<pre><code>stylesheets:
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+# Add either this or ../../css/skinny.css just after layout.css:
+- &quot;../../css/medium-skinny.css&quot;
+- ../../css/type.css
+- ../../css/mediacolors.css
+- &quot;mytheme.css&quot;
+</code></pre>
+<p><img src="img/new-theme-medium-skinny.png" alt="Screenshot of newly added skinny stylesheet" /></p>
+<p>If you use <code>skinny.css</code> instead of <code>medium-skinny.css</code> the article area will be
+even more narrow. These files change the margins, which you can think of as
+pushing inward from the outside of the page. Now you see what the <code>--html-bg</code> CSS
+variable is used for.</p>
+<p>Be careful if you tweak these skinny stylesheets. It can get... tricky.</p>
+<h2 id="add-downloadable-font-for-headings">Add downloadable font for headings</h2>
+<p>The distinctive font you saw in the illustration of the finished theme is charmingly called
+<a href="https://fonts.google.com/specimen/Abril+Fatface">Abril Fatface</a>. The body text is called
+<a href="https://fonts.google.com/specimen/Montserrat">Montserrat</a>.</p>
+<p>They're both from Google and
+are freely usable for commercial purposes. Here's the easiest way to
+use a downloadable font that's make publicly available on a CDN like Google's.</p>
+<p>Insert this line under <code>stylesheets</code> just before <code>../../css/type.css</code>:</p>
+<pre><code>- &quot;https://fonts.googleapis.com/css2?family=Abril+Fatface&amp;family=Montserrat:ital@0;1&amp;display=swap&quot; 
+</code></pre>
+<p>The whole <code>stylesheets</code> section now looks like this:</p>
+<h5 id="file-pocothemesmythemereadmemd">File: <strong>.poco/themes/mytheme/README.md</strong></h5>
+<pre><code>stylesheets:
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+- &quot;../../css/medium-skinny.css&quot;
+- &quot;https://fonts.googleapis.com/css2?family=Abril+Fatface&amp;family=Montserrat:ital@0;1&amp;display=swap&quot; 
+- ../../css/type.css
+- ../../css/mediacolors.css
+- &quot;mytheme.css&quot;
+</code></pre>
+<ul>
+<li>In <code>.poco/themes/mytheme/mytheme.css</code> add the following under
+the <code>OVERRIDE FRAMEWORK TYPOGRAPHY AND FONTS</code> comment:</li>
+</ul>
+<pre><code>/* OVERRIDE FRAMEWORK TYPOGRAPHY AND FONTS */
+html * {font-family: 'Montserrat', sans-serif;font-size:large;line-height:1.5rem;}
+article&gt;h1,article&gt;h2,article&gt;h3{font-family: 'Abril Fatface', serif;}
+header&gt;ul&gt;li&gt; a,header&gt;ul&gt; li:first-child &gt; a &gt; del {
+  font-family: 'Abril Fatface', serif;
+  text-decoration:none;
+}
+</code></pre>
+<ul>
+<li>Look at your progress so far:</li>
+</ul>
+<p><img src="img/new-theme-added-fonts.png" alt="Screenshot of theme with downloadable fonts" /></p>
+<p>This line shows how to change most font attributes at once:</p>
+<pre><code>html * {font-family: 'Montserrat', sans-serif;font-size:large;line-height:1.5rem;}
+</code></pre>
+<p>This line uses the display font Abril Fatface on major headings in the <a href="glossary.html#article">article</a>
+portion of your page, which means it won't change some parts like the header:</p>
+<pre><code>article&gt;h1,article&gt;h2,article&gt;h3{font-family: 'Abril Fatface', serif;}
+</code></pre>
+<p>This changes unordered list elements in the header to use Abril Fatface,
+not to change appearance when treated as a link, and to make those
+same changes to any strikethrough usage in the list item in the header
+(more on that later,
+but it's the <code>header&gt;ul&gt; li:first-child &gt; a &gt; del</code> part).</p>
+<pre><code>header&gt;ul&gt;li&gt; a,header&gt;ul&gt; li:first-child &gt; a &gt; del {
+  font-family: 'Abril Fatface', serif;
+  text-decoration:none;
+}
+</code></pre>
+<h2 id="adjust-font-sizes">Adjust font sizes</h2>
+<p>The Base theme is so boring it leaves all headings the same size.
+Let's fix that, because larger headings normally have more
+semantic importance. It's a helpful cue to the reader.</p>
+<p>Just under the  <code>OVERRIDE FRAMEWORK SIZES</code> comment add this:</p>
+<pre><code>nav ul li a  {font-size:small;} 
+article{padding-top:4rem;padding-right:3rem;}
+article&gt;h1,article&gt;h2,article&gt;h3{line-height:1em;}
+article&gt;h1 {font-size:4rem;padding-bottom:2rem;}
+article&gt;h2 {font-size:3rem;padding-bottom:1.5rem;}
+article&gt;h3 {font-size:1.75rem;padding-bottom:1rem;}
+article&gt;h4 {font-size:1.25rem;}
+article&gt;p, article&gt;ul&gt;li,article&gt;ol&gt;li {line-height:2rem;}
+article&gt;ul, article&gt;ol {padding-bottom:1.5rem;}
+</code></pre>
+<p>The result is starting to hold more visual interest:</p>
+<p><img src="img/new-theme-first-font-change.png" alt="Screenshot of new theme with first font size changes" /></p>
+<h3 id="change-heading-font-size-and-padding">Change heading font size and padding</h3>
+<p>You can imagine that these additions make headings in the article bigger
+and better spaced:</p>
+<pre><code>article{padding-top:4rem;padding-right:3rem;}
+article&gt;h1,article&gt;h2,article&gt;h3{line-height:1em;}
+article&gt;h1 {font-size:4rem;padding-bottom:2rem;}
+article&gt;h2 {font-size:3rem;padding-bottom:1.5rem;}
+article&gt;h3 {font-size:1.75rem;padding-bottom:1rem;}
+article&gt;h4 {font-size:1.25rem;}
+</code></pre>
+<h3 id="reduce-nav-height-and-font-size">Reduce nav height and font size</h3>
+<p>This makes the nav shorter and with a smaller font, simply for stylistic reasons.
+Using <code>font-size:small</code> instead of a fixed size makes it easier to scale the
+web page for visually impaired users.</p>
+<pre><code>nav ul li a  {font-size:small;} 
+</code></pre>
+<h3 id="remember-to-change-article-list-font-size-along-with-paragraph">Remember to change article list font size along with paragraph</h3>
+<p>You will surmise that this changes the line height of the article text:</p>
+<pre><code>article&gt;p {line-height:2rem;}
+</code></pre>
+<p>It's easy to forget that both ordered and unordered lists will look weird
+if you don't make the same change. Also it's good to give the bottom
+of a list some breathing room, so in sum:</p>
+<pre><code>article&gt;p, article&gt;ul&gt;li,article&gt;ol&gt;li {line-height:2rem;}
+article&gt;ul, article&gt;ol {padding-bottom:1.5rem;}
+</code></pre>
+<h2 id="make-header-and-footer-flush-left">Make header and footer flush left</h2>
+<p>This theme left-justifies the header and footer.
+Add thise code under the <code>OVERRIDE FRAMEWORK LAYOUT</code> comment.</p>
+<pre><code>/* OVERRIDE FRAMEWORK LAYOUT */
+header,footer {padding-left:0;}
+footer &gt; ul &gt; li {margin-left:0; margin-right: 1em;}
+</code></pre>
+<p>The change is small but noticeable:</p>
+<p><img src="img/new-theme-flush-left.png" alt="Theme with header and footer flush left" /></p>
+<h2 id="make-aside-default-to-left-side">Make aside default to left side</h2>
+<p>You may remember that using the
+Under
+the code you just added in the <code>OVERRIDE FRAMEWORK LAYOUT</code> comment
+section append these lines:</p>
+<pre><code>/* Default to article on the right, aside on the left */
+article{float:right;clear:right;}    
+aside{float:left;}  
 </code></pre>
 <h6 id="previous-add-a-classless-stylesheet-to-your-themeth-add-classless-csshtml"><a href="th-add-classless-css.html">Previous: Add a classless stylesheet to your theme</a></h6>
 

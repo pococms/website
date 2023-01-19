@@ -538,6 +538,51 @@ sidebar: left
 See [project](#project)
 
 
+## skinny theme
+
+"Skinny" theme is an informal term to describe themes where you can see the HTML
+background to the theme. Take a look at the Skyscraper theme:
+
+![Screenshot of Skyscraper theme](demos/skyscraper.png)
+
+Now compare it to the Base theme:
+
+![Screenshot of Base theme](demos/base.png)
+
+You only see the HTML background in Skyscraper. Its source code  almost identical to
+Base. The only differences are that `skinny.css` is added to the [theme README](https://raw.githubusercontent.com/pococms/poco/main/.poco/themes/skyscraper/README.md) for Skyscraper:
+
+```
+stylesheets:
+- ../../css/root.css
+- ../../css/reset.css
+- ../../css/sizes.css
+- ../../css/layout.css
+- ../../css/type.css
+# Add this or medium-skinny.css to make the theme skinny
+- ../../css/skinny.css
+- ../../css/mediacolors.css
+- skyscraper.css
+```
+
+And a contrasting
+HTML background CSS variable is supplied in the [skyscraper.css](https://github.com/pococms/poco/blob/main/.poco/themes/skyscraper/skyscraper.css) file:
+
+```
+@media (prefers-color-scheme:light) {
+:root {
+  --html-bg:gray
+}
+}
+
+@media (prefers-color-scheme:dark) {
+:root {
+  --html-bg:SteelBlue;
+}
+}
+```
+
+
 ## source file
 
 A *source file* is the Markdown file used to create a matching HTML file for output.

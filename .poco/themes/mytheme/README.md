@@ -4,16 +4,10 @@ nav: nav.md
 aside: aside.md
 footer: footer.md
 
-hicon: "&#9776;"
-#hicon: "MENU"
+burgericon: "&#9776;"
+#burgericon: "MENU"
 
 burger: burger.md
-# font-family: 'Abril Fatface', serif;
-# font-family: 'Montserrat', sans-serif;
-
-#linktags:
-#- "link rel='preconnect' href="'ttps://fonts.googleapis.com'>"
-#- "link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>" 
 
 stylesheets:
 - ../../css/root.css
