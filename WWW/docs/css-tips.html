@@ -462,7 +462,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <body>
 <header id="header-poco"><ul>
 <li><a href="https://pococms.com">poco<del>CMS</del></a></li>
-<li><a href="https://github.com/pococms/downloads/tree/main/dist">Download</a></li>
+<li><a href="docs/install.html">Download</a></li>
 <li><a href="/docs/theme-demos.html">Theme demos</a></li>
 <li><a href="/docs/index.html">Docs</a></li>
 <li><a href="https://github.com/pococms/poco">GitHub</a></li>
@@ -845,8 +845,8 @@ that makes life much easier for people who want their stylesheets hosted on the 
 <p>Here are some ways to change table layout and display.
 If you were putting the table in the footer, you'd
 change <code>article&gt;</code> to <code>footer&gt;</code>.</p>
-<pre><code>/* Remove lines in all rows except header */
-article&gt;table&gt;tbody&gt;tr&gt;td{text-align:left}
+<pre><code>/* Remove lines from all rows of table except header */
+article&gt;table&gt;tbody&gt;tr&gt;td{border:none;}
 
 /* Remove lines from all rows of table except header */
 article&gt;table&gt;tbody&gt;tr&gt;td{border:none;}
@@ -854,13 +854,16 @@ article&gt;table&gt;tbody&gt;tr&gt;td{border:none;}
 /* Remove lines from table header. */
 article&gt;table&gt;thead&gt;tr&gt;th{border:none;} 
 
-/* Force text to stay in one row of the same height */
+/* Left-align everything by default */
+article&gt;table&gt;tbody&gt;tr&gt;td{text-align:left}
+
+/* Force text to stay in one row and not wrap */
 article&gt;table{white-space:nowrap;}
 
 /* Keep the table narrow. It spaces columns closer. */
 article&gt;table{table-layout:fixed;width:35%;}
 
-/* Make rows shorter */
+/* Make rows closer vertically */
 article&gt;table&gt;tbody&gt;tr{line-height:.5rem;}
 
 /* Make columns 12 rem wide */
@@ -868,6 +871,14 @@ article th{width:12rem;}
 
 /* First column is just wide enough for checkbox character */
 article th:first-child{width:1rem;}
+
+/* Make first column of table boldface */
+article&gt;table&gt;tbody&gt;tr&gt;td:first-child{font-weight:bold;}
+---
+
+
+
+
 </code></pre>
 <p><a href="#contents">Return</a></p>
 <h2 id="documenting-special-theme-features">Documenting special theme features</h2>

@@ -512,8 +512,8 @@ If you were putting the table in the footer, you'd
 change `article>` to `footer>`.
 
 ```
-/* Remove lines in all rows except header */
-article>table>tbody>tr>td{text-align:left}
+/* Remove lines from all rows of table except header */
+article>table>tbody>tr>td{border:none;}
 
 /* Remove lines from all rows of table except header */
 article>table>tbody>tr>td{border:none;}
@@ -521,13 +521,16 @@ article>table>tbody>tr>td{border:none;}
 /* Remove lines from table header. */
 article>table>thead>tr>th{border:none;} 
 
-/* Force text to stay in one row of the same height */
+/* Left-align everything by default */
+article>table>tbody>tr>td{text-align:left}
+
+/* Force text to stay in one row and not wrap */
 article>table{white-space:nowrap;}
 
 /* Keep the table narrow. It spaces columns closer. */
 article>table{table-layout:fixed;width:35%;}
 
-/* Make rows shorter */
+/* Make rows closer vertically */
 article>table>tbody>tr{line-height:.5rem;}
 
 /* Make columns 12 rem wide */
@@ -535,6 +538,14 @@ article th{width:12rem;}
 
 /* First column is just wide enough for checkbox character */
 article th:first-child{width:1rem;}
+
+/* Make first column of table boldface */
+article>table>tbody>tr>td:first-child{font-weight:bold;}
+---
+
+
+
+
 ```
 
 [Return](#contents)

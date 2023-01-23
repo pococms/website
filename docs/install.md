@@ -1,5 +1,18 @@
 ---
 hide: aside
+styles:
+- "article>h3{padding-bottom:0;padding-top:1.5rem;}"
+- "article>table{padding-top:0;margin-top:0;}"
+# Make first (empty) row of table disappear
+- "article>table>thead>tr>th{border:none;padding-top:0;}"
+# Make first column of table boldface:
+- "article>table>tbody>tr>td:first-child{font-weight:bold;}"
+# Remove lines from all rows of table except header 
+# "article>table>tbody>tr>td{border:none;}"
+# Remove lines from table header. 
+# "article>table>thead>tr>th{border:none;}"
+
+
 ---
 
 # Installing PocoCMS
@@ -14,10 +27,35 @@ copying files and adding them to the path there's nothing to it.
 
 ## Grab the latest binary
 
-* The easiest way to get PocoCMS is to find the latest version at
-the [Downloads](https://github.com/pococms/downloads/tree/main/dist) page.
+### Macintosh
+|  | | |
+| ---------------|-|-|
+| AMD-64 | [Archive](https://github.com/pococms/downloads/tree/main/dist/poco_Darwin_x86_64.tar.gz) | [Executable](https://github.com/pococms/downloads/tree/main/dist/poco_darwin_amd64_v1/poco) |
+| ARM-64 | [Archive](https://github.com/pococms/downloads/tree/main/dist/poco_Darwin_arm64.tar.gz) | [Executable](https://github.com/pococms/downloads/tree/main/dist/poco_darwin_arm64/poco) |
 
-  Obviously it's best to copy that to your system path.
+
+
+### Windows
+
+|  | | |
+| ---------------|-|-|
+| AMD-64 | [Zipped](https://github.com/pococms/downloads/tree/main/dist/poco_Windows_x86_64.zip) | [Uncompressed .EXE](https://github.com/pococms/downloads/tree/main/dist/poco_windows_amd64_v1/poco.exe) |
+| ARM 64-bit | [Zipped](https://github.com/pococms/downloads/tree/main/dist/poco_Windows_arm64.zip) | [Uncompressed .EXE](https://github.com/pococms/downloads/tree/main/dist/poco_arm_64/poco.exe) |
+| 386 | [Zipped](https://github.com/pococms/downloads/tree/main/dist/poco_Windows_i386.zip) | [Uncompressed .EXE](https://github.com/pococms/downloads/tree/main/dist/poco_windows_386/poco.exe) |
+
+
+### Linux
+
+|  | | |
+| ---------------|-|-|
+| AMD-64 | [Archive](https://github.com/pococms/downloads/tree/main/dist/poco_Linux_x86_64.zip) | [Executable](https://github.com/pococms/downloads/tree/main/dist/poco_linux_amd64_v1/poco) |
+| ARM 64-bit | [Archive](https://github.com/pococms/downloads/tree/main/dist/poco_Linux_arm64.tar.gz) | [Executable](https://github.com/pococms/downloads/tree/main/dist/poco_linux_arm64/poco) |
+| 386 | [Archive](https://github.com/pococms/downloads/tree/main/dist/poco_Linux_i386.tar.gz) | [Executable](https://github.com/pococms/downloads/tree/main/dist/poco_linux_386/poco) |
+
+
+## After downloading, try to copy the executable to your system path
+
+The tutorial will work fine even if you just leave it in the `Downloads` directory though.
 
 ## Installing from source
 
