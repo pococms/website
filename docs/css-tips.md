@@ -18,7 +18,7 @@ you can drop right into your own themes.
 * [Downloadable fonts](#downloadable-fonts)  
 * [GitHub-based files get free CDN hosting through jsdelivr.net](#github-based-files-get-free-cdn-hosting-through-jsdelivrnet)  
 * [Table tweaks](#table-tweaks)  
-* [Documenting special theme features](documenting-special-theme-features)
+* [Documenting special theme features](#documenting-special-theme-features)
 
 
 ## Social media icons next to heading
@@ -543,13 +543,34 @@ article th:first-child{width:1rem;}
 
 Anytime a theme does something out of the ordinary, 
 violates normal design patterns, or surfaces a feature
-the user should know, call it this way. If there
-are specific steps required to use it, mention
+the user can't be expected to know by default, comment it this way. 
+The theme user documentation should be updated as well.
+If there are specific steps required to use it, mention
 them in the comments:
+
+```
+
+/*
+ * --------------------------------------------------
+ * SPECIAL FEATURE: H2 speech bubbles for home page lead
+ *
+ * h2 starts with teaser for article, then links
+ * to article with anchor text MORE.
+ *
+ * Example markdown
+ * ## CSS preprocessors or no? [more](blog-Jan-23.html)
+ * --------------------------------------------------
+ */
+
+
+```
+
+Or:
 
 ```
 /*
  * --------------------------------------------------
+ * SPECIAL FEATURE: Bulleted H2 list article lead 
  * Used for those bulleted
  * lists at the beginning of an article, but with
  * SEO powers because it calls them out using h2s

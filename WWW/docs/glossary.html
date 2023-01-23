@@ -18,6 +18,8 @@
   --a:blue;                   /* Default link color */
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
+  --accent-bg:var(--bg);      /* Accent background color */
+  --accent-fg:var(--fg);      /* Accent text color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
@@ -66,6 +68,8 @@
   --a:blue;                   /* Default link color */
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
+  --accent-bg:var(--bg);      /* Accent background color */
+  --accent-fg:var(--fg);      /* Accent text color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
@@ -114,6 +118,8 @@
   --a:cyan;                   /* Default link color */
   --fg:white;                 /* Default text color */
   --bg:MidnightBlue;          /* Default background color */
+  --accent-bg:var(--bg);      /* Accent background color */
+  --accent-fg:var(--fg);      /* Accent text color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
@@ -511,6 +517,53 @@ as phones. It is a simple list of links that replaces
 the <a href="#header">header</a>, which often has too
 many links or bulky brand identification to fit comfortably
 on the small screen.</p>
+<h2 id="child-theme">child theme</h2>
+<p>A <a href="#theme">theme</a> gives your site, or a page of your site, its overall appearance.
+Sometimes you want a theme with most of those same properties but with some
+properties altered or added. You can put both themes in the theme
+directory, and the altered theme goes in a nested directory for the theme.
+The theme in the nested directory called a child theme. Except for being
+in a nested directory, its <a href="theme-framework.html">format is the same</a> as the parent theme: it has
+a <code>README.md</code>, it has a <code>LICENSE</code> file, etc.</p>
+<p>To use it just add a slash (<code>/</code>) and then its subdirectory name after theme.
+For example, the <code>pocodocs</code> theme has a child theme named <code>hero</code>.
+It's the one used for the home page of the <a href="https://pococms.com/">PocoCMS site</a>.
+So to use the <code>hero</code> child theme you'd specify:</p>
+<pre><code>---
+pagetheme: pocodocs/hero
+---
+</code></pre>
+<p>The <code>pocodocs</code> theme has another child theme named <code>gallery</code>, so the
+directory list for the <code>pocodocs</code> theme is:</p>
+<pre><code>.poco/themes
+└─── pocodocs
+    ├── LICENSE
+    ├── README.md
+    ├── aside.md
+    ├── footer.md
+    ├── gallery
+    │   ├── LICENSE
+    │   ├── README.md
+    │   ├── aside.md
+    │   ├── footer.md
+    │   ├── gallery.css
+    │   ├── header.md
+    │   ├── hero.css
+    │   └── nav.md
+    ├── header.md
+    ├── hero
+    │   ├── LICENSE
+    │   ├── README.md
+    │   ├── aside.md
+    │   ├── big-circles.css
+    │   ├── footer.md
+    │   ├── header.md
+    │   ├── hero.css
+    │   ├── nav.md
+    │   └── pocodocs.css
+    ├── nav.md
+    └── pocodocs.css
+</code></pre>
 <h2 id="code-block">code block</h2>
 <p>Synonomous with <a href="#code-fence">code fence</a></p>
 <h2 id="code-fence">code fence</h2>

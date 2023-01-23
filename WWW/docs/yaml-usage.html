@@ -18,6 +18,8 @@
   --a:blue;                   /* Default link color */
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
+  --accent-bg:var(--bg);      /* Accent background color */
+  --accent-fg:var(--fg);      /* Accent text color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
@@ -66,6 +68,8 @@
   --a:blue;                   /* Default link color */
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
+  --accent-bg:var(--bg);      /* Accent background color */
+  --accent-fg:var(--fg);      /* Accent text color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
@@ -114,6 +118,8 @@
   --a:cyan;                   /* Default link color */
   --fg:white;                 /* Default text color */
   --bg:MidnightBlue;          /* Default background color */
+  --accent-bg:var(--bg);      /* Accent background color */
+  --accent-fg:var(--fg);      /* Accent text color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
@@ -538,7 +544,8 @@ files contain a list of stylesheets required for the theme:</p>
   - &quot;pasteboard.css&quot;
 </code></pre>
 <h2 id="double-quotes-everywere">Double quotes everywere!</h2>
-<p>Here a rule showing why all rule values are double-quoted in PocoCMS.</p>
+<p>Here a rule showing why many rule values are double-quoted in PocoCMS, even
+though you don't see this in many other YAML files.</p>
 <pre><code>---
 styles:
 - &quot;p {font-family:'Hoefler Text', 'Nimbus Roman No9 L Regular', serif;}&quot;
@@ -561,7 +568,7 @@ For example:</p>
 <p>The reason for this is that sometime characters used by CSS seem to cause
 problems with the Go template engine or the Go YAML parser, notably the
 curly brace characters <code>{</code> and <code>}</code>.</p>
-<p>Because of that we suggest double-quoting values (the left side of a rule)
+<p>Because of that we suggest double-quoting values (the right side of a rule)
 whenever there might be some ambiguity.
 It eliminates a whole class of problems that can be otherwise hard to track down.</p>
 <h2 id="comments">Comments</h2>

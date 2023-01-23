@@ -6,7 +6,7 @@ in the near to medium future, from high priority to low.
 * Add an empty index.html to directories with no index.md or README.md?
   - Or more broadly, some kind of analysis tool that:
     + Checks for the missing index.htmls as mentioned above
-    + Checks for tile and description
+    + Checks for title and description
 * Template language
 * Automatic Table of contents creation
 * Shortcodes

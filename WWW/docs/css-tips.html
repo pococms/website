@@ -18,6 +18,8 @@
   --a:blue;                   /* Default link color */
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
+  --accent-bg:var(--bg);      /* Accent background color */
+  --accent-fg:var(--fg);      /* Accent text color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
@@ -66,6 +68,8 @@
   --a:blue;                   /* Default link color */
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
+  --accent-bg:var(--bg);      /* Accent background color */
+  --accent-fg:var(--fg);      /* Accent text color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
@@ -114,6 +118,8 @@
   --a:cyan;                   /* Default link color */
   --fg:white;                 /* Default text color */
   --bg:MidnightBlue;          /* Default background color */
+  --accent-bg:var(--bg);      /* Accent background color */
+  --accent-fg:var(--fg);      /* Accent text color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
@@ -493,7 +499,7 @@ you can drop right into your own themes.</p>
 <li><a href="#downloadable-fonts">Downloadable fonts</a></li>
 <li><a href="#github-based-files-get-free-cdn-hosting-through-jsdelivrnet">GitHub-based files get free CDN hosting through jsdelivr.net</a></li>
 <li><a href="#table-tweaks">Table tweaks</a></li>
-<li><a href="documenting-special-theme-features">Documenting special theme features</a></li>
+<li><a href="#documenting-special-theme-features">Documenting special theme features</a></li>
 </ul>
 <h2 id="social-media-icons-next-to-heading">Social media icons next to heading</h2>
 <p>It's nice in an article byline to show social media icons next
@@ -867,11 +873,29 @@ article th:first-child{width:1rem;}
 <h2 id="documenting-special-theme-features">Documenting special theme features</h2>
 <p>Anytime a theme does something out of the ordinary,
 violates normal design patterns, or surfaces a feature
-the user should know, call it this way. If there
-are specific steps required to use it, mention
+the user can't be expected to know by default, comment it this way.
+The theme user documentation should be updated as well.
+If there are specific steps required to use it, mention
 them in the comments:</p>
+<pre><code>
+/*
+ * --------------------------------------------------
+ * SPECIAL FEATURE: H2 speech bubbles for home page lead
+ *
+ * h2 starts with teaser for article, then links
+ * to article with anchor text MORE.
+ *
+ * Example markdown
+ * ## CSS preprocessors or no? [more](blog-Jan-23.html)
+ * --------------------------------------------------
+ */
+
+
+</code></pre>
+<p>Or:</p>
 <pre><code>/*
  * --------------------------------------------------
+ * SPECIAL FEATURE: Bulleted H2 list article lead 
  * Used for those bulleted
  * lists at the beginning of an article, but with
  * SEO powers because it calls them out using h2s

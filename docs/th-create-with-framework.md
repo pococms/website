@@ -1,11 +1,6 @@
-# TODO:
-* Downloading fonts
-* style tags
-* skinny
-* Dark themes
-* Ideally a nested theme
-* Goal is to change things in only 1 place
-* BREAK THESE SECTIONS UP WHEN THEIR ORDER IS CLEAR 
+---
+hide: aside
+---
 
 # Creating a PocoCMS theme with the framework
 
@@ -19,11 +14,22 @@ Here's the theme we'll create:
 
 ![Screenshot of completed custom theme](img/mytheme-completed.png)
 
+
+We'll then create a child theme, which inherits the desired qualities of that theme
+but can be used for a specialized version. This one will be for a home page for the
+previous theme:
+
+![Screen shot of completed child theme named home](img/child-theme-home-complete.png)
+
 ## Overall strategy
 
 The way to create a theme using the theme framework is simple:
-add a stylesheet and put all the changes in there. This
-guide takes you through every step of the way
+
+* Copy a the directory for a theme you like
+* In the new directory, add a stylesheet by the name of that theme 
+* Put all theme alterations in that new stylesheet
+
+This guide takes you through every step of the way
 to create a theme using that technique.
 
 ## Start a new project
@@ -745,7 +751,7 @@ aside>p,aside>p>a{font-size:small;}
 ```
 
 
-## Create CSS for icons in aside
+## Create CSS for column of icons in aside
 
 We are missing the icons in the aside, as shown in 
 [Creating a PocoCMS theme with the framework](#creating-a-pococms-theme-with-the-framework)
@@ -977,6 +983,86 @@ the page are still unfinished:
 
 ![Screen shot of byline with row of icons to its right](img/new-theme-byline-icons-beginning.png)
 
+## Complete header styles
+
+If you look back the [picture of the finished theme](#creating-a-pococms-theme-with-the-framework)
+you'll see the header is minimalistic, but manages to get two colors out of
+the header link. Let's see how that's done.
+
+* Add this code to `.poco/themes/mytheme/mytheme.css` after the comment `OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT & DARK THEMES`:
+
+### Alter style for first list item in header only
+
+Filename: **.poco/themes/mytheme/mytheme.css**:
+
+```
+header > ul > li:first-child > a > del {color:red;}
+```
+
+This code says that for a link (the `a` part) embedded in 
+an unordered list (the `ul > li` part), but only for the
+first such linnk (the `:first-child part), and all of this
+only within the `header`, color the striketrough text (the `del` part) red.
+Normally you would want to add `text-decoration:none` next to the 
+`color:red;` part but that's been specified elsewhere in a general
+rule that deprives links of their text decoration.
+
+This abuses sematic CSS a little bit to let you use the markup `Anna ~~Utopia~~` for the
+blog header. That's the markdown extension for strikethrough text. In the case of the 
+blog header, and only the blog header, the text that normally appears to be
+struck through with lines crossing out the name will instead appear in red.
+
+Because it works on only the first occurrence (`first-child`), the accent color for the blog
+title would appear only on the first element in the unordered list markup shown here:
+
+```
+# Utopia is in separate color 
+* [Anna ~~Utopia~~](#)
+# Blog is NOT in separate color
+* My [~~Blog~~](#)
+```
+
+### Update header.md
+
+Let's see how the revised header style will look. It's time to fix the header Markdown.
+
+* Replace the `header.md` file at `.poco/themes/mytheme/header.md` with the following:
+
+##### Filename: **.poco/themes/mytheme/header.md**
+
+```
+* [Anna ~~Utopia~~](#)
+```
+
+And take a look at your work.
+
+![Screenshot of updated header and header style](img/new-theme-updated-header.png)
+
+
+### Add remaining stylesheet code
+
+There are a few random lines to add to your CSS, none of which has particular
+teaching value, but we'll explain them quickly.
+
+* Add this code to `.poco/themes/mytheme/mytheme.css` after the comment `OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT & DARK THEMES`:
+
+```
+article>h1,article>h2,article>h3{color:var(--html-bg);}
+aside > p > a:hover {
+  text-decoration:underline;
+  text-decoration-color:var(--html-bg);
+  -webkit-text-decoration-color:var(--html-bg);
+}
+footer  a {color:var(--bg);}
+```
+
+* The `article` line changes headings `h1`, `h2`, and `h3` to use the HTML
+background color as the heading foreground (text)  colors.
+* The `aside > p` code changes the text decoration, only for links in the
+aside, to show active links with an underline the same color as the HTML background
+color.
+* The `footer` line makes links in the footer use the article background color.
+
 ## The burger menu
 
 The PocoCMS theme framework supports [hamburger menus](glossary.html#burger-menu), which replace the 
@@ -1076,8 +1162,269 @@ Here are the new links:
 
 ![Screenshot of edited burger menu links](img/new-theme-format-burger-links.png)
 
+## Create and use a child theme
+
+Sometimes you want a variation on a theme. You want it to inherit most
+of the properties of the main theme, but change some of them for a particular
+effect. These are called The most common case is for a home
+page that serves more as an advertisement than as documentation. This is sometimes
+called a *landing page*. The home page of this site uses such a theme, called
+`hero`. It's a child of the [pocodocs](https://pococms.com/docs/demos/pocodocs.html) 
+theme. To use the `hero` child theme, you'd add this to the page  front matter:
+
+```
+pagetheme: pocodocs/hero
+```
+
+This section shows how to create a child theme named `home`, for the
+`mytheme` theem createdd earlier in this tutorial. That means it
+will live in the directory `.poco/mythemes/home`. The steps to create it are:
+
+* [Create a subdirectory for the theme in the theme directory](#create-a-subdirectory-for-the-child-theme)
+* [Copy the existing stylesheets and page layout files to that subdirectory](#copy-the-existing-stylesheets-and-page-layout-files-to-the-child-theme-directory)
+* [Change relative directory paths to CSS and page layout files required in the theme files](#change-relative-directory-paths-to-css-and-page-layout-files)
+
+* [Create a stylesheet file by the name of the child theme and add or edit styles as needed](#create-a-stylesheet-file-by-the-name-of-the-child-theme-and-add-or-edit-styles-as-needed)
+* [Update styles in the new themename.css file](#update-styles-in-the-new-themenamecss-file)
+* [Create or copy a LICENSE file](#create-or-copy-a-license-file)
+
+The new `home` theme will create pages that look like this:
+
+<a id='hometheme'></a>
+
+![Screen shot of completed child theme named home](img/child-theme-home-complete.png)
+
+It replaces the level 2 header style in the theme with speech balloons, designed to
+draw the reader in by simplifying the home page presentation and offering only a few
+choices.
 
 
-{{- /*  `.poco/themes/mytheme/mytheme.css` */ -}}
+### Create a subdirectory for the child theme
+
+* All PocoCMS themes live in a theme directory.
+Child themes live in a subdirectory off the theme directory.
+Since `mytheme` lives in `.poco/themes/mytheme`, create the new
+directory.
+
+##### MacOS
+
+```
+mkdir .poco/themes/mytheme/home
+```
+
+##### Windows
+
+```
+mkdir .poco\themes\mytheme\home
+```
+
+### Copy the existing stylesheets and page layout files to the child theme directory 
+
+Themes are mostly made up of stylesheets, such as `root.css`, and page layout files,
+such as `header.md`. Copy those files from the theme to the child theme.
+
+##### MacOS
+
+```
+cp .poco/themes/mytheme/*.* .poco/themes/mytheme/home
+```
+
+##### Windows
+
+```
+copy .poco\themes\mytheme\*.* .poco\themes\mytheme\home
+```
+
+
+###  Change relative directory paths to CSS and page layout files
+
+The child theme's [theme README](glossary.html#theme-readme) file lists CSS files it requires.
+Many of them live in the `.poco/css` directory. Because
+themes usually share these files, they use operating system relative paths
+in the `stylesheets` list, like this:
+
+```
+stylesheets:
+- ../../css/root.css
+```
+
+(If you're not too familiar with relative directories, learn more 
+in [Theme structure](https://pococms.com/docs/technical-overview.html#theme-structure).)
+
+Because the child theme is one directory deeper in the directory hierarchy,
+relative paths like the one above need to be updated with an additional `../`
+path separator:
+
+```
+stylesheets:
+- ../../../css/root.css
+```
+
+Let's take care of the whole theme README now.
+
+* Open the file `.poco/themes/mytheme/home/README.md`
+
+* Any path starting with `../` is a relative path separators. Insert 
+another `../` in front of it. You also need one in front of `mytheme.css`
+(or whatever you called your theme). Change all of the following to look as follows.
+
+##### Filename: **.poco/themes/mytheme/home/README.md**
+
+```
+- ../../../css/root.css
+- ../../../css/reset.css
+- ../../../css/sizes.css
+- ../../../css/layout.css
+- ../../../css/medium-skinny.css
+- ../../../css/type.css
+- ../../../css/mediacolors.css
+- ../mytheme.css
+```
+
+**Do not** add it in front of the item starting with `https://fonts.googleapis.com..etc`, because
+it's not a relative filesystem path. It's a URL and has nothing to do with anything on your machine.
+
+### Create a stylesheet file by the name of the child theme and add or edit styles as needed
+
+The way to create a [theme framework](theme-framework.html) theme is to include the 
+standard stylesheets (above), then add a new CSS file by the name of the new theme.
+It's not required, but it makes reading through someone else's theme easier to follow.
+Therefore, add a new file named `home.css` to the list: 
+
+##### Filename: **.poco/themes/mytheme/home/README.md**
+
+```
+- ../../../css/root.css
+- ../../../css/reset.css
+- ../../../css/sizes.css
+- ../../../css/layout.css
+- ../../../css/medium-skinny.css
+- "https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:ital@0;1&display=swap" 
+- ../../../css/type.css
+- ../../../css/mediacolors.css
+- ../mytheme.css
+# ADD THIS FILENAME TO THE LIST:
+- home.css
+```
+
+### Update styles in the new themename.css file 
+
+By convention when you create a new theme, you create a CSS file with new
+or overriding styles by the name of that theme, with `.css` appended.
+
+Let's actually create the `.poco/themes/mytheme/home.css` file.
+
+##### Filename: **.poco/themes/mytheme/home/home.css**
+
+```
+
+/* Bubble background color. Works on both light and dark themes.  */
+:root {
+  --accent-bg:#FA7E61;
+}
+
+/* Body of the speech bubble */
+article > h2 {
+  font-family:sans-serif;
+  font-size:2rem;
+  color:var(--bg);
+	margin-top:3rem;
+  padding:1rem;
+  position: relative;
+  height:auto;
+  width:50%;
+	background: var(--accent-bg);
+	border-radius: .5em;
+}
+
+/* Tail of the speech bubble */
+article > h2:after {
+  content: '';
+	position: absolute;
+	bottom: 0;
+	left: 40%;
+	width: auto;
+	height: auto;
+	border: 1.5em solid transparent;
+	border-top-color: var(--accent-bg);
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -.8rem;
+	margin-bottom: -2rem;
+}
+
+/* Link within the speech bubble */
+article > h2 > a {
+  color:var(--bg);
+  text-decoration:underline;
+}
+```
+
+### Create or copy a LICENSE file
+
+Each theme requires a file named LICENSE (all uppercase, no file extension) 
+specifying the terms under which your theme can be redistributed.  Feel free to copy one from an existing theme, such as [this one](https://raw.githubusercontent.com/pococms/poco/main/.poco/themes/base/LICENSE) or copy and paste from here. Be sure to update the year and name.
+
+##### Filename: **.poco/themes/mytheme/home/LICENSE**
+
+```
+MIT License
+
+Copyright (c) 2023 Tom Campbell 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+For more on LICENSE files, see GitHub's [Adding a license to a repository](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository).
+
+### Update your home page to use the new child theme
+
+* Let's replace the home page to use the new theme.
+
+```
+---
+pagetheme: mytheme/home
+hide: nav
+---
+
+#  Anna Utopia's Blog
+
+Here's what's happening in design this week.
+
+#### By **Anna Utopia** | *December 3*   [![LinkedIn](../.poco/img/linkedin-24px-blue-outline.svg)](https://linkedin.com/) [![YouTube logo](../.poco/img/youtube-24px-red-outline.svg)](https://youtube.com/@pococms/)   [![Facebook logo](../.poco/img/facebook-24px-blue-outline.svg)](https://facebook.com/)   [![Instagram logo](../.poco/img/instagram-24px-magenta-outline.svg)](https://www.instagram.com/)  [![Twitter logo](../.poco/img/twitter-24px-blue-outline.svg)](https://www.instagram.com)
+
+## How much back-end development should a front-end developer learn? [more](#)
+
+## SEO tricks you didn't know you knew [more](#)
+
+## Are CSS preprocessors really necessary? [more](#)
+```
+
+The results should look like the picture of your theme [here](#hometheme).
+
+## You're done!
+
+That's the end of this tutorial. Master what you've followed so far and you are ready to
+
+* Create a complete informational website
+* Modify themes
+* Create themes from scratch
+
+Have fun!
 
 

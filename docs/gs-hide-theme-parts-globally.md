@@ -113,5 +113,5 @@ stylesheets:
 
 
 
-###### [Previous: The parts of a PocoCMS theme](gs-parts-of-theme.html) [Next: Editing parts of a themel](gs-editing-parts-of-a-theme.html)
+###### [Previous: The parts of a PocoCMS theme](gs-parts-of-theme.html) [Next: Editing parts of a theme](gs-editing-parts-of-a-theme.html)
 

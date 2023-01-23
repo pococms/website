@@ -1,4 +1,6 @@
 {{- /* Downloadable fonts should be downloaded to your site */ -}}
+{{- /* Create theme likely to be used most often, then child theme, e.g. home */ -}}
+
 # PocoCMS workflow
 
 Here's an idea of how you'll typically create a PocoCMS project

@@ -15,7 +15,7 @@ are sent to be published on the Web.
 You can theme your website on a global or per-page
 basis. Themes are simple directories with
 CSS declarations and templates for page
-layout features: header, nav, aside, and footer.
+layout features: [header](glossary.html#header), [nav](glossary.html#nav), [aside](glossary.html#aside), and [footer](glossary.html#footer).
 
 Stylesheets are *inlined*, which means that they get absorbed right into the 
 generated HTML file. 
@@ -37,7 +37,7 @@ files, graphic assets, style sheets, and so on.
 
 The root of the directory requires a file named 
 either `index.md` or `README.md`. That file
-will be converted to HTML and will be named
+will be converted to HTML and upon conversion will be named
 `index.html`; such a file is required at the root
 of any website. If you have both `README.md`
 and `index.md`, in the root directory, 
@@ -77,8 +77,7 @@ CSS files) will be different from that illustration.
 The heart of PocoCMS' code that generates HTML from Markdown is an
 incredibly well-written Go Package named [Goldmark](https://github.com/yuin/goldmark),
 by a super-intelligent being from the future named [Yuin](https://github.com/yuin) 
-who pretends to be human so the rest of us feel better. While poorly
-documented on this site, PocoCMS employs many extensions to Markdown
+who pretends to be human so the rest of us feel better. PocoCMS employs many extensions to Markdown
 including:
 
 * [goldmark/extension](github.com/yuin/goldmark/extension)
@@ -144,7 +143,9 @@ aside{width:var(--aside-width);padding:0 2em 0 2em;}
 ```
 
 This specificity is required because Markdown by definition
-produces pure HTML with no classes or Ids allow.
+produces pure HTML with no classes or Ids allowed (Markdown
+and CommonMark don't officially support these attributes
+at the moment).
 
 The framework is optimized for quick development, and you
 can learn more at [Creating themes](themes-creating.html).
@@ -157,10 +158,10 @@ pages in the site.
 
 ### All pages inherit the home page theme, unless...
 
-If mention a theme
+If you specify a theme
 in the [front matter](glossary.html#front-matter) of
-the [home page](glossary.html#home-page) and
-all other pages in the site will inherit that theme:
+the [home page](glossary.html#home-page), 
+all other pages in the site will inherit that theme by default:
 
 ##### file: **index.md**
 
@@ -172,8 +173,8 @@ theme: informer
 
 ### an individual page overrides the theme using pagetheme
 
-But sometimes you want to override the theme for one or more
-pages. You can do it on a per-page basis by using the `pagetheme`
+If you want to override the theme for one or more
+pages, you can do so on a per-page basis by using the `pagetheme`
 declaration:
 
 ##### file: **not-the-home-page.md**
@@ -183,9 +184,6 @@ declaration:
 pagetheme: electro
 ---
 ```
-
-A theme can also include template files for the
-header, nav bar, aside (a.k.a. sidebar), and footer.
 
 ### Expensive web designers hate this 1 weird trick
 
@@ -212,8 +210,7 @@ pagetheme: hero
 ---
 ```
 
-
-The only place this works is the home page, because it's the only place
+This only applies to the home page, because it's the only place
 PocoCMS respects the `theme:` rule.
 
 

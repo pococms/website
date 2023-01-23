@@ -18,6 +18,8 @@
   --a:blue;                   /* Default link color */
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
+  --accent-bg:var(--bg);      /* Accent background color */
+  --accent-fg:var(--fg);      /* Accent text color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
@@ -66,6 +68,8 @@
   --a:blue;                   /* Default link color */
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
+  --accent-bg:var(--bg);      /* Accent background color */
+  --accent-fg:var(--fg);      /* Accent text color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
@@ -114,6 +118,8 @@
   --a:cyan;                   /* Default link color */
   --fg:white;                 /* Default text color */
   --bg:MidnightBlue;          /* Default background color */
+  --accent-bg:var(--bg);      /* Accent background color */
+  --accent-fg:var(--fg);      /* Accent text color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
@@ -467,24 +473,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/technical-overview.html">Technical overiew</a></p>
 </nav>
 	
-<aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
-<ul>
-<li>Item 1 in the aside</li>
-<li>Item 2 in the aside</li>
-<li>Pocodocs theme!</li>
-</ul>
-</aside>
 <article id="article-poco">
-<h1 id="todo">TODO:</h1>
-<ul>
-<li>Downloading fonts</li>
-<li>style tags</li>
-<li>skinny</li>
-<li>Dark themes</li>
-<li>Ideally a nested theme</li>
-<li>Goal is to change things in only 1 place</li>
-<li>BREAK THESE SECTIONS UP WHEN THEIR ORDER IS CLEAR</li>
-</ul>
 <h1 id="creating-a-pococms-theme-with-the-framework">Creating a PocoCMS theme with the framework</h1>
 <p>The best way to create a highly versatile theme
 is to use the PocoCMS <a href="theme-framework.html">theme framework</a>.
@@ -493,10 +482,18 @@ launchpad for all PocoCMS framework themes, from <a href="demos/electro.html">El
 <a href="demos/clerk.html">Clerk</a> to <a href="demos/skyscraper.html">Skyscraper</a>.</p>
 <p>Here's the theme we'll create:</p>
 <p><img src="img/mytheme-completed.png" alt="Screenshot of completed custom theme" /></p>
+<p>We'll then create a child theme, which inherits the desired qualities of that theme
+but can be used for a specialized version. This one will be for a home page for the
+previous theme:</p>
+<p><img src="img/child-theme-home-complete.png" alt="Screen shot of completed child theme named home" /></p>
 <h2 id="overall-strategy">Overall strategy</h2>
-<p>The way to create a theme using the theme framework is simple:
-add a stylesheet and put all the changes in there. This
-guide takes you through every step of the way
+<p>The way to create a theme using the theme framework is simple:</p>
+<ul>
+<li>Copy a the directory for a theme you like</li>
+<li>In the new directory, add a stylesheet by the name of that theme</li>
+<li>Put all theme alterations in that new stylesheet</li>
+</ul>
+<p>This guide takes you through every step of the way
 to create a theme using that technique.</p>
 <h2 id="start-a-new-project">Start a new project</h2>
 <p>Each Poco project is self-contained, with all theme data
@@ -1023,7 +1020,7 @@ rule like this:)</p>
 <h5 id="filename-pocothemesmythememythemecss-1">Filename: <strong>.poco/themes/mytheme/mytheme.css</strong></h5>
 <pre><code>aside&gt;p,aside&gt;p&gt;a{font-size:small;}
 </code></pre>
-<h2 id="create-css-for-icons-in-aside">Create CSS for icons in aside</h2>
+<h2 id="create-css-for-column-of-icons-in-aside">Create CSS for column of icons in aside</h2>
 <p>We are missing the icons in the aside, as shown in
 <a href="#creating-a-pococms-theme-with-the-framework">Creating a PocoCMS theme with the framework</a>
 The markdown for them in <code>.poco/themes/mytheme/aside.md</code> shows some challenges.
@@ -1199,6 +1196,64 @@ the idea of static site generators forward.
 <p>And the result is as it will be on the finished theme, although other elements on
 the page are still unfinished:</p>
 <p><img src="img/new-theme-byline-icons-beginning.png" alt="Screen shot of byline with row of icons to its right" /></p>
+<h2 id="complete-header-styles">Complete header styles</h2>
+<p>If you look back the <a href="#creating-a-pococms-theme-with-the-framework">picture of the finished theme</a>
+you'll see the header is minimalistic, but manages to get two colors out of
+the header link. Let's see how that's done.</p>
+<ul>
+<li>Add this code to <code>.poco/themes/mytheme/mytheme.css</code> after the comment <code>OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT &amp; DARK THEMES</code>:</li>
+</ul>
+<h3 id="alter-style-for-first-list-item-in-header-only">Alter style for first list item in header only</h3>
+<p>Filename: <strong>.poco/themes/mytheme/mytheme.css</strong>:</p>
+<pre><code>header &gt; ul &gt; li:first-child &gt; a &gt; del {color:red;}
+</code></pre>
+<p>This code says that for a link (the <code>a</code> part) embedded in
+an unordered list (the <code>ul &gt; li</code> part), but only for the
+first such linnk (the <code>:first-child part), and all of this only within the </code>header<code>, color the striketrough text (the </code>del<code>part) red. Normally you would want to add</code>text-decoration:none<code>next to the </code>color:red;` part but that's been specified elsewhere in a general
+rule that deprives links of their text decoration.</p>
+<p>This abuses sematic CSS a little bit to let you use the markup <code>Anna ~~Utopia~~</code> for the
+blog header. That's the markdown extension for strikethrough text. In the case of the
+blog header, and only the blog header, the text that normally appears to be
+struck through with lines crossing out the name will instead appear in red.</p>
+<p>Because it works on only the first occurrence (<code>first-child</code>), the accent color for the blog
+title would appear only on the first element in the unordered list markup shown here:</p>
+<pre><code># Utopia is in separate color 
+* [Anna ~~Utopia~~](#)
+# Blog is NOT in separate color
+* My [~~Blog~~](#)
+</code></pre>
+<h3 id="update-headermd">Update header.md</h3>
+<p>Let's see how the revised header style will look. It's time to fix the header Markdown.</p>
+<ul>
+<li>Replace the <code>header.md</code> file at <code>.poco/themes/mytheme/header.md</code> with the following:</li>
+</ul>
+<h5 id="filename-pocothemesmythemeheadermd">Filename: <strong>.poco/themes/mytheme/header.md</strong></h5>
+<pre><code>* [Anna ~~Utopia~~](#)
+</code></pre>
+<p>And take a look at your work.</p>
+<p><img src="img/new-theme-updated-header.png" alt="Screenshot of updated header and header style" /></p>
+<h3 id="add-remaining-stylesheet-code">Add remaining stylesheet code</h3>
+<p>There are a few random lines to add to your CSS, none of which has particular
+teaching value, but we'll explain them quickly.</p>
+<ul>
+<li>Add this code to <code>.poco/themes/mytheme/mytheme.css</code> after the comment <code>OVERRIDE MEDIA QUERIES. COLORS FOR LIGHT &amp; DARK THEMES</code>:</li>
+</ul>
+<pre><code>article&gt;h1,article&gt;h2,article&gt;h3{color:var(--html-bg);}
+aside &gt; p &gt; a:hover {
+  text-decoration:underline;
+  text-decoration-color:var(--html-bg);
+  -webkit-text-decoration-color:var(--html-bg);
+}
+footer  a {color:var(--bg);}
+</code></pre>
+<ul>
+<li>The <code>article</code> line changes headings <code>h1</code>, <code>h2</code>, and <code>h3</code> to use the HTML
+background color as the heading foreground (text)  colors.</li>
+<li>The <code>aside &gt; p</code> code changes the text decoration, only for links in the
+aside, to show active links with an underline the same color as the HTML background
+color.</li>
+<li>The <code>footer</code> line makes links in the footer use the article background color.</li>
+</ul>
 <h2 id="the-burger-menu">The burger menu</h2>
 <p>The PocoCMS theme framework supports <a href="glossary.html#burger-menu">hamburger menus</a>, which replace the
 header at mobile sizes to save space on your screen. Let's take a look.</p>
@@ -1271,7 +1326,228 @@ links, same as most headers and navs.</p>
 </code></pre>
 <p>Here are the new links:</p>
 <p><img src="img/new-theme-format-burger-links.png" alt="Screenshot of edited burger menu links" /></p>
-<p></p>
+<h2 id="create-and-use-a-child-theme">Create and use a child theme</h2>
+<p>Sometimes you want a variation on a theme. You want it to inherit most
+of the properties of the main theme, but change some of them for a particular
+effect. These are called The most common case is for a home
+page that serves more as an advertisement than as documentation. This is sometimes
+called a <em>landing page</em>. The home page of this site uses such a theme, called
+<code>hero</code>. It's a child of the <a href="https://pococms.com/docs/demos/pocodocs.html">pocodocs</a>
+theme. To use the <code>hero</code> child theme, you'd add this to the page  front matter:</p>
+<pre><code>pagetheme: pocodocs/hero
+</code></pre>
+<p>This section shows how to create a child theme named <code>home</code>, for the
+<code>mytheme</code> theem createdd earlier in this tutorial. That means it
+will live in the directory <code>.poco/mythemes/home</code>. The steps to create it are:</p>
+<ul>
+<li>
+<p><a href="#create-a-subdirectory-for-the-child-theme">Create a subdirectory for the theme in the theme directory</a></p>
+</li>
+<li>
+<p><a href="#copy-the-existing-stylesheets-and-page-layout-files-to-the-child-theme-directory">Copy the existing stylesheets and page layout files to that subdirectory</a></p>
+</li>
+<li>
+<p><a href="#change-relative-directory-paths-to-css-and-page-layout-files">Change relative directory paths to CSS and page layout files required in the theme files</a></p>
+</li>
+<li>
+<p><a href="#create-a-stylesheet-file-by-the-name-of-the-child-theme-and-add-or-edit-styles-as-needed">Create a stylesheet file by the name of the child theme and add or edit styles as needed</a></p>
+</li>
+<li>
+<p><a href="#update-styles-in-the-new-themenamecss-file">Update styles in the new themename.css file</a></p>
+</li>
+<li>
+<p><a href="#create-or-copy-a-license-file">Create or copy a LICENSE file</a></p>
+</li>
+</ul>
+<p>The new <code>home</code> theme will create pages that look like this:</p>
+<p><a id='hometheme'></a></p>
+<p><img src="img/child-theme-home-complete.png" alt="Screen shot of completed child theme named home" /></p>
+<p>It replaces the level 2 header style in the theme with speech balloons, designed to
+draw the reader in by simplifying the home page presentation and offering only a few
+choices.</p>
+<h3 id="create-a-subdirectory-for-the-child-theme">Create a subdirectory for the child theme</h3>
+<ul>
+<li>All PocoCMS themes live in a theme directory.
+Child themes live in a subdirectory off the theme directory.
+Since <code>mytheme</code> lives in <code>.poco/themes/mytheme</code>, create the new
+directory.</li>
+</ul>
+<h5 id="macos">MacOS</h5>
+<pre><code>mkdir .poco/themes/mytheme/home
+</code></pre>
+<h5 id="windows">Windows</h5>
+<pre><code>mkdir .poco\themes\mytheme\home
+</code></pre>
+<h3 id="copy-the-existing-stylesheets-and-page-layout-files-to-the-child-theme-directory">Copy the existing stylesheets and page layout files to the child theme directory</h3>
+<p>Themes are mostly made up of stylesheets, such as <code>root.css</code>, and page layout files,
+such as <code>header.md</code>. Copy those files from the theme to the child theme.</p>
+<h5 id="macos-1">MacOS</h5>
+<pre><code>cp .poco/themes/mytheme/*.* .poco/themes/mytheme/home
+</code></pre>
+<h5 id="windows-1">Windows</h5>
+<pre><code>copy .poco\themes\mytheme\*.* .poco\themes\mytheme\home
+</code></pre>
+<h3 id="change-relative-directory-paths-to-css-and-page-layout-files">Change relative directory paths to CSS and page layout files</h3>
+<p>The child theme's <a href="glossary.html#theme-readme">theme README</a> file lists CSS files it requires.
+Many of them live in the <code>.poco/css</code> directory. Because
+themes usually share these files, they use operating system relative paths
+in the <code>stylesheets</code> list, like this:</p>
+<pre><code>stylesheets:
+- ../../css/root.css
+</code></pre>
+<p>(If you're not too familiar with relative directories, learn more
+in <a href="https://pococms.com/docs/technical-overview.html#theme-structure">Theme structure</a>.)</p>
+<p>Because the child theme is one directory deeper in the directory hierarchy,
+relative paths like the one above need to be updated with an additional <code>../</code>
+path separator:</p>
+<pre><code>stylesheets:
+- ../../../css/root.css
+</code></pre>
+<p>Let's take care of the whole theme README now.</p>
+<ul>
+<li>
+<p>Open the file <code>.poco/themes/mytheme/home/README.md</code></p>
+</li>
+<li>
+<p>Any path starting with <code>../</code> is a relative path separators. Insert
+another <code>../</code> in front of it. You also need one in front of <code>mytheme.css</code>
+(or whatever you called your theme). Change all of the following to look as follows.</p>
+</li>
+</ul>
+<h5 id="filename-pocothemesmythemehomereadmemd">Filename: <strong>.poco/themes/mytheme/home/README.md</strong></h5>
+<pre><code>- ../../../css/root.css
+- ../../../css/reset.css
+- ../../../css/sizes.css
+- ../../../css/layout.css
+- ../../../css/medium-skinny.css
+- ../../../css/type.css
+- ../../../css/mediacolors.css
+- ../mytheme.css
+</code></pre>
+<p><strong>Do not</strong> add it in front of the item starting with <code>https://fonts.googleapis.com..etc</code>, because
+it's not a relative filesystem path. It's a URL and has nothing to do with anything on your machine.</p>
+<h3 id="create-a-stylesheet-file-by-the-name-of-the-child-theme-and-add-or-edit-styles-as-needed">Create a stylesheet file by the name of the child theme and add or edit styles as needed</h3>
+<p>The way to create a <a href="theme-framework.html">theme framework</a> theme is to include the
+standard stylesheets (above), then add a new CSS file by the name of the new theme.
+It's not required, but it makes reading through someone else's theme easier to follow.
+Therefore, add a new file named <code>home.css</code> to the list:</p>
+<h5 id="filename-pocothemesmythemehomereadmemd-1">Filename: <strong>.poco/themes/mytheme/home/README.md</strong></h5>
+<pre><code>- ../../../css/root.css
+- ../../../css/reset.css
+- ../../../css/sizes.css
+- ../../../css/layout.css
+- ../../../css/medium-skinny.css
+- &quot;https://fonts.googleapis.com/css2?family=Abril+Fatface&amp;family=Montserrat:ital@0;1&amp;display=swap&quot; 
+- ../../../css/type.css
+- ../../../css/mediacolors.css
+- ../mytheme.css
+# ADD THIS FILENAME TO THE LIST:
+- home.css
+</code></pre>
+<h3 id="update-styles-in-the-new-themenamecss-file">Update styles in the new themename.css file</h3>
+<p>By convention when you create a new theme, you create a CSS file with new
+or overriding styles by the name of that theme, with <code>.css</code> appended.</p>
+<p>Let's actually create the <code>.poco/themes/mytheme/home.css</code> file.</p>
+<h5 id="filename-pocothemesmythemehomehomecss">Filename: <strong>.poco/themes/mytheme/home/home.css</strong></h5>
+<pre><code>
+/* Bubble background color. Works on both light and dark themes.  */
+:root {
+  --accent-bg:#FA7E61;
+}
+
+/* Body of the speech bubble */
+article &gt; h2 {
+  font-family:sans-serif;
+  font-size:2rem;
+  color:var(--bg);
+	margin-top:3rem;
+  padding:1rem;
+  position: relative;
+  height:auto;
+  width:50%;
+	background: var(--accent-bg);
+	border-radius: .5em;
+}
+
+/* Tail of the speech bubble */
+article &gt; h2:after {
+  content: '';
+	position: absolute;
+	bottom: 0;
+	left: 40%;
+	width: auto;
+	height: auto;
+	border: 1.5em solid transparent;
+	border-top-color: var(--accent-bg);
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -.8rem;
+	margin-bottom: -2rem;
+}
+
+/* Link within the speech bubble */
+article &gt; h2 &gt; a {
+  color:var(--bg);
+  text-decoration:underline;
+}
+</code></pre>
+<h3 id="create-or-copy-a-license-file">Create or copy a LICENSE file</h3>
+<p>Each theme requires a file named LICENSE (all uppercase, no file extension)
+specifying the terms under which your theme can be redistributed.  Feel free to copy one from an existing theme, such as <a href="https://raw.githubusercontent.com/pococms/poco/main/.poco/themes/base/LICENSE">this one</a> or copy and paste from here. Be sure to update the year and name.</p>
+<h5 id="filename-pocothemesmythemehomelicense">Filename: <strong>.poco/themes/mytheme/home/LICENSE</strong></h5>
+<pre><code>MIT License
+
+Copyright (c) 2023 Tom Campbell 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</code></pre>
+<p>For more on LICENSE files, see GitHub's <a href="https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository">Adding a license to a repository</a>.</p>
+<h3 id="update-your-home-page-to-use-the-new-child-theme">Update your home page to use the new child theme</h3>
+<ul>
+<li>Let's replace the home page to use the new theme.</li>
+</ul>
+<pre><code>---
+pagetheme: mytheme/home
+hide: nav
+---
+
+#  Anna Utopia's Blog
+
+Here's what's happening in design this week.
+
+#### By **Anna Utopia** | *December 3*   [![LinkedIn](../.poco/img/linkedin-24px-blue-outline.svg)](https://linkedin.com/) [![YouTube logo](../.poco/img/youtube-24px-red-outline.svg)](https://youtube.com/@pococms/)   [![Facebook logo](../.poco/img/facebook-24px-blue-outline.svg)](https://facebook.com/)   [![Instagram logo](../.poco/img/instagram-24px-magenta-outline.svg)](https://www.instagram.com/)  [![Twitter logo](../.poco/img/twitter-24px-blue-outline.svg)](https://www.instagram.com)
+
+## How much back-end development should a front-end developer learn? [more](#)
+
+## SEO tricks you didn't know you knew [more](#)
+
+## Are CSS preprocessors really necessary? [more](#)
+</code></pre>
+<p>The results should look like the picture of your theme <a href="#hometheme">here</a>.</p>
+<h2 id="youre-done">You're done!</h2>
+<p>That's the end of this tutorial. Master what you've followed so far and you are ready to</p>
+<ul>
+<li>Create a complete informational website</li>
+<li>Modify themes</li>
+<li>Create themes from scratch</li>
+</ul>
+<p>Have fun!</p>
 
 </article>
 

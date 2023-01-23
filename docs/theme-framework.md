@@ -1,6 +1,7 @@
 # The PocoCMS theme framework
 {{- /* Frequent use of styles that depend on context of other styles  */ -}}
 {{- /* Themes are pretty much diffs of other themes using CSS variables  */ -}}
+{{- /* Child themes  */ -}}
 {{- /* Burger menus  */ -}}
 {{- /* h4 is normally byline */ -}}
 {{- /* h5 is normally filename */ -}}

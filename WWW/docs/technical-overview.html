@@ -18,6 +18,8 @@
   --a:blue;                   /* Default link color */
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
+  --accent-bg:var(--bg);      /* Accent background color */
+  --accent-fg:var(--fg);      /* Accent text color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
@@ -66,6 +68,8 @@
   --a:blue;                   /* Default link color */
   --fg:black;                 /* Default text color. */
   --bg:white;                 /* Default background color */
+  --accent-bg:var(--bg);      /* Accent background color */
+  --accent-fg:var(--fg);      /* Accent text color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
@@ -114,6 +118,8 @@
   --a:cyan;                   /* Default link color */
   --fg:white;                 /* Default text color */
   --bg:MidnightBlue;          /* Default background color */
+  --accent-bg:var(--bg);      /* Accent background color */
+  --accent-fg:var(--fg);      /* Accent text color */
   --html-bg:var(--bg);        /* Color enclosing skinny themes */
   --html-font:sans-serif;     /* Set font everywhere */
   --header-fg:var(--fg);      /* Text color of header */
@@ -486,7 +492,7 @@ are sent to be published on the Web.</p>
 <p>You can theme your website on a global or per-page
 basis. Themes are simple directories with
 CSS declarations and templates for page
-layout features: header, nav, aside, and footer.</p>
+layout features: <a href="glossary.html#header">header</a>, <a href="glossary.html#nav">nav</a>, <a href="glossary.html#aside">aside</a>, and <a href="glossary.html#footer">footer</a>.</p>
 <p>Stylesheets are <em>inlined</em>, which means that they get absorbed right into the
 generated HTML file.
 It makes web pages render faster, sometimes much faster.</p>
@@ -503,7 +509,7 @@ are expected to be in that directory, including theme
 files, graphic assets, style sheets, and so on.</p>
 <p>The root of the directory requires a file named
 either <code>index.md</code> or <code>README.md</code>. That file
-will be converted to HTML and will be named
+will be converted to HTML and upon conversion will be named
 <code>index.html</code>; such a file is required at the root
 of any website. If you have both <code>README.md</code>
 and <code>index.md</code>, in the root directory,
@@ -533,8 +539,7 @@ CSS files) will be different from that illustration.</p>
 <p>The heart of PocoCMS' code that generates HTML from Markdown is an
 incredibly well-written Go Package named <a href="https://github.com/yuin/goldmark">Goldmark</a>,
 by a super-intelligent being from the future named <a href="https://github.com/yuin">Yuin</a>
-who pretends to be human so the rest of us feel better. While poorly
-documented on this site, PocoCMS employs many extensions to Markdown
+who pretends to be human so the rest of us feel better. PocoCMS employs many extensions to Markdown
 including:</p>
 <ul>
 <li>
@@ -599,33 +604,33 @@ article{width:var(--article-width);height:auto;}
 aside{width:var(--aside-width);padding:0 2em 0 2em;}  
 </code></pre>
 <p>This specificity is required because Markdown by definition
-produces pure HTML with no classes or Ids allow.</p>
+produces pure HTML with no classes or Ids allowed (Markdown
+and CommonMark don't officially support these attributes
+at the moment).</p>
 <p>The framework is optimized for quick development, and you
 can learn more at <a href="themes-creating.html">Creating themes</a>.</p>
 <h2 id="global-vs-page-themes">Global vs. page themes</h2>
 <p>A <code>theme</code> declaration on the home page is also known as the <a href="glossary.html#global-theme">global theme</a>. It lets you propagate the theme through all
 pages in the site.</p>
 <h3 id="all-pages-inherit-the-home-page-theme-unless">All pages inherit the home page theme, unless...</h3>
-<p>If mention a theme
+<p>If you specify a theme
 in the <a href="glossary.html#front-matter">front matter</a> of
-the <a href="glossary.html#home-page">home page</a> and
-all other pages in the site will inherit that theme:</p>
+the <a href="glossary.html#home-page">home page</a>,
+all other pages in the site will inherit that theme by default:</p>
 <h5 id="file-indexmd">file: <strong>index.md</strong></h5>
 <pre><code>---
 theme: informer
 ---
 </code></pre>
 <h3 id="an-individual-page-overrides-the-theme-using-pagetheme">an individual page overrides the theme using pagetheme</h3>
-<p>But sometimes you want to override the theme for one or more
-pages. You can do it on a per-page basis by using the <code>pagetheme</code>
+<p>If you want to override the theme for one or more
+pages, you can do so on a per-page basis by using the <code>pagetheme</code>
 declaration:</p>
 <h5 id="file-not-the-home-pagemd">file: <strong>not-the-home-page.md</strong></h5>
 <pre><code>---
 pagetheme: electro
 ---
 </code></pre>
-<p>A theme can also include template files for the
-header, nav bar, aside (a.k.a. sidebar), and footer.</p>
 <h3 id="expensive-web-designers-hate-this-1-weird-trick">Expensive web designers hate this 1 weird trick</h3>
 <p>Suppose you want a separate theme for the home page than
 for the rest of the site? It's a common case because the
@@ -644,7 +649,7 @@ theme: pocodocs
 pagetheme: hero
 ---
 </code></pre>
-<p>The only place this works is the home page, because it's the only place
+<p>This only applies to the home page, because it's the only place
 PocoCMS respects the <code>theme:</code> rule.</p>
 <h2 id="starting-a-site">Starting a site</h2>
 <ul>

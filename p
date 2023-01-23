@@ -1,6 +1,7 @@
 cd ~/pococms/website
 poco-dir-update force
-poco -timestamp
+#poco -timestamp
+poco 
 if [[ $? -ne 0 ]]; then
     echo "Quitting"
     exit 1

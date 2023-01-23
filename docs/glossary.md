@@ -69,6 +69,63 @@ the [header](#header), which often has too
 many links or bulky brand identification to fit comfortably 
 on the small screen.
 
+## child theme
+
+A [theme](#theme) gives your site, or a page of your site, its overall appearance.
+Sometimes you want a theme with most of those same properties but with some
+properties altered or added. You can put both themes in the theme
+directory, and the altered theme goes in a nested directory for the theme.
+The theme in the nested directory called a child theme. Except for being
+in a nested directory, its [format is the same](theme-framework.html) as the parent theme: it has 
+a `README.md`, it has a `LICENSE` file, etc.
+
+
+To use it just add a slash (`/`) and then its subdirectory name after theme. 
+For example, the `pocodocs` theme has a child theme named `hero`.
+It's the one used for the home page of the [PocoCMS site](https://pococms.com/). 
+So to use the `hero` child theme you'd specify:
+
+```
+---
+pagetheme: pocodocs/hero
+---
+```
+
+
+The `pocodocs` theme has another child theme named `gallery`, so the
+directory list for the `pocodocs` theme is:
+
+```
+.poco/themes
+└─── pocodocs
+    ├── LICENSE
+    ├── README.md
+    ├── aside.md
+    ├── footer.md
+    ├── gallery
+    │   ├── LICENSE
+    │   ├── README.md
+    │   ├── aside.md
+    │   ├── footer.md
+    │   ├── gallery.css
+    │   ├── header.md
+    │   ├── hero.css
+    │   └── nav.md
+    ├── header.md
+    ├── hero
+    │   ├── LICENSE
+    │   ├── README.md
+    │   ├── aside.md
+    │   ├── big-circles.css
+    │   ├── footer.md
+    │   ├── header.md
+    │   ├── hero.css
+    │   ├── nav.md
+    │   └── pocodocs.css
+    ├── nav.md
+    └── pocodocs.css
+```
+
 ## code block
 
 Synonomous with [code fence](#code-fence)

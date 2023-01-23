@@ -86,7 +86,8 @@ files contain a list of stylesheets required for the theme:
 
 ## Double quotes everywere!
 
-Here a rule showing why all rule values are double-quoted in PocoCMS.
+Here a rule showing why many rule values are double-quoted in PocoCMS, even
+though you don't see this in many other YAML files.
 
 ```
 ---
@@ -116,7 +117,7 @@ The reason for this is that sometime characters used by CSS seem to cause
 problems with the Go template engine or the Go YAML parser, notably the
 curly brace characters `{` and `}`. 
 
-Because of that we suggest double-quoting values (the left side of a rule)
+Because of that we suggest double-quoting values (the right side of a rule)
 whenever there might be some ambiguity. 
 It eliminates a whole class of problems that can be otherwise hard to track down.
 
