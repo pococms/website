@@ -1,7 +1,83 @@
+---
+hide: aside
+---
+
 # PocoCMS Frequently Asked Questions
 
 
-Why my website look like plain HTML all of a sudden?
+What is PocoCMS?
+: PocoCMS is the fastest way to turn your words into full-featured
+information website with optional header, footer, navbar and sidebar.
+It's a static site generator that converts Markdown into HTML using
+themes. There's only one file to install. There are no configuration files.
+You don't even have to know Markdown to create a full site. It has
+full tutorial and reference documentation packed with examples. You
+can build an entire website starting with a single Markdown file named `index.md`.
+
+To create a complete website, drop to your operating system's
+command prompt and type:
+
+```
+poco -new mysite
+```
+
+The response: 
+
+```
+Site published to /Users/html/mysite/WWW/index.html
+```
+
+Edit the file `index.md` it created. Go from this:
+
+```
+---
+title: "&#129502; Powered by PocoCMS"
+---
+# Welcome to mysite
+
+hello, world.
+
+Learn more at [PocoCMS tutorials](https://pococms.com/docs/tutorials.html) 
+```
+
+To this, by adding the `theme: informer` line as shown:
+
+```
+---
+theme: informer
+---
+# Welcome to mysite
+
+hello, world.
+
+Learn more at [PocoCMS tutorials](https://pococms.com/docs/tutorials.html) 
+```
+
+Build the site by running poco at the command line:
+
+```
+poco
+```
+
+The result is a full page with optional header, navbar, sidebar, and footer:
+
+![Default Informer theme screenshot](img/home-page-theme-informer-1366x768.png)
+
+This theme was built using the [PocoCMS theme framework](theme-framework.html) and
+it has among its built-in features:
+
+* Change themes on a page-by-page basis
+* Mobile-friendly
+* Desktop-friendly
+* Responsive
+* Name one global theme to save typing
+* Disable features like header or footer by adding `hide: footer` to the page
+* No Javascript required
+* Tiny page size 
+* Built-in SEO
+* Works on older browsers and in low-bandwidth situations
+
+Why does my website look like plain HTML all of a sudden?
 : This is probably because an error in your
 [front matter](front-matter.html). For example, perhaps
 you wanted to hide the [nav](glossary.html#nav) and did

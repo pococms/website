@@ -462,7 +462,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <body>
 <header id="header-poco"><ul>
 <li><a href="https://pococms.com">poco<del>CMS</del></a></li>
-<li><a href="https://github.com/pococms/downloads/tree/main/dist">Free Download</a></li>
+<li><a href="https://github.com/pococms/downloads/tree/main/dist">Download</a></li>
 <li><a href="/docs/theme-demos.html">Theme demos</a></li>
 <li><a href="/docs/index.html">Docs</a></li>
 <li><a href="https://github.com/pococms/poco">GitHub</a></li>
@@ -473,17 +473,61 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <nav id="nav-poco"><p><a href="/docs/theme-demos.html">Theme demos</a> <a href="/docs/technical-overview.html">Technical overiew</a></p>
 </nav>
 	
-<aside id="aside-poco"><h3 id="aside-for-pocodocs">Aside for pocodocs</h3>
-<ul>
-<li>Item 1 in the aside</li>
-<li>Item 2 in the aside</li>
-<li>Pocodocs theme!</li>
-</ul>
-</aside>
 <article id="article-poco">
 <h1 id="pococms-frequently-asked-questions">PocoCMS Frequently Asked Questions</h1>
 <dl>
-<dt>Why my website look like plain HTML all of a sudden?</dt>
+<dt>What is PocoCMS?</dt>
+<dd>PocoCMS is the fastest way to turn your words into full-featured
+information website with optional header, footer, navbar and sidebar.
+To create a complete website, drop to your operating system's
+command prompt and type:</dd>
+</dl>
+<pre><code>poco -new mysite
+</code></pre>
+<p>The response:</p>
+<pre><code>Site published to /Users/html/mysite/WWW/index.html
+</code></pre>
+<p>Edit the file <code>index.md</code> it created. Go from this:</p>
+<pre><code>---
+title: &quot;&amp;#129502; Powered by PocoCMS&quot;
+---
+# Welcome to mysite
+
+hello, world.
+
+Learn more at [PocoCMS tutorials](https://pococms.com/docs/tutorials.html) 
+</code></pre>
+<p>To this, by adding the <code>theme: informer</code> line as shown:</p>
+<pre><code>---
+theme: informer
+---
+# Welcome to mysite
+
+hello, world.
+
+Learn more at [PocoCMS tutorials](https://pococms.com/docs/tutorials.html) 
+</code></pre>
+<p>Build the site by running poco at the command line:</p>
+<pre><code>poco
+</code></pre>
+<p>The result is a full page with optional header, navbar, sidebar, and footer:</p>
+<p><img src="img/home-page-theme-informer-1366x768.png" alt="Default Informer theme screenshot" /></p>
+<p>This theme was built using the <a href="theme-framework.html">PocoCMS theme framework</a> and
+it has among its built-in features:</p>
+<ul>
+<li>Change themes on a page-by-page basis</li>
+<li>Mobile-friendly</li>
+<li>Desktop-friendly</li>
+<li>Responsive</li>
+<li>Name one global theme to save typing</li>
+<li>Disable features like header or footer by adding <code>hide: footer</code> to the page</li>
+<li>No Javascript required</li>
+<li>Tiny page size</li>
+<li>Built-in SEO</li>
+<li>Works on older browsers and in low-bandwidth situations</li>
+</ul>
+<dl>
+<dt>Why does my website look like plain HTML all of a sudden?</dt>
 <dd>This is probably because an error in your
 <a href="front-matter.html">front matter</a>. For example, perhaps
 you wanted to hide the <a href="glossary.html#nav">nav</a> and did
