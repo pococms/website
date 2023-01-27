@@ -462,7 +462,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <body>
 <header id="header-poco"><ul>
 <li><a href="https://pococms.com">poco<del>CMS</del></a></li>
-<li><a href="docs/install.html">Download</a></li>
+<li><a href="/docs/install.html">Download</a></li>
 <li><a href="/docs/theme-demos.html">Theme demos</a></li>
 <li><a href="/docs/index.html">Docs</a></li>
 <li><a href="https://github.com/pococms/poco">GitHub</a></li>
@@ -485,12 +485,20 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <p>Here's what to expect for <a href="https://pococms.com">PocoCMS</a>
 in the near to medium future, from high priority to low.</p>
 <ul>
+<li>Add command-line installers for:
+<ul>
+<li>Homebrew tap for Mac</li>
+<li>scoop for Windows</li>
+<li>Apt/get? No Linux machine to test on ATM</li>
+</ul>
+</li>
 <li>Add an empty index.html to directories with no index.md or README.md?
 <ul>
 <li>Or more broadly, some kind of analysis tool that:
 <ul>
 <li>Checks for the missing index.htmls as mentioned above</li>
 <li>Checks for title and description</li>
+<li>Generate sitemap</li>
 </ul>
 </li>
 </ul>
@@ -505,7 +513,6 @@ in the near to medium future, from high priority to low.</p>
 like headers, footers, etc.</li>
 <li>Collections (for blogs, news sections, etc.)</li>
 <li>Web interface for command-line haters</li>
-<li>Site maps</li>
 <li>PocoCMS author tries to stop caffeine usage. Maybe this needs to move up a few notches</li>
 </ul>
 

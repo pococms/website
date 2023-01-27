@@ -468,7 +468,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <body>
 <header id="header-poco"><ul>
 <li><a href="https://pococms.com">poco<del>CMS</del></a></li>
-<li><a href="docs/install.html">Download</a></li>
+<li><a href="/docs/install.html">Download</a></li>
 <li><a href="/docs/theme-demos.html">Theme demos</a></li>
 <li><a href="/docs/index.html">Docs</a></li>
 <li><a href="https://github.com/pococms/poco">GitHub</a></li>
@@ -483,17 +483,12 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <h1 id="installing-pococms">Installing PocoCMS</h1>
 <p>PocoCMS is just one file, so if you have a little experience
 copying files and adding them to the path there's nothing to it.</p>
-<p><strong>This part is a bit rough. Will improve it ASAP. Plan is to work up versions for</strong></p>
-<ul>
-<li>Homebrew tap</li>
-<li>scoop</li>
-<li>Apt/get?</li>
-</ul>
 <h2 id="grab-the-latest-binary">Grab the latest binary</h2>
 <h3 id="macintosh">Macintosh</h3>
 <table>
 <thead>
 <tr>
+<th></th>
 <th></th>
 <th></th>
 <th></th>
@@ -504,11 +499,13 @@ copying files and adding them to the path there's nothing to it.</p>
 <td>AMD-64</td>
 <td><a href="https://github.com/pococms/downloads/tree/main/dist/poco_Darwin_x86_64.tar.gz">Archive</a></td>
 <td><a href="https://github.com/pococms/downloads/tree/main/dist/poco_darwin_amd64_v1/poco">Executable</a></td>
+<td><a href="inst-help-mac.html">Help</a></td>
 </tr>
 <tr>
 <td>ARM-64</td>
 <td><a href="https://github.com/pococms/downloads/tree/main/dist/poco_Darwin_arm64.tar.gz">Archive</a></td>
 <td><a href="https://github.com/pococms/downloads/tree/main/dist/poco_darwin_arm64/poco">Executable</a></td>
+<td><a href="inst-help-mac.html">Help</a></td>
 </tr>
 </tbody>
 </table>
@@ -539,7 +536,7 @@ copying files and adding them to the path there's nothing to it.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="macintosh-1">Macintosh</h3>
+<h3 id="linux">Linux</h3>
 <table>
 <thead>
 <tr>
@@ -550,29 +547,24 @@ copying files and adding them to the path there's nothing to it.</p>
 </thead>
 <tbody>
 <tr>
-<td>Mac AMD-64</td>
-<td><a href="https://github.com/pococms/downloads/tree/main/dist/poco_Windows_x86_64.zip">Zipped</a></td>
-<td><a href="https://github.com/pococms/downloads/tree/main/dist/poco_windows_amd64_v1/poco.exe">Uncompressed .EXE</a></td>
+<td>AMD-64</td>
+<td><a href="https://github.com/pococms/downloads/tree/main/dist/poco_Linux_x86_64.zip">Archive</a></td>
+<td><a href="https://github.com/pococms/downloads/tree/main/dist/poco_linux_amd64_v1/poco">Executable</a></td>
 </tr>
 <tr>
-<td>Windows ARM 64-bit</td>
-<td><a href="https://github.com/pococms/downloads/tree/main/dist/poco_Windows_arm64.zip">Zipped</a></td>
-<td><a href="https://github.com/pococms/downloads/tree/main/dist/poco_arm_64/poco.exe">Uncompressed .EXE</a></td>
+<td>ARM 64-bit</td>
+<td><a href="https://github.com/pococms/downloads/tree/main/dist/poco_Linux_arm64.tar.gz">Archive</a></td>
+<td><a href="https://github.com/pococms/downloads/tree/main/dist/poco_linux_arm64/poco">Executable</a></td>
 </tr>
 <tr>
-<td>Windows 386</td>
-<td><a href="https://github.com/pococms/downloads/tree/main/dist/poco_Windows_i386.zip">Zipped</a></td>
-<td><a href="https://github.com/pococms/downloads/tree/main/dist/poco_windows_386/poco.exe">Uncompressed .EXE</a></td>
+<td>386</td>
+<td><a href="https://github.com/pococms/downloads/tree/main/dist/poco_Linux_i386.tar.gz">Archive</a></td>
+<td><a href="https://github.com/pococms/downloads/tree/main/dist/poco_linux_386/poco">Executable</a></td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>
-<p>The easiest way to get PocoCMS is to find the latest version at
-the <a href="https://github.com/pococms/downloads/tree/main/dist">Downloads</a> page.</p>
-<p>Obviously it's best to copy that to your system path.</p>
-</li>
-</ul>
+<h2 id="after-downloading-try-to-copy-the-executable-to-your-system-path">After downloading, try to copy the executable to your system path</h2>
+<p>The tutorial will work fine even if you just leave it in the <code>Downloads</code> directory though.</p>
 <h2 id="installing-from-source">Installing from source</h2>
 <ul>
 <li>PocoCMS is written in Go, so you'll obviously need to download it

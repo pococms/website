@@ -462,7 +462,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <body>
 <header id="header-poco"><ul>
 <li><a href="https://pococms.com">poco<del>CMS</del></a></li>
-<li><a href="docs/install.html">Download</a></li>
+<li><a href="/docs/install.html">Download</a></li>
 <li><a href="/docs/theme-demos.html">Theme demos</a></li>
 <li><a href="/docs/index.html">Docs</a></li>
 <li><a href="https://github.com/pococms/poco">GitHub</a></li>
@@ -488,14 +488,20 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <li>go fmt</li>
 <li>go build</li>
 <li>go test</li>
-<li>Check quickly through the source code</li>
+<li>Check quickly through the source code for:
+<ul>
+<li>TODO:</li>
+<li>wait(</li>
+<li>debug(</li>
+</ul>
+</li>
 <li>Run all stylesheets through <code>vnu</code> via my <code>v</code> utility</li>
 <li><code>du -h</code> on the source directory</li>
 <li><code>tree</code> on the source directory</li>
 <li>Check document Markdown source code for ocurrences of TODO:,
 including as comments in Go template format</li>
 <li>Run poco in the poco directory</li>
-<li>Run the test scripts <code>/.ts1</code> <code>/.ts2</code> in the poco directory</li>
+<li>Run the test script <code>/.ts2</code></li>
 <li>Follow directions in the test scripts, notably looking for
 <ul>
 <li>Sidebars in both short and log documents</li>
@@ -503,8 +509,17 @@ including as comments in Go template format</li>
 </ul>
 </li>
 <li>cd ~/pococms/website and run <code>poco-dir-update</code></li>
-<li>Ahead of goreleaser, run <code>rm -rf ../downloads/dist</code></li>
-<li>Get all cruft out of poco directory and run <code>goreleaser</code></li>
+<li>Ahead of goreleaser
+<ul>
+<li>A git status in the <code>~/pococms/poco</code> directory must come up clean</li>
+<li>run <code>rm -rf ../downloads/dist</code></li>
+<li>Get all cruft out of poco directory  (easy way is to work until git status returns nothing)</li>
+</ul>
+</li>
+<li>git push</li>
+<li>Tag latest version, something like
+git tag -a v0.5.0 -m &quot;First version of docs done&quot;</li>
+<li>run <code>goreleaser</code></li>
 </ul>
 <h2 id="check-for-assets">Check for assets</h2>
 <ul>
@@ -528,6 +543,10 @@ including as comments in Go template format</li>
 <h2 id="interactive-theme-tests">Interactive theme tests</h2>
 <ul>
 <li>For each theme click all links in all page layout elements</li>
+</ul>
+<h2 id="original-goreleaseryaml-file">Original .goreleaser.yaml file</h2>
+<ul>
+<li>What .goreleaser.yaml looked like before I added scoop, homebrew, etc. to it:  <a href="https://github.com/pococms/poco/blob/556573054371091412a309bb0ba449124e8ccf50/.goreleaser.yaml">https://github.com/pococms/poco/blob/556573054371091412a309bb0ba449124e8ccf50/.goreleaser.yaml</a></li>
 </ul>
 
 </article>

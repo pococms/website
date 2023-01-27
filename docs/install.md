@@ -20,19 +20,13 @@ styles:
 PocoCMS is just one file, so if you have a little experience
 copying files and adding them to the path there's nothing to it.
 
-**This part is a bit rough. Will improve it ASAP. Plan is to work up versions for**
-* Homebrew tap
-* scoop
-* Apt/get?
-
 ## Grab the latest binary
 
 ### Macintosh
-|  | | |
-| ---------------|-|-|
-| AMD-64 | [Archive](https://github.com/pococms/downloads/tree/main/dist/poco_Darwin_x86_64.tar.gz) | [Executable](https://github.com/pococms/downloads/tree/main/dist/poco_darwin_amd64_v1/poco) |
-| ARM-64 | [Archive](https://github.com/pococms/downloads/tree/main/dist/poco_Darwin_arm64.tar.gz) | [Executable](https://github.com/pococms/downloads/tree/main/dist/poco_darwin_arm64/poco) |
-
+|  | | | |
+| ---------------|-|-|-|
+| AMD-64 | [Archive](https://github.com/pococms/downloads/tree/main/dist/poco_Darwin_x86_64.tar.gz) | [Executable](https://github.com/pococms/downloads/tree/main/dist/poco_darwin_amd64_v1/poco) | [Help](inst-help-mac.html) |
+| ARM-64 | [Archive](https://github.com/pococms/downloads/tree/main/dist/poco_Darwin_arm64.tar.gz) | [Executable](https://github.com/pococms/downloads/tree/main/dist/poco_darwin_arm64/poco) | [Help](inst-help-mac.html) |
 
 
 ### Windows

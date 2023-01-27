@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)file:///Users/tom/pococms/website/WWW/docs/demos/skyscraper.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Powered by PocoCMS</title>
+
+<style></style>
+<style>
+
+/* base.css*/
+/* Works with optional headers, footers, nav, and 
+ * both left and right asides. 
+ * Must precede with reset.css of course 
+ *
+ * This is the equivalent of reset.css + poquito.css
+ * REM VS EM
+ * - Use rem for font sizes and @media query, because
+ *   rem is based on browser settings.
+ * - Use em for margins, padding, etc.
+ */
+
+/* *****************************************************
+ * RESET
+ ***************************************************** */
+
+html,body,nav,header,article,footer{width:100%;height:auto;max-width:100%;display:block;float:left;clear:both;overflow:auto;}
+html {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: inherit;}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, 
+a, abbr, acronym, address, big, cite, 
+del, dfn,img, ins, kbd, q, s, 
+small, strike, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, 
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family:
+    "system-ui",                           
+      "-apple-system",                  
+      "LucidaGrandeUI",                         
+      "HelveticaNeueDeskInterface-Regular",     
+      "HelveticaNeueDeskInterface-Light",        
+      "DroidSans",                           
+      "Ubuntu Light",
+      "Arial",  
+      "Roboto-Light",                            
+      "Segoe UI Light",                                   
+      "Tahoma",                             
+      "sans-serif";
+}
+
+/* Make touch interaction faster */
+a,area,button,[role="button"],input:not([type=range]),label,select,summary,textarea { -ms-touch-action: manipulation;touch-action: manipulation;}
+
+/* Largely undocumented and fails nvu validation. But removing it causes subtle problems, for example, adding extra left padding in header. */
+p,ol,ul,li,header {margin-block-start:0;margin-block-end:0;padding-inline-start:0;}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, pre, section {
+	display: block;
+}
+
+/* ******************************************************  
+ * FRAMEWORK WITH SUPPORT FOR HEADER, NAV, ASIDE, FOOTER
+ ***************************************************** */
+
+#page-container { 
+  position: relative;
+  min-height: 100vh;
+}
+/* This is nested just inside article, and closes right before footer */
+#content-wrap {
+  padding-bottom: 10vh;  /* NOTE: Should be same as Footer height */
+}
+
+
+/* Links show same if visited, underlined when hovered */
+a{color:blue;text-decoration:none;}
+a:visited{color:blue;text-decoration:none;}
+a:hover,a:active{color:inherit;text-decoration:underline;cursor:pointer}
+
+/* NOTE: padding-bottom on article shold be same as footer-height */
+article{width:80%;height:90vh;padding-bottom:10vh;}                         
+ol li, ul li  {margin-left:1em;}
+p {padding-bottom:1em;}
+
+/* Note: footer height should be same as article padding-bottom */
+footer {width:100%;position:fixed;bottom:0;height:10vh;}
+aside{                                                                 
+  width:20%;                                    
+  padding:0 2rem 0 2rem;                          
+}  
+
+/* Article on the right, aside on the left */
+article{float:right;clear:right;}    
+aside{
+  float:left;                                
+}  
+
+/* Article on the left, aside on the right */
+article{float:left;clear:left;}
+aside{ 
+  float:right;
+}
+
+code,kbd,pre{
+  font-family: ui-monospace, SFMono-Regular, Monaco, monospace;
+}
+pre{
+  background-color: ghostwhite;
+  font-size: smaller;
+  overflow: auto;
+  padding: 1rem;
+}
+table{
+  /* Cells in table share borders */
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th{
+  padding: 0.5rem;
+  border: 1px solid;
+}
+
+article,nav,header,footer,aside{padding-left:5%;}
+article,nav,header,footer,aside{background-color:white;}
+header ol li,header ul li, nav ol li, nav ul li {margin-left:0;}
+
+article>dl>dt {font-weight:bold;padding-top:1rem;}
+article>dl>dd {margin-left:0;padding-bottom:.5rem;}
+article h4{font-weight:bold;color:gray}
+
+header>ul,nav>ul{list-style-type:none;}
+header>ul>li,nav>ul>li{display:inline;padding-right:.5rem;}
+/*
+header>ul>li>a,header>ul>li> a:link,header>ul>li>a:visited
+	{font-weight:normal;text-decoration:none;}
+
+nav,nav>ul>li>a,nav>ul>li>a:link,nav>ul>li>a:visited
+  {text-decoration:none}
+
+footer>p,footer>p>a,footer>ul>li{display:inline;text-decoration:none;}
+*
+*/
+
+@media (max-width:1080px){
+  aside{display:none}
+  article{float:left;clear:left;width:100%}
+  html{font-size:20px;}
+}
+@media (max-width:720px){
+  header,nav,aside,footer{display:none}
+  article{padding:1rem;}
+  article{float:left;clear:left;width:100%}
+  html{font-size:20px;}
+}
+
+
+
+
+
+/* skyscraper-overrides.css*/
+html{background-color:gray;margin-left:auto;margin-right:auto;width:80%;}
+body{margin:5% 5% 5% 10%;}
+aside{width:20%;padding-left:1rem;}
+header,nav,article,footer{margin-left:auto;margin-right:auto;}
+footer{margin-right:10%;max-width:80%;}
+
+
+
+
+/* ../../css/featuretable.css */
+/* Very specific stylesheet: used for feature tables in the theme demo area */
+td,th{text-align:left;border:none;line-spacing:.5rem;}
+table{white-space:no-wrap;}
+table{table-layout:fixed;width:40%;}
+table>tbody>tr{line-height:.5rem;}
+table>thead>tr>th{width:12rem}
+th:first-child,td:first-child{width:1rem;}
+table>tbody>tr{white-space:no-wrap;}
+
+/* Left-align all text in rows */
+table>tbody>tr>td{text-align:left}
+table{border:none;}
+
+</style>
+</head>
+<body>
+<div id="page-container">
+<div id="content-wrap">
+	
+<header id="header-poco"><ul>
+<li><strong><a href="file:///Users/tom/pococms/website/WWW/docs/demos/skyscraper.html#">Base theme header</a></strong></li>
+<li><a href="file:///Users/tom/pococms/website/WWW/docs/demos/skyscraper.html#">Reviews</a></li>
+<li><a href="file:///Users/tom/pococms/website/WWW/docs/demos/skyscraper.html#">Github</a></li>
+<li><a href="file:///Users/tom/pococms/website/WWW/docs/demos/skyscraper.html#">Profile</a></li>
+<li><a href="file:///Users/tom/pococms/website/WWW/docs/demos/skyscraper.html#">About</a></li>
+</ul>
+</header>
+	
+<nav id="nav-poco"><ul>
+<li><a href="file:///Users/tom/pococms/website/WWW/docs/demos/skyscraper.html#">Base theme nav</a></li>
+<li><a href="file:///Users/tom/pococms/website/WWW/docs/demos/skyscraper.html#">Subscribe</a></li>
+<li><a href="file:///Users/tom/pococms/website/WWW/docs/demos/skyscraper.html#">Technical overview</a></li>
+<li><a href="file:///Users/tom/pococms/website/WWW/docs/demos/skyscraper.html#">Free trial</a></li>
+</ul>
+</nav>
+	
+<aside id="aside-poco" style="height: 461px;"><h2 id="aside-demo-h2">Aside demo h2</h2>
+<h3 id="item-1">Item 1</h3>
+<p>Here's a good place to put a
+news item of current interest</p>
+<h3 id="item-2">Item 2</h3>
+<p>Here's a good place to put another
+news item of current interest</p>
+</aside>
+<article id="article-poco">
+<h4 id="theme-demos">Theme demos</h4>
+<h1 id="skyscraper-theme">Skyscraper theme</h1>
+
+</article>
+</div><!-- content-wrap -->
+
+<footer id="footer-poco"><p><a href="file:///Users/tom/pococms/website/WWW/docs/demos/skyscraper.html#">Contact</a> <a href="file:///Users/tom/pococms/website/WWW/docs/demos/skyscraper.html#">Privacy policy</a> <a href="file:///Users/tom/pococms/website/WWW/docs/demos/skyscraper.html#">Terms of service</a></p>
+</footer>
+</div><!-- page-container -->
+<script> {
+  // Search for "USER JAVASCRIPT CODE" to see where user Javascript should go.
+  // Document.ready working back to IE 8.
+  // From https://stackoverflow.com/questions/2304941/what-is-the-non-jquery-equivalent-of-document-ready
+  function ready(fn) {
+    if (typeof fn !== 'function') {
+      throw new Error('Argument passed to ready should be a function');
+    }
+
+    if (document.readyState != 'loading') {
+      fn();
+    } else if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', fn, {
+        once: true // A boolean value indicating that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked.
+      });
+    } else {
+      document.attachEvent('onreadystatechange', function() {
+        if (document.readyState != 'loading')
+          console.log("1")
+          fn();
+      });
+    }
+  }
+
+  // Demonstrate error checking 
+  //try {
+  //  window.ready(5);
+  //} catch (ex) {
+  //  console.log(ex.message);
+  //}
+
+
+  // HTML Document has been loaded. This is where it's safe 
+  // for you to execute code. For modularity's sake this 
+  // version calls an arbitrary function.
+  window.ready(function() {
+  // startHere() is just an arbitrary name. Can be anything.
+  startHere();
+  })
+
+  // --- START USER JAVASCRIPT CODE
+  function startHere() {
+      console.log("START")
+      /* bodyScroll() */
+  }
+  // --- END USER JAVASCRIPT CODE
+;
+
+// For some reason HTML doesn't do that for you.
+var scrollTimer = -1;
+function bodyScroll()
+{
+  if(scrollTimer != -1){
+    clearTimeout(scrollTimer);
+  }
+  scrollTimer = window.setTimeout(sidebarHeight, 100);
+}
+function sidebarHeight() {
+    console.log("sidebarHeight()")
+  s=document.getElementById('aside-poco');
+  a=document.getElementById('article-poco'); 
+  if (s != null && a != null) {
+    // If there's a sidebar,
+    ha=a.offsetHeight;
+    hs=s.offsetHeight;
+    // If the article is longer, make
+    // the sidebar as long as the article.
+    if (ha>hs) {
+      h=a.offsetHeight+'px';s.style.height=h;
+    }
+    // If the sidebar is longer than the
+    // article, make the article as long
+    // as the sidebar.
+    else{
+      h=s.offsetHeight+'px';a.style.height=h;
+    }
+  }
+
+} 
+document.onreadystatechange = function () {
+  if (document.readyState == "interactive") {
+    // Init or start code here
+    bodyScroll();
+  }
+} 
+window.onresize=sidebarHeight;
+/* ES5 works fine */
+document.getElementsByTagName('body')[0].onscroll=bodyScroll();
+}
+
+</script>
+
+
+</body></html>

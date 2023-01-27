@@ -463,7 +463,7 @@ header>ul>li:first-child>a>del{text-decoration:none;color:red;}
 <body>
 <header id="header-poco"><ul>
 <li><a href="https://pococms.com">poco<del>CMS</del></a></li>
-<li><a href="docs/install.html">Download</a></li>
+<li><a href="/docs/install.html">Download</a></li>
 <li><a href="/docs/theme-demos.html">Theme demos</a></li>
 <li><a href="/docs/index.html">Docs</a></li>
 <li><a href="https://github.com/pococms/poco">GitHub</a></li>
@@ -502,7 +502,20 @@ obscure RGB values or hex codes. Modern browsers recognize 140
 <a href="https://htmlcolorcodes.com/color-names/">HTML Color Names</a>, even though official
 web standards admit to only <a href="https://www.w3.org/wiki/CSS3/Color/Basic_color_keywords">16</a>
 (boo, hiss).</p>
-<h2 id="classless-css">Classless CSS</h2>
+<h2 id="css">CSS</h2>
+<ul>
+<li>The least terrible CSS validator is the <a href="https://validator.w3.org/nu/">Nu HTML Checker</a>. Notes:
+<ul>
+<li>The CSS has to be embedded in an HTML file</li>
+<li>It doesn't like tabs used as whitespace in the CSS</li>
+<li>It doesn't recognize the <code>margin-block-start</code>, <code>margin-block-end</code>, and <code>padding-inline-start</code>, which I find
+indispensable in my <code>reset.css</code> file.</li>
+<li>There's a very cool version of it that runs locally on your own command line at  <a href="https://github.com/validator/validator/releases">https://github.com/validator/validator/releases</a></li>
+<li>Remind me and I'll document my script that lets you use this utility to check a standalone CSS file</li>
+</ul>
+</li>
+</ul>
+<h3 id="classless-css">Classless CSS</h3>
 <p>Here are some promising classless CSS libraries you can
 use in your own themes.</p>
 <ul>
@@ -537,6 +550,15 @@ in red (color #<code>FF0000</code>).</li>
 <li><a href="https://www.svgviewer.dev">SVGViewer</a> can remove padding from SVGS, validate them, optimize them,
 and more.</li>
 <li><a href="https://vecta.io/nano">Vecta Nano</a> compresses SVG files with an online interface</li>
+</ul>
+<h2 id="yaml">YAML</h2>
+<p>There are several handy YAML validators online.
+These checks YAML files (such as the <a href="front-matter.html">front matter</a>
+portion of a PocoCMS Markdown file) for proper formatting</p>
+<ul>
+<li><a href="https://www.yamllint.com/">YAML Lint</a></li>
+<li><a href="https://jsonformatter.org/yaml-validator">YAML Validator</a></li>
+<li><a href="https://codebeautify.org/yaml-validator">Code Beautify's YAML Validator</a></li>
 </ul>
 <h2 id="popular-screen-sizes-for-responsive-design">Popular screen sizes for responsive design</h2>
 <ul>

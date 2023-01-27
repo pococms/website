@@ -5,20 +5,30 @@
 * go fmt
 * go build
 * go test
-* Check quickly through the source code
+* Check quickly through the source code for:
+  - TODO:
+  - wait(
+  - debug(
 * Run all stylesheets through `vnu` via my `v` utility
 * `du -h` on the source directory
 * `tree` on the source directory
 * Check document Markdown source code for ocurrences of TODO:, 
 including as comments in Go template format
 * Run poco in the poco directory
-* Run the test scripts `/.ts1` `/.ts2` in the poco directory
+* Run the test script `/.ts2` 
 * Follow directions in the test scripts, notably looking for
   - Sidebars in both short and log documents
   - Themes in nested directories
 * cd ~/pococms/website and run `poco-dir-update`
-* Ahead of goreleaser, run `rm -rf ../downloads/dist`
-* Get all cruft out of poco directory and run `goreleaser`
+* Ahead of goreleaser
+  + A git status in the `~/pococms/poco` directory must come up clean
+  + run `rm -rf ../downloads/dist`
+  + Get all cruft out of poco directory  (easy way is to work until git status returns nothing)
+* git push
+* Tag latest version, something like 
+  git tag -a v0.5.0 -m "First version of docs done"
+* run `goreleaser`
+
 ## Check for assets
 * Am I still using
   - website/docs/img-sample-gordon-house-224x168.jpg
@@ -33,4 +43,9 @@ including as comments in Go template format
 
 ## Interactive theme tests
 * For each theme click all links in all page layout elements
+
+## Original .goreleaser.yaml file
+
+* What .goreleaser.yaml looked like before I added scoop, homebrew, etc. to it:  https://github.com/pococms/poco/blob/556573054371091412a309bb0ba449124e8ccf50/.goreleaser.yaml
+
 

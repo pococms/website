@@ -19,7 +19,6 @@ styles:
 | [Gossip](demos/gossip.html)               | [![gossip preview](demos/gossip.png)](demos/gossip.html)  | [Live preview](demos/gossip.html), [Source](https://github.com/pococms/poco/tree/main/.poco/themes/gossip)
 | [Hero](demos/hero.html)               | [![hero preview](demos/hero.png)](demos/hero.html)  | [Live preview](demos/hero.html), [Source](https://github.com/pococms/poco/tree/main/.poco/themes/hero)
 | [Informer](demos/informer.html)               | [![informer preview](demos/informer.png)](demos/informer.html)  | [Live preview](demos/informer.html), [Source](https://github.com/pococms/poco/tree/main/.poco/themes/informer)
-| [Newman](demos/newman.html)               | [![newman preview](demos/newman.png)](demos/newman.html)  | [Live preview](demos/newman.html), [Source](https://github.com/pococms/poco/tree/main/.poco/themes/newman)
 | [Paper](demos/paper.html)               | [![paper preview](demos/paper.png)](demos/paper.html)  | [Live preview](demos/paper.html), [Source](https://github.com/pococms/poco/tree/main/.poco/themes/paper)
 | [Pasteboard](demos/pasteboard.html)               | [![pasteboard preview](demos/pasteboard.png)](demos/pasteboard.html)  | [Live preview](demos/pasteboard.html), [Source](https://github.com/pococms/poco/tree/main/.poco/themes/pasteboard)
 | [Pocodocs](demos/pocodocs.html)               | [![pocodocs preview](demos/pocodocs.png)](demos/pocodocs.html)  | [Live preview](demos/pocodocs.html), [Source](https://github.com/pococms/poco/tree/main/.poco/themes/pocodocs)

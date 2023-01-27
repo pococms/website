@@ -34,7 +34,17 @@ obscure RGB values or hex codes. Modern browsers recognize 140
 web standards admit to only [16](https://www.w3.org/wiki/CSS3/Color/Basic_color_keywords)
 (boo, hiss).
 
-## Classless CSS
+## CSS
+
+* The least terrible CSS validator is the [Nu HTML Checker](https://validator.w3.org/nu/). Notes:
+  + The CSS has to be embedded in an HTML file
+  + It doesn't like tabs used as whitespace in the CSS
+  + It doesn't recognize the `margin-block-start`, `margin-block-end`, and `padding-inline-start`, which I find
+indispensable in my `reset.css` file.
+  + There's a very cool version of it that runs locally on your own command line at  https://github.com/validator/validator/releases
+  + Remind me and I'll document my script that lets you use this utility to check a standalone CSS file
+
+### Classless CSS
 
 Here are some promising classless CSS libraries you can
 use in your own themes.
@@ -70,6 +80,16 @@ https://icongr.am/simple/youtube.svg?size=32&color=FF0000
 and more.
 * [Vecta Nano](https://vecta.io/nano) compresses SVG files with an online interface
 
+## YAML
+
+There are several handy YAML validators online.
+These checks YAML files (such as the [front matter](front-matter.html) 
+portion of a PocoCMS Markdown file) for proper formatting
+
+* [YAML Lint](https://www.yamllint.com/) 
+* [YAML Validator](https://jsonformatter.org/yaml-validator)
+* [Code Beautify's YAML Validator](https://codebeautify.org/yaml-validator)
+ 
 ## Popular screen sizes for responsive design
 * [BrowserStack](https://www.browserstack.com/) has a rare, data-backed writeup at [What is the ideal screen size for responsive design?](https://www.browserstack.com/guide/ideal-screen-sizes-for-responsive-design) to help your figure
 out what `@media` queries you might want shoot for. It covers both
